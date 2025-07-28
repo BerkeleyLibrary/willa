@@ -4,7 +4,7 @@
 
 :authors: UC Berkeley Library IT
 :status: In development
-:copyright: © UC Berkeley Library.  MIT license.
+:copyright: © The Regents of the University of California.  MIT license.
 
 
 Introduction
