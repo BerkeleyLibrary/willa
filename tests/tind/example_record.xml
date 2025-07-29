@@ -1,0 +1,84 @@
+<record>
+  <controlfield tag="001">219112</controlfield>
+  <controlfield tag="005">20250321021920.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(ohc)2125</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Thalia Zepatos on Research and Messaging in Freedom to Marry</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Berkeley, CA</subfield>
+    <subfield code="b">Oral History Center</subfield>
+    <subfield code="c">2017</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">2017</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Zepatos, Thalia. "Thalia Zepatos on Research and Messaging in Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Interview date(s) 2016</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Thalia Zepatos was the Director of Research and Messaging for Freedom to Marry. Zepatos was born in New York City and raised in Yonkers, New York. Zepatos earned her undergraduate degree from American University in Washington DC while at the same began working as an activist, particularly on behalf of the Equal Rights Amendment. Zepatos continued her political work once moving to Portland, Oregon. While in Oregon, she first became involved in LGBT rights work, especially by joining the campaign opposing Oregon’s Ballot Measure 9 in 1992. She then fought against Ballot Measure 36 in 2004, which, when passed, limited marriage to heterosexual couples. Zepatos moved to California work on the “Let California Ring” public education campaign in advance of the anti-gay Proposition 8, which passed in 2008. She joined Freedom to Marry in 2010 as Director of Research and Messaging. In this interview, Zepatos discusses her many years working on behalf of LGBT rights, in particular the freedom to marry movement. She details the extensive, multi-year effort to conduct research on what American’s thought about marriage in general and why they opposed extending marriage to same-sex couples. Furthermore, she explains how she and her colleagues were able to “crack the code” and develop a new set of messages that resonated with voters and changed their minds to be in favor of marriage rights for same-sex couples.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Advocacy and Philanthropy</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Oral histories.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Zepatos, Thalia</subfield>
+    <subfield code="e">interviewee</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Meeker, Martin</subfield>
+    <subfield code="e">interviewer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library Oral History Center</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">9e11b955-0f4a-4f5f-aa30-6d1cf8c3d5d9</subfield>
+    <subfield code="s">910583</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/219112/files/zepatos_thalia_2017.pdf</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+    <subfield code="y">View Video Excerpt</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+    <subfield code="y">Project website</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2021-02-19</subfield>
+    <subfield code="n">SMS</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:219112</subfield>
+    <subfield code="p">ohc</subfield>
+    <subfield code="p">ohc_980</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">OHC: Freedom Marry</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Freedom to Marry Oral Histories</subfield>
+    <subfield code="b">Freedom to Marry Oral Histories</subfield>
+  </datafield>
+</record>
