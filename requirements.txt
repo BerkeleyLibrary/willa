@@ -1,5 +1,0 @@
-pylint
-pymarc
-python-dotenv
-requests
-requests-mock
