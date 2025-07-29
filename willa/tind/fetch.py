@@ -18,7 +18,7 @@ def fetch_metadata(record: str) -> Record:
     :returns: A PyMARC MARC record of the requested record.
     """
     status, response = tind_get(f"record/{record}/", {'of': 'xm'})
-    if status == 404:
+    if status == 404 or len(response.strip()) == 0:
         raise RecordNotFoundError(f"Record {record} not found in TIND.")
 
     records = parse_xml_to_array(StringIO(response))

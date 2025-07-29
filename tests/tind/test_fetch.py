@@ -29,8 +29,15 @@ class TindFetchMetadataTest(unittest.TestCase):
                          'Thalia Zepatos on Research and Messaging in Freedom to Marry')
 
     def test_invalid_record(self):
-        """Ensure an error is raised when a record does not exist."""
+        """Ensure an error is raised when a record does not exist and the response is a 404."""
         with requests_mock.mock() as r_mock:
             r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/nothere/',
                        status_code=404)
             self.assertRaises(RecordNotFoundError, fetch.fetch_metadata, 'nothere')
+
+    def test_empty_record(self):
+        """Ensure an error is raised when a record does not exist and the response is empty."""
+        with requests_mock.mock() as r_mock:
+            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/99999999/',
+                       text=' \n')
+            self.assertRaises(RecordNotFoundError, fetch.fetch_metadata, '99999999')
