@@ -41,3 +41,9 @@ class TindApiGetTest(unittest.TestCase):
         """Ensure that an error is raised when the TIND API key is missing."""
         del os.environ['TIND_API_KEY']
         self.assertRaises(AuthorizationError, api.tind_get, 'test')
+
+    def test_invalid_key(self):
+        """Ensure that an error is raised when an invalid TIND API key is provided."""
+        with requests_mock.mock() as r_mock:
+            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/test', status_code=401)
+            self.assertRaises(AuthorizationError, api.tind_get, 'test')
