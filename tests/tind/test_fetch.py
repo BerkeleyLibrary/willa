@@ -3,10 +3,12 @@ Test the TIND fetch record functionality of Willa.
 """
 
 import os
+import pathlib
+import tempfile
 import unittest
 
 import requests_mock
-from willa.errors import RecordNotFoundError
+from willa.errors import AuthorizationError, RecordNotFoundError
 from willa.tind import fetch
 
 
@@ -41,3 +43,77 @@ class TindFetchMetadataTest(unittest.TestCase):
             r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/99999999/',
                        text=' \n')
             self.assertRaises(RecordNotFoundError, fetch.fetch_metadata, '99999999')
+
+
+class TindFetchFileTest(unittest.TestCase):
+    """Test the fetch_file method of the willa.tind.fetch module."""
+    def setUp(self):
+        os.environ['TIND_API_KEY'] = 'Test_Key'
+        os.environ['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
+
+    def test_file_fetch(self):
+        """Test a simple file fetch."""
+        dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/test.txt/download/'
+        expected = 'Hello world, from Python\n'
+
+        with requests_mock.mock() as r_mock:
+            r_mock.get(dl_path, text=expected)
+            fetch.fetch_file(dl_path)
+
+        path = pathlib.Path(os.getenv('DEFAULT_STORAGE_DIR'), 'test.txt')
+        self.assertTrue(path.is_file(), 'File should be saved to default path')
+        self.assertEqual(path.read_text(encoding='utf-8'), expected,
+                         'File should have expected contents')
+        path.unlink()
+
+    def test_fetch_to_custom_path(self):
+        """Test a file fetch to a custom path instead of the default."""
+        with tempfile.TemporaryDirectory(prefix='willa2') as custom_path:
+            dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/custom.txt/download/'
+            expected = 'Fetched to a custom path\n'
+
+            with requests_mock.mock() as r_mock:
+                r_mock.get(dl_path, text=expected)
+                fetch.fetch_file(dl_path, custom_path)
+
+            path = pathlib.Path(os.getenv('DEFAULT_STORAGE_DIR'), 'custom.txt')
+            self.assertFalse(path.is_file(), 'File should not be saved in default path')
+
+            path = pathlib.Path(custom_path, 'custom.txt')
+            self.assertTrue(path.is_file(), 'File should be saved in custom path')
+            self.assertEqual(path.read_text(encoding='utf-8'), expected,
+                             'File should have expected contents')
+            path.unlink()
+
+    def test_invalid_url(self):
+        """Ensure an error is raised when an invalid URL is specified."""
+        self.assertRaises(ValueError, fetch.fetch_file, 'https://www.freebsd.org/')
+
+    def test_missing_file(self):
+        """Ensure an error is raised when a file does not exist."""
+        dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/nothere.txt/download/'
+        with requests_mock.mock() as r_mock:
+            r_mock.get(dl_path, status_code=404)
+            self.assertRaises(RecordNotFoundError, fetch.fetch_file, dl_path)
+
+    def test_write_error(self):
+        """Ensure an error is raised when attempting to write a file to an invalid location."""
+        dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/error.txt/download/'
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            # At the end of this block, the directory will be removed.
+            custom_path = temp_dir
+
+        with requests_mock.mock() as r_mock:
+            r_mock.get(dl_path, text='This file will not be saved.\n')
+            self.assertRaises(IOError, fetch.fetch_file, dl_path, custom_path)
+
+    def test_insufficient_perm(self):
+        """Ensure an error is raised when a file cannot be accessed by the given API key."""
+        dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/restricted.txt/download/'
+        with requests_mock.mock() as r_mock:
+            r_mock.get(dl_path, status_code=401)
+            self.assertRaises(AuthorizationError, fetch.fetch_file, dl_path)
+
+    def tearDown(self):
+        pathlib.Path(os.environ['DEFAULT_STORAGE_DIR']).rmdir()
