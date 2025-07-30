@@ -1,0 +1,3003 @@
+<response>
+  <total>29</total>
+  <search_id>FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ckhib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR09RQkdxU3cxN2RXU2wyQQ==</search_id>
+  <collection xmlns="http://www.loc.gov/MARC21/slim">
+    <record>
+  <controlfield tag="001">19217</controlfield>
+  <controlfield tag="005">20250429134347.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">Accession Number: 473</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">fritz_metcalf-490</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Avocados or Alligator pears on Murphy Ranch near Whittier, Los Angeles County.  Trees are 7 years old and some are bearing heavily.  Fruit sold in 1922 at 95 cents per pound on the ranch.  Feb. 1923.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1923</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1923</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Location</subfield>
+    <subfield code="a">Location: average distance</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Identification</subfield>
+    <subfield code="a">Identification: exact ground location unclear, appears unknowable</subfield>
+  </datafield>
+  <datafield tag="520" ind1="2" ind2=" ">
+    <subfield code="a">one person present, name unknown</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Ranches</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Persea americana</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Agriculture</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Los Angeles County</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Metcalf, Woodbridge</subfield>
+    <subfield code="e">Photographer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Bioscience, Natural Resources &amp; Public Health Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10010651</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">63f439a0-f747-4808-a6ee-9e2987928a18</subfield>
+    <subfield code="s">309418</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/19217/files/FM000490a_ii.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991065640019706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10010651</subfield>
+    <subfield code="o">21636820</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991000360509706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2019-06-18</subfield>
+    <subfield code="f">metcalf1_490.xml</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="p">https://git.lib.berkeley.edu/lap/tind/vtm_metcalf_calheritage/createVTM_Metcalf.pl</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:19217</subfield>
+    <subfield code="p">fritzmetcalf</subfield>
+    <subfield code="p">fritz-metcalf</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5fv1jbh</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf Photographs</subfield>
+    <subfield code="b">Fritz-Metcalf Photograph Collection</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">19309</controlfield>
+  <controlfield tag="005">20250429134354.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">Accession Number: 387</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">fritz_metcalf-398</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Library Park, Pasadena.  Trees left to right: Small Araucaria bidwelli, clump of sequoia sempervirens sprouts pruned and a large Avocado or Alligator pear.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1920</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1920</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Process Note</subfield>
+    <subfield code="a">Process Note: hand</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Location</subfield>
+    <subfield code="a">Location: average distance</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Identification</subfield>
+    <subfield code="a">Identification: exact ground location unclear, appears unknowable</subfield>
+  </datafield>
+  <datafield tag="520" ind1="2" ind2=" ">
+    <subfield code="a">no people present in picture</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Araucaria bidwillii - Planted trees</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Landscaping</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Sequoia sempervirens</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Persea americana</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Parks - Library Park (Calif.)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Pasadena (Calif.)</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Los Angeles County</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Metcalf, Woodbridge</subfield>
+    <subfield code="e">Photographer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Bioscience, Natural Resources &amp; Public Health Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10010651</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">cf92eacb-6e8b-4c7e-a54d-a0401e503e28</subfield>
+    <subfield code="s">295763</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/19309/files/FM000398a_ii.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991065640019706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10010651</subfield>
+    <subfield code="o">21636820</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991000360509706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2019-06-18</subfield>
+    <subfield code="f">metcalf1_398.xml</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="p">https://git.lib.berkeley.edu/lap/tind/vtm_metcalf_calheritage/createVTM_Metcalf.pl</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:19309</subfield>
+    <subfield code="p">fritzmetcalf</subfield>
+    <subfield code="p">fritz-metcalf</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5np52g5</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf Photographs</subfield>
+    <subfield code="b">Fritz-Metcalf Photograph Collection</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">22547</controlfield>
+  <controlfield tag="005">20250320155415.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 1963.002:1871--OBJ</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">honeyman_cubanc_37_1_00030066</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">[Pleasures of bathing in the Sacramento River, California (plate)]</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">ca. 1850</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">21.2 x 21.2 cm., diameter</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="b">print on porcelain plate: engraving</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Notes/Inscriptions:Printed title (LC): Plaisirs du bain dans le Sacramento. Printed (LC, above title): No. 6. Manufacturer's stamp (on verso): Creil et Montereau/Porcel Opaque. L.M. &amp; Cie. Medailles d'or 1834, 39, 44, et 49. Inscriptions in French.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">marks</subfield>
+    <subfield code="a">Printed title (LC): Plaisirs du bain dans le Sacramento. Printed (LC, above title): No. 6. Manufacturer's stamp (on verso): Creil et Montereau/Porcel Opaque. L.M. &amp; Cie. Medailles d'or 1834, 39, 44, et 49. Inscriptions in French.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Content/Description:Man in bathing trunks surprised by alligator as he wades into river; figure in mouth of alligator in distance; tropical foliage.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">California, Northern</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Rivers</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Manners &amp; customs</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Sacramento (Calif.)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Animals</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Engravings</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Artifacts;</subfield>
+    <subfield code="2">aat</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Lanz, active ca. 1850, French?, artist, attributed to,</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/tf9p3012wq</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">795af1c1-c23d-4707-b49d-90c24cdc9ee9</subfield>
+    <subfield code="s">300864</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/22547/files/HN002948aA.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf2t1nb4hb</subfield>
+    <subfield code="f">ark:/13030/tf9p3012wq</subfield>
+    <subfield code="g">37:1</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_37_1_00030066.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:22547</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf2t1nb4hb</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Honeyman (Robert B., Jr.)</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Honeyman (Robert B., Jr.)</subfield>
+    <subfield code="b">Robert B. Honeyman, Jr. Collection of Early Californian and Western American Pictorial Material</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">31016</controlfield>
+  <controlfield tag="005">20250429135639.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 1996.003:Volume 14:185--fALB</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">calher_cubanc_25_132_00179462</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Alligators at Los Angeles, Calif., July, 1922</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/tf129005j4</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">d9e613f5-eda2-429f-b846-2a98d0f0cf17</subfield>
+    <subfield code="s">192311</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/31016/files/I0049978A.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf2n39n9tb</subfield>
+    <subfield code="f">ark:/13030/tf129005j4</subfield>
+    <subfield code="g">25:132</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_25_132_00179462.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:31016</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="p">calher:cookscrapbook</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5f83nnp</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CalHer: Cook Scrapbook</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Jesse Brown Cook Scrapbooks</subfield>
+    <subfield code="b">Jesse Brown Cook Scrapbooks Documenting San Francisco History and Law Enforcement</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">43982</controlfield>
+  <controlfield tag="005">20250429141539.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 1992.034:Album 2:033--ALB</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">calher_cubanc_25_127_00171277</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">The Simple Alligator Rider in Court of Pacifica</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">May 7, 1939</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/tf2h4nb66p</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">2a18ab89-a1a3-4251-a09f-0eb21b25b87d</subfield>
+    <subfield code="s">176853</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/43982/files/I0017752A.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf0t1nb49m</subfield>
+    <subfield code="f">ark:/13030/tf2h4nb66p</subfield>
+    <subfield code="g">25:127</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_25_127_00171277.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:43982</subfield>
+    <subfield code="p">calher:snapshooting</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CalHer: Snap Shooting</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Golden Gate International Exposition</subfield>
+    <subfield code="b">Snap Shooting Around the Golden Gate International Exposition</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">46588</controlfield>
+  <controlfield tag="005">20250429141950.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 19xx.117:126--ffALB</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">pictman_cubanc_79_37_00220082</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Cochlearius cochlearius. Boat-billed Heron.</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">"Floating Water Plants" --Individual on a lichen-covered branch beside a river; an Anhinga sits on a branch in the background while an alligator suns himself on the bank.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">1dc0e473-3895-484e-a238-187c54d420a0</subfield>
+    <subfield code="s">417023</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/46588/files/brk00006211_24a_k.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/k6g44x35</subfield>
+    <subfield code="g">79:37</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_79_37_00220082.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:46588</subfield>
+    <subfield code="p">pictman:pacificslopebirds</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Pictman: Pacific Slope Birds</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Birds of the Pacific Slope</subfield>
+    <subfield code="b">Watercolors of Birds of the Pacific Slope. 1853-1869</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">83845</controlfield>
+  <controlfield tag="005">20250429161023.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">anthropub_cuanth_66_1_00127506</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Alligators in the Swamp: Field Problems and Training Issues in Contemporary Anthropology</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1979</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1979</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">p.76-81</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Text</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).
+</subfield>
+  </datafield>
+  <datafield tag="542" ind1=" " ind2=" ">
+    <subfield code="f">Some materials in these collections may be protected by the U.S. Copyright Law (Title 17, U.S.C.). In addition, the reproduction of some materials may be restricted by terms of University of California gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Anthropology--Aim and scope</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Anthropology--Applied</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Article</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Haynes, Terry L.</subfield>
+    <subfield code="e">Creator</subfield>
+  </datafield>
+  <datafield tag="773" ind1=" " ind2=" ">
+    <subfield code="t">Kroeber Anthropological Society Papers 59-60 :8</subfield>
+  </datafield>
+  <datafield tag="803" ind1=" " ind2=" ">
+    <subfield code="t">Kroeber Anthropological Society Papers 59-60:8</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Anthropology Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">e56e450a-66a2-47c3-adc0-9e59a138c3f1</subfield>
+    <subfield code="s">683843</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/83845/files/kas059_060-008.pdf</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/28722/bk001878q81</subfield>
+    <subfield code="g">66:1</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cuanth_66_1_00127506.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:83845</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="p">anthrohub:kroeberanthropologicalpapers</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+    <subfield code="q">anthropub</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">anthrohub: Kroeber Anthropological Papers</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kroeber Anthropological Society Papers</subfield>
+    <subfield code="b">Kroeber Anthropological Society Papers</subfield>
+    <subfield code="p">AnthroHub</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">180098</controlfield>
+  <controlfield tag="005">20250429181352.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">No. 137:520-521</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">cic_cubanc_47_1_00053671</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Reason Why the Anti-Coolie Bill Had No Effect"</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Related Item: Sentiment concerning the Chinese: Illustrations from Periodicals; The Bancroft Library; v. 3, Aug.1878- July 1879</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Content/DescriptionHayes being prevented from saving Western States from alligator of Coolie Immigration by Burlingame Treay, Spain, H.W.B., Talmrge, and Puritan Demoges.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Hayes, Rutherford Birchard, -- 1822-1893.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Chinese -- United States -- Legal status, laws, etc.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Caricature and cartoons.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">China -- Emigration and immigration -- Pictorial works.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">United States -- Politics and government.</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/kt5p3019m2/</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">a39f2249-240f-4075-8c26-ca4e6b6bebe9</subfield>
+    <subfield code="s">373110</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/180098/files/brk00001416_16a_k.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/hb1w1001fw</subfield>
+    <subfield code="g">47:1</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="n">DZ</subfield>
+    <subfield code="d">2020-10-28 16:42:12</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_47_1_00053671.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:180098</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="p">cic</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/28722/bk000542p07</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CIC</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Chinese in California</subfield>
+    <subfield code="b">Chinese in California, 1850-1925</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">194571</controlfield>
+  <controlfield tag="005">20250429182236.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021:T1:1180 (carton 1, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407014_0714</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Alligator Head, La Jolla, near San Diego, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1907-1912]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1907</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs:T Divide</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number:1180</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">20a5b6dc-80ed-48e0-94c9-ec7486999835</subfield>
+    <subfield code="s">728141</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/194571/files/C121407014_0714.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-10</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_1_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 1</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:194571</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5rz5hfs</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">196442</controlfield>
+  <controlfield tag="005">20250429182554.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021:DV2:2275 (carton 2, box 2)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407023_1014</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Tex", The Trainer, Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1909-1911]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1909</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Made in America" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2275</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">a82095cb-324b-4ce1-91a4-8f8b4a7f596b</subfield>
+    <subfield code="s">756487</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/196442/files/C121407023_1014.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Kransky_ScanList_Carton2.xls</subfield>
+    <subfield code="p">Carton 2</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:196442</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5tv0xmp</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">197834</controlfield>
+  <controlfield tag="005">20250429182822.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH2:2949 (carton 3, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0380</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Just Babies" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard (front and back)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2949</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">17e73bf9-2a4d-4aaf-973b-12ba693aacfa</subfield>
+    <subfield code="s">997545</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197834/files/C121407005_0380.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Back</subfield>
+    <subfield code="9">487f9dbf-3e86-47c8-94f0-1c8753fe1dbe</subfield>
+    <subfield code="s">397274</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197834/files/C121407005_0380a.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:197834</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">197835</controlfield>
+  <controlfield tag="005">20250429182822.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH2:2950 (carton 3, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0381</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"The Joy Ride" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2950</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">ef55e56a-6e55-4aa7-9d9f-3e9459fb9126</subfield>
+    <subfield code="s">854815</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197835/files/C121407005_0381.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:197835</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5pp5b9j</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">197836</controlfield>
+  <controlfield tag="005">20250429182822.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH2:2951 (carton 3, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0382</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Waiting for something to come my way" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2951</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">c6aa18f6-ec73-44f7-829f-91e3ff2dc594</subfield>
+    <subfield code="s">967969</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197836/files/C121407005_0382.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:197836</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m58117gr</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">197837</controlfield>
+  <controlfield tag="005">20250429182822.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH2:2951 c.2 (carton 3, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0383</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Waiting for something to come my way" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard (front and back)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2951</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">e9f12cb9-3440-4c2c-9dfa-eceafdd970f1</subfield>
+    <subfield code="s">927070</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197837/files/C121407005_0383.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Back</subfield>
+    <subfield code="9">d2d29ac8-ce03-45bb-989e-e036598a952f</subfield>
+    <subfield code="s">441046</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197837/files/C121407005_0383a.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:197837</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">197838</controlfield>
+  <controlfield tag="005">20250429182823.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH2:2952 (carton 3, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0384</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Feeding Time at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2952</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">bb5fc2fe-d718-4958-bff0-4237121374fb</subfield>
+    <subfield code="s">935038</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/197838/files/C121407005_0384.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:197838</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m58q24xm</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">198399</controlfield>
+  <controlfield tag="005">20250429182929.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH3:2949 (carton 3, box 2)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0947</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Just Babies" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2949</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">6f4813eb-81a3-4eb6-b5fe-924110d7d904</subfield>
+    <subfield code="s">836811</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/198399/files/C121407005_0947.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:198399</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5qz8gw1</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">198400</controlfield>
+  <controlfield tag="005">20250429182929.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH3:2950 (carton 3, box 2)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_0948</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"The Joy Ride" at the California Alligator Farm, Los Angeles, California.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2950</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">BK-ltrs.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">09489b4c-8fd7-4c94-b63b-3fcd45868041</subfield>
+    <subfield code="s">809284</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/198400/files/C121407005_0948.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:198400</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5092b9d</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">198734</controlfield>
+  <controlfield tag="005">20250429182959.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: DH3-S:2275 (carton 3, box 2)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407005_1282</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Tex" The Trainer, California Alligator Farm, Los Angeles.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: "Published By" Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 2275</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Pub. by: Souvenir Publishing Co., San Francisco, Cal. (publisher.)</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">e3300683-013a-4ec6-9ea2-bfc0e5066351</subfield>
+    <subfield code="s">764707</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/198734/files/C121407005_1282.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-11</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_3_Kransky_ScanList.xls</subfield>
+    <subfield code="p">Carton 3</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:198734</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5cz9czz</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">203252</controlfield>
+  <controlfield tag="005">20250429183834.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: ROD:697 (carton 5, box 3)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407041_1543</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"If he comes in Ah'm goin' out." California Alligator Farm, Los Angeles, Cal.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: Rose and Dagger</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 697</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">fa88760d-57e5-45ad-8ed3-09a5717ae0d7</subfield>
+    <subfield code="s">907442</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/203252/files/C121407041_1543.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-15</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Kransky_ScanList_Carton5.xls</subfield>
+    <subfield code="p">Carton 5</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:203252</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5f53vsx</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">203253</controlfield>
+  <controlfield tag="005">20250429183834.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: ROD:698 (carton 5, box 3)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407041_1544</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Chicken Dinner," California Alligator Farm, Los Angles, Cal.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard (front and back)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: Rose and Dagger</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 698</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">c903dfee-96d8-4228-8fd9-0ca5f0bd888c</subfield>
+    <subfield code="s">893492</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/203253/files/C121407041_1544.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Back</subfield>
+    <subfield code="9">998d6425-d9ac-4920-8f47-0b9c885c5198</subfield>
+    <subfield code="s">554429</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/203253/files/C121407041_1544a.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-15</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Kransky_ScanList_Carton5.xls</subfield>
+    <subfield code="p">Carton 5</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:203253</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">203254</controlfield>
+  <controlfield tag="005">20250429183834.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: ROD:699 (carton 5, box 3)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407041_1545</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">"Tex" Giving an Exhibition of Mesmerizing a Wild Alligator. The California Alligator Farm, Los Angeles, Cal.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Divided Backs: Rose and Dagger</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 699</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b23641845</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">160a76d5-94af-40f7-9761-a5c2f89eef4c</subfield>
+    <subfield code="s">904337</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/203254/files/C121407041_1545.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b23641845</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2020-12-15</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Kransky_ScanList_Carton5.xls</subfield>
+    <subfield code="p">Carton 5</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:203254</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5gn4ds2</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">218084</controlfield>
+  <controlfield tag="005">20250321021520.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(ohc)1063</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Robert Shoemaker: Metallurgical Engineer: Union Carbide, Bechtel, San Francisco Mining Associates; Metallurgical Consultant, 1953 to 2000</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Berkeley, CA</subfield>
+    <subfield code="b">Regional Oral History Office</subfield>
+    <subfield code="c">2001</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">2001</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Shoemaker, Robert. "Robert Shoemaker: Metallurgical Engineer: Union Carbide, Bechtel, San Francisco Mining Associates; Metallurgical Consultant, 1953 to 2000." Interview by Eleanor Swent in 1999 and 2000. Oral History Center, The Bancroft Library, University of California, Berkeley, 2001.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Interview date(s) 1999</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Education, Oregon State University, University of Wisconsin; Union Carbide Co., mineral processing research, solving materials, handling, radiation, viscosity problems; 1962-1981: Bechtel Engineers, chief metallurgical engineer, plant design and construction, plannng for startup, designing for environmental protection; Alberta tar sands; Palabora gyratory crusher failure; Carlin, Nevada, carbon-in-pulp recovery process; Alligator Ridge, Candelaria, heap leach; electrolytic, grinding problems solved; 1981-2000: independent consulting, expert witness; discusses working in Kazakhstan, Congo, Indonesia, Brazil, Australia, Venezuela, Chile, South Africa, bribery, theft, fraud in mining enterprise. Volume also contains indexed Shoemaker memoir.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Science, Technology, and Health</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Commerce and Industry</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Natural Resources, Land Use, and the Environment</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Oral histories.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Shoemaker, Robert</subfield>
+    <subfield code="e">interviewee</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Swent, Eleanor</subfield>
+    <subfield code="e">interviewer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library Oral History Center</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">3bd81be1-3796-4993-945e-e916b2876091</subfield>
+    <subfield code="s">17879223</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/218084/files/metallurgicalsho00roberich.pdf</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="u">http://content.cdlib.org/ark:/13030/kt0f59n4d4/</subfield>
+    <subfield code="y">View on Calisphere</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10763583</subfield>
+    <subfield code="y">View library catalog record</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/western-mining</subfield>
+    <subfield code="y">Project website</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991025841419706532</subfield>
+    <subfield code="y">View library catalog record</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10763583</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991025841419706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2021-02-19</subfield>
+    <subfield code="n">SMS</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:218084</subfield>
+    <subfield code="p">ohc</subfield>
+    <subfield code="p">ohc_980</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">OHC: Western Mining</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Western Mining Oral Histories</subfield>
+    <subfield code="b">Western Mining Oral Histories</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">252043</controlfield>
+  <controlfield tag="005">20230706132348.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv_C084080040</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Mildred Pierce</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Burbank, CA</subfield>
+    <subfield code="b">Warner Home Video</subfield>
+    <subfield code="b">Turner Entertainment Co.</subfield>
+    <subfield code="c">2003</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">2003</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="b">sound, black and white</subfield>
+    <subfield code="c">4 3/4 in.</subfield>
+    <subfield code="a">1 videodisc (approximately 111 min.)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Video</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Based on the novel by James M. Cain.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Originally produced as an American motion picture in 1945.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Double-sided disc includes film (side A) and special features (side B).</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Special features Side A: Cast and crew [text feature]; Awards [text feature]; Side B: Joan Crawford: The ultimate movie star / written, produced and directed by Peter Fitzgerald [featurette] (87 min.); Trailer gallery (21 min.).</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">Side 1. Mildred Pierce -- Side 2. Joan Crawford: the ultimate movie star ; Crawford trailer gallery.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">Shoreline credits -- Dying words and thoughts -- Uneasy company -- Never saw deader -- Class reunion -- Prime suspect -- Kids first -- Cheap material -- Hopeful Wally -- Anything you want -- New waitress -- Why not a restaurant? -- Community property -- Declined and accepted -- Sound of our hearts -- Tragedy -- Grand opening -- Veda meets Monte -- One man's poison -- Confession -- Bad habits -- Monte's payoff -- Veda's payoff -- I can get away! -- Alligator idea -- Working girl -- Sold on marriage -- Homecoming -- Acting badly -- Unexpected -- Her fault -- Into the dawn.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Mildred Pierce is a happily married woman with two kids, living in the suburbs of sunny California. She secretly takes a job as a waitress so that she can pay for piano lessons and expensive clothes for her eldest daughter, Veda. Her growing financial independence permits her to open her own restaurant, and eventually a chain of eateries. She has divorced her intolerant first husband, and married well-connected Monte in order to get Veda into high society. Greedy, self-absorbed Veda is still ungrateful, and demands an even greater sacrifice of her mother. Eventually, Mildred finds herself ensnared in the world of police and suspicion when Monte is mysteriously murdered.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).
+</subfield>
+  </datafield>
+  <datafield tag="542" ind1=" " ind2=" ">
+    <subfield code="f">Classroom use may be subject to licensing restrictions.</subfield>
+  </datafield>
+  <datafield tag="546" ind1=" " ind2=" ">
+    <subfield code="a">Closed-captioned.</subfield>
+  </datafield>
+  <datafield tag="546" ind1=" " ind2=" ">
+    <subfield code="a">In English, with optional subtitles in English, French, or Spanish.</subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Cain, James M. 1892-1977 (James Mallahan), Film adaptations. </subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Cain, James M. 1892-1977 (James Mallahan), Adaptations cinématographiques. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Mothers and daughters Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Restaurateurs Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Single mothers Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Mères et filles.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Adaptations cinématographiques.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Longs métrages.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Vidéos pour personnes handicapées auditives.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Madre e hija Teatro. </subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">California Drama. </subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">7.150.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">DVDs.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Feature films United States. </subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">gsafd</subfield>
+    <subfield code="a">Feature films.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Feature films.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Film noir.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Detective and mystery films.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Film adaptations.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Fiction films.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">lcgft</subfield>
+    <subfield code="a">Video recordings for the hearing impaired.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">migfg</subfield>
+    <subfield code="a">Film noir.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="2">migfg</subfield>
+    <subfield code="a">Mystery Feature. </subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">MacDougall, Ranald.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Wald, Jerry, 1911-1962.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Curtiz, Michael, 1886-1962.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Crawford, Joan, 1908-1977.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Carson, Jack, 1910-1963.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Scott, Zachary, 1914-1965.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Arden, Eve, 1908-1990.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Blyth, Ann, 1928-</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Bennett, Bruce, 1906-2007.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Patrick, Lee, 1901-1982.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Olsen, Moroni, 1889-1954.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Borg, Veda Ann, 1919-1973.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Marlowe, Jo Ann, 1935-1991.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Haller, Ernest, 1896-1970.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Weisbart, David.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Grot, Anton, 1884-1974.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Steiner, Max, 1888-1971.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Cain, James M. 1892-1977. (James Mallahan),</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Warner Bros. Pictures (1923-1967)</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">First National Pictures, Inc.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Warner Home Video (Firm)</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Turner Entertainment Co.</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/discovery/fulldisplay?context=L&amp;vid=01UCS_BER:UCB&amp;docid=alma991048431659706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991048431659706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2022-03-22</subfield>
+  </datafield>
+  <datafield tag="903" ind1=" " ind2=" ">
+    <subfield code="b">m</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">MRC MKV</subfield>
+    <subfield code="b">Media Resource Center MKV</subfield>
+  </datafield>
+  <datafield tag="991" ind1=" " ind2=" ">
+    <subfield code="a">Restricted2Admin</subfield>
+  </datafield>
+  <datafield tag="998" ind1=" " ind2=" ">
+    <subfield code="g">mildredp_5156.mkv</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">257325</controlfield>
+  <controlfield tag="005">20250429193331.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2017.021: SEP-DH2:270 (carton 6, box 1)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">bancpostcards-C121407050_0175</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Alligator Farm near East Lake Park Los Angeles.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">[published approximately 1910-1915]</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1910</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 postcard</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">Sepia Colored Divided Backs</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Card number: 270</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library's digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Postcards</subfield>
+    <subfield code="2">lctgm</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward H. Mitchell (Publisher)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991038454139706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">Front</subfield>
+    <subfield code="9">11360f39-1fad-438e-88c9-e28a8ee5409c</subfield>
+    <subfield code="s">1416052</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/257325/files/C121407050_0175.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991038454139706532</subfield>
+    <subfield code="o">965389976</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2022-05-17</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="f">Carton_6_Kransky_ScanList.xls</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:257325</subfield>
+    <subfield code="p">bancpostcards</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">BancPostcards</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Kransky collection of Mitchell postcards</subfield>
+    <subfield code="b">Walter Robert and Gail Lynn Kransky collection of Edward H. Mitchell postcards</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">267066</controlfield>
+  <controlfield tag="005">20250429195644.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2015.013:13087.5--ffALB</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">cubanc_79_59_01260140a</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">[Joe's Alligator Circus Farm.]</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">[San Francisco]</subfield>
+    <subfield code="c">[approximately 1914-1925]</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="611" ind1=" " ind2=" ">
+    <subfield code="a">Panama-Pacific International Exposition -- (1915 : San Francisco, Calif.) -- Pictorial works.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Exhibitions -- California -- San Francisco -- Photographs.</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/k6kk9kft</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">13eaa6b7-2a3d-46a3-8cb3-0fee8ad9bc43</subfield>
+    <subfield code="s">1672594</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/267066/files/cubanc_79_59_01260140a.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991009829009706532</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="b">C091633625</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="n">LEG</subfield>
+    <subfield code="d">2023-03-05</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:267066</subfield>
+    <subfield code="p">pictman:cardinalvincent</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5262qz2</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Pictman: Cardinal-Vincent</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Cardinell-Vincent and Panama-Pacific Photographs</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="b">Edward A. Rogers collection of Cardinell-Vincent Company and Panama-Pacific International Exposition photographs circa 1914-1925</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">268545</controlfield>
+  <controlfield tag="005">20250321052609.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 2006.029--NNEG box 39, sleeve 090890_04</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">examiner-090890_04</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Alligator</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1932-09-13</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1932-09-13</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">2 photographs</subfield>
+    <subfield code="b">film negatives</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Copyright to photographs taken by staff photographers of the San Francisco Examiner in this collection has been assigned to the University of California Regents. Only the photographs created by these staff photographers in this collection are made available under a Creative Commons Attribution 4.0 license (CC BY 4.0, CC BY 4.0 Deed | Attribution 4.0 International | Creative Commons ). The following attribution is required for all uses of these photographs: Fang family San Francisco examiner photograph archive © The Regents of the University of California, The Bancroft Library, University of California, Berkeley. This work is made available under a Creative Commons Attribution 4.0 license.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">News photographs -- California -- San Francisco Bay Area</subfield>
+    <subfield code="2">aat</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Negatives</subfield>
+    <subfield code="2">gmgpc</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Photographs</subfield>
+    <subfield code="2">gmgpc</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991075017899706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/hb6t1nb85b</subfield>
+    <subfield code="y">View collection guide.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">sfex090890_04_01.tif</subfield>
+    <subfield code="9">856ceca8-fe82-4140-948f-0500421e7b23</subfield>
+    <subfield code="s">547342</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/268545/files/001-sfex090890_04_01.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">sfex090890_04_00.tif</subfield>
+    <subfield code="9">84f940c9-fd89-4e79-a641-4b17aef049cf</subfield>
+    <subfield code="s">228949</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/268545/files/002-sfex090890_04_00.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991075017899706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2023-03-27</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="p">Examiner In-House Scans Boxes 34-42</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:268545</subfield>
+    <subfield code="p">sfexaminer</subfield>
+    <subfield code="p">sfg</subfield>
+  </datafield>
+  <datafield tag="950" ind1=" " ind2=" ">
+    <subfield code="a">Item: 090890_04</subfield>
+    <subfield code="a">Scan Source: Scanned on an Epson Perfection V750 Pro desktop scanner, 2011-10-17</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m58q6rdv</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">SFExaminer</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">SF Examiner</subfield>
+    <subfield code="b">Fang family San Francisco Examiner Photograph Archive Negative Files</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">273891</controlfield>
+  <controlfield tag="005">20250321054946.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(imap)01203</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Jamaica 1:125,000 ...</subfield>
+    <subfield code="p">[Index]</subfield>
+  </datafield>
+  <datafield tag="246" ind1=" " ind2=" ">
+    <subfield code="a">A.M.S. E621</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">2nd ed., AMS 2.</subfield>
+  </datafield>
+  <datafield tag="255" ind1=" " ind2=" ">
+    <subfield code="a">Scale 1:125,000 ;</subfield>
+    <subfield code="b">polyconic projection</subfield>
+    <subfield code="c">(W 078°30ʹ00ʺ--W 076°00ʹ00ʺ/N 18°35ʹ00ʺ--N 17°00ʹ00ʺ).</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Washington, D.C.</subfield>
+    <subfield code="b">Army Map Service, Corp. of Engineers</subfield>
+    <subfield code="c">1944-</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1944</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">9 maps</subfield>
+    <subfield code="b">color</subfield>
+    <subfield code="c">52 x 43 cm or smaller.</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Map</subfield>
+  </datafield>
+  <datafield tag="490" ind1=" " ind2=" ">
+    <subfield code="a">A.M.S. ; E621</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Complete in 9 sheets.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">"Polyconic."</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Military grid.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Relief shown by hachures with spot heights in feet.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Four classes of roads or trails are shown.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Marginal map: Index to adjoining sheets.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">No. 1 -- Savanna La Mar, No. 2 -- Montego Bay, No. 3 -- St. Ann's Bay, No. 4 -- Port Maria, No. 5 --Manchioneal, No. 6 -- Alligator Pond Bay, No. 7 -- Four Paths, No. 8 -- Kingston, No. 9 -- Port Morant.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Jamaica Maps. </subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">topographic maps.</subfield>
+    <subfield code="2">aat</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Topographic maps.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Cartes topographiques.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">United States. Army Map Service.</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Earth Sciences &amp; Map Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/discovery/fulldisplay?context=L&amp;vid=01UCS_BER:UCB&amp;docid=alma991007643019706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">ams150081jamaica_Page_1.jpg</subfield>
+    <subfield code="9">4e9f7857-d3f4-4a70-ad6f-878ed02f2fa1</subfield>
+    <subfield code="s">9309406</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/273891/files/ams150081jamaica_Page_1.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">ams150081jamaica_Page_2.jpg</subfield>
+    <subfield code="9">5571a55d-ad79-4e74-8800-02dc7b729216</subfield>
+    <subfield code="s">242816</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/273891/files/ams150081jamaica_Page_2.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991007643019706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2023-07-25</subfield>
+    <subfield code="n">dz</subfield>
+  </datafield>
+  <datafield tag="903" ind1=" " ind2=" ">
+    <subfield code="b">m</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:273891</subfield>
+    <subfield code="p">mapcollections</subfield>
+    <subfield code="p">sfg</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Map Collections</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Index Maps</subfield>
+    <subfield code="b">Index Maps</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">280699</controlfield>
+  <controlfield tag="005">20240801144137.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv_991045157109706532</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">The Disneyland anthology</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">Digitally remastered version.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Burbank, Calif.</subfield>
+    <subfield code="b">Walt Disney Home Video</subfield>
+    <subfield code="c">1999?</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1999</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">3 videodiscs (315 min.)</subfield>
+    <subfield code="b">sound, color and black and white</subfield>
+    <subfield code="c">12 in.</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Video</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Videodisc release of episodes from the Disneyland television series originally produced between 1954 and 1957.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Closed captioned for the hearing impaired.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">The Disneyland story (10/27/54) -- A Day in the life of Donald Duck (2/1/56) -- Along the Oregon trail (11/14/56) -- The Crisler story/Prowlers of the Everglades (2/17/57) -- Adventures in fantasy (11/6/57) -- Mars and beyond (12/4/57).</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Disneyland story: At the Disney Studios, Walt Disney gives a sneak peek of a model of then-under-construction Disneyland Park. Day in the life of Donald Duck: With a little help from Walt Disney, Jimmie Dodd and the Mouseketeers, go behind the scenes for a look at one adventurous day for Donald Duck. Along the Oregon Trail: A dramatization of life as it was 100 years ago with Fess Parker and Sebastian Cabot presenting the action. The Crisler Story/Prowlers of the Everglades: Travel with Herb and Lois Crisler in Alaska as they film the feature White Wilderness and then travel south to visit an alligator swamp. Adventures in fantasy: A journey into animation which reveals how ordinary things can be transformed into "living" characters. Mars and Beyond: Investigates and predicts in 1957 what man might find if he were to land on Mars</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="630" ind1=" " ind2=" ">
+    <subfield code="a">Disneyland (Television program)</subfield>
+  </datafield>
+  <datafield tag="630" ind1=" " ind2=" ">
+    <subfield code="a">Mickey Mouse Club (Television program)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Donald Duck (Fictitious character)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Alligators.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Animated films.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Animation (Cinematography)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Caricatures and cartoons.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Animation (Cinéma)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Caricatures et dessins humoristiques.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">animations (visual works)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">caricatures.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">cartoons (humorous images)</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Disneyland (Calif.) History. </subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Everglades (Fla.)</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Mars (Planet) Exploration -- Forecasting. </subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Disneyland (Calif.) Histoire. </subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Everglades (Flor.)</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Mars (Planète) Exploration -- Prévision. </subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Disney, Walt, 1901-1966.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Dodd, Jimmie, 1910-1964.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Parker, Fess.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Cabot, Sebastian.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Crisler, Herb.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Crisler, Lois.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Walt Disney Company.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Walt Disney Home Video (Firm)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/discovery/fulldisplay?context=L&amp;vid=01UCS_BER:UCB&amp;docid=alma991045157109706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991045157109706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2024-01-12</subfield>
+    <subfield code="n">dz</subfield>
+  </datafield>
+  <datafield tag="903" ind1=" " ind2=" ">
+    <subfield code="b">m</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5dp57d5</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">MRC MKV</subfield>
+    <subfield code="b">Media Resource Center MKV</subfield>
+  </datafield>
+  <datafield tag="991" ind1=" " ind2=" ">
+    <subfield code="a">Restricted2Admin</subfield>
+  </datafield>
+  <datafield tag="998" ind1=" " ind2=" ">
+    <subfield code="g">DVD9953_AdventuresInFantasy.mkv</subfield>
+    <subfield code="g">DVD9953_AlongTheOregonTrail.mkv</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">285094</controlfield>
+  <controlfield tag="005">20240801145149.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv_991004380659706532</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Sesame Street.</subfield>
+    <subfield code="b">1969-1974</subfield>
+    <subfield code="p">Volume 1 Old school.</subfield>
+  </datafield>
+  <datafield tag="246" ind1=" " ind2=" ">
+    <subfield code="a">Old school, 1969-1974</subfield>
+  </datafield>
+  <datafield tag="246" ind1=" " ind2=" ">
+    <subfield code="a">123 Sesame Street Old school</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">New York, NY</subfield>
+    <subfield code="b">Sesame Workshop</subfield>
+    <subfield code="b">Distributed by Sony Wonder</subfield>
+    <subfield code="c">©2006.</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">2006</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">3 videodiscs (approximately 440 min.)</subfield>
+    <subfield code="b">sound, color</subfield>
+    <subfield code="c">4 3/4 in. +</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Video</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Originally produced as episodes of the television show Sesame Street from 1969-1973.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Special features: Disc 1. Season 1. Bein' green; Rubber duckie; Counting with James Earl Jones; ABC-DEF-GHI; I love trash; Alphabet with Jackie Robinson; Batman crosses the street; Swinging baboon; Big Bird meets Little Bird; Alphabet with Lou Rawls; I've got two; Alphabet soup; Original sales pitch: The itty-bitty nitty-gritty kiddie show; Season 1 credit crawl -- Disc 2. Season 2. King of eight; Over, under, around and through; Superman; Astronaut drawing; Counting with Listen My Brother; I love being a pig; Season 2 credit crawl. Season 3. C is for cookie; Ladybug picnic; Martians telephone; Amazing Mumford magic trick; Alligator king; J friends; A special day with Bert and Ernie; "I am somebody" with Jesse Jackson; Would you like to buy an 'O'?; Harvey Kneeslapper with Mirror; Breathing song with Animals; I in the sky; My favorite letter P; My martian beauty; Mad painter; Season 3 credit crawl -- Disc 3. Season 4. Kermit's news with Rapunzel; Bread, milk, and butter; Lost paper clips with Bert and Jon-Jon; Witches cooperate; Song of the count; Bert's bust; First and last with Beetle Bailey; Season 4 credit crawl. Season 5. At the movies with Bert and Ernie; Nasty Dan with Johnny Cash; Prairie Dawn's school pageant; Twiddlebugs go to the zoo; Jazz alphabet; Hamburger bun factory; Madrigal alphabet; 3 wishes with Bob and Cookie; Telephone booth with Super Grover; Season 5 credit crawl.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">Disc 1. Season 1 (57 min.); Bonus features: Original sales pitch reel (26 min.); Season 1 classic cuts (25 min.) -- Disc 2. Seaon 2 (60 min.) -- Season 3 (60 min.); Bonus features: Season 2 classic cuts (13 min.); Season 3 classic cuts (25 min.) -- Disc 3. Seaon 4 (60 min.) -- Season 5 (60 min.); Bonus features: Season 4 classic cuts (16 min.); Season 5classic cuts (30 min.). Show 1 : November 10, 1969 Show 131 : November 9, 1970 Show 276 : November 8, 1971 Show 406 : November 27, 1972 Show 536 : November 19, 1973</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="a">Disc 1. Season 1, episode 1 (11/10/69): Animals wash off with Bert and Ernie ; Henson #3 ; Meeting Oscar ; Gordon dresses anything Muppets ; Jazz #2 ; Wanda the witch ; Kermit with Walking W ; Picture-hanging buddies ; Beginnings -- Disc 2. Season 2, episode 131 (11/9/70): Henson dollhouse ; Everybody makes mistakes ; Alphabet with Bill Cosby ; Exit animation ; Noisy bedroom with Bert and Ernie ; Carol Burnett's nose ; What's my part? with Guy Smiley ; Whistle a happy tune ; The case of the missing sandwich -- Season 3, episode 276 (11/8/71): Welcome to Sesame Street ; Oscar's traveling can ; Grover's restaurant ; Big Bird meets Snuffleupagus ; Great cookie thief ; Sorting song ; People in your neighborhood ; Short and long ladders ; Ernie counts sheep -- Disc 3. Season 4, episode 406 (11/27/72): Sesame Street alphabet ; Alphabet with Ernie and Cookie Monster ; Simon's song ; Job interview ; Count counts Ernie's blocks ; Heavy and light with Grover ; Here is your life, Oak Tree ; Enter and exit ; Grover's restaurant -- Season 5, episode 536 (11/19/73): Fat cat ; Kermit and Joey do the alphabet ; At the movies ; Bird on me ; How do you do? ; Chin-ups with Grover ; Beat the time ; Handclapping number ; Doin' the pigeon.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">This three-disc set the season features the premiere episodes of each of the first five seasons of Sesame Street. Each is available as a complete episode or as highlights, and is preceded by a new animated introduction, and by a disclaimer that "these early Sesame Street episodes are intended for grownups and may not suit the needs of today's preschool child." There are four slight alterations to the episodes because of rights issues, which are otherwise complete as originally aired. Episodes include Show 1 that aired on November 10, 1969; Show 131, airdate November 9, 1970; Show 276 from November 8, 1971; Show 406 on November 27, 1972, and Show 536 from November 19, 1973.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Bert (Fictitious character from Henson) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Cookie Monster (Fictitious character) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Grover (Fictitious character) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="630" ind1=" " ind2=" ">
+    <subfield code="a">Sesame Street (Television program) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Alphabet Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Counting Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Reading readiness Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Mathematical readiness Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Children's songs Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Concepts in children Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Muppets (Fictitious characters) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Big Bird (Fictitious character) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Ernie (Fictitious character : Henson) Juvenile films. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Alphabet.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Counting.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Big Bird (Fictitious character) Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Cookie Monster (Fictitious character) Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Grover (Fictitious character : Henson) Drama. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Alphabet Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Calcul Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Lecture, Maturité pour la Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Mathématiques, Maturité pour les Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Chansons enfantines Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Concepts chez l'enfant Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Muppets (Personnages fictifs) Films pour la jeunesse. </subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Television programs.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Children's television programs.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Educational television programs.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Puppet television programs.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Television series.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Children's Television series. </subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Television serials.</subfield>
+    <subfield code="2">gsafd</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Television programs.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Children's television programs.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Educational television programs.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Puppet television programs.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Television series.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Animated television programs.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Children's.</subfield>
+    <subfield code="2">migfg</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Educational.</subfield>
+    <subfield code="2">migfg</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Émissions télévisées.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Émissions télévisées pour enfants.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Émissions éducatives télévisées.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Émissions de marionnettes télévisées.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Séries télévisées.</subfield>
+    <subfield code="2">rvmgf</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Nosek, Dionne.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Marianetti, Robert.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Wachtenheim, David.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Henson, Jim.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Oz, Frank.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Spinney, Caroll.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Brill, Fran.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Nelson, Jerry, 1934-2012.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Hunt, Richard, 1951-1992.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Long, Loretta.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Lee, Will, 1908-1982.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">McGrath, Bob, 1932-2022.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Manzano, Sonia.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Delgado, Emilio.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Calloway, Northern.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Maggert, Brandon.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Gómez, Panchito.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Rae, Charlotte, 1926-2018.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Julia, Raul.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Reynolds, Malvina.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Children's Television Workshop.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Sesame Workshop.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Sony Wonder (Firm)</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/discovery/fulldisplay?context=L&amp;vid=01UCS_BER:UCB&amp;docid=alma991004380659706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991004380659706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2024-05-10</subfield>
+    <subfield code="n">DZ</subfield>
+  </datafield>
+  <datafield tag="903" ind1=" " ind2=" ">
+    <subfield code="b">m</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m59h6tz3</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">mrcmkv</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">MRC MKV</subfield>
+    <subfield code="b">Media Resource Center MKV</subfield>
+  </datafield>
+  <datafield tag="991" ind1=" " ind2=" ">
+    <subfield code="a">Restricted2Admin</subfield>
+  </datafield>
+  <datafield tag="998" ind1=" " ind2=" ">
+    <subfield code="t">D1</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD1.mkv</subfield>
+    <subfield code="t">D2E1</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD2E1.mkv</subfield>
+    <subfield code="t">D2E2</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD2E2.mkv</subfield>
+    <subfield code="t">D2E3</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD2E3.mkv</subfield>
+    <subfield code="t">D2E4</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD2E4.mkv</subfield>
+    <subfield code="t">D3E1</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD3E1.mkv</subfield>
+    <subfield code="t">D3E2</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD3E2.mkv</subfield>
+    <subfield code="t">D3E3</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD3E3.mkv</subfield>
+    <subfield code="t">D3E4</subfield>
+    <subfield code="g">DVD6798_SesameStreetOldSchoolD3E4.mkv</subfield>
+  </datafield>
+</record>
+  </collection>
+</response>
