@@ -7,7 +7,7 @@ from pymarc.marcxml import parse_xml_to_array
 from pymarc import Record
 from willa.errors import RecordNotFoundError
 from .api import tind_get
-
+import json
 
 def fetch_metadata(record: str) -> Record:
     """Fetch the MARC XML metadata for a given record.
@@ -26,3 +26,17 @@ def fetch_metadata(record: str) -> Record:
         raise RecordNotFoundError(f"Record {record} matched more than one record in TIND.")
 
     return records[0]
+
+def fetch_file_metadata(record: str) -> Record:
+    """Fetch an array of file metadata for a given Tind record.
+    :raises AuthorizationError: When the TIND API key is invalid.
+    :returns a json list of metadata for a given Tind record
+    """ 
+
+    status, files = tind_get(f"record/{record}/files")
+    
+    if status == 404:
+        raise RecordNotFoundError(f"Record {record} not found in TIND.")
+    elif status == 200:    
+      return json.loads(files)
+
