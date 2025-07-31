@@ -31,6 +31,7 @@ def fetch_metadata(record: str) -> Record:
 def fetch_file_metadata(record: str) -> Record:
     """Fetch file metadata for a given Tind record.
     :raises AuthorizationError: When the TIND API key is invalid.
+    :raises Exception: for any response other then 200. 
     :returns a json list of metadata for a given Tind record
     """ 
 

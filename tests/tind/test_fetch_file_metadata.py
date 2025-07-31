@@ -16,12 +16,15 @@ class TindFetchFileMetadataTest(unittest.TestCase):
     def setUp(self):
         os.environ['TIND_API_KEY'] = 'Test_Key'
 
-    def test_fetch_file_metadata(self):
-        """Test a simple record fetch."""
-        record = os.path.join(os.path.dirname(__file__), 'example_file_metadata_single.json')
+    def setup_json(self, file):
+        record = os.path.join(os.path.dirname(__file__), file) 
         with open(record, encoding='UTF-8') as data_f:
             data = data_f.read()
-        json_object = json.loads(data)
+        return json.loads(data)
+
+    def test_fetch_file_metadata(self):
+        """Test a simple record fetch."""
+        json_object = self.setup_json('example_file_metadata_single.json')
         with requests_mock.mock() as r_mock:
             r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/219112/files', json=json_object)
             record = fetch.fetch_file_metadata('219112')
@@ -31,10 +34,7 @@ class TindFetchFileMetadataTest(unittest.TestCase):
 
     def test_fetch_multiple_file_metadata(self):
         """Test a simple record fetch."""
-        record = os.path.join(os.path.dirname(__file__), 'example_file_metadata_multiple.json')
-        with open(record, encoding='UTF-8') as data_f:
-            data = data_f.read()
-        json_object = json.loads(data)
+        json_object = self.setup_json('example_file_metadata_multiple.json')
         with requests_mock.mock() as r_mock:
             r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/101218/files', json=json_object)
             record = fetch.fetch_file_metadata('101218')
@@ -49,10 +49,7 @@ class TindFetchFileMetadataTest(unittest.TestCase):
 
     def test_fetch_file_metadata_empty(self):
         """Test a simple record fetch."""
-        record = os.path.join(os.path.dirname(__file__), 'example_file_metadata_empty.json')
-        with open(record, encoding='UTF-8') as data_f:
-            data = data_f.read()
-        json_object = json.loads(data)
+        json_object = self.setup_json('example_file_metadata_empty.json')
         with requests_mock.mock() as r_mock:
             r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/9810289/files', json=json_object)
             record = fetch.fetch_file_metadata('9810289')
