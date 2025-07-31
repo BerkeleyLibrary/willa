@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "willa"
+version = "0.0.1"
+dependencies = [
+    "pymarc",
+    "python-dotenv",
+    "requests",
+]
+requires-python = ">= 3.13"
+authors = [
+    {name = "Anna Wilcox"},
+    {name = "David Zuckerman", email = "dzuckerm@berkeley.edu"},
+    {name = "Jason Raitz"},
+]
+readme = "README.rst"
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.optional-dependencies]
+test = [
+    "pylint",
+    "requests-mock",
+]
+
+[project.urls]
+Repository = "https://github.com/BerkeleyLibrary/willa"
+Issues = "https://github.com/BerkeleyLibrary/willa/issues"
+Changelog = "https://github.com/BerkeleyLibrary/willa/blob/main/CHANGELOG.rst"
