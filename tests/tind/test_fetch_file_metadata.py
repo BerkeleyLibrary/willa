@@ -58,3 +58,10 @@ class TindFetchFileMetadataTest(unittest.TestCase):
             record = fetch.fetch_file_metadata('9810289')
 
         self.assertEqual(len(record), 0)
+
+    def test_invalid_response(self):
+        """Ensure an exception is raised when a record does not return 200."""
+        with requests_mock.mock() as r_mock:
+            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/9219239e25/files', status_code='404',
+                       text='{"success": false, "reason": "Not Found"}')
+            self.assertRaises(Exception, fetch.fetch_file_metadata, '9219239e25')
