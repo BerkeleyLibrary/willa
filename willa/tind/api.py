@@ -35,7 +35,9 @@ def tind_get(endpoint: str, params: dict = None) -> (int, str):
     if params is None:
         params = {}
 
-    resp = requests.get(f"https://digicoll.lib.berkeley.edu/api/v1/{endpoint}",
+    api_base = os.getenv('TIND_API_URL', 'https://digicoll.lib.berkeley.edu/api/v1')
+
+    resp = requests.get(f"{api_base}/{endpoint}",
                         headers=_auth_header(), params=params, timeout=TIMEOUT)
     if resp.status_code == 401:
         raise AuthorizationError('Invalid TIND API key provided')

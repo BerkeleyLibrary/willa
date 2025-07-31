@@ -47,5 +47,8 @@ The following keys are available for configuration in the ``.env`` file:
 ``TIND_API_KEY``
     The API key to use for connecting to TIND.
 
+``TIND_API_URL``
+    The URL to use for connecting to TIND.  Should end in ``/api/v1``.
+
 ``DEFAULT_STORAGE_DIR``
     The default directory to store files retrieved from TIND.
