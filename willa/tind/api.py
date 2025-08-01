@@ -3,6 +3,7 @@ Provides low-level access to the TIND API.
 """
 
 import os
+import re
 import requests
 
 import willa.config  # pylint: disable=W0611
@@ -43,11 +44,11 @@ def tind_get(endpoint: str, params: dict = None) -> (int, str):
     return resp.status_code, resp.text
 
 
-def tind_download(url: str, output_path: str) -> int:
+def tind_download(url: str, output_dir: str) -> (int, str):
     """Download a file from TIND.
 
     :param str url: The TIND file download URL.
-    :param str output_path: The full path in which to save the file, including name.
+    :param str output_dir: The path to the directory in which to save the file.
     :returns: The HTTP status code.
     """
     resp = requests.get(url, headers=_auth_header(), timeout=TIMEOUT)
@@ -57,10 +58,21 @@ def tind_download(url: str, output_path: str) -> int:
     if status >= 500:
         resp.raise_for_status()
     if status != 200:
-        return status
+        return status, None
+
+    # Fall-back to the file name in the URL if it isn't included in the response.
+    output_filename = url.split('/')[-3]
+
+    # See if we can extract the filename from the response headers.
+    if 'Content-Disposition' in resp.headers:
+        match = re.findall('filename=\"(.+)\"', resp.headers['Content-Disposition'])
+        if len(match) == 1:
+            output_filename = match[0]
+
+    output_path = os.path.join(output_dir, output_filename)
 
     with open(output_path, 'wb') as out_f:
         for chunk in resp.iter_content():
             out_f.write(chunk)
 
-    return status
+    return status, output_path

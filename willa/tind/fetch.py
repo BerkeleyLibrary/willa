@@ -24,13 +24,16 @@ def fetch_metadata(record: str) -> Record:
         raise RecordNotFoundError(f"Record {record} not found in TIND.")
 
     records = parse_xml_to_array(StringIO(response))
+    # When the record does not match any records, we may receive a zero-length array of records.
+    # Additionally, if the XML is malformed, the parser function may return multiple records.
+    # We need to ensure that exactly one record is parsed out of the TIND API response.
     if len(records) != 1:
         raise RecordNotFoundError(f"Record {record} did not match exactly one record in TIND.")
 
     return records[0]
 
 
-def fetch_file(file_url: str, output_dir: str = ''):
+def fetch_file(file_url: str, output_dir: str = '') -> str:
     """Fetch the given file from TIND.
 
     :param str file_url: The URL to the file to download from TIND.
@@ -40,7 +43,7 @@ def fetch_file(file_url: str, output_dir: str = ''):
     :raises ValueError: When the URL is not a valid TIND file download URL.
     :raises RecordNotFoundError: When the file is invalid or not found.
     :raises IOError: When the file cannot be saved to the given output directory.
-    :returns: When the file has been successfully downloaded to the output directory.
+    :returns str: The full path to the file successfully downloaded to the output directory.
     """
     if not file_url.endswith('/download/'):
         raise ValueError('URL is not a valid TIND file download URL.')
@@ -51,8 +54,9 @@ def fetch_file(file_url: str, output_dir: str = ''):
         # via config reload, the test infrastructure, etc) would not appear.
         output_dir = os.getenv('DEFAULT_STORAGE_DIR')
 
-    output_filename = file_url.split('/')[-3]
-    status = tind_download(file_url, os.path.join(output_dir, output_filename))
+    (status, saved_to) = tind_download(file_url, output_dir)
 
     if status != 200:
-        raise RecordNotFoundError(f"Referenced file {output_filename} could not be downloaded.")
+        raise RecordNotFoundError('Referenced file could not be downloaded.')
+
+    return saved_to

@@ -66,6 +66,24 @@ class TindFetchFileTest(unittest.TestCase):
                          'File should have expected contents')
         path.unlink()
 
+    def test_file_fetch_with_name(self):
+        """Test a file fetch ensuring the TIND-returned name is used."""
+        dl_path = 'https://ucb.tind.example/api/v1/record/1234/files/notthisname.txt/download/'
+        expected = 'Hello world, from Python\n'
+
+        with requests_mock.mock() as r_mock:
+            r_mock.get(dl_path, text=expected,
+                       headers={'Content-Disposition': 'attachment; filename="usethis.txt"'})
+            fetch.fetch_file(dl_path)
+
+        path = pathlib.Path(os.getenv('DEFAULT_STORAGE_DIR'), 'notthisname.txt')
+        self.assertFalse(path.is_file(), 'File should be saved to correct name')
+        path = pathlib.Path(os.getenv('DEFAULT_STORAGE_DIR'), 'usethis.txt')
+        self.assertTrue(path.is_file(), 'File should be saved to correct name')
+        self.assertEqual(path.read_text(encoding='utf-8'), expected,
+                         'File should have expected contents')
+        path.unlink()
+
     def test_fetch_to_custom_path(self):
         """Test a file fetch to a custom path instead of the default."""
         with tempfile.TemporaryDirectory(prefix='willa2') as custom_path:
