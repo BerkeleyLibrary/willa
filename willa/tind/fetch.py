@@ -8,6 +8,7 @@ from pymarc import Record
 from willa.errors import RecordNotFoundError
 from .api import tind_get
 import json
+import xml.etree.ElementTree as E
 
 def fetch_metadata(record: str) -> Record:
     """Fetch the MARC XML metadata for a given record.
@@ -70,3 +71,41 @@ def fetch_search_metadata(search: str):
 
     return fetch_marc_by_ids(ids)
 
+def search_request(search: str, search_id=None ):
+    if search_id:
+      status, response = tind_get('search', {'format': 'xml', 'p': search, 'search_id': search_id})
+    else:
+      status, response = tind_get('search', {'format': 'xml', 'p': search})
+    
+    return response
+
+def retrieve_xml_search_id(response):
+  E.register_namespace('', "http://www.loc.gov/MARC21/slim")
+  xml = E.fromstring(response)
+  search_id = xml.find('search_id').text
+
+  return xml, search_id
+
+def search(search: str, result_format='xml' ):
+    recs = []
+    search_id = None
+
+    while True: 
+      if search_id:
+        response = search_request(search, search_id) 
+      else:
+        response = search_request(search) 
+
+      xml, search_id = retrieve_xml_search_id(response)
+
+      records = list(xml.find('{http://www.loc.gov/MARC21/slim}collection'))
+      if result_format == 'pymarc':
+        recs = recs + parse_xml_to_array(StringIO(response))
+      else:
+        for record in records:
+          recs.append(E.tostring(record, encoding='unicode'))
+      
+      if not records:
+        break
+
+    return recs
