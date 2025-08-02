@@ -16,6 +16,7 @@ class TindFetchMetadataTest(unittest.TestCase):
     """Test the fetch_metadata method of the willa.tind.fetch module."""
     def setUp(self):
         os.environ['TIND_API_KEY'] = 'Test_Key'
+        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
 
     def test_fetch(self):
         """Test a simple record fetch."""
@@ -24,7 +25,7 @@ class TindFetchMetadataTest(unittest.TestCase):
             data = data_f.read()
 
         with requests_mock.mock() as r_mock:
-            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/test/', text=data)
+            r_mock.get('https://ucb.tind.example/api/v1/record/test/', text=data)
             record = fetch.fetch_metadata('test')
 
         self.assertEqual(record.title,
@@ -33,14 +34,14 @@ class TindFetchMetadataTest(unittest.TestCase):
     def test_invalid_record(self):
         """Ensure an error is raised when a record does not exist and the response is a 404."""
         with requests_mock.mock() as r_mock:
-            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/nothere/',
+            r_mock.get('https://ucb.tind.example/api/v1/record/nothere/',
                        status_code=404)
             self.assertRaises(RecordNotFoundError, fetch.fetch_metadata, 'nothere')
 
     def test_empty_record(self):
         """Ensure an error is raised when a record does not exist and the response is empty."""
         with requests_mock.mock() as r_mock:
-            r_mock.get('https://digicoll.lib.berkeley.edu/api/v1/record/99999999/',
+            r_mock.get('https://ucb.tind.example/api/v1/record/99999999/',
                        text=' \n')
             self.assertRaises(RecordNotFoundError, fetch.fetch_metadata, '99999999')
 
@@ -49,6 +50,7 @@ class TindFetchFileTest(unittest.TestCase):
     """Test the fetch_file method of the willa.tind.fetch module."""
     def setUp(self):
         os.environ['TIND_API_KEY'] = 'Test_Key'
+        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
         os.environ['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
 
     def test_file_fetch(self):
