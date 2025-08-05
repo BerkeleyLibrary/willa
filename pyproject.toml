@@ -25,8 +25,8 @@ test = [
     "requests-mock",
 ]
 lint = [
-    "mypy",
-    "pylint",
+    "mypy ~= 1.17.1",
+    "pylint ~= 3.3",
 ]
 dev = [
     "willa[test,lint]"
@@ -39,5 +39,13 @@ Changelog = "https://github.com/BerkeleyLibrary/willa/blob/main/CHANGELOG.rst"
 
 [tool.mypy]
 python_version = "3.13"
+warn_unused_configs = true
+warn_redundant_casts = true
 warn_return_any = true
+strict_equality = true
+check_untyped_defs = true
+disallow_subclassing_any = true
+# We can't enable disallow_untyped_calls because of PyMARC.
+disallow_untyped_calls = false
+disallow_incomplete_defs = true
 disallow_untyped_defs = true
