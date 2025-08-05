@@ -20,7 +20,7 @@ Setup
 
 A local development environment can be set up by running::
 
-    pip3 install -r requirements.txt
+    pip install -e '.[dev]'
 
 You will need to set up an ``.env`` file for configuration.  An example is
 provided in ``env.example``.  Details of the configuration keys available
