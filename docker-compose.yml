@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+    init: true
+    restart: always
+
+  ollama:
+    image: ollama/ollama
+    restart: always
+    ports:
+      - 11434:11434
+    volumes:
+      - ./ollama:/root/.ollama:rw
+      - ./models:/models
