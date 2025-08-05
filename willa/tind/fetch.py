@@ -3,10 +3,12 @@ Provides routines to fetch information from the TIND API.
 """
 
 import os
-
 from io import StringIO
+from typing import List
+
 from pymarc.marcxml import parse_xml_to_array
 from pymarc import Record
+
 from willa.errors import RecordNotFoundError
 from .api import tind_get, tind_download
 
@@ -23,7 +25,7 @@ def fetch_metadata(record: str) -> Record:
     if status == 404 or len(response.strip()) == 0:
         raise RecordNotFoundError(f"Record {record} not found in TIND.")
 
-    records = parse_xml_to_array(StringIO(response))
+    records: List[Record] = parse_xml_to_array(StringIO(response))
     # When the record does not match any records, we may receive a zero-length array of records.
     # Additionally, if the XML is malformed, the parser function may return multiple records.
     # We need to ensure that exactly one record is parsed out of the TIND API response.

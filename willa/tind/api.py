@@ -2,8 +2,11 @@
 Provides low-level access to the TIND API.
 """
 
+
 import os
 import re
+from typing import Tuple
+
 import requests
 
 import willa.config  # pylint: disable=W0611
@@ -23,7 +26,7 @@ def _auth_header() -> dict:
     return {'Authorization': f"Token {token}"}
 
 
-def tind_get(endpoint: str, params: dict = None) -> (int, str):
+def tind_get(endpoint: str, params: dict | None = None) -> Tuple[int, str]:
     """Run a GET API request, returning its response.
 
     :param str endpoint: The TIND API endpoint to query.
@@ -46,7 +49,7 @@ def tind_get(endpoint: str, params: dict = None) -> (int, str):
     return resp.status_code, resp.text
 
 
-def tind_download(url: str, output_dir: str) -> (int, str):
+def tind_download(url: str, output_dir: str) -> Tuple[int, str]:
     """Download a file from TIND.
 
     :param str url: The TIND file download URL.
@@ -60,7 +63,7 @@ def tind_download(url: str, output_dir: str) -> (int, str):
     if status >= 500:
         resp.raise_for_status()
     if status != 200:
-        return status, None
+        return status, ''
 
     # Fall-back to the file name in the URL if it isn't included in the response.
     output_filename = url.split('/')[-3]
