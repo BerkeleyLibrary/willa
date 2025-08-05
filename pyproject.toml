@@ -22,11 +22,22 @@ license-files = ["LICENSE"]
 
 [project.optional-dependencies]
 test = [
-    "pylint",
     "requests-mock",
+]
+lint = [
+    "mypy",
+    "pylint",
+]
+dev = [
+    "willa[test,lint]"
 ]
 
 [project.urls]
 Repository = "https://github.com/BerkeleyLibrary/willa"
 Issues = "https://github.com/BerkeleyLibrary/willa/issues"
 Changelog = "https://github.com/BerkeleyLibrary/willa/blob/main/CHANGELOG.rst"
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+disallow_untyped_defs = true
