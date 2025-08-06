@@ -9,7 +9,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 # from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.vectorstores.base import VectorStore
-import willa.config
+import willa.config  # pylint: disable=W0611
 
 
 def load_pdfs() -> list:
