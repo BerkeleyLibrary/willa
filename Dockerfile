@@ -14,6 +14,7 @@ FROM reqs AS app
 COPY willa willa
 COPY README.rst README.rst
 COPY CHANGELOG.rst CHANGELOG.rst
+COPY prompt_templates prompt_templates
 RUN /venv/bin/pip install .
 
 ENTRYPOINT ["/venv/bin/python"]
