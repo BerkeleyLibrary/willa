@@ -2,6 +2,7 @@ services:
   app:
     build:
       context: .
+      target: development
     init: true
     restart: always
 
