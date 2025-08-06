@@ -10,10 +10,16 @@ RUN python -m venv /venv
 RUN /venv/bin/python -m pip install -U setuptools
 RUN /venv/bin/pip install -q .
 
-FROM reqs
+FROM reqs AS app
 COPY willa willa
 COPY README.rst README.rst
 COPY CHANGELOG.rst CHANGELOG.rst
 RUN /venv/bin/pip install .
+
+ENTRYPOINT ["/venv/bin/python"]
+
+FROM app AS development
+COPY tests tests
+RUN /venv/bin/pip install -q .[dev,lint]
 
 ENTRYPOINT ["/venv/bin/python"]
