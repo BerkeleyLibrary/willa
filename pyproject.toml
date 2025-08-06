@@ -6,7 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "willa"
 version = "0.0.1"
 dependencies = [
+    "langchain",
+    "langchain_community",
     "pymarc",
+    "pypdf",
     "python-dotenv",
     "requests",
 ]
@@ -22,6 +25,8 @@ license-files = ["LICENSE"]
 
 [project.optional-dependencies]
 test = [
+    "langchain_core",
+    "langchain_ollama",
     "requests-mock",
 ]
 lint = [
