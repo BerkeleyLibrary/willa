@@ -20,6 +20,6 @@ ENTRYPOINT ["/venv/bin/python"]
 
 FROM app AS development
 COPY tests tests
-RUN /venv/bin/pip install -q .[dev,lint]
+RUN /venv/bin/pip install -q .[dev]
 
 ENTRYPOINT ["/venv/bin/python"]
