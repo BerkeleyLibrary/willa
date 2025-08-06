@@ -3,9 +3,10 @@ Test suite for document processing utilities.
 """
 
 import os
-import unittest
-import tempfile
 import shutil
+import tempfile
+import unittest
+
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings
 from willa.etl.doc_proc import (
