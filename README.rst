@@ -65,4 +65,4 @@ The following keys are available for configuration in the ``.env`` file:
     The default directory to store files retrieved from TIND.
 
 ``RUN_OLLAMA_TESTS``
-    Set to ``true`` to run the Ollama tests.  Should only be run if Ollama is running.
+    Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
