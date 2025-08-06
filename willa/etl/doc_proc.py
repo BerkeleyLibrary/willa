@@ -4,6 +4,8 @@ and split them into chunks for vectorization.
 """
 
 import os
+from functools import reduce
+from operator import add
 
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 # from langchain_community.document_loaders import DirectoryLoader
@@ -38,7 +40,7 @@ def split_doc(doc: dict, chunk_size: int = 1000, chunk_overlap: int = 200) -> li
 
 def split_all_docs(docs: list, chunk_size: int = 1000, chunk_overlap: int = 200) -> list:
     """Split all documents into chunks."""
-    return [split_doc(doc, chunk_size, chunk_overlap) for doc in docs]
+    return reduce(add, [split_doc(doc, chunk_size, chunk_overlap) for doc in docs])
 
 
 def embed_docs(chunked_docs: list, vector_store: VectorStore) -> list:
