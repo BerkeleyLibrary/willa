@@ -7,6 +7,7 @@ import shutil
 import tempfile
 import unittest
 
+from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings
 from willa.etl.doc_proc import (
@@ -44,6 +45,7 @@ class DocumentProcessingTest(unittest.TestCase):
         if docs:
             chunked_docs = split_all_docs(docs)
             self.assertGreater(len(chunked_docs), 0, "Should create chunks from all documents.")
+            self.assertIsInstance(chunked_docs[0], Document, "Should return the chunks.")
 
     @unittest.skipUnless(os.getenv("RUN_OLLAMA_TESTS"), "requires running ollama")
     def test_embed_docs(self) -> None:
