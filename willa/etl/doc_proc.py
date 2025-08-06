@@ -25,6 +25,7 @@ def load_pdfs() -> list:
         print(f"Loaded {len(docs)} documents from {directory_path}.")
     return docs
 
+
 def split_doc(doc: dict, chunk_size: int = 1000, chunk_overlap: int = 200) -> list:
     """Split a document into chunks for vectorization."""
     text_splitter = RecursiveCharacterTextSplitter(
@@ -34,9 +35,11 @@ def split_doc(doc: dict, chunk_size: int = 1000, chunk_overlap: int = 200) -> li
     )
     return text_splitter.split_documents([doc])
 
+
 def split_all_docs(docs: list, chunk_size: int = 1000, chunk_overlap: int = 200) -> list:
     """Split all documents into chunks."""
     return [split_doc(doc, chunk_size, chunk_overlap) for doc in docs]
+
 
 def embed_docs(chunked_docs: list, vector_store: VectorStore) -> list:
     """Embed documents using Ollama embeddings and store them in a vector store."""
