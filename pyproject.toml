@@ -8,6 +8,8 @@ version = "0.0.1"
 dependencies = [
     "langchain",
     "langchain_community",
+    "langchain_ollama",
+    "ollama ~= 0.5.1",
     "pymarc",
     "pypdf",
     "python-dotenv",
@@ -26,7 +28,6 @@ license-files = ["LICENSE"]
 [project.optional-dependencies]
 test = [
     "langchain_core",
-    "langchain_ollama",
     "requests-mock",
 ]
 lint = [

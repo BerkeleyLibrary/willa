@@ -4,7 +4,6 @@ services:
       context: .
       target: development
     init: true
-    restart: always
 
   ollama:
     image: ollama/ollama

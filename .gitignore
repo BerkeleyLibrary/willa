@@ -209,3 +209,5 @@ __marimo__/
 # MacOS
 .DS_Store
 
+# Ollama model data.
+ollama/
