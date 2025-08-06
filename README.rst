@@ -26,6 +26,15 @@ You will need to set up an ``.env`` file for configuration.  An example is
 provided in ``env.example``.  Details of the configuration keys available
 follow later in this document.
 
+Linting & Testing locally
+==========================
+To run the tests, you can use the following command::
+
+    python -m unittest
+
+To run linting::
+
+    python -m pylint willa
 
 
 Deployment
@@ -52,3 +61,6 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``DEFAULT_STORAGE_DIR``
     The default directory to store files retrieved from TIND.
+
+``RUN_OLLAMA_TESTS``
+    Set to ``true`` to run the Ollama tests.  Should only be run if Ollama is running.

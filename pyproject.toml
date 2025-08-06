@@ -9,6 +9,7 @@ dependencies = [
     "langchain",
     "langchain_community",
     "pymarc",
+    "pypdf",
     "python-dotenv",
     "requests",
 ]
