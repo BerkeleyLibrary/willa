@@ -2,6 +2,9 @@
 Provide a command line interface to the Willa chatbot.
 """
 
+import argparse
+
+from langchain_ollama import ChatOllama
 from rich.console import Console
 
 from willa.etl.pipeline import run_pipeline
@@ -12,11 +15,21 @@ def main() -> None:
     """The entry point for the Willa chatbot command line interface."""
     console = Console()
 
+    parser = argparse.ArgumentParser(
+        prog='willa-cli',
+        description='Provides an AI chatbot interface to Berkeley Library OHC'
+    )
+    parser.add_argument('-m', '--model', action='store', help='Choose the model to use',
+                        default='gemma3n:e4b')
+    args = parser.parse_args()
+
     with console.status("[bold green]Loading documents..."):
         my_store = run_pipeline()
 
+    model = ChatOllama(model=args.model, temperature=0.5)
+
     while True:
-        bot = Chatbot(my_store)
+        bot = Chatbot(my_store, model)
 
         console.print()  # Empty line after the pipeline output or prior answer.
         console.print('This is [bold purple]Willa[/bold purple], ready to answer your question.')

@@ -2,9 +2,9 @@
 
 import os
 
+from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.vectorstores.base import VectorStore
-from langchain_ollama import ChatOllama
 
 import willa.config  # pylint: disable=W0611
 
@@ -38,15 +38,15 @@ class Chatbot:  # pylint: disable=R0903
     questions can be asked in succession.  See AP-375.
     """
 
-    def __init__(self, vector_store: VectorStore):
+    def __init__(self, vector_store: VectorStore, model: BaseChatModel):
         """Create a new Willa chatbot instance.
 
         :param vector_store: The vector store to use for searching.
+        :param model: The LLM to use for processing.
         """
         self.vector_store = vector_store
-        self.ollama = ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
-                                 temperature=0.5)
-        self.chain = PROMPT | self.ollama
+        self.model = model
+        self.chain = PROMPT | self.model
 
     def ask(self, question: str) -> str:
         """Ask a question of this Willa chatbot instance.
