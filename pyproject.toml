@@ -14,6 +14,7 @@ dependencies = [
     "pypdf",
     "python-dotenv",
     "requests",
+    "rich ~= 14.1",
 ]
 requires-python = ">= 3.13"
 authors = [
