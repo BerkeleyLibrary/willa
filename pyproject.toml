@@ -39,6 +39,9 @@ dev = [
     "willa[test,lint]"
 ]
 
+[project.scripts]
+willa-cli = "willa.chatbot.cli:main"
+
 [project.urls]
 Repository = "https://github.com/BerkeleyLibrary/willa"
 Issues = "https://github.com/BerkeleyLibrary/willa/issues"
