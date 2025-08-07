@@ -9,8 +9,9 @@ from langchain_ollama import ChatOllama
 import willa.config  # pylint: disable=W0611
 
 
-_PROMPT_FILE: str = os.getenv('PROMPT_FILE',
-                              os.path.join(os.path.dirname(__package__), 'prompt.txt'))
+_PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
+                              os.path.join(os.path.dirname(__package__),
+                                           'prompt_templates', 'initial_prompt.txt'))
 """The file from which to load the system prompt."""
 
 
@@ -22,7 +23,6 @@ with open(_PROMPT_FILE, encoding='utf-8') as f:
 PROMPT = ChatPromptTemplate.from_messages(
     [
         ("system", _SYS_PROMPT),
-        ("human", "{input}"),
     ]
 )
 """The prompt template to use for initiating a chatbot."""
@@ -54,5 +54,7 @@ class Chatbot:  # pylint: disable=R0903
         :param str question: The question to ask.
         :returns: The answer given by the model.
         """
-        answer = self.chain.invoke({'input': question})
+        matching_docs = self.vector_store.similarity_search(question)
+        context = '\n\n'.join(doc.page_content for doc in matching_docs)
+        answer = self.chain.invoke({'question': question, 'context': context})
         return answer.text()
