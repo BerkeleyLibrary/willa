@@ -22,21 +22,20 @@ class TindFormatValidatePymarc(unittest.TestCase):
     def test_expected_size(self):
         """Test that the returned result has the expected size"""
         result = format_validate_pymarc.parse_pymarc(self.pymarc_records[0])
-        self.assertEqual(len(result), 22)
+        self.assertEqual(len(result), 15)
 
 
     def test_expected_values(self):
         """Test that source MARC fields with values are set properly"""
         result = format_validate_pymarc.parse_pymarc(self.pymarc_records[0])
-        self.assertEqual(result['001'], '19217')
-        self.assertEqual(result['336'], 'Image')
+        self.assertEqual(result['tind_id'], '19217')
+        self.assertEqual(result['type'], 'Image')
 
 
     def test_missing_field_none(self):
         """Test that a required field that is not in source MARC is set to None"""
         result = format_validate_pymarc.parse_pymarc(self.pymarc_records[1])
-        self.assertEqual(result['600'], None)
-        self.assertEqual(result['041'], None)
+        self.assertEqual(result['language'], None)
 
 
     def test_raises_exception(self):
@@ -48,15 +47,16 @@ class TindFormatValidatePymarc(unittest.TestCase):
     def test_fields_with_indicators_and_subs(self):
         """Test that it properly retrieves fields with indicators and subfields specified"""
         result = format_validate_pymarc.parse_pymarc(self.pymarc_records[1])
-        self.assertEqual(result['85642u'], 'https://oac.link.org')
-        self.assertEqual(result['982__b'], 'Fritz-Metcalf Photograph Collection')
-        self.assertEqual(result['260__c'], '1920')
-        self.assertEqual(result['852__c'], 'Bioscience, Natural Resources & Public Health Library')
+        self.assertEqual(result['references'], 'https://oac.link.org')
+        self.assertEqual(result['isPartOf'], 'Fritz-Metcalf Photograph Collection')
+        self.assertEqual(result['date'], '1920')
+        self.assertEqual(result['publisher'],
+                        'Bioscience, Natural Resources & Public Health Library')
 
 
     def test_multiple_subfields_returns_array_of_values(self):
         """Test that multiple values will be an array for a given key"""      
         result = format_validate_pymarc.parse_pymarc(self.pymarc_records[0])
-        self.assertIsInstance(result['650'], list)
-        self.assertEqual(result['650'][1], 'Persea americana')
-        self.assertEqual(len(result['650']), 3)
+        self.assertIsInstance(result['subject'], list)
+        self.assertEqual(result['subject'][1], 'Persea americana')
+        self.assertEqual(len(result['subject']), 3)
