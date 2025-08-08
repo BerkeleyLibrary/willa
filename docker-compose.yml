@@ -2,8 +2,19 @@ services:
   app:
     build:
       context: .
-      target: development
+      target: app
+    depends_on:
+      ollama:
+        condition: service_started
     init: true
+    restart: always
+    ports:
+      - 8000:8000
+    environment:
+      - DEFAULT_STORAGE_DIR
+      - OLLAMA_URL
+    volumes:
+      - ./tmp:/pdfs
 
   ollama:
     image: ollama/ollama

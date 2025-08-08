@@ -66,3 +66,13 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``RUN_OLLAMA_TESTS``
     Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
+
+``OLLAMA_URL``
+    Set to the instance of Ollama to use for the Web interface.
+    Defaults to ``http://localhost:11434``; you may want ``http://ollama:11434`` for Docker runs.
+
+``CHAT_MODEL``
+    The model used by the Web interface in Ollama.  Defaults to ``gemma3n:e4b``.
+
+``CHAT_TEMPERATURE``
+    Defines the "temperature" (creativeness) of the LLM.  Defaults to ``0.5``.

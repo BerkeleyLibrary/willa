@@ -15,9 +15,12 @@ COPY willa willa
 COPY README.rst README.rst
 COPY CHANGELOG.rst CHANGELOG.rst
 COPY prompt_templates prompt_templates
-RUN /venv/bin/pip install .
+COPY public public
+COPY chainlit.md chainlit.md
+RUN /venv/bin/pip install -e .
 
-ENTRYPOINT ["/venv/bin/python"]
+ENV VIRTUAL_ENV /venv
+ENTRYPOINT ["/venv/bin/chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
 
 FROM app AS development
 COPY tests tests

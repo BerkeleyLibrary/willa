@@ -3,3 +3,6 @@
 
 # Don't include secrets.
 .env
+
+# Don't include local venv.
+/venv
