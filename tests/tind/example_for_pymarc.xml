@@ -1,0 +1,317 @@
+<response>
+  <total>29</total>
+  <search_id>FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ckhib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR09RQkdxU3cxN2RXU2wyQQ==</search_id>
+  <collection xmlns="http://www.loc.gov/MARC21/slim">
+<record>
+  <controlfield tag="001">19217</controlfield>
+  <controlfield tag="005">20250429134347.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">Accession Number: 473</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">fritz_metcalf-490</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Avocados or Alligator pears on Murphy Ranch near Whittier, Los Angeles County.  Trees are 7 years old and some are bearing heavily.  Fruit sold in 1922 at 95 cents per pound on the ranch.  Feb. 1923.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1923</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1923</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Location</subfield>
+    <subfield code="a">Location: average distance</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Identification</subfield>
+    <subfield code="a">Identification: exact ground location unclear, appears unknowable</subfield>
+  </datafield>
+  <datafield tag="520" ind1="2" ind2=" ">
+    <subfield code="a">one person present, name unknown</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Ranches</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Persea americana</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Agriculture</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Los Angeles County</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Metcalf, Woodbridge</subfield>
+    <subfield code="e">Photographer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Bioscience, Natural Resources &amp; Public Health Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10010651</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">63f439a0-f747-4808-a6ee-9e2987928a18</subfield>
+    <subfield code="s">309418</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/19217/files/FM000490a_ii.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991065640019706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10010651</subfield>
+    <subfield code="o">21636820</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991000360509706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2019-06-18</subfield>
+    <subfield code="f">metcalf1_490.xml</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="p">https://git.lib.berkeley.edu/lap/tind/vtm_metcalf_calheritage/createVTM_Metcalf.pl</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:19217</subfield>
+    <subfield code="p">fritzmetcalf</subfield>
+    <subfield code="p">fritz-metcalf</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5fv1jbh</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf Photographs</subfield>
+    <subfield code="b">Fritz-Metcalf Photograph Collection</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">19309</controlfield>
+  <controlfield tag="005">20250429134354.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">Accession Number: 387</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">fritz_metcalf-398</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Library Park, Pasadena.  Trees left to right: Small Araucaria bidwelli, clump of sequoia sempervirens sprouts pruned and a large Avocado or Alligator pear.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">1920</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">1920</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Process Note</subfield>
+    <subfield code="a">Process Note: hand</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Location</subfield>
+    <subfield code="a">Location: average distance</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">Identification</subfield>
+    <subfield code="a">Identification: exact ground location unclear, appears unknowable</subfield>
+  </datafield>
+  <datafield tag="520" ind1="2" ind2=" ">
+    <subfield code="a">no people present in picture</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Araucaria bidwillii - Planted trees</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Landscaping</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Sequoia sempervirens</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Persea americana</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Parks - Library Park (Calif.)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Pasadena (Calif.)</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Los Angeles County</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Metcalf, Woodbridge</subfield>
+    <subfield code="e">Photographer</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">Bioscience, Natural Resources &amp; Public Health Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10010651</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="u">https://oac.link.org</subfield>
+    <subfield code="y">Link to external resource.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">cf92eacb-6e8b-4c7e-a54d-a0401e503e28</subfield>
+    <subfield code="s">295763</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/19309/files/FM000398a_ii.jpg</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991065640019706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10010651</subfield>
+    <subfield code="o">21636820</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991000360509706532</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="d">2019-06-18</subfield>
+    <subfield code="f">metcalf1_398.xml</subfield>
+    <subfield code="n">ADP</subfield>
+    <subfield code="p">https://git.lib.berkeley.edu/lap/tind/vtm_metcalf_calheritage/createVTM_Metcalf.pl</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:19309</subfield>
+    <subfield code="p">fritzmetcalf</subfield>
+    <subfield code="p">fritz-metcalf</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/m5np52g5</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Fritz-Metcalf Photographs</subfield>
+    <subfield code="b">Fritz-Metcalf Photograph Collection</subfield>
+  </datafield>
+</record>
+    <record>
+  <controlfield tag="001">22547</controlfield>
+  <controlfield tag="005">20250320155415.0</controlfield>
+  <datafield tag="024" ind1="8" ind2="0">
+    <subfield code="a">BANC PIC 1963.002:1871--OBJ</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">honeyman_cubanc_37_1_00030066</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">ca. 1850</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">21.2 x 21.2 cm., diameter</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="b">print on porcelain plate: engraving</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Image</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Notes/Inscriptions:Printed title (LC): Plaisirs du bain dans le Sacramento. Printed (LC, above title): No. 6. Manufacturer's stamp (on verso): Creil et Montereau/Porcel Opaque. L.M. &amp; Cie. Medailles d'or 1834, 39, 44, et 49. Inscriptions in French.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="3">marks</subfield>
+    <subfield code="a">Printed title (LC): Plaisirs du bain dans le Sacramento. Printed (LC, above title): No. 6. Manufacturer's stamp (on verso): Creil et Montereau/Porcel Opaque. L.M. &amp; Cie. Medailles d'or 1834, 39, 44, et 49. Inscriptions in French.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Content/Description:Man in bathing trunks surprised by alligator as he wades into river; figure in mouth of alligator in distance; tropical foliage.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">California, Northern</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Rivers</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Manners &amp; customs</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Sacramento (Calif.)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">Animals</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Engravings</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Artifacts;</subfield>
+    <subfield code="2">aat</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Lanz, active ca. 1850, French?, artist, attributed to,</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">http://www.oac.cdlib.org/findaid/ark:/13030/tf9p3012wq</subfield>
+    <subfield code="y">View collection guide</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="9">795af1c1-c23d-4707-b49d-90c24cdc9ee9</subfield>
+    <subfield code="s">300864</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/22547/files/HN002948aA.jpg</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf2t1nb4hb</subfield>
+    <subfield code="f">ark:/13030/tf9p3012wq</subfield>
+    <subfield code="g">37:1</subfield>
+  </datafield>
+  <datafield tag="902" ind1=" " ind2=" ">
+    <subfield code="f">cubanc_37_1_00030066.xml</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:22547</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="951" ind1=" " ind2=" ">
+    <subfield code="a">ark:/13030/tf2t1nb4hb</subfield>
+    <subfield code="b">Merritt</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Honeyman (Robert B., Jr.)</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Honeyman (Robert B., Jr.)</subfield>
+    <subfield code="b">Robert B. Honeyman, Jr. Collection of Early Californian and Western American Pictorial Material</subfield>
+  </datafield>
+</record>
+  </collection>
+</response>
