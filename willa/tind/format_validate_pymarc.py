@@ -96,3 +96,64 @@ def parse_pymarc(pymarc_record: Record) -> dict:
     marc_values['260__c'] = get_sub_by_field_and_indicators(pymarc_record, '260', None, None, 'c')
 
     return marc_values
+
+
+KEY_MAPPINGS: dict = {
+    '001': 'tind_id',
+    '041': 'language',
+    '100': 'creator',
+    '110': 'creator',
+    '111': 'creator',
+    '245': 'title',
+    '260__c': 'date',
+    '336': 'type',
+    '520': 'description',
+    '540': 'rights',
+    '600': 'subject',
+    '610': 'subject',
+    '611': 'subject',
+    '650': 'subject',
+    '651': 'coverage',
+    '700': 'contributor',
+    '710': 'contributor',
+    '711': 'contributor',
+    '852__c': 'publisher',
+    '85642u': 'references',
+    '909': 'source',
+    '982__b': 'isPartOf'
+}
+"""The mapping of MARC fields/subfields into metadata keys."""
+
+
+def pymarc_to_metadata(record: Record) -> dict:
+    """Parse a PyMARC record into document metadata.
+
+    :param record: The record to parse.
+    :returns: A ``dict`` containing document metadata.
+    """
+    marc_values = parse_pymarc(record)
+
+    metadata = {}
+    for key, value in marc_values.items():
+        meta_key = KEY_MAPPINGS[key]
+        if meta_key in metadata:
+            if value is None:
+                continue  # Skip adding blanks to existing content.
+
+            if isinstance(metadata[meta_key], str):
+                metadata[meta_key] = [metadata[meta_key]]  # Turn our str into a one-element list.
+            elif metadata[meta_key] is None:
+                metadata[meta_key] = []
+
+            if isinstance(value, list):
+                metadata[meta_key].extend(value)  # Add our list to the list.
+            else:
+                metadata[meta_key].append(value)  # Add our value to the list.
+        else:
+            metadata[meta_key] = value
+
+    for meta_key in set(KEY_MAPPINGS.values()):
+        if meta_key not in metadata:
+            metadata[meta_key] = None
+
+    return metadata
