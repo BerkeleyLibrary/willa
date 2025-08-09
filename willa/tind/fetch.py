@@ -3,6 +3,7 @@ Provides routines to fetch information from the TIND API.
 """
 
 import os
+import re
 from io import StringIO
 from typing import Any, List, Tuple
 import json
@@ -50,7 +51,7 @@ def fetch_file(file_url: str, output_dir: str = '') -> str:
     :raises IOError: When the file cannot be saved to the given output directory.
     :returns str: The full path to the file successfully downloaded to the output directory.
     """
-    if not file_url.endswith('/download/'):
+    if not re.match(r'^http.*/download(/)?(\?version=\d+)?$', file_url):
         raise ValueError('URL is not a valid TIND file download URL.')
 
     if output_dir == '':
