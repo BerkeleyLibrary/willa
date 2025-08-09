@@ -4,8 +4,7 @@ Provides routines to fetch information from the TIND API.
 
 import os
 from io import StringIO
-from argparse import ArgumentError
-from typing import List
+from typing import Any, List, Tuple
 import json
 
 import xml.etree.ElementTree as E
@@ -14,6 +13,7 @@ from pymarc import Record
 
 from willa.errors import RecordNotFoundError, TINDError
 from .api import tind_get, tind_download
+
 
 def fetch_metadata(record: str) -> Record:
     """Fetch the MARC XML metadata for a given record.
@@ -82,7 +82,7 @@ def fetch_file_metadata(record: str) -> list:
         reason = j['reason']
         raise TINDError(f"Status: {status} Message: {reason}.")
 
-    return json.loads(files)
+    return json.loads(files)  # type: ignore[no-any-return]
 
 
 def fetch_ids_search(srch: str) -> list:
@@ -99,13 +99,13 @@ def fetch_ids_search(srch: str) -> list:
         raise TINDError(f"Status: {status}, Message: {reason}")
 
     j = json.loads(rec_ids)
-    return j['hits']
+    return j['hits']  # type: ignore[no-any-return]
 
 
-def fetch_marc_by_ids(ids: list):
-    """Fetch Tind marc from a list of Tind record ids
+def fetch_marc_by_ids(ids: list) -> list[Record]:
+    """Fetch MARC records from a list of TIND record IDs.
 
-    :returns: a list of PYMARC records 
+    :returns: A list of PyMARC records.
     """
     records = []
     for item in ids:
@@ -126,7 +126,7 @@ def fetch_search_metadata(srch: str) -> List[Record]:
     return fetch_marc_by_ids(ids)
 
 
-def _search_request(srch: str, search_id=None) -> str:
+def _search_request(srch: str, search_id: str | None = None) -> str:
     """retrieves a page of marc data records
 
     :params str srch: The Tind search query.
@@ -144,7 +144,7 @@ def _search_request(srch: str, search_id=None) -> str:
     return response
 
 
-def _retrieve_xml_search_id(response: str):
+def _retrieve_xml_search_id(response: str) -> Tuple[Any, str]:
     """Creates a parsable XML and retrieves search_ID from the Tind resultset for pagination
 
     :param response: The string returned from the Tind search call.
@@ -152,11 +152,12 @@ def _retrieve_xml_search_id(response: str):
     """
     E.register_namespace('', "http://www.loc.gov/MARC21/slim")
     xml = E.fromstring(response)
-    search_id = xml.find('search_id').text
+    search_id = xml.findtext('search_id', default='')
 
     return xml, search_id
 
-def search(srch: str, result_format='xml') -> List[Record]:
+
+def search(srch: str, result_format: str = 'xml') -> List[Any]:
     """Searches Tind and retrieves a list of eithe XML or Pymarc
 
     :param srch: A Tind search string
@@ -165,10 +166,9 @@ def search(srch: str, result_format='xml') -> List[Record]:
     """
 
     if result_format not in ('xml', 'pymarc'):
-        raise ArgumentError(result_format,
-                            "Unexpected result format should be either 'xml' or 'pymarc'")
+        raise ValueError(f"Unexpected result format: {result_format} is neither 'xml' nor 'pymarc'")
 
-    recs = []
+    recs: List[Any] = []
     search_id = None
 
     while True:
