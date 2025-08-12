@@ -1,0 +1,115 @@
+<record>
+  <controlfield tag="001">103806</controlfield>
+  <controlfield tag="005">20250429165130.0</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(ohc)00052</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Kerby Parnell</subfield>
+    <subfield code="b">interviews conducted by Nadine Wilmot in 2006. Regional Oral History Office, The Bancroft Library, University of California, Berkeley.</subfield>
+  </datafield>
+  <datafield tag="269" ind1=" " ind2=" ">
+    <subfield code="a">2007</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">Transcript:  39 leaves.</subfield>
+    <subfield code="b">sd., col.</subfield>
+    <subfield code="c">4 3/4 in.</subfield>
+    <subfield code="a">Video interview:  1 videodisc</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">Text</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Forms part of the Rosie the Riveter World War II American Homefront Oral History Project.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">In this interview, Kerby Parnell discusses her life of adventure. She migrated to Dinuba, California from Arkansas with her family as a child in search of better opportunities. In Dinuba, her family worked in fruit and cotton, as part of California's agricultural industry. Then, when Parnell was a teenager, she, her parents, and her grandmother all went to work in the Kaiser shipyards, making for three generations of one family represented simultaneously in Kaiser Shipyard 2. Also during the war, Parnell worked at the Fox Theater, and then later after the boys came home with Rheem Manufacturing Company, Hercules Powder Company, and the Mechanics Bank, where she works still. Mrs. Parnell's interview illuminates the themes of migration, identity, labor, and a changing wartime Richmond.</subfield>
+  </datafield>
+  <datafield tag="540" ind1=" " ind2=" ">
+    <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/about/permissions-policies).
+</subfield>
+  </datafield>
+  <datafield tag="542" ind1=" " ind2=" ">
+    <subfield code="f">Oral history is a method of collecting historical information through recorded interviews between a narrator with firsthand knowledge of historically significant events and a well-informed interviewer, with the goal of preserving substantive additions to the historical record. Because it is primary material, oral history is not intended to present the final, verified, or complete narrative of events. It is a spoken account. It reflects personal opinion offered by the interviewee in response to questioning, and as such it is partisan, deeply involved, and irreplaceable. &lt;/br&gt;&lt;/br&gt; Literary rights in the manuscript, including the right to publish, are typically reserved to The Bancroft Library of the University of California, Berkeley, but in some cases are retained by third parties. &lt;/br&gt;&lt;/br&gt;Please see the information at the beginning of each transcript regarding permission information. For more information on permissions please see:   &lt;a href="http://www.lib.berkeley.edu/libraries/bancroft-library/oral-history-center/rights"&gt;http://www.lib.berkeley.edu/libraries/bancroft-library/oral-history-center/rights&lt;/a&gt;.</subfield>
+  </datafield>
+  <datafield tag="600" ind1=" " ind2=" ">
+    <subfield code="a">Parnell, Kerby,  1925- -- Interviews.</subfield>
+  </datafield>
+  <datafield tag="610" ind1=" " ind2=" ">
+    <subfield code="a">Kaiser Shipyards (Richmond, Calif.)</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">World War, 1939-1945 -- California -- Richmond -- Personal narratives.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">World War, 1939-1945 -- War work -- California -- Richmond.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2=" ">
+    <subfield code="a">World War, 1939-1945 -- Social aspects -- California -- Richmond.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2=" ">
+    <subfield code="a">Unknown place</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2=" ">
+    <subfield code="a">Oral histories.</subfield>
+    <subfield code="2">rbgenr</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Parnell, Kerby,  1925-</subfield>
+    <subfield code="e">Interviewee.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Wilmot, Nadine.</subfield>
+    <subfield code="e">Interviewer.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Rosie the Riveter World War II American Homefront Oral History Project.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Bancroft Library.  Regional Oral History Office.</subfield>
+  </datafield>
+  <datafield tag="852" ind1=" " ind2=" ">
+    <subfield code="c">The Bancroft Library</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">http://oskicat.berkeley.edu/record=b10261045</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="y">No.1</subfield>
+    <subfield code="9">454479b1-0799-49ec-8978-fb42fce46e7e</subfield>
+    <subfield code="s">98121</subfield>
+    <subfield code="u">https://digicoll.lib.berkeley.edu/record/103806/files/parnell_kerby.pdf</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="1">
+    <subfield code="u">https://search.library.berkeley.edu/permalink/01UCS_BER/1thfj9n/alma991005760239706532</subfield>
+    <subfield code="y">View library catalog record.</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">b10261045</subfield>
+    <subfield code="o">214284491</subfield>
+  </datafield>
+  <datafield tag="901" ind1=" " ind2=" ">
+    <subfield code="m">991005760239706532</subfield>
+  </datafield>
+  <datafield tag="903" ind1=" " ind2=" ">
+    <subfield code="b">m</subfield>
+  </datafield>
+  <datafield tag="909" ind1="C" ind2="O">
+    <subfield code="o">oai:digicoll.lib.berkeley.edu:103806</subfield>
+    <subfield code="p">roho:ia</subfield>
+    <subfield code="p">sfg</subfield>
+    <subfield code="q">mcleanCalisphere_oai</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">ROHO: IA</subfield>
+  </datafield>
+  <datafield tag="982" ind1=" " ind2=" ">
+    <subfield code="a">Oral Histories</subfield>
+    <subfield code="b">Oral Histories</subfield>
+  </datafield>
+</record>

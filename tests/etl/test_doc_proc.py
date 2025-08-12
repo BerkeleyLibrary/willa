@@ -10,12 +10,14 @@ import unittest
 from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings
+from pymarc import parse_xml_to_array
 from willa.etl.doc_proc import (
-    load_pdfs,
-    split_doc,
-    split_all_docs,
+    load_pdf, load_pdfs,
+    split_doc, split_all_docs,
     embed_docs,
 )
+from willa.tind.format_validate_pymarc import pymarc_to_metadata
+
 
 class DocumentProcessingTest(unittest.TestCase):
     """Test suite for document processing utilities."""
@@ -25,6 +27,18 @@ class DocumentProcessingTest(unittest.TestCase):
         shutil.copyfile(os.path.join(os.path.dirname(__file__), 'parnell_kerby.pdf'),
                         os.path.join(os.environ['DEFAULT_STORAGE_DIR'], 'parnell_kerby.pdf'))
         self.embedding_model = 'nomic-embed-text'
+
+    def test_load_pdf(self) -> None:
+        """Test loading a single PDF with metadata."""
+        with (open(os.path.join(os.path.dirname(__file__), 'parnell_kerby.xml'), encoding='utf-8')
+              as xml):
+            record = parse_xml_to_array(xml)[0]
+
+        metadata = pymarc_to_metadata(record)
+        docs = load_pdf('parnell_kerby.pdf', record)
+        self.assertGreater(len(docs), 0, "Should load the document.")
+        tind_md = docs[0].metadata['tind_metadata']
+        self.assertDictEqual(tind_md, metadata)
 
     def test_load_pdfs(self) -> None:
         """Test loading PDF files."""
