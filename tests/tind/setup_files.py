@@ -1,12 +1,15 @@
 """Methods for processing files"""
 
-import os
+from typing import Any
 import json
+import os
 
-def setup_json(file):
-    """Load a file of test json
-    params: a file containing json as text 
-    returns: a json object
+
+def setup_json(file: str) -> Any:
+    """Load a mock JSON object from a text file.
+
+    :param file: The name of the file containing the JSON object as text.
+    :returns: A loaded JSON object.
     """
     record = os.path.join(os.path.dirname(__file__), file)
     with open(record, encoding='UTF-8') as data_f:
@@ -14,10 +17,11 @@ def setup_json(file):
     return json.loads(data)
 
 
-def setup_text_file(file) -> str:
-    """Load a file of test xml
-    params: file
-    returns: A file as text
+def setup_text_file(file: str) -> str:
+    """Load a mock text file.
+
+    :param file: The name of the file containing the text.
+    :returns: The contents of the file as text.
     """
     record = os.path.join(os.path.dirname(__file__), file)
     with open(record, encoding='UTF-8') as data_f:

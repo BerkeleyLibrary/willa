@@ -2,6 +2,8 @@
 Formats and validates PyMARC records for Willa.
 """
 
+from typing import Any
+
 from pymarc import Record
 
 
@@ -29,12 +31,12 @@ def get_generic_fields(pymarc_record: Record) -> dict:
     :returns: The processed PyMARC record as a ``dict`` of values.
     """
 
-    fields_hash = {}
+    fields_hash: dict[str, Any] = {}
     arr = ['001', '041', '100', '110', '111', '245', '336', '520', '540', '600',
            '610', '611', '650', '651', '700', '710', '711', '909']
 
     for key in arr:
-        if not key in pymarc_record:
+        if key not in pymarc_record:
             fields_hash[key] = None
         else:
             fields = pymarc_record.get_fields(key)
@@ -46,28 +48,29 @@ def get_generic_fields(pymarc_record: Record) -> dict:
     return fields_hash
 
 
-
-def get_sub_by_field_and_indicators(record, field_tag, ind1=None, ind2=None, subfield_code=None) \
-                                    -> list:
+def get_sub_by_field_and_indicators(record: Record, field_tag: str,
+                                    ind1: str | None = None, ind2: str | None = None,
+                                    subfield_code: str | None = None) -> list | str | None:
     """
-    Retrieve subfields from a pymarc record based on field tag, indicators, and subfield code.
+    Retrieve subfields from a PyMARC record based on field tag, indicators, and subfield code.
 
-    :param pymarc_record: The record to process.
-    :param field_tag: The field tag.
-    :param ind1: first indicator
-    :param ind2: second indicator 
-    :param subfield_code: subfield code
+    :param Record record: The record to process.
+    :param str field_tag: The field tag.
+    :param str ind1: The first indicator (or None for no indicator).
+    :param str ind2: The second indicator (or None for no indicator).
+    :param str subfield_code: The subfield code (or None for no code).
 
     :returns: Either a ``list`` of fields or a ``str`` for a single field.
     """
-    results = []
+    results: list[str] = []
+
     for field in record.get_fields(field_tag):
         if (ind1 is None or field.indicator1 == ind1) and \
            (ind2 is None or field.indicator2 == ind2):
             if subfield_code:
                 results.extend(field.get_subfields(subfield_code))
             else:
-                results.extend(field.subfields)
+                results.extend(subfield.value for subfield in field.subfields)
 
     if not results:
         return None
@@ -133,7 +136,7 @@ def pymarc_to_metadata(record: Record) -> dict:
     """
     marc_values = parse_pymarc(record)
 
-    metadata = {}
+    metadata: dict[str, str | list | None] = {}
     for key, value in marc_values.items():
         meta_key = KEY_MAPPINGS[key]
         if meta_key in metadata:
@@ -146,9 +149,11 @@ def pymarc_to_metadata(record: Record) -> dict:
                 metadata[meta_key] = []
 
             if isinstance(value, list):
-                metadata[meta_key].extend(value)  # Add our list to the list.
+                # Add our list to the list.
+                metadata[meta_key].extend(value)  # type: ignore[union-attr]
             else:
-                metadata[meta_key].append(value)  # Add our value to the list.
+                # Add our value to the list.
+                metadata[meta_key].append(value)  # type: ignore[union-attr]
         else:
             metadata[meta_key] = value
 

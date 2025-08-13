@@ -13,12 +13,11 @@ from . import setup_files
 
 class TindSearchTest(unittest.TestCase):
     """Test the search methods of the willa.tind.fetch module."""
-    def setUp(self):
+    def setUp(self) -> None:
         """Provide a fake Tind API key"""
         os.environ['TIND_API_KEY'] = 'Test_Key'
 
-
-    def test_fetch_search_id(self):
+    def test_fetch_search_id(self) -> None:
         """fetch_ids_search should return a list of Tind ID's if there are results"""
         json_object = setup_files.setup_json('example_search_id.json')
         mock_array = [34059, 34060, 34061, 34062, 34063, 34064, 34065,
@@ -28,7 +27,6 @@ class TindSearchTest(unittest.TestCase):
             r = fetch.fetch_ids_search('980:"CalHer: LA Harbor"')
 
             self.assertEqual(r, mock_array)
-
 
 #    def test_retrieve_xml_search_id(self):
 #        """Test that a search_id and ElementTree are returned from an xml string"""
@@ -40,8 +38,7 @@ class TindSearchTest(unittest.TestCase):
 #        self.assertEqual(search_id, 'FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ckhib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR09RQkdxU3cxN2RXU2wyQQ==')
 # pylint: enable=line-too-long
 
-
-    def test_search_with_xml_format(self):
+    def test_search_with_xml_format(self) -> None:
         """Test the search method with result_format='xml'."""
         response_xml = setup_files.setup_text_file('example_fetch_metadata.xml')
         response_no_records = setup_files.setup_text_file('example_no_records.xml')
@@ -53,8 +50,7 @@ class TindSearchTest(unittest.TestCase):
             self.assertEqual(len(records), 29)
             self.assertIn('<datafield tag="245"', records[5])
 
-
-    def test_search_with_pymarc_format(self):
+    def test_search_with_pymarc_format(self) -> None:
         """Test the search method with result_format='pymarc'."""
         response_xml = setup_files.setup_text_file('example_fetch_metadata.xml')
         response_no_records = setup_files.setup_text_file('example_no_records.xml')
