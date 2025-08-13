@@ -28,23 +28,35 @@ def main() -> None:
         my_store = run_pipeline()
 
     model = ChatOllama(model=args.model, temperature=0.5, base_url=OLLAMA_URL)
+    bot = Chatbot(my_store, model, [])
+
+    console.print('This is [bold purple]Willa[/bold purple], ready to answer your question.')
+    console.print('Ask me a question about the Oral Histories at '
+                '[bold blue]Berkeley[/bold blue] [bold yellow]Library[/bold yellow]!')
+    console.print('Conversation history is maintained within this session.')
 
     while True:
-        bot = Chatbot(my_store, model)
-
         console.print()  # Empty line after the pipeline output or prior answer.
-        console.print('This is [bold purple]Willa[/bold purple], ready to answer your question.')
-        console.print('Ask me a question about the Oral Histories at '
-                      '[bold blue]Berkeley[/bold blue] [bold yellow]Library[/bold yellow]!')
-        console.print('Each question has its own context; memory is not shared between questions.')
         console.print('To stop and return to your shell, type `quit`.\n')
+        # if bot.conversation_history:
+        #     console.print(f'Conversation count: {(len(bot.conversation_history))//2}')
 
+        # console.print('Your previous conversation:')
+        # for entry in bot.conversation_history:
+        #     console.print(f"  {entry['role']}: {entry['content']}")
+        # console.print('\n')
         question = console.input('> ')
         if question == 'quit':
             break
 
         with console.status('[bold green]Thinking...'):
             answer = bot.ask(question)
+
+        # Update conversation history
+        bot.conversation_history.extend([
+            {"role": "human", "content": question},
+            {"role": "assistant", "content": answer}
+        ])
 
         console.print(answer)
 

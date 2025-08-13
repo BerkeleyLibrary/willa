@@ -38,15 +38,18 @@ class Chatbot:  # pylint: disable=R0903
     questions can be asked in succession.  See AP-375.
     """
 
-    def __init__(self, vector_store: VectorStore, model: BaseChatModel):
+    def __init__(self, vector_store: VectorStore, model: BaseChatModel,
+                 conversation_history: list[dict[str, str]]=None):
         """Create a new Willa chatbot instance.
 
         :param vector_store: The vector store to use for searching.
         :param model: The LLM to use for processing.
+        :param conversation_history: The history of the conversation.
         """
         self.vector_store = vector_store
         self.model = model
         self.chain = PROMPT | self.model
+        self.conversation_history = conversation_history
 
     def ask(self, question: str) -> str:
         """Ask a question of this Willa chatbot instance.
@@ -56,5 +59,13 @@ class Chatbot:  # pylint: disable=R0903
         """
         matching_docs = self.vector_store.similarity_search(question)
         context = '\n\n'.join(doc.page_content for doc in matching_docs)
-        answer = self.chain.invoke({'question': question, 'context': context})
+
+        conversation_context = ""
+        if self.conversation_history:
+            conversation_context = "\n".join([
+                f"{entry['role']}: {entry['content']}" for entry in self.conversation_history
+            ]) + "\n\n"
+
+        answer = self.chain.invoke({'conversation_history': conversation_context,
+                                    'question': question, 'context': context})
         return answer.text()
