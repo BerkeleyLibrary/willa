@@ -11,6 +11,7 @@ from langchain_ollama import OllamaEmbeddings
 from pymarc.record import Record
 
 from willa.tind.fetch import fetch_metadata, fetch_file_metadata, fetch_file
+from willa.config import OLLAMA_URL
 from .doc_proc import load_pdf, load_pdfs, split_all_docs, embed_docs
 
 
@@ -19,7 +20,7 @@ def _create_vector_store() -> VectorStore:
 
     This is a separate method so we can change properties later.
     """
-    embeddings = OllamaEmbeddings(model='nomic-embed-text')
+    embeddings = OllamaEmbeddings(model='nomic-embed-text', base_url=OLLAMA_URL)
     return InMemoryVectorStore(embeddings)
 
 

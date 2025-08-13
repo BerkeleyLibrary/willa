@@ -9,11 +9,8 @@ from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
 from willa.chatbot import Chatbot
+from willa.config import OLLAMA_URL
 from willa.etl.pipeline import run_pipeline
-
-
-OLLAMA_URL: str = os.getenv('OLLAMA_URL', 'http://localhost:11434')
-"""The URL to use to connect to Ollama."""
 
 
 STORE = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text', base_url=OLLAMA_URL))
