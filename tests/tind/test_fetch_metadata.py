@@ -8,6 +8,7 @@ import unittest
 # import xml.etree.ElementTree as ET
 import requests_mock
 
+from willa.errors import TINDError
 from willa.tind import fetch
 from . import setup_files
 
@@ -62,3 +63,11 @@ class TindSearchTest(unittest.TestCase):
             self.assertEqual(len(records), 29)
             self.assertEqual(records[4]['245']['a'],
                              'The Simple Alligator Rider in Court of Pacifica')
+
+    def test_search_error(self) -> None:
+        """Test the search method with an error response."""
+        error_resp = '{"error": "User guest is not authorized to perform runapi with parameters '\
+                     'endpoint=search,operation=read"}'
+        with requests_mock.mock() as r_mock:
+            r_mock.get('https://ucb.tind.example/api/v1/search', status_code=403, text=error_resp)
+            self.assertRaises(TINDError, fetch.search, 'alligator', result_format='pymarc')

@@ -1,6 +1,7 @@
 """
 Test the TIND fetch record functionality of Willa.
 """
+
 import os
 import unittest
 
@@ -10,8 +11,10 @@ from willa.errors import TINDError
 from willa.tind import fetch
 from . import setup_files
 
+
 class TindFetchFileMetadataTest(unittest.TestCase):
     """Test the fetch_file_metadata method of the willa.tind.fetch module."""
+
     def setUp(self) -> None:
         """Create a fake Tind API key"""
         os.environ['TIND_API_KEY'] = 'Test_Key'
@@ -24,10 +27,9 @@ class TindFetchFileMetadataTest(unittest.TestCase):
             r_mock.get('https://ucb.tind.example/api/v1/record/219112/files', json=json_object)
             record = fetch.fetch_file_metadata('219112')
 
-            # pylint: disable=line-too-long
-            self.assertEqual(record[0]['url'],
-                             'https://digicoll.lib.berkeley.edu/api/v1/record/219112/files/zepatos_thalia_2017.pdf/download/?version=1')
-            # pylint: enable=line-too-long
+            self.assertEqual(record[0]['url'], 'https://digicoll.lib.berkeley.edu/api/v1/record/'
+                                               '219112/files/zepatos_thalia_2017.pdf/download/'
+                                               '?version=1')
 
             self.assertEqual(len(record), 1)
 
@@ -38,15 +40,12 @@ class TindFetchFileMetadataTest(unittest.TestCase):
             r_mock.get('https://ucb.tind.example/api/v1/record/101218/files', json=json_object)
             record = fetch.fetch_file_metadata('101218')
 
-            self.assertEqual(record[0]['url'],
-                # pylint: disable=line-too-long
-                'https://digicoll.lib.berkeley.edu/api/v1/record/101218/files/casl0010490010_ii.jpg/download/?version=1')
-                # pylint: enable=line-too-long
-
-            self.assertEqual(record[2]['url'],
-                # pylint: disable=line-too-long
-                'https://digicoll.lib.berkeley.edu/api/v1/record/101218/files/casl0010490030_ii.jpg/download/?version=1')
-                # pylint: enable=line-too-long
+            self.assertEqual(record[0]['url'], 'https://digicoll.lib.berkeley.edu/api/v1/record/'
+                                               '101218/files/casl0010490010_ii.jpg/download/'
+                                               '?version=1')
+            self.assertEqual(record[2]['url'], 'https://digicoll.lib.berkeley.edu/api/v1/record/'
+                                               '101218/files/casl0010490030_ii.jpg/download/'
+                                               '?version=1')
 
             self.assertEqual(len(record), 10)
 
