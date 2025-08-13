@@ -211,3 +211,6 @@ __marimo__/
 
 # Ollama model data.
 ollama/
+
+# Chainlit files
+.chainlit
