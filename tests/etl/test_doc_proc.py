@@ -11,6 +11,7 @@ from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings
 from pymarc import parse_xml_to_array
+from willa.config import OLLAMA_URL
 from willa.etl.doc_proc import (
     load_pdf, load_pdfs,
     split_doc, split_all_docs,
@@ -67,7 +68,7 @@ class DocumentProcessingTest(unittest.TestCase):
         docs = load_pdfs()
         if docs:
             chunked_docs = split_all_docs(docs)
-            embeddings = OllamaEmbeddings(model=self.embedding_model)
+            embeddings = OllamaEmbeddings(model=self.embedding_model, base_url=OLLAMA_URL)
             vector_store = InMemoryVectorStore(embeddings)
             embed_ids = embed_docs(chunked_docs, vector_store)
             self.assertGreater(len(embed_ids), 0, "Should return IDs for embedded documents.")

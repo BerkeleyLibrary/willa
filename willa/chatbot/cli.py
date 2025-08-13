@@ -9,6 +9,7 @@ from rich.console import Console
 
 from willa.etl.pipeline import run_pipeline
 from willa.chatbot import Chatbot
+from willa.config import OLLAMA_URL
 
 
 def main() -> None:
@@ -26,7 +27,7 @@ def main() -> None:
     with console.status("[bold green]Loading documents..."):
         my_store = run_pipeline()
 
-    model = ChatOllama(model=args.model, temperature=0.5)
+    model = ChatOllama(model=args.model, temperature=0.5, base_url=OLLAMA_URL)
 
     while True:
         bot = Chatbot(my_store, model)
