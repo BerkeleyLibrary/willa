@@ -5,7 +5,11 @@ Test suite for end-to-end pipeline routines.
 import os
 import unittest
 
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_ollama import OllamaEmbeddings
 import requests_mock
+
+from willa.config import OLLAMA_URL
 from willa.etl.pipeline import fetch_one_from_tind
 
 
@@ -37,7 +41,9 @@ class PipelineTest(unittest.TestCase):
                   '/download/?version=1'
             r_mock.get(url, content=kerby_pdf)
 
-            store = fetch_one_from_tind('test')
+            store = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text',
+                                                         base_url=OLLAMA_URL))
+            fetch_one_from_tind('test', store)
 
         results = store.search('Arkansas', 'similarity')
         self.assertGreater(len(results), 0, "Search should match at least one document.")

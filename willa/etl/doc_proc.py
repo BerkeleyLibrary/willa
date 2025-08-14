@@ -25,8 +25,8 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
     :param record: The PyMARC record that pertains to the file.
     :returns: A ``list`` of ``Document``s that can be further used in the pipeline.
     """
-    directory_path = os.getenv('DEFAULT_STORAGE_DIR', 'tmp/files/')
-    loader = PyPDFDirectoryLoader(directory_path, glob=name, mode="single")
+    directory_path = os.path.dirname(name)
+    loader = PyPDFDirectoryLoader(directory_path, glob=os.path.basename(name), mode="single")
 
     docs = loader.load()
     if not docs:

@@ -36,7 +36,7 @@ class DocumentProcessingTest(unittest.TestCase):
             record = parse_xml_to_array(xml)[0]
 
         metadata = pymarc_to_metadata(record)
-        docs = load_pdf('parnell_kerby.pdf', record)
+        docs = load_pdf(os.path.join(os.path.dirname(__file__), 'parnell_kerby.pdf'), record)
         self.assertGreater(len(docs), 0, "Should load the document.")
         tind_md = docs[0].metadata['tind_metadata']
         self.assertDictEqual(tind_md, metadata)
