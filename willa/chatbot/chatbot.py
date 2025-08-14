@@ -66,6 +66,6 @@ class Chatbot:  # pylint: disable=R0903
                 f"{entry['role']}: {entry['content']}" for entry in self.conversation_history
             ]) + "\n\n"
 
-        answer = self.chain.invoke({'conversation_history': conversation_context,
+        answer = self.chain.invoke({'conversation_context': conversation_context,
                                     'question': question, 'context': context})
         return answer.text()
