@@ -72,32 +72,28 @@ def fetch_file_metadata(record: str) -> list:
     """Fetch file metadata for a given Tind record.
 
     :raises AuthorizationError: When the TIND API key is invalid.
-    :raises Exception: for any response other then 200. 
+    :raises TINDError: For any response other than 200.
     :returns: A list of file metadata for a given TIND record.
     """
 
     status, files = tind_get(f"record/{record}/files")
 
     if status != 200:
-        j = json.loads(files)
-        reason = j['reason']
-        raise TINDError(f"Status: {status} Message: {reason}.")
+        raise TINDError.from_json(status, files)
 
     return json.loads(files)  # type: ignore[no-any-return]
 
 
-def fetch_ids_search(srch: str) -> list:
-    """Returns a list or Tind record ids for a given search.
+def fetch_ids_search(query: str) -> list:
+    """Returns a list of TIND record IDs for a given search query.
 
-    :param str srch: Tind query string
-    :returns a list of Tind record ids
+    :param str query: The query string to search for in TIND.
+    :returns: A list of TIND record IDs.
     """
-    status, rec_ids = tind_get("search", {'p': srch})
+    status, rec_ids = tind_get("search", {'p': query})
 
     if status != 200:
-        j = json.loads(rec_ids)
-        reason = j['reason']
-        raise TINDError(f"Status: {status}, Message: {reason}")
+        raise TINDError.from_json(status, rec_ids)
 
     j = json.loads(rec_ids)
     return j['hits']  # type: ignore[no-any-return]
@@ -116,31 +112,31 @@ def fetch_marc_by_ids(ids: list) -> list[Record]:
     return records
 
 
-def fetch_search_metadata(srch: str) -> List[Record]:
+def fetch_search_metadata(query: str) -> List[Record]:
     """Returns PyMARC records that match a given search.
 
-    :param str srch: The Tind search query.
+    :param str query: The TIND search query.
     :returns: A list of PyMARC records that match the given query.
     """
-    ids = fetch_ids_search(srch)
+    ids = fetch_ids_search(query)
 
     return fetch_marc_by_ids(ids)
 
 
-def _search_request(srch: str, search_id: str | None = None) -> str:
+def _search_request(query: str, search_id: str | None = None) -> str:
     """retrieves a page of marc data records
 
-    :params str srch: The Tind search query.
+    :params str query: The Tind search query.
     :params str search_id: The search_id for each page of Tind results for pagination.
     :returns: a page of marc records
     """
     if search_id:
-        status, response = tind_get('search', {'format': 'xml', 'p': srch, 'search_id': search_id})
+        status, response = tind_get('search', {'format': 'xml', 'p': query, 'search_id': search_id})
     else:
-        status, response = tind_get('search', {'format': 'xml', 'p': srch})
+        status, response = tind_get('search', {'format': 'xml', 'p': query})
 
     if status != 200:
-        raise TINDError(f"Status: {status} Problem retrieving Tind record.")
+        raise TINDError(f"Status {status} while retrieving TIND record")
 
     return response
 
@@ -158,11 +154,11 @@ def _retrieve_xml_search_id(response: str) -> Tuple[Any, str]:
     return xml, search_id
 
 
-def search(srch: str, result_format: str = 'xml') -> List[Any]:
-    """Searches Tind and retrieves a list of eithe XML or Pymarc
+def search(query: str, result_format: str = 'xml') -> List[Any]:
+    """Searches Tind and retrieves a list of either XML or Pymarc
 
-    :param srch: A Tind search string
-    :param result_format: ``xml`` for XML string, ``pymarc`` for list of pymarc records.
+    :param str query: A Tind search string
+    :param str result_format: ``xml`` for XML string, ``pymarc`` for list of pymarc records.
     :returns: a list of records as either xml strings or pymarc records
     """
 
@@ -174,9 +170,9 @@ def search(srch: str, result_format: str = 'xml') -> List[Any]:
 
     while True:
         if search_id:
-            response = _search_request(srch, search_id)
+            response = _search_request(query, search_id)
         else:
-            response = _search_request(srch)
+            response = _search_request(query)
 
         xml, search_id = _retrieve_xml_search_id(response)
 
