@@ -12,7 +12,7 @@ from langchain_ollama import OllamaEmbeddings
 from pymarc.record import Record
 
 from willa.config import OLLAMA_URL
-from willa.tind.fetch import fetch_metadata, fetch_file_metadata, fetch_file
+from willa.tind.fetch import fetch_metadata, fetch_file_metadata, fetch_file, search
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 from .doc_proc import load_pdf, load_pdfs, split_all_docs, embed_docs
 
@@ -44,15 +44,20 @@ def run_pipeline(vector_store: VectorStore | None = None) -> VectorStore:
     return vector_store
 
 
-def fetch_one_from_tind(tind_id: str, vector_store: VectorStore | None = None) -> None:
-    """Fetch the files for a TIND record, then load them into the VectorStore.
+def _process_one_tind_record(record: Record, vector_store: VectorStore | None = None) -> None:
+    """Process a TIND record that has been fetched.
 
-    :param str tind_id: The ID of the TIND record.
+    This allows us to have two ways into this common code: calling
+    ``fetch_one_from_tind`` allows us to fetch by TIND ID; while calling
+    ``from_from_search_query`` allows the query's matches to be used as
+    the PyMARC Record.  This saves a TIND API call to ``fetch_metadata``
+    for each record returned in the search.
+
+    :param Record record: The PyMARC Record object associated with the TIND record.
     :param vector_store: The vector store in which to store the documents.
-                         If no vector store is specified, files will be fetched
-                         but not processed into a vector store.
+                         If None, vector processing will be skipped.
     """
-    record: Record = fetch_metadata(tind_id)
+    tind_id: str = record['001'].value()
     files: list[dict] = fetch_file_metadata(tind_id)
     file_names: list[str] = []
     docs: list[Document] = []
@@ -75,6 +80,18 @@ def fetch_one_from_tind(tind_id: str, vector_store: VectorStore | None = None) -
         embed_docs(splits, vector_store)
 
 
+def fetch_one_from_tind(tind_id: str, vector_store: VectorStore | None = None) -> None:
+    """Fetch the files for a TIND record, then load them into the VectorStore.
+
+    :param str tind_id: The ID of the TIND record.
+    :param vector_store: The vector store in which to store the documents.
+                         If no vector store is specified, files will be fetched
+                         but not processed into a vector store.
+    """
+    record: Record = fetch_metadata(tind_id)
+    _process_one_tind_record(record, vector_store)
+
+
 def fetch_from_tind(tind_ids: list[str], vector_store: VectorStore | None = None) -> None:
     """Fetch files from a list of TIND records, then load them into a given VectorStore.
 
@@ -85,3 +102,16 @@ def fetch_from_tind(tind_ids: list[str], vector_store: VectorStore | None = None
     """
     for tind_id in tind_ids:
         fetch_one_from_tind(tind_id, vector_store)
+
+
+def fetch_all_from_search_query(query: str, vector_store: VectorStore | None = None) -> None:
+    """Fetch all TIND records that match a given search query, then download them.
+
+    :param str query: The search query to run against the TIND catalogue.
+    :param vector_store: The vector store in which to store the documents.
+                         If no vector store is specified, files will be fetched
+                         but not processed into a vector store.
+    """
+    results = search(query, 'pymarc')
+    for record in results:
+        _process_one_tind_record(record, vector_store)
