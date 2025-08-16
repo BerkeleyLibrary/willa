@@ -1,0 +1,1736 @@
+<response>
+  <total>21</total>
+  <search_id>FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ckhib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR09RQkdxU3cxN2RXU2wyQQ==</search_id>
+  <collection xmlns="http://www.loc.gov/MARC21/slim">
+    <record>
+      <controlfield tag="001">219031</controlfield>
+      <controlfield tag="005">20250321021911.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2044</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Richard Carlbom on the Minnesota Campaign and Field Organizing at Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Carlbom, Richard. "Richard Carlbom on the Minnesota Campaign and Field Organizing at Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Richard Carlbom was the campaign director for Minnesotans United for All Families and served as state director at Freedom to Marry. Carlbom is a Minnesota native who was elected mayor of the town of St. Joseph, Minnesota, just after he graduated college in 2004. He went on to work with other state elected officials before being named campaign director in opposition to a state ballot initiative that would have written discrimination into the state constitution. After winning marriage in Minnesota in 2013, Carlbom joined Freedom to Marry. In this interview, Carlbom describes in detail the two Minnesota campaigns, in 2012 and 2013.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Carlbom, Richard</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">f062f743-c985-45da-ad58-59c09d8f9791</subfield>
+        <subfield code="s">400167</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219031/files/carlbom_richard_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=TILZ4KdS-AY</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=w83KjP66etA</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219031</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219040</controlfield>
+      <controlfield tag="005">20250321021912.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2053</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Barbara Cox on Marriage Law and the Governance of Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Cox, Barb. "Barbara Cox on Marriage Law and the Governance of Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Barbara “Barb” Cox served on Freedom to Marry’s steering committee from its inception through its transition to a Board of Directors when it became an independent 501c3 organization. She is currently Vice Dean of Academic Affairs at California Western School of Law. Cox was born in Wisconsin in 1956, attended college at Michigan State University, and law school at the University of Wisconsin. In this interview, Cox provides an account of the effort to pass one of the first “domestic partnership” laws in the U.S., in Madison, Wisconsin. She discusses early legal strategies for recognizing same-sex relationships. As a founding member of Freedom to Marry’s steering committee, she discusses the organization’s governance structure as well as several of its key activities.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Cox, Barb</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">5910d0fd-272f-4618-ba39-a0981a317318</subfield>
+        <subfield code="s">450166</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219040/files/cox_barbara_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219040</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219042</controlfield>
+      <controlfield tag="005">20250321021912.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2055</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Michael Crawford on the Digital Campaign at Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Crawford, Michael. "Michael Crawford on the Digital Campaign at Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Michael Crawford was director of digital campaigns at Freedom to Marry from 2010 to 2016. Crawford was born in Houston, Texas, and attended the University of Houston. He moved to Washington DC in 1999 to work in preparation for the Millennium March for LGBT rights and then went to work for Human Rights Campaign as an associate field director. Crawford joined Freedom to Marry in 2010 where his focus was on mounting several, interrelated digital campaigns, expanding the organization’s email list, and increasing the campaign’s presence on social media. In this interview, Crawford tells about his upbringing and how he became involved in the LGBT movement. He recalls his introduction to the movement for marriage equality and his decision to join Freedom to Marry at a critical moment in the campaign. The interview details several of the key digital campaigns, such as Southerners for the Freedom to Marry, which began to sway public opinion in favor of extending marriage to same-sex couples.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Crawford, Michael</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">ebae0289-d9ac-4ad8-872c-532ab4be7203</subfield>
+        <subfield code="s">352725</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219042/files/crawford_michael_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219042</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219043</controlfield>
+      <controlfield tag="005">20250321021912.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2056</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Scott Davenport on Administration and Operations at Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Davenport, Scott. "Scott Davenport on Administration and Operations at Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Scott Davenport was the Chief Operating Officer for Freedom to Marry. Davenport was born in 1957 and raised in Pennsylvania. He came out in the early 1980s and with his partner by 1989 started exploring options for adoption or surrogacy. The two eventually raised two children and in this interview, Davenport discusses the complex process of adoption for same-sex couples. In the 1990s, Davenport played a leadership role in Gay and Lesbian Parents Coalition International and Children of Gays and Lesbians Everywhere and was one of the founders of Family Week in Provincetown. Davenport joined Freedom to Marry in 2008, eventually becoming the Chief Operating Officer of the organization. In this interview, Davenport discusses the era in which same-sex couples were denied the freedom to marry and how that impacted his family. He goes on to detail the work on Freedom to Marry, particularly the administrative structure, governance, staffing issues, working with foundations and donors, and the organization’s expansion after 2009</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Davenport, Scott</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">b97a666e-4bd9-46e9-af0c-aefeb68d7a95</subfield>
+        <subfield code="s">368115</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219043/files/davenport_scott_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219043</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219045</controlfield>
+      <controlfield tag="005">20250321021912.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2058</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Tyler Deaton on the New Hampshire Campaign
+          and Securing Republican Support for the Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Deaton, Tyler. "Tyler Deaton on the New Hampshire Campaign
+          and Securing Republican Support for the Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Tyler Deaton led the successful effort to prevent the repeal of the freedom to marry in New Hampshire and then went on to lead the “Young Conservatives for the Freedom to Marry” campaign at Freedom to Marry. Deaton was born in 1986 in Georgia and raised in Georgia and then Alabama. He attended conservative Wheaton College, where he met the man he would later marry. In this interview, Deaton discusses his work organizing conservatives to support the freedom to marry, particularly in New Hampshire, a state in which Republicans joined Democrats in 2010 to fight back legislation that would have repealed marriage for same-sex couples</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Deaton, Tyler</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">49aaae32-da9a-4282-a3be-0db0321e080a</subfield>
+        <subfield code="s">1149463</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219045/files/deaton_tyler_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219045</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219048</controlfield>
+      <controlfield tag="005">20250321021913.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2061</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Jo Deutsch and the Federal Campaign</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Deutsch, Jo. "Jo Deutsch and the Federal Campaign." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Jo Deutsch served as Freedom to Marry’s Federal Director from 2011 to 2015. Deutsch was born in 1960 in Florida, where she was raised. Deutsch became active as a feminist by the time she was in high school and feminism continued to influence her in college and through her work as a lobbyist on Capitol Hill for groups such as the Association of Flight Attendants. In this interview, Deutsch describes her upbringing, education, coming out as a lesbian, and many years working in DC representing labor organizations. She joined Freedom to Marry in 2011 and worked on legislation designed to overturn the Defense of Marriage Act (DOMA). When DOMA was overturned by the United States Supreme Court in 2013, she turned her attention to working with the DC-based media and increasing the number of elected officials who declared their support for marriage. In this interview, she discusses all of these activities along with the campaigns “Democrats: Say I Do,” “Mayors for the Freedom to Marry,” and “Young Conservatives for the Freedom to Marry.”</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Deutsch, Jo</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">1ec3f882-7452-4c88-9fde-4e8ff46541c5</subfield>
+        <subfield code="s">347056</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219048/files/deutsch_jo_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219048</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219052</controlfield>
+      <controlfield tag="005">20250321021913.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2065</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Sean Eldridge on Politics, Communications, and the Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Eldridge, Sean. "Sean Eldridge on Politics, Communications, and the Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Sean Eldridge was Communications Director (2010) and Political Director (2011) for Freedom to Marry. Eldridge was born in 1986 in Montreal, Canada, and raised in the state of Ohio. Eldridge became active in the campaign to win marriage for same-sex couples after the New York state legislature voted down a law that would have granted the freedom to marry. After that election, he joined Freedom to Marry first as director of communications and then as political director. In this interview, Eldridge discussed the successful effort to win marriage in New York in 2011, engagement with President’s Obama team in advance of his declared support in 2012, and thoughts on what donors seek when funding social change organizations.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Eldridge, Sean</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">77bd44ba-f82f-459e-81a9-b2760b9b6ecd</subfield>
+        <subfield code="s">445594</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219052/files/eldridge_sean_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219052</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219055</controlfield>
+      <controlfield tag="005">20250321021914.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2068</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">James Esseks on Legal Strategy,
+          the ACLU, and LGBT Legal Organizations</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Esseks, James. "James Esseks on Legal Strategy,
+          the ACLU, and LGBT Legal Organizations." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">James Esseks is Director of the ACLU Lesbian Gay Bisexual Transgender &amp; HIV Project. Esseks was raised in Long Island, New York, and attended Yale as an undergraduate and then Harvard Law School. After clerking for U.S. Circuit Judge James R. Browning on the Ninth Circuit Court of Appeals and U.S. District Court Judge Robert L. Carter in the Southern District of New York, he worked for the law firm of Vladeck, Waldman, Elias &amp; Englehard. In 2001 he was hired by the ACLU as Litigation Director for the Lesbian Gay Bisexual Transgender &amp; HIV Project. In this interview, Esseks discusses the freedom to marry movement from the vantage point of the legal strategy to win marriage, including the ways in which the various organizations collaborated. Further, he details the pivotal cases on which he worked, including United States v. Windsor (2013) and Obergefell v. Hodges (2015).</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Esseks, James</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">0ccdcd0d-b9e0-40ff-adb3-bfea505f2a33</subfield>
+        <subfield code="s">848893</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219055/files/esseks_james_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219055</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219069</controlfield>
+      <controlfield tag="005">20250321021915.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2082</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Kate Kendell on Legal Strategy,
+          the National Center for Lesbian Rights,
+          and LGBT Legal Organizations</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Kendall, Kate. "Kate Kendell on Legal Strategy,
+          the National Center for Lesbian Rights,
+          and LGBT Legal Organizations." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Kate Kendell is the Executive Director of the National Center for Lesbian Rights. Kendell was born in Portland, Oregon, and raised in Ogden, Utah. She attended Weber State University as an undergraduate and University of Utah Law School. After working for a private law firm in Salt Lake City, Kendell took a position with the ACLU of Utah in 1990 and began doing civil rights law. In 1994 she moved to San Francisco to become Legal Director for the National Center for Lesbian Rights, becoming Executive Director in 1996. In this interview, Kendell discusses discusses the freedom to marry movement from the vantage point of the legal strategy to win marriage, including the ways in which the various organizations collaborated. Further, she details pivotal cases including In re Marriage Cases (2008), Hollingsworth v. Perry (2013), and Tanco v. Haslam (2015).</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Kendall, Kate</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">837b326f-59c8-4f1f-9d03-d47c4d938d9e</subfield>
+        <subfield code="s">661920</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219069/files/kendell_kate_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=TILZ4KdS-AY</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219069</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219071</controlfield>
+      <controlfield tag="005">20250321021915.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2084</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Harry Knox on the Early Years of Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Knox, Harry. "Harry Knox on the Early Years of Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Harry Knox was Freedom to Marry’s first program director, serving in that position from 2003 to 2005. Knox was born in 1961 in Massachusetts and raised in Georgia. He studied at the University of Georgia and Miami University of Ohio; he studied to be ordained as a minister in the United Church of Christ, but his ordination was rejected by that denomination. He went on to form George Equality in 1996 and served as that organization’s executive director from 1998 to 2001. In this interview, Knox discusses the early years of Freedom to Marry including efforts to engage with state-based LGBT organizations, establishing coalitions with faith-based and people of color groups, and getting the United Church of Christ to endorse marriage for same-sex couples</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Knox, Harry</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">b76983f4-d0a7-4af4-b97d-f76408462398</subfield>
+        <subfield code="s">328132</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219071/files/knox_harry_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219071</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219080</controlfield>
+      <controlfield tag="005">20250321021917.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2093</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Amanda McLain-Snipes on Bringing the Freedom to Marry
+          to Oklahoma, Texas, and the Deep South</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">McLain-Snipes, Amanda. "Amanda McLain-Snipes on Bringing the Freedom to Marry
+          to Oklahoma, Texas, and the Deep South." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Amanda McLain-Snipes was the Campaign Manager for “Southerners for the Freedom to Marry.” McLain-Snipes was born and raised in Oklahoma and earned her undergraduate degree at the University of Central Oklahoma. She got her start in politics by working for a number of progressive candidates for office in Oklahoma and Colorado. In 2014 she began working for the Equality Network and became the manager of Freedom to Marry’s “Southerners for the Freedom to Marry” public education campaign. In this interview, McLain-Snipes discusses organizing Oklahoma, Texas, and the Deep South in preparation for the legal extension of marriage to same-sex couples in those states.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">McLain-Snipes, Amanda</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">24804217-2f02-4dd3-b63e-1f72ae00c2f9</subfield>
+        <subfield code="s">788445</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219080/files/mclain-snipes_amanda_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219080</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219081</controlfield>
+      <controlfield tag="005">20250321021917.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2094</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Matt McTighe on the Marriage Campaigns in Massachusetts and Maine</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">McTighe, Matt. "Matt McTighe on the Marriage Campaigns in Massachusetts and Maine." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Matt McTighe is currently executive director of Freedom for All Americans. McTighe was born in New York and raised around the country because his father was in the military. He began his political work serving moderate Republicans before joining the campaign to win the freedom to marry in 2003 when he served as political director of MassEquality. After a 2009 “people’s veto” of marriage in Maine, McTighe headed up what became in 2012 the first successful statewide ballot campaign to win marriage. In this interview, McTighe discusses the full sweep of political campaigns, both legislatively and through voter referendums, focusing on Massachusetts and Maine; he provides detail on running an extensive ground campaign and developing message research and political ads that clearly communicated successful messages</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">McTighe, Matt</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">e7766508-302f-40a9-a751-e61820342b1b</subfield>
+        <subfield code="s">682564</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219081/files/mctighe_matt_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=w83KjP66etA</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219081</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219085</controlfield>
+      <controlfield tag="005">20250321021917.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2098</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">John Newsome on “And Marriage for All”</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Newsome, John. "John Newsome on “And Marriage for All”." Interview by Brad Bailey in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">John Newsome was active in the freedom to marry movement through regional activism in the San Francisco Bay Area and Northern California and on a broader stage in the Civil Marriage Collaborative. In this interview, Newsome discusses his upbringing, coming to terms with his homosexuality, education, and political awareness. He worked on the “And Castro for All” campaign which addressed racial bias in San Francisco gay bars and then on the outgrowth of that campaign, “And Marriage for All,” which sought to mobilize communities of color around marriage equality.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Newsome, John</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Bailey, Brad</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">b421ebdd-c13f-4c54-9c09-ac44b19e7ee1</subfield>
+        <subfield code="s">260287</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219085/files/newsome_john_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219085</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219086</controlfield>
+      <controlfield tag="005">20250321021917.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2099</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Kevin Nix on Media and Public Relations
+          in the Freedom to Marry Movement</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Nix, Kevin. "Kevin Nix on Media and Public Relations
+          in the Freedom to Marry Movement." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Kevin Nix was Communications Director at Freedom to Marry. Nix was born and raised in Texas and earned his undergraduate degree from Tulane in New Orleans. He quickly became interested in political communications and worked for a number of candidates, first for Republicans then for Democrats. He worked on the communications team for Servicemembers Legal Defense Network and then for the Human Rights Campaign, ultimately becoming Communications Director for Freedom to Marry. In this interview, Nix discusses the major LGBT rights issues of the day – ending “Don’t Ask, Don’t Tell” and winning the freedom to marry – from the vantage point of media, public relations, and communications, describing how media strategy contributed to victories in both campaigns.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Nix, Kevin</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">0906c4c7-7046-4b1d-b6cc-544f393b6cdc</subfield>
+        <subfield code="s">435747</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219086/files/nix_kevin_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219086</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219097</controlfield>
+      <controlfield tag="005">20250321021919.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2110</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Bill Smith on Political Operations in the Fight to Win the Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Smith, Bill. "Bill Smith on Political Operations in the Fight to Win the Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Bill Smith, currently Founding Partner of Civitas Public Affairs Group, was Political Director for Gill Action during the multi-year fight for the freedom to marry. Smith was born and raised in Alabama and earned his undergraduate degree from Birmingham Southern College. Right out of college, Smith went to work for political campaigns, including a stint working for Karl Rove and Company. Smith political affiliations changed as a result of President Bush’s support of Federal Marriage Amendment, which would have written discrimination into the US Constitution. Smith worked with the Log Cabin Republicans and the Gay and Lesbian Victory Fund before joining Gill Action, where he became National Political Director. In this interview, Smith discusses the political operations of the broad campaign to win the freedom to marry from the vantage point of a 501(c)(4) political organization</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Smith, Bill</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">2d20cd44-8eda-413a-8487-98d96a6609ca</subfield>
+        <subfield code="s">602526</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219097/files/smith_bill_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219097</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219099</controlfield>
+      <controlfield tag="005">20250321021919.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2112</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Anne Stanback on the Connecticut Campaign
+          and Freedom to Marry’s Board of Directors</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Stanback, Anne. "Anne Stanback on the Connecticut Campaign
+          and Freedom to Marry’s Board of Directors." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Anne Stanback was director of Love Makes a Family, the campaign to win marriage in Connecticut, and served on the steering committee and then board of directors for Freedom to Marry from 2010 to 2016. Stanback was born in 1958 in North Carolina and raised and educated there through college. She attended Yale Divinity School with the goal of doing social justice work. In the early 1980s she had come out as a lesbian and worked in feminist and lesbian organizations. In 1999 she was a founder of Love Makes a Family, which advocated extending marriage rights to same-sex couples. In this interview, Stanback discusses the marriage equality movement in Connecticut from the 1990s through 2009 when the state started issuing licenses to same-sex couples. Stanback also discusses her role on the steering committee and, once it was separately incorporated, on the board Freedom to Marry’s 501(c)(4) political advocacy arm.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Stanback, Anne</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">c051108e-f480-4212-9875-9b49297dacfb</subfield>
+        <subfield code="s">303405</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219099/files/stanback_anne_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219099</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219102</controlfield>
+      <controlfield tag="005">20250321021919.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2115</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Tim Sweeney on Foundations and the Freedom to Marry Movement</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Sweeney, Tim. "Tim Sweeney on Foundations and the Freedom to Marry Movement." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Tim Sweeney served on both the steering committee and then board of directors for Freedom to Marry from 2002 to 2013 and worked for both the Haas Jr. Fund and the Gill Foundation. Sweeney was born in 1954 in Billings, Montana, and raised in the nearby town of Laurel. Sweeney attended college at the University Montana and while at college and immediately afterwards engaged in environmental activism. He moved to San Francisco in 1977 and in 1978 was asked to join the “No on Prop 6” campaign by San Francisco Supervisor Harvey Milk. By the early 1980s he was living in New York City and over the next two decades took leadership roles in Lambda Legal and Education Fund, Gay Men’s Health Crisis, and Empire State Pride Agenda. Between 2001 and 2007, Sweeney worked with the Haas Jr. Fund in San Francisco before moving to the Gill Foundation in Colorado. In this interview, Sweeney describes his decades working on behalf of LGBT health, law, and civil rights. He discusses the process of establishing Freedom to Marry and the roles that the organization played throughout its term. Sweeney also details the LGBT rights movement from the perspective of someone who spent a decade and a half working in key foundations that funded organizational activities.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Sweeney, Tim</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">f47da5d1-d15e-42c3-b4ae-bd05fc48d91e</subfield>
+        <subfield code="s">493346</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219102/files/sweeney_tim_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219102</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219104</controlfield>
+      <controlfield tag="005">20250321021920.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2117</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Cameron Tolle on the Digital Campaign at Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Tolle, Cameron. "Cameron Tolle on the Digital Campaign at Freedom to Marry." Interview by Martin Meeker in 2015. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Cameron Tolle was the Director of Digital Action for Freedom to Marry, where he led the organization’s digital strategy for state campaigns across the country. Over five years, he directed digital programs in more than 25 states, including several key marriage victories in Delaware, Hawaii, Illinois, Indiana, New Jersey, New Hampshire, New York, Oregon and Rhode Island. In this interview, Tolle tells of his education and entry into social justice work and the various state and media campaigns he supported while at Freedom to Marry.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Tolle, Cameron</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">cfe5da60-7445-4f01-9dcd-e3e455006804</subfield>
+        <subfield code="s">234478</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219104/files/tolle_cameron_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219104</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219108</controlfield>
+      <controlfield tag="005">20250321021920.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2121</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Thomas Wheatley on Field Organizing with Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Wheatley, Thomas. "Thomas Wheatley on Field Organizing with Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Thomas Wheatley, currently Campaign Director at Renew Oregon, was Director of Organizing with Freedom to Marry. Wheatley was born in Montreal, Canada, and raised in San Jose, California. He earned his undergraduate degree from UC San Diego and began studying for his doctorate in sociology at University of Wisconsin Madison before leaving to do community organizing in New York. In 2005, Wheatley took a job with Basic Rights Oregon as part of their effort to build up their field organizing capacity. He moved to Freedom to Marry as Director of Organizing in 2012. In this interview, Wheatley discusses early efforts to prepare Oregon for a state freedom to marry referendum and the decision to not pursue it. He discusses focus groups, voter persuasion experiments, and public education campaigns, particularly in Washington state, Minnesota, and Hawaii.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Wheatley, Thomas</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">c3a7d628-a343-49a2-97c9-ff3aa09c01f8</subfield>
+        <subfield code="s">457324</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219108/files/wheatley_thomas_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219108</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219109</controlfield>
+      <controlfield tag="005">20250321021920.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2122</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Evan Wolfson on the Leadership of the Freedom to Marry Movement</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Wolfson, Evan. "Evan Wolfson on the Leadership of the Freedom to Marry Movement." Interview by Martin Meeker in 2015 and 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2015</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Evan Wolfson was the founder and president of Freedom to Marry. Wolfson was born in 1957 in Brooklyn, New York, and raised in Pittsburg, Pennsylvania. Wolfson was active in political and social justice causes from an early age. He attended Yale as an undergraduate and then served in the Peace Corps from 1978-1980 in West Africa. He returned to the United States and enrolled in Harvard Law School. While at Harvard, he first developed the notion that securing marriage for same-sex couples was an important and necessary step in the broader movement of equality for gay men and lesbians. Wolfson worked as an assistant district attorney while also volunteering with Lambda Legal, the fledgling gay and lesbian legal defense organization. He later accepted a fulltime position as a litigator for Lambda and worked on many landmark cases, including Dale vs. Boy Scouts of America and many dealing with discrimination against people with AIDS. Wolfson played a key role in the Hawaii marriage cases in the 1990s which resulted in the first-ever trial in which the argument on behalf of extending marriage was given its first full hearing. Wolfson established Freedom to Marry in 2001 and the organization went public in 2003. Between 2003 and 2015, when Obergefell v. Hodges extended marriage nationwide to same-sex couples, Freedom to Marry served as a national campaign headquarters through which strategies were devised, messages crafted, and supporters mobilized. The campaign switched into high gear in 2009 and 2010 with the expansion of the organization and the hiring of new key staff members. All along, Wolfson served as the leader of his organization, working alongside movement partners at the legal and the political organizations. In this interview, Wolfson describes the formative experiences of his upbringing and education, in particular what motivated his decision to champion the extension of marriage when few in the gay movement thought it a worthy goal. He provides insight into the legal struggles of the 1980s and 1990s, when the challenges were many and the victories few. And he describes in depth the marriage movement through the lens of his work at Freedom to Marry. In particular, he discusses the development of a multi-dimensional strategy for winning marriage first in a handful of states and, ultimately, at the United States Supreme Court.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Wolfson, Evan</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">967afc95-75cd-456b-9ce5-250bcb25c55e</subfield>
+        <subfield code="s">1814369</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219109/files/wolfson_evan_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219109</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+    <record>
+      <controlfield tag="001">219112</controlfield>
+      <controlfield tag="005">20250321021920.0</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+        <subfield code="a">(ohc)2125</subfield>
+      </datafield>
+      <datafield tag="041" ind1=" " ind2=" ">
+        <subfield code="a">eng</subfield>
+      </datafield>
+      <datafield tag="245" ind1=" " ind2=" ">
+        <subfield code="a">Thalia Zepatos on Research and Messaging in Freedom to Marry</subfield>
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+        <subfield code="a">Berkeley, CA</subfield>
+        <subfield code="b">Oral History Center</subfield>
+        <subfield code="c">2017</subfield>
+      </datafield>
+      <datafield tag="269" ind1=" " ind2=" ">
+        <subfield code="a">2017</subfield>
+      </datafield>
+      <datafield tag="336" ind1=" " ind2=" ">
+        <subfield code="a">Text</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Zepatos, Thalia. "Thalia Zepatos on Research and Messaging in Freedom to Marry." Interview by Martin Meeker in 2016. Oral History Center, The Bancroft Library, University of California, Berkeley, 2017.</subfield>
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+        <subfield code="a">Interview date(s) 2016</subfield>
+      </datafield>
+      <datafield tag="520" ind1=" " ind2=" ">
+        <subfield code="a">Thalia Zepatos was the Director of Research and Messaging for Freedom to Marry. Zepatos was born in New York City and raised in Yonkers, New York. Zepatos earned her undergraduate degree from American University in Washington DC while at the same began working as an activist, particularly on behalf of the Equal Rights Amendment. Zepatos continued her political work once moving to Portland, Oregon. While in Oregon, she first became involved in LGBT rights work, especially by joining the campaign opposing Oregon’s Ballot Measure 9 in 1992. She then fought against Ballot Measure 36 in 2004, which, when passed, limited marriage to heterosexual couples. Zepatos moved to California work on the “Let California Ring” public education campaign in advance of the anti-gay Proposition 8, which passed in 2008. She joined Freedom to Marry in 2010 as Director of Research and Messaging. In this interview, Zepatos discusses her many years working on behalf of LGBT rights, in particular the freedom to marry movement. She details the extensive, multi-year effort to conduct research on what American’s thought about marriage in general and why they opposed extending marriage to same-sex couples. Furthermore, she explains how she and her colleagues were able to “crack the code” and develop a new set of messages that resonated with voters and changed their minds to be in favor of marriage rights for same-sex couples.</subfield>
+      </datafield>
+      <datafield tag="540" ind1=" " ind2=" ">
+        <subfield code="a">Researchers may make free and open use of the UC Berkeley Library’s digitized public domain materials. However, some materials in our online collections may be protected by U.S. copyright law (Title 17, U.S.C.). Use or reproduction of materials protected by copyright beyond that allowed by fair use (Title 17, U.S.C. § 107) requires permission from the copyright owners. The use or reproduction of some materials may also be restricted by terms of University of California gift or purchase agreements, privacy and publicity rights, or trademark law. Responsibility for determining rights status and permissibility of any use or reproduction rests exclusively with the researcher. To learn more or make inquiries, please see our permissions policies (https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects?section=permissions).</subfield>
+      </datafield>
+      <datafield tag="650" ind1=" " ind2=" ">
+        <subfield code="a">Advocacy and Philanthropy</subfield>
+      </datafield>
+      <datafield tag="655" ind1=" " ind2=" ">
+        <subfield code="a">Oral histories.</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Zepatos, Thalia</subfield>
+        <subfield code="e">interviewee</subfield>
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+        <subfield code="a">Meeker, Martin</subfield>
+        <subfield code="e">interviewer</subfield>
+      </datafield>
+      <datafield tag="852" ind1=" " ind2=" ">
+        <subfield code="c">The Bancroft Library Oral History Center</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="9">9e11b955-0f4a-4f5f-aa30-6d1cf8c3d5d9</subfield>
+        <subfield code="s">910583</subfield>
+        <subfield code="u">https://digicoll.lib.berkeley.edu/record/219112/files/zepatos_thalia_2017.pdf</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="2">
+        <subfield code="u">https://www.youtube.com/edit?o=U&amp;video_id=Y9eWjMzTIFU</subfield>
+        <subfield code="y">View Video Excerpt</subfield>
+      </datafield>
+      <datafield tag="856" ind1="4" ind2="1">
+        <subfield code="u">https://www.lib.berkeley.edu/visit/bancroft/oral-history-center/projects/freedom-to-marry</subfield>
+        <subfield code="y">Project website</subfield>
+      </datafield>
+      <datafield tag="902" ind1=" " ind2=" ">
+        <subfield code="d">2021-02-19</subfield>
+        <subfield code="n">SMS</subfield>
+      </datafield>
+      <datafield tag="909" ind1="C" ind2="O">
+        <subfield code="o">oai:digicoll.lib.berkeley.edu:219112</subfield>
+        <subfield code="p">ohc</subfield>
+        <subfield code="p">ohc_980</subfield>
+        <subfield code="p">sfg</subfield>
+        <subfield code="q">mcleanCalisphere_oai</subfield>
+      </datafield>
+      <datafield tag="980" ind1=" " ind2=" ">
+        <subfield code="a">OHC: Freedom Marry</subfield>
+      </datafield>
+      <datafield tag="982" ind1=" " ind2=" ">
+        <subfield code="a">Freedom to Marry Oral Histories</subfield>
+        <subfield code="b">Freedom to Marry Oral Histories</subfield>
+      </datafield>
+    </record>
+  </collection>
+</response>
