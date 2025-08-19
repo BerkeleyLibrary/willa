@@ -3,9 +3,12 @@ Utility functions to gather pdf files, use langchain pypdf loader to load them,
 and split them into chunks for vectorization.
 """
 
+import json
 import os
 from functools import reduce
 from operator import add
+from pathlib import Path
+from typing import Any
 
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 # from langchain_community.document_loaders import DirectoryLoader
@@ -41,16 +44,51 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
 
 
 def load_pdfs() -> list[Document]:
-    """Load PDF files from a specified directory using a langchain loader."""
-    directory_path = os.getenv('DEFAULT_STORAGE_DIR', 'tmp/files/')
-    loader = PyPDFDirectoryLoader(directory_path, mode="single")
-    # loader = DirectoryLoader(directory_path, glob="**/*.pdf")
+    """Load all PDF files from the storage directory.
 
-    docs = loader.load()
-    if not docs:
-        print("No documents found in the specified directory.")
-    else:
-        print(f"Loaded {len(docs)} documents from {directory_path}.")
+    This assumes the storage directory is laid out in the following manner:
+
+    [/storage-root]/
+        [tind_id]/
+            [tind_id].json: The JSON metadata for this TIND record.
+
+            [tind_id].xml: The MARC XML version of this TIND record.
+
+            [...]: One or more PDF files that comprise the TIND record.
+
+    :returns: All documents successfully loaded.
+    """
+    directory_path = os.getenv('DEFAULT_STORAGE_DIR', 'tmp/pdfs')
+    docs: list[Document] = []
+
+    for tind_path in Path(directory_path).iterdir():
+        if not tind_path.is_dir():
+            continue  # We only want directories.
+
+        tind_id = tind_path.name
+        metadata: dict[str, Any] = {}
+
+        md_path = tind_path.joinpath(f"{tind_id}.json")
+        if md_path.is_file():
+            with open(md_path, 'r', encoding='utf-8') as md_json:
+                metadata = json.loads(md_json.read())
+        else:
+            print(f"No metadata stored for {tind_id}!")
+
+        loader = PyPDFDirectoryLoader(tind_path, mode="single")
+        # loader = DirectoryLoader(tind_path, glob="**/*.pdf")
+
+        new_docs = loader.load()
+        if not new_docs:
+            print(f"No documents found in the {tind_id} directory.")
+            continue
+
+        if len(metadata) > 0:
+            for doc in new_docs:
+                doc.metadata['tind_metadata'] = metadata
+        docs.extend(new_docs)
+        print(f"Loaded {len(new_docs)} document(s) from {tind_id}.")
+
     return docs
 
 

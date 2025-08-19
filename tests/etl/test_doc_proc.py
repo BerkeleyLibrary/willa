@@ -25,8 +25,12 @@ class DocumentProcessingTest(unittest.TestCase):
 
     def setUp(self) -> None:
         os.environ['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
+        tind_dir = os.path.join(os.environ['DEFAULT_STORAGE_DIR'], '103806')
+        os.mkdir(tind_dir)
         shutil.copyfile(os.path.join(os.path.dirname(__file__), 'parnell_kerby.pdf'),
-                        os.path.join(os.environ['DEFAULT_STORAGE_DIR'], 'parnell_kerby.pdf'))
+                        os.path.join(tind_dir, 'parnell_kerby.pdf'))
+        shutil.copyfile(os.path.join(os.path.dirname(__file__), 'parnell_kerby.json'),
+                        os.path.join(tind_dir, '103806.json'))
         self.embedding_model = 'nomic-embed-text'
 
     def test_load_pdf(self) -> None:

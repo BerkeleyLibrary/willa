@@ -84,15 +84,15 @@ class PipelineTest(unittest.TestCase):
         kerby_xml, kerby_pdf, kerby_json = _load_mock_files('parnell_kerby')
 
         with requests_mock.mock() as r_mock:
-            r_mock.get('https://ucb.tind.example/api/v1/record/test/', text=kerby_xml)
-            r_mock.get('https://ucb.tind.example/api/v1/record/test/files', text=kerby_json)
-            url = 'https://ucb.tind.example/api/v1/record/test/files/parnell_kerby.pdf'\
+            r_mock.get('https://ucb.tind.example/api/v1/record/103806/', text=kerby_xml)
+            r_mock.get('https://ucb.tind.example/api/v1/record/103806/files', text=kerby_json)
+            url = 'https://ucb.tind.example/api/v1/record/103806/files/parnell_kerby.pdf'\
                   '/download/?version=1'
             r_mock.get(url, content=kerby_pdf)
 
             store = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text',
                                                          base_url=OLLAMA_URL))
-            fetch_one_from_tind('test', store)
+            fetch_one_from_tind('103806', store)
 
         results = store.search('Arkansas', 'similarity')
         self.assertGreater(len(results), 0, "Search should match at least one document.")
