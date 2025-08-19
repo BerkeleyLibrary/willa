@@ -64,6 +64,10 @@ class PipelineTest(unittest.TestCase):
         store_dir = pathlib.Path(os.path.join(os.environ['DEFAULT_STORAGE_DIR'], '103806'))
         self.assertTrue(store_dir.is_dir(), "Should have created the record directory")
 
+        marc_xml_file = store_dir.joinpath('103806.xml')
+        self.assertTrue(marc_xml_file.is_file(), "Should have saved MARC XML record")
+        marc_xml_file.unlink()
+
         metadata_file = store_dir.joinpath('103806.json')
         self.assertTrue(metadata_file.is_file(), "Should have saved metadata")
         metadata_file.unlink()
@@ -97,6 +101,7 @@ class PipelineTest(unittest.TestCase):
                          "Document metadata should match TIND record.")
 
         store_dir = pathlib.Path(os.path.join(os.environ['DEFAULT_STORAGE_DIR'], '103806'))
+        store_dir.joinpath('103806.xml').unlink()
         store_dir.joinpath('103806.json').unlink()
         store_dir.joinpath('parnell_kerby.pdf').unlink()
         store_dir.rmdir()

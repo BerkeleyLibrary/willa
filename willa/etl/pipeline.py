@@ -9,6 +9,7 @@ from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_core.vectorstores.base import VectorStore
 from langchain_ollama import OllamaEmbeddings
+from pymarc.marcxml import record_to_xml
 from pymarc.record import Record
 
 from willa.config import OLLAMA_URL
@@ -64,6 +65,10 @@ def _process_one_tind_record(record: Record, vector_store: VectorStore | None = 
 
     tind_dir = os.path.join(os.environ['DEFAULT_STORAGE_DIR'], tind_id)
     os.mkdir(tind_dir)
+
+    marc: bytes = record_to_xml(record)
+    with open(os.path.join(tind_dir, f"{tind_id}.xml"), 'w+', encoding='utf-8') as mdx_file:
+        mdx_file.write(marc.decode('utf-8'))
 
     metadata = pymarc_to_metadata(record)
     with open(os.path.join(tind_dir, f"{tind_id}.json"), 'w+', encoding='utf-8') as md_file:
