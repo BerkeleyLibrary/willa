@@ -10,8 +10,8 @@ from pymarc import Record
 def field_required(pymarc_record: Record) -> None:
     """Ensure the given record has values for fields 001 and 245.
 
-    :param pymarc_record: The record to check.
-    :raises: KeyError if required values are not present.
+    :param Record pymarc_record: The record to check.
+    :raises KeyError: If required values are not present.
     """
     errors = []
     if not '245' in pymarc_record or pymarc_record['245']['a'] is None:
@@ -27,8 +27,8 @@ def field_required(pymarc_record: Record) -> None:
 def get_generic_fields(pymarc_record: Record) -> dict:
     """Process a record into a ``dict``; missing values will be set to None.
 
-    :param pymarc_record: The record to process.
-    :returns: The processed PyMARC record as a ``dict`` of values.
+    :param Record pymarc_record: The record to process.
+    :returns dict: The processed PyMARC record as a ``dict`` of values.
     """
 
     fields_hash: dict[str, Any] = {}
@@ -56,11 +56,11 @@ def get_sub_by_field_and_indicators(record: Record, field_tag: str,
 
     :param Record record: The record to process.
     :param str field_tag: The field tag.
-    :param str ind1: The first indicator (or None for no indicator).
-    :param str ind2: The second indicator (or None for no indicator).
-    :param str subfield_code: The subfield code (or None for no code).
+    :param str|None ind1: The first indicator (or None for no indicator).
+    :param str|None ind2: The second indicator (or None for no indicator).
+    :param str|None subfield_code: The subfield code (or None for no code).
 
-    :returns: Either a ``list`` of fields or a ``str`` for a single field.
+    :returns list|str|None: Either a ``list`` of fields or a ``str`` for a single field.
     """
     results: list[str] = []
 
@@ -83,9 +83,9 @@ def get_sub_by_field_and_indicators(record: Record, field_tag: str,
 def parse_pymarc(pymarc_record: Record) -> dict:
     """Parse a PyMARC record into a ``dict`` suitable for document parsing.
 
-    :param pymarc_record: The record to parse.
-    :returns: A ``dict`` containing all relevant MARC fields.
-              Missing fields will be set to None.
+    :param Record pymarc_record: The record to parse.
+    :returns dict: A ``dict`` containing all relevant MARC fields.
+                   Missing fields will be set to None.
     """
 
     # Will raise error if there is no '001' or '245'
@@ -131,8 +131,8 @@ KEY_MAPPINGS: dict = {
 def pymarc_to_metadata(record: Record) -> dict:
     """Parse a PyMARC record into document metadata.
 
-    :param record: The record to parse.
-    :returns: A ``dict`` containing document metadata.
+    :param Record record: The record to parse.
+    :returns dict: A ``dict`` containing document metadata.
     """
     marc_values = parse_pymarc(record)
 

@@ -18,7 +18,11 @@ TIMEOUT: int = 30
 
 
 def _auth_header() -> dict:
-    """Returns the Authorization header needed for TIND API calls."""
+    """Returns the Authorization header needed for TIND API calls.
+
+    :raises AuthorizationError: If no TIND API key is provided in the environment.
+    :returns dict: The ``Authorization`` header to use for the HTTP request.
+    """
     token = os.getenv('TIND_API_KEY', None)
     if token is None:
         raise AuthorizationError('Missing TIND API key')
@@ -31,9 +35,10 @@ def tind_get(endpoint: str, params: dict | None = None) -> Tuple[int, str]:
 
     :param str endpoint: The TIND API endpoint to query.
                          For example, ``'record/1/'``.
-    :param dict params: Extra query parameters to send.
-                        For example, ``{'of': 'xm'}``.
-    :returns: A tuple of the HTTP status code and response text (if any).
+    :param dict|None params: Extra query parameters to send.
+                             For example, ``{'of': 'xm'}``.
+    :raises AuthorizationError: If an invalid TIND API key is provided.
+    :returns Tuple[int,str]: A tuple of the HTTP status code and response text (if any).
     """
     if params is None:
         params = {}
@@ -54,7 +59,8 @@ def tind_download(url: str, output_dir: str) -> Tuple[int, str]:
 
     :param str url: The TIND file download URL.
     :param str output_dir: The path to the directory in which to save the file.
-    :returns: The HTTP status code.
+    :raises AuthorizationError: If an invalid TIND API key is provided.
+    :returns Tuple[int,str]: The HTTP status code.
     """
     resp = requests.get(url, headers=_auth_header(), timeout=TIMEOUT)
     status = resp.status_code

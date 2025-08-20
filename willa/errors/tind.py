@@ -13,8 +13,8 @@ class TINDError(Exception):
 
         :param int status: The HTTP status code associated with the response.
         :param str maybe_json: The response text, hopefully in JSON format.
-        :returns: A TINDError with a suitable message based on the response.
-                  If the response wasn't JSON, "Non-JSON response" will be used.
+        :returns Exception: A TINDError with a suitable message based on the response.
+                            If the response wasn't JSON, "Non-JSON response" will be used.
         """
         try:
             j = json.loads(maybe_json)

@@ -30,10 +30,10 @@ def _create_vector_store() -> VectorStore:
 def run_pipeline(vector_store: VectorStore | None = None) -> VectorStore:
     """Run the ETL pipeline for Willa.
 
-    :param vector_store: The vector store in which to store processed documents.
-                         If no vector store is specified, a new
-                         in-memory vector store will be created.
-    :returns: The vector store where processed documents are stored.
+    :param VectorStore|None vector_store: The vector store in which to store processed documents.
+                                          If no vector store is specified, a new
+                                          in-memory vector store will be created.
+    :returns VectorStore: The vector store where processed documents are stored.
     """
     if vector_store is None:
         vector_store = _create_vector_store()
@@ -55,8 +55,8 @@ def _process_one_tind_record(record: Record, vector_store: VectorStore | None = 
     for each record returned in the search.
 
     :param Record record: The PyMARC Record object associated with the TIND record.
-    :param vector_store: The vector store in which to store the documents.
-                         If None, vector processing will be skipped.
+    :param VectorStore|None vector_store: The vector store in which to store the documents.
+                                          If None, vector processing will be skipped.
     """
     tind_id: str = record['001'].value()
     files: list[dict] = fetch_file_metadata(tind_id)
@@ -89,9 +89,9 @@ def fetch_one_from_tind(tind_id: str, vector_store: VectorStore | None = None) -
     """Fetch the files for a TIND record, then load them into the VectorStore.
 
     :param str tind_id: The ID of the TIND record.
-    :param vector_store: The vector store in which to store the documents.
-                         If no vector store is specified, files will be fetched
-                         but not processed into a vector store.
+    :param VectorStore|None vector_store: The vector store in which to store the documents.
+                                          If no vector store is specified, files will be fetched
+                                          but not processed into a vector store.
     """
     record: Record = fetch_metadata(tind_id)
     _process_one_tind_record(record, vector_store)
@@ -101,9 +101,9 @@ def fetch_from_tind(tind_ids: list[str], vector_store: VectorStore | None = None
     """Fetch files from a list of TIND records, then load them into a given VectorStore.
 
     :param list[str] tind_ids: The IDs of the TIND records.
-    :param vector_store: The vector store in which to store the documents.
-                         If no vector store is specified, files will be fetched
-                         but not processed into a vector store.
+    :param VectorStore|None vector_store: The vector store in which to store the documents.
+                                          If no vector store is specified, files will be fetched
+                                          but not processed into a vector store.
     """
     for tind_id in tind_ids:
         fetch_one_from_tind(tind_id, vector_store)
@@ -113,9 +113,9 @@ def fetch_all_from_search_query(query: str, vector_store: VectorStore | None = N
     """Fetch all TIND records that match a given search query, then download them.
 
     :param str query: The search query to run against the TIND catalogue.
-    :param vector_store: The vector store in which to store the documents.
-                         If no vector store is specified, files will be fetched
-                         but not processed into a vector store.
+    :param VectorStore|None vector_store: The vector store in which to store the documents.
+                                          If no vector store is specified, files will be fetched
+                                          but not processed into a vector store.
     """
     results = search(query, 'pymarc')
     for record in results:

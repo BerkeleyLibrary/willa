@@ -52,7 +52,7 @@ class Chatbot:  # pylint: disable=R0903
         """Ask a question of this Willa chatbot instance.
 
         :param str question: The question to ask.
-        :returns: The answer given by the model.
+        :returns str: The answer given by the model.
         """
         matching_docs = self.vector_store.similarity_search(question)
         context = '\n\n'.join(doc.page_content for doc in matching_docs)

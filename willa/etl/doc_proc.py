@@ -25,8 +25,8 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
     """Load a given single PDF from storage, including optional PyMARC record.
 
     :param str name: The name of the file.
-    :param record: The PyMARC record that pertains to the file.
-    :returns: A ``list`` of ``Document``s that can be further used in the pipeline.
+    :param Record|None record: The PyMARC record that pertains to the file.
+    :returns list[Document]: A ``list`` of ``Document``s that can be further used in the pipeline.
     """
     directory_path = os.path.dirname(name)
     loader = PyPDFDirectoryLoader(directory_path, glob=os.path.basename(name), mode="single")
@@ -56,7 +56,7 @@ def load_pdfs() -> list[Document]:
 
             [...]: One or more PDF files that comprise the TIND record.
 
-    :returns: All documents successfully loaded.
+    :returns list[Document]: All documents successfully loaded.
     """
     directory_path = os.getenv('DEFAULT_STORAGE_DIR', 'tmp/pdfs')
     docs: list[Document] = []

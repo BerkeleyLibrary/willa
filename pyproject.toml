@@ -34,6 +34,7 @@ test = [
 ]
 lint = [
     "mypy ~= 1.17.1",
+    "pydoclint ~= 0.6.10",
     "pylint ~= 3.3",
 ]
 dev = [
@@ -63,3 +64,7 @@ disallow_untyped_defs = true
 
 [tool.setuptools]
 py-modules = ["willa"]
+
+[tool.pydoclint]
+skip-checking-raises = true
+style = "sphinx"

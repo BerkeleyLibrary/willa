@@ -5,7 +5,7 @@ Provides routines to fetch information from the TIND API.
 import os
 import re
 from io import StringIO
-from typing import Any, List, Tuple
+from typing import Any, Tuple
 import json
 
 import xml.etree.ElementTree as E
@@ -22,14 +22,14 @@ def fetch_metadata(record: str) -> Record:
     :param str record: The record ID for which to fetch metadata.
     :raises AuthorizationError: When the TIND API key is invalid.
     :raises RecordNotFoundError: When the record ID is invalid or not found.
-    :returns: A PyMARC MARC record of the requested record.
+    :returns Record: A PyMARC MARC record of the requested record.
     """
 
     status, response = tind_get(f"record/{record}/", {'of': 'xm'})
     if status == 404 or len(response.strip()) == 0:
         raise RecordNotFoundError(f"Record {record} not found in TIND.")
 
-    records: List[Record] = parse_xml_to_array(StringIO(response))
+    records: list[Record] = parse_xml_to_array(StringIO(response))
     # When the record does not match any records, we may receive a zero-length array of records.
     # Additionally, if the XML is malformed, the parser function may return multiple records.
     # We need to ensure that exactly one record is parsed out of the TIND API response.
@@ -69,11 +69,12 @@ def fetch_file(file_url: str, output_dir: str = '') -> str:
 
 
 def fetch_file_metadata(record: str) -> list:
-    """Fetch file metadata for a given Tind record.
+    """Fetch file metadata for a given TIND record.
 
+    :param str record: The record ID in TIND to fetch file metadata for.
     :raises AuthorizationError: When the TIND API key is invalid.
     :raises TINDError: For any response other than 200.
-    :returns: A list of file metadata for a given TIND record.
+    :returns list: A list of file metadata for a given TIND record.
     """
 
     status, files = tind_get(f"record/{record}/files")
@@ -88,7 +89,7 @@ def fetch_ids_search(query: str) -> list:
     """Returns a list of TIND record IDs for a given search query.
 
     :param str query: The query string to search for in TIND.
-    :returns: A list of TIND record IDs.
+    :returns list: A list of TIND record IDs.
     """
     status, rec_ids = tind_get("search", {'p': query})
 
@@ -102,7 +103,8 @@ def fetch_ids_search(query: str) -> list:
 def fetch_marc_by_ids(ids: list) -> list[Record]:
     """Fetch MARC records from a list of TIND record IDs.
 
-    :returns: A list of PyMARC records.
+    :param list ids: The TIND record IDs to fetch.
+    :returns list[Record]: A list of PyMARC records.
     """
     records = []
     for item in ids:
@@ -112,11 +114,11 @@ def fetch_marc_by_ids(ids: list) -> list[Record]:
     return records
 
 
-def fetch_search_metadata(query: str) -> List[Record]:
+def fetch_search_metadata(query: str) -> list[Record]:
     """Returns PyMARC records that match a given search.
 
     :param str query: The TIND search query.
-    :returns: A list of PyMARC records that match the given query.
+    :returns list[Record]: A list of PyMARC records that match the given query.
     """
     ids = fetch_ids_search(query)
 
@@ -124,11 +126,11 @@ def fetch_search_metadata(query: str) -> List[Record]:
 
 
 def _search_request(query: str, search_id: str | None = None) -> str:
-    """retrieves a page of marc data records
+    """Retrieve a page of MARC data records.
 
-    :params str query: The Tind search query.
-    :params str search_id: The search_id for each page of Tind results for pagination.
-    :returns: a page of marc records
+    :param str query: The TIND search query.
+    :param str|None search_id: The search_id for each page of TIND results for pagination.
+    :returns str: A page of MARC records in XML format.
     """
     if search_id:
         status, response = tind_get('search', {'format': 'xml', 'p': query, 'search_id': search_id})
@@ -142,10 +144,10 @@ def _search_request(query: str, search_id: str | None = None) -> str:
 
 
 def _retrieve_xml_search_id(response: str) -> Tuple[Any, str]:
-    """Creates a parsable XML and retrieves search_ID from the Tind resultset for pagination
+    """Creates a parsable XML and retrieves search_id from the TIND result set for pagination.
 
-    :param response: The string returned from the Tind search call.
-    :returns: a Search Id and a parsable XML document
+    :param str response: The string returned from the Tind search call.
+    :returns Tuple[Any,str]: A Search ID and a parsable XML document.
     """
     E.register_namespace('', "http://www.loc.gov/MARC21/slim")
     xml = E.fromstring(response)
@@ -154,18 +156,18 @@ def _retrieve_xml_search_id(response: str) -> Tuple[Any, str]:
     return xml, search_id
 
 
-def search(query: str, result_format: str = 'xml') -> List[Any]:
-    """Searches Tind and retrieves a list of either XML or Pymarc
+def search(query: str, result_format: str = 'xml') -> list[Any]:
+    """Searches TIND and retrieves a list of either XML or PyMARC.
 
     :param str query: A Tind search string
     :param str result_format: ``xml`` for XML string, ``pymarc`` for list of pymarc records.
-    :returns: a list of records as either xml strings or pymarc records
+    :returns list[Any]: a list of records as either xml strings or pymarc records
     """
 
     if result_format not in ('xml', 'pymarc'):
         raise ValueError(f"Unexpected result format: {result_format} is neither 'xml' nor 'pymarc'")
 
-    recs: List[Any] = []
+    recs: list[Any] = []
     search_id = None
 
     while True:
