@@ -4,6 +4,16 @@ FROM python:3.13-slim AS reqs
 
 WORKDIR /app
 
+# Install Node.js
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+    # && rm -rf /var/lib/apt/lists/*
+
+# Install Prisma
+# RUN npmx install -g prisma
+
 COPY pyproject.toml pyproject.toml
 
 RUN python -m venv /venv

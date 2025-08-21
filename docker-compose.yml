@@ -6,6 +6,8 @@ services:
     depends_on:
       ollama:
         condition: service_started
+      db:
+        condition: service_healthy
     init: true
     restart: always
     ports:
@@ -13,8 +15,27 @@ services:
     environment:
       - DEFAULT_STORAGE_DIR
       - OLLAMA_URL
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     volumes:
       - ./tmp:/pdfs
+      - ./prisma:/app/prisma
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432
+    volumes:
+      - ./.data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   ollama:
     image: ollama/ollama
