@@ -14,10 +14,10 @@ def field_required(pymarc_record: Record) -> None:
     :raises KeyError: If required values are not present.
     """
     errors = []
-    if not '245' in pymarc_record or pymarc_record['245']['a'] is None:
+    if '245' not in pymarc_record or pymarc_record['245']['a'] is None:
         errors.append("245 missing or None")
 
-    if not '001' in pymarc_record or pymarc_record['001'].data is None:
+    if '001' not in pymarc_record or pymarc_record['001'].data is None:
         errors.append("001 missing or None")
 
     if len(errors) > 0:
@@ -40,7 +40,7 @@ def get_generic_fields(pymarc_record: Record) -> dict:
             fields_hash[key] = None
         else:
             fields = pymarc_record.get_fields(key)
-            if(len(fields)) > 1:
+            if len(fields) > 1:
                 fields_hash[key] = [rec.value() for rec in fields]
             else:
                 fields_hash[key] = pymarc_record[key].value()
@@ -94,8 +94,8 @@ def parse_pymarc(pymarc_record: Record) -> dict:
 
     marc_values = get_generic_fields(pymarc_record)
 
-    marc_values['85642u'] = get_sub_by_field_and_indicators(pymarc_record, '856', '4','2', 'u')
-    marc_values['852__c'] = get_sub_by_field_and_indicators(pymarc_record, '852', ' ',' ', 'c')
+    marc_values['85642u'] = get_sub_by_field_and_indicators(pymarc_record, '856', '4', '2', 'u')
+    marc_values['852__c'] = get_sub_by_field_and_indicators(pymarc_record, '852', ' ', ' ', 'c')
     marc_values['982__b'] = get_sub_by_field_and_indicators(pymarc_record, '982', None, None, 'b')
     marc_values['260__c'] = get_sub_by_field_and_indicators(pymarc_record, '260', None, None, 'c')
 
