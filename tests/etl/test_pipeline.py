@@ -27,6 +27,7 @@ def _load_mock_files(name: str) -> tuple[str, bytes, str]:
 
     :param str name: The name of the mock files.
     :returns: A tuple of (MARC XML, PDF, file metadata as JSON)
+    :rtype: tuple[str, bytes, str]
     """
     with open(os.path.join(__dirname__, f'{name}.xml'), encoding='utf-8') as xml_f:
         xml = xml_f.read()

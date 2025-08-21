@@ -66,5 +66,6 @@ disallow_untyped_defs = true
 py-modules = ["willa"]
 
 [tool.pydoclint]
+allow-init-docstring = true
 skip-checking-raises = true
 style = "sphinx"

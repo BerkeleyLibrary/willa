@@ -60,7 +60,8 @@ def get_sub_by_field_and_indicators(record: Record, field_tag: str,
     :param str|None ind2: The second indicator (or None for no indicator).
     :param str|None subfield_code: The subfield code (or None for no code).
 
-    :returns list|str|None: Either a ``list`` of fields or a ``str`` for a single field.
+    :returns: Either a ``list`` of fields or a ``str`` for a single field.
+    :rtype: list | str | None
     """
     results: list[str] = []
 

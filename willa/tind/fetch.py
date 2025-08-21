@@ -147,7 +147,8 @@ def _retrieve_xml_search_id(response: str) -> Tuple[Any, str]:
     """Creates a parsable XML and retrieves search_id from the TIND result set for pagination.
 
     :param str response: The string returned from the Tind search call.
-    :returns Tuple[Any,str]: A Search ID and a parsable XML document.
+    :returns: A Search ID and a parsable XML document.
+    :rtype: Tuple[Any, str]
     """
     E.register_namespace('', "http://www.loc.gov/MARC21/slim")
     xml = E.fromstring(response)

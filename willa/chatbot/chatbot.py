@@ -41,8 +41,8 @@ class Chatbot:  # pylint: disable=R0903
     def __init__(self, vector_store: VectorStore, model: BaseChatModel):
         """Create a new Willa chatbot instance.
 
-        :param vector_store: The vector store to use for searching.
-        :param model: The LLM to use for processing.
+        :param VectorStore vector_store: The vector store to use for searching.
+        :param BaseChatModel model: The LLM to use for processing.
         """
         self.vector_store = vector_store
         self.model = model

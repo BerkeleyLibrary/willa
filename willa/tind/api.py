@@ -38,7 +38,8 @@ def tind_get(endpoint: str, params: dict | None = None) -> Tuple[int, str]:
     :param dict|None params: Extra query parameters to send.
                              For example, ``{'of': 'xm'}``.
     :raises AuthorizationError: If an invalid TIND API key is provided.
-    :returns Tuple[int,str]: A tuple of the HTTP status code and response text (if any).
+    :returns: A tuple of the HTTP status code and response text (if any).
+    :rtype: Tuple[int, str]
     """
     if params is None:
         params = {}
@@ -60,7 +61,8 @@ def tind_download(url: str, output_dir: str) -> Tuple[int, str]:
     :param str url: The TIND file download URL.
     :param str output_dir: The path to the directory in which to save the file.
     :raises AuthorizationError: If an invalid TIND API key is provided.
-    :returns Tuple[int,str]: The HTTP status code.
+    :returns: The HTTP status code.
+    :rtype: Tuple[int, str]
     """
     resp = requests.get(url, headers=_auth_header(), timeout=TIMEOUT)
     status = resp.status_code
