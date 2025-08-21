@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "willa"
 version = "0.0.1"
 dependencies = [
+    "asyncpg",
     "chainlit ~= 2.6.7",
     "langchain",
     "langchain_community",
