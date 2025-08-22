@@ -13,6 +13,9 @@ services:
     environment:
       - DEFAULT_STORAGE_DIR
       - OLLAMA_URL
+      - CALNET_OIDC_CLIENT_ID
+      - CALNET_OIDC_CLIENT_SECRET
+      - CHAINLIT_AUTH_SECRET
     volumes:
       - ./tmp:/pdfs
 

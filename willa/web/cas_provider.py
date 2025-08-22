@@ -9,6 +9,7 @@ from typing import Tuple, Dict
 import httpx
 from chainlit.oauth_providers import OAuthProvider
 from chainlit.user import User
+import willa.config  # pylint: disable=W0611
 
 CALNET_ENV: str = os.environ.get('CALNET_ENV', 'test')
 """The environment we are running in; either 'test' or 'production'."""
@@ -36,6 +37,10 @@ class CASProvider(OAuthProvider):
     def __init__(self) -> None:
         self.client_id = os.environ['CALNET_OIDC_CLIENT_ID']
         self.client_secret = os.environ['CALNET_OIDC_CLIENT_SECRET']
+        self.authorize_params = {
+            'response_type': 'code',
+            'scope': 'openid profile berkeley_edu_default berkeley_edu_groups',
+        }
 
     async def get_token(self, code: str, url: str) -> str:
         request = {
@@ -44,7 +49,7 @@ class CASProvider(OAuthProvider):
             'code': code,
             'redirect_url': url,
             'response_type': 'code',
-            'scope': 'openid profile berkeley_edu_default berkeley_edu_groups'
+            'scope': self.authorize_params['scope']
         }
 
         async with httpx.AsyncClient() as client:
