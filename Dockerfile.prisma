@@ -1,0 +1,18 @@
+FROM node:24-slim AS prisma
+
+RUN mkdir -p /app/prisma
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY package.json package.json
+COPY prisma.config.ts prisma.config.ts
+COPY tsconfig.json tsconfig.json
+COPY prisma/schema.prisma prisma/schema.prisma
+COPY prisma/migrations prisma/migrations
+
+RUN npm install
+
+ENTRYPOINT [ "npx", "prisma", "studio" ]

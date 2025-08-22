@@ -7,12 +7,13 @@ WORKDIR /app
 # Install Node.js
 RUN apt-get update && apt-get install -y \
     curl \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs
-    # && rm -rf /var/lib/apt/lists/*
+    && curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Prisma
-RUN npm install -g prisma
+COPY package.json package.json
+RUN npm install
 
 COPY pyproject.toml pyproject.toml
 
@@ -24,6 +25,9 @@ FROM reqs AS app
 COPY willa willa
 COPY README.rst README.rst
 COPY CHANGELOG.rst CHANGELOG.rst
+COPY prisma prisma
+COPY prisma.config.ts prisma.config.ts
+COPY tsconfig.json tsconfig.json
 COPY prompt_templates prompt_templates
 COPY public public
 COPY chainlit.md chainlit.md

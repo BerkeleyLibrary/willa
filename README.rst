@@ -49,6 +49,10 @@ environment by running::
     docker compose up -d
 
 
+Then, create the application's data layer:
+
+    docker compose exec app prisma migrate deploy
+
 
 Configuration
 =============

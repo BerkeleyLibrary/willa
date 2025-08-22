@@ -217,3 +217,9 @@ ollama/
 
 # postgres data
 .data/
+
+# temp files
+tmp/
+
+# Node modules
+node_modules/

@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node16",
+        "types": ["node"],
+        "module": "node16"
+    }
+}
