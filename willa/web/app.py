@@ -27,30 +27,25 @@ BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
 
 @cl.password_auth_callback
 def auth_callback(username: str, password: str):
-    # Fetch the user matching username from your database
-    # and compare the hashed password with the value stored in the database
+    """Fetch the user matching username from your database."""
+
     if (username, password) == ("admin", "admin"):
         return cl.User(
             identifier="admin", metadata={"role": "admin", "provider": "credentials"}
         )
-    else:
-        return None
+
+    return None
 
 @cl.on_chat_resume
 async def on_chat_resume(thread):
     pass
 
-@cl.step(type="tool")
-async def tool(message: cl.Message) -> str:
-    reply = await cl.make_async(BOT.ask)(message.content)
-    return reply 
-
 @cl.on_message
 async def main(message: cl.Message) -> None:
     """Handle an incoming chat message."""
-    tool_res = await tool(message) 
+    reply = await cl.make_async(BOT.ask)(message.content)
 
     await cl.Message(
         author='Willa',
-        content=tool_res
+        content=reply
     ).send()
