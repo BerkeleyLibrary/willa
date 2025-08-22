@@ -2,13 +2,13 @@
 Provides a Chainlit authentication provider for CAS.
 """
 
-import json
 import os
 from typing import Tuple, Dict
 
 import httpx
 from chainlit.oauth_providers import OAuthProvider
 from chainlit.user import User
+import willa.config  # pylint: disable=W0611
 
 CALNET_ENV: str = os.environ.get('CALNET_ENV', 'test')
 """The environment we are running in; either 'test' or 'production'."""
@@ -26,7 +26,7 @@ else:
 
 class CASProvider(OAuthProvider):
     """Connects Chainlit Auth to CalNet OIDC."""
-    id = "calnet-cas"
+    id = "cas"
     env = ['CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET']
 
     authorize_url = f"{BASE_URL}/oidcAuthorize"
@@ -36,15 +36,19 @@ class CASProvider(OAuthProvider):
     def __init__(self) -> None:
         self.client_id = os.environ['CALNET_OIDC_CLIENT_ID']
         self.client_secret = os.environ['CALNET_OIDC_CLIENT_SECRET']
+        self.authorize_params = {
+            'response_type': 'code',
+            'scope': 'openid profile',
+        }
 
     async def get_token(self, code: str, url: str) -> str:
         request = {
             'client_id': self.client_id,
             'client_secret': self.client_secret,
             'code': code,
-            'redirect_url': url,
-            'response_type': 'code',
-            'scope': 'openid profile berkeley_edu_default berkeley_edu_groups'
+            'grant_type': 'authorization_code',
+            'redirect_uri': url,
+            'scope': self.authorize_params['scope']
         }
 
         async with httpx.AsyncClient() as client:
@@ -52,10 +56,10 @@ class CASProvider(OAuthProvider):
             response.raise_for_status()
             data = response.json()
 
-            token: str = data['id_token']
+            token: str = data['access_token']
             if not token:
-                raise httpx.HTTPStatusError('Failed to obtain access token', request=response.request,
-                                            response=response)
+                raise httpx.HTTPStatusError('Failed to obtain access token',
+                                            request=response.request, response=response)
 
             return token
 
@@ -68,6 +72,5 @@ class CASProvider(OAuthProvider):
 
             # Future TODO: Find out where groups are returned, and check them. (AP-397)
 
-            user = User(identifier=user_data['uid'],
-                        metadata={'figure': 'out'})
+            user = User(identifier=user_data['id'])
             return user_data, user

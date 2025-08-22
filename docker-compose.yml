@@ -31,6 +31,8 @@ services:
       - 8000:8000
     environment:
       <<: *dbconfig
+      CALNET_OIDC_CLIENT_ID:
+      CALNET_OIDC_CLIENT_SECRET:
       CHAINLIT_AUTH_SECRET:
       DEFAULT_STORAGE_DIR:
       OLLAMA_URL:

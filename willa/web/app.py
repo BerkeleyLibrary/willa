@@ -11,6 +11,8 @@ from langchain_ollama import ChatOllama, OllamaEmbeddings
 from willa.chatbot import Chatbot
 from willa.config import OLLAMA_URL
 from willa.etl.pipeline import run_pipeline
+from willa.web.cas_provider import CASProvider
+from willa.web.inject_custom_auth import add_custom_oauth_provider
 
 
 STORE = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text', base_url=OLLAMA_URL))
@@ -18,6 +20,8 @@ STORE = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text', base_url=
 
 
 run_pipeline(STORE)
+
+add_custom_oauth_provider('cas', CASProvider())
 
 
 BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
@@ -44,3 +48,13 @@ async def chat(message: cl.Message) -> None:
         author='Willa',
         content=reply
     ).send()
+
+
+@cl.oauth_callback
+def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
+                   default_user: cl.User, _: str | None) -> cl.User | None:
+    """Handle OAuth authentication."""
+    if provider_id != 'cas':
+        return None
+
+    return default_user
