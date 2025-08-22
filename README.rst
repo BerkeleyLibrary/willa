@@ -46,12 +46,9 @@ The chatbot service is deployed via Docker Compose.  You can set up a similar
 environment by running::
 
     docker compose build --pull
+    docker compose run prisma migrate deploy
     docker compose up -d
 
-
-Then, create the application's data layer::
-
-    docker compose run prisma migrate deploy
 
 
 Configuration
