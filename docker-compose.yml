@@ -37,6 +37,7 @@ services:
     volumes:
       - ./tmp:/pdfs
       - ./prisma:/app/prisma
+      - ./tests:/app/tests
 
   ollama:
     image: ollama/ollama
@@ -47,9 +48,9 @@ services:
       - ./ollama:/root/.ollama:rw
       - ./models:/models
 
-  prisma-studio:
+  prisma:
     profiles:
-      - prisma-studio
+      - prisma
     build:
       context: .
       dockerfile: Dockerfile.prisma

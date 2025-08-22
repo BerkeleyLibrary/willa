@@ -1,18 +1,15 @@
 FROM node:24-slim AS prisma
 
-RUN mkdir -p /app/prisma
+RUN mkdir -p /app
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update -y && apt-get install -y openssl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY package.json package.json
-COPY prisma.config.ts prisma.config.ts
-COPY tsconfig.json tsconfig.json
-COPY prisma/schema.prisma prisma/schema.prisma
-COPY prisma/migrations prisma/migrations
+COPY prisma /app
 
 RUN npm install
 
-ENTRYPOINT [ "npx", "prisma", "studio" ]
+ENTRYPOINT [ "npx", "prisma" ]
+CMD [ "studio" ]
