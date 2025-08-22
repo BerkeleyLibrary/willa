@@ -36,7 +36,6 @@ services:
       OLLAMA_URL:
     volumes:
       - ./tmp:/pdfs
-      - ./prisma:/app/prisma
       - ./tests:/app/tests
 
   ollama:
