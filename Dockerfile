@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     # && rm -rf /var/lib/apt/lists/*
 
 # Install Prisma
-# RUN npmx install -g prisma
+RUN npm install -g prisma
 
 COPY pyproject.toml pyproject.toml
 
