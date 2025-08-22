@@ -17,9 +17,6 @@ FROM reqs AS app
 COPY willa willa
 COPY README.rst README.rst
 COPY CHANGELOG.rst CHANGELOG.rst
-COPY prisma prisma
-COPY prisma.config.ts prisma.config.ts
-COPY tsconfig.json tsconfig.json
 COPY prompt_templates prompt_templates
 COPY public public
 COPY chainlit.md chainlit.md
