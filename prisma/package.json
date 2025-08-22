@@ -1,0 +1,9 @@
+{
+  "name": "@berkeleylibrary/willa",
+  "version": "0.0.0",
+  "dependencies": {
+    "@types/node": "^24.3.0",
+    "migrate": "^2.1.0",
+    "prisma": "^6.14.0"
+  }
+}
