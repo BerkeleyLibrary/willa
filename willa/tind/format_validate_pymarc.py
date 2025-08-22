@@ -33,7 +33,7 @@ def get_generic_fields(pymarc_record: Record) -> dict:
 
     fields_hash: dict[str, Any] = {}
     arr = ['001', '041', '100', '110', '111', '245', '336', '520', '540', '600',
-           '610', '611', '650', '651', '700', '710', '711', '909']
+           '610', '611', '650', '651', '700', '710', '711']
 
     for key in arr:
         if key not in pymarc_record:
@@ -98,6 +98,7 @@ def parse_pymarc(pymarc_record: Record) -> dict:
     marc_values['852__c'] = get_sub_by_field_and_indicators(pymarc_record, '852', ' ', ' ', 'c')
     marc_values['982__b'] = get_sub_by_field_and_indicators(pymarc_record, '982', None, None, 'b')
     marc_values['260__c'] = get_sub_by_field_and_indicators(pymarc_record, '260', None, None, 'c')
+    marc_values['909COo'] = get_sub_by_field_and_indicators(pymarc_record, '909', 'C', 'O', 'o')
 
     return marc_values
 
@@ -123,7 +124,7 @@ KEY_MAPPINGS: dict = {
     '711': 'contributor',
     '852__c': 'publisher',
     '85642u': 'references',
-    '909': 'source',
+    '909COo': 'source',
     '982__b': 'isPartOf'
 }
 """The mapping of MARC fields/subfields into metadata keys."""

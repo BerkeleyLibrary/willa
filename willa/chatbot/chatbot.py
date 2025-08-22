@@ -7,7 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.vectorstores.base import VectorStore
 
 import willa.config  # pylint: disable=W0611
-
+from willa.tind import format_tind_context
 
 _PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
                               os.path.join(os.path.dirname(__package__),
@@ -55,6 +55,7 @@ class Chatbot:  # pylint: disable=R0903
         :returns str: The answer given by the model.
         """
         matching_docs = self.vector_store.similarity_search(question)
+        tind_metadata = format_tind_context.get_tind_context(matching_docs)
         context = '\n\n'.join(doc.page_content for doc in matching_docs)
         answer = self.chain.invoke({'question': question, 'context': context})
-        return answer.text()
+        return answer.text() + tind_metadata
