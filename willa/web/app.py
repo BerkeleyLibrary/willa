@@ -51,8 +51,8 @@ async def chat(message: cl.Message) -> None:
 
 
 @cl.oauth_callback
-def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
-                   default_user: cl.User, _: str | None) -> cl.User | None:
+async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
+                         default_user: cl.User, _: str | None) -> cl.User | None:
     """Handle OAuth authentication."""
     if provider_id != 'cas':
         return None
