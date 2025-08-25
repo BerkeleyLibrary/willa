@@ -50,9 +50,10 @@ async def chat(message: cl.Message) -> None:
     ).send()
 
 
-@cl.oauth_callback
+# Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
+@cl.oauth_callback  # type: ignore[arg-type]
 async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
-                         default_user: cl.User, _: str | None) -> cl.User | None:
+                         default_user: cl.User) -> cl.User | None:
     """Handle OAuth authentication."""
     if provider_id != 'cas':
         return None
