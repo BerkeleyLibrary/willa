@@ -100,6 +100,7 @@ The following keys are available for configuration in the ``.env`` file:
 ``CALNET_OIDC_CLIENT_ID``, ``CALNET_OIDC_CLIENT_SECRET``
     OAuth client authentication for CalNet OIDC provider.
     Make sure you are using the correct environment; test credentials do not work on the prod env.
+    These credentials are kept in credential storage and must be kept secret.
 
 ``CHAINLIT_AUTH_SECRET``
     The authentication secret used by Chainlit.
