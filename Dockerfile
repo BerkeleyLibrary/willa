@@ -4,6 +4,10 @@ FROM python:3.13-slim AS reqs
 
 WORKDIR /app
 
+
+RUN apt-get update -y && apt-get upgrade -y \
+    && rm -rf /var/lib/apt/lists/
+
 COPY pyproject.toml pyproject.toml
 
 RUN python -m venv /venv

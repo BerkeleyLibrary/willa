@@ -211,3 +211,15 @@ __marimo__/
 
 # Ollama model data.
 ollama/
+
+# Chainlit
+.chainlit/
+
+# postgres data
+.data/
+
+# temp files
+tmp/
+
+# Node modules
+node_modules/

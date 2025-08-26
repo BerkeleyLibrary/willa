@@ -46,6 +46,7 @@ The chatbot service is deployed via Docker Compose.  You can set up a similar
 environment by running::
 
     docker compose build --pull
+    docker compose run prisma migrate deploy
     docker compose up -d
 
 
@@ -64,6 +65,9 @@ The following keys are available for configuration in the ``.env`` file:
 ``DEFAULT_STORAGE_DIR``
     The default directory to store files retrieved from TIND.
 
+``PROMPT_TEMPLATE``
+    The inital prompt for the chatbot. defaults to ``prompt_templates/initial_prompt.txt``
+
 ``RUN_OLLAMA_TESTS``
     Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
 
@@ -76,3 +80,15 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``CHAT_TEMPERATURE``
     Defines the "temperature" (creativeness) of the LLM.  Defaults to ``0.5``.
+
+``POSTGRES_USER``
+    The postgres master user. Defaults to ``root``.
+
+``POSTGRES_PASSWORD``   
+    The postgres password for POSTGRES_USER. Defaults to ``root``.
+
+``POSTGRES_DB``   
+    The database for the app. Defaults to ``willa``. 
+
+``POSTGRES_PORT``   
+    The POSTGRES port. Defaults to ``5432``. 

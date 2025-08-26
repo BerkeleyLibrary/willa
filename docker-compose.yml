@@ -1,4 +1,21 @@
 services:
+  db:
+    image: postgres:16
+    restart: always
+    environment: &dbconfig
+      POSTGRES_DB: ${POSTGRES_DB:-willa}
+      POSTGRES_USER: ${POSTGRES_USER:-root}
+      POSTGRES_PASSWORD: ${POSTGRES_USER:-root}
+      DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./.data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   app:
     build:
       context: .
@@ -6,13 +23,17 @@ services:
     depends_on:
       ollama:
         condition: service_started
+      db:
+        condition: service_healthy
     init: true
     restart: always
     ports:
       - 8000:8000
     environment:
-      - DEFAULT_STORAGE_DIR
-      - OLLAMA_URL
+      <<: *dbconfig
+      CHAINLIT_AUTH_SECRET:
+      DEFAULT_STORAGE_DIR:
+      OLLAMA_URL:
     volumes:
       - ./tmp:/pdfs
 
@@ -24,3 +45,17 @@ services:
     volumes:
       - ./ollama:/root/.ollama:rw
       - ./models:/models
+
+  prisma:
+    profiles:
+      - prisma
+    build:
+      context: .
+      dockerfile: Dockerfile.prisma
+    restart: always
+    environment: *dbconfig
+    ports:
+      - 5555:5555
+    depends_on:
+      db:
+        condition: service_healthy
