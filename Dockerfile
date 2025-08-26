@@ -21,6 +21,7 @@ COPY CHANGELOG.rst CHANGELOG.rst
 COPY prompt_templates prompt_templates
 COPY public public
 COPY chainlit.md chainlit.md
+COPY .chainlit .chainlit
 RUN /venv/bin/pip install -e .
 
 ENV VIRTUAL_ENV /venv
