@@ -5,6 +5,7 @@ Implementation of the Web interface for Willa.
 import os
 
 import chainlit as cl
+from chainlit.types import ThreadDict
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
@@ -29,15 +30,17 @@ BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
                                 base_url=OLLAMA_URL))
 """The Chatbot instance to use for chatting."""
 
+
 # pylint: disable=unnecessary-pass
 # pylint: disable=unused-argument
 # placeholder. Not being used yet
 @cl.on_chat_resume
-async def on_chat_resume(thread):
-    """resume chat session for data persistance. """
+async def on_chat_resume(thread: ThreadDict) -> None:
+    """Resume chat session for data persistence."""
     pass
 # pylint: enable=unnecessary-pass
 # pylint: enable=unused-argument
+
 
 @cl.on_message
 async def chat(message: cl.Message) -> None:
