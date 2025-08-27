@@ -6,6 +6,8 @@ import os
 
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
+#from langchain_core.messages import HumanMessage, AIMessage
+#from langchain_core.runnables.config import RunnableConfig
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
@@ -45,25 +47,62 @@ async def ocs() -> None:
     """loaded when new chat is started"""
     await cl.context.emitter.set_commands(COMMANDS)
 
+# pylint: disable="unnecessary-pass"
 # pylint: disable="unused-argument"
 @cl.on_chat_resume
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
 # pylint: enable="unused-argument"
+# pylint: enable="unnecessary-pass"
 
 def _get_history() -> str:
     """Get chat history for thread"""
     history = cl.chat_context.to_openai()
     contents = [h["content"] for h in history]
     content = "\n\n".join(contents)
+    pass
 
     return content
 
 @cl.on_message
 async def chat(message: cl.Message) -> None:
     """Handle an incoming chat message."""
-
+#    answer = cl.Message(content="", author='Willa')
+#    await answer.send()
+#
+#    config: RunnableConfig = {
+#        "configurable": {"thread_id": cl.context.session.thread_id}
+#    }
+#
+#    try:
+#        accumulated_content = ""
+#        async for chunk in BOT.model.astream(
+#            {"messages": [HumanMessage(content=message.content)]},
+#            config
+#        ):
+#            if "messages" in chunk:
+#                for msg in chunk["messages"]:
+#                    if isinstance(msg, AIMessage):
+#                        # Update the streaming message
+#                        if hasattr(msg, 'content') and msg.content:
+#                            accumulated_content = msg.content
+#                            answer.content = accumulated_content
+#                            await answer.update()
+#
+#        # Final update with complete content
+#        if not accumulated_content:
+#            # Fallback to synchronous if no streaming support
+#            reply = await cl.make_async(BOT.ask)(message.content, cl.context.session.thread_id)
+#            answer.content = reply
+#            await answer.update()
+#
+#    except Exception as e:
+#        cl.logger.error(f"Error occurred while trying to stream message: {e}")
+#        reply = await cl.make_async(BOT.ask)(message.content, cl.context.session.thread_id)
+#        answer.content = reply
+#        await answer.update()
+#
     if message.command == 'Copy Transcript':
         chat_history = _get_history()
         await cl.send_window_message(f"Clipboard: {chat_history}")

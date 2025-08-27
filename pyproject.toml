@@ -11,6 +11,7 @@ dependencies = [
     "langchain",
     "langchain_community",
     "langchain_ollama",
+    "langgraph",
     "ollama ~= 0.5.1",
     "pymarc",
     "pypdf",
