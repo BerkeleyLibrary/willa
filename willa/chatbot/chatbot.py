@@ -1,6 +1,7 @@
 """Implements the Chatbot class for Willa."""
 
 import os
+import uuid
 
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import HumanMessage, AIMessage
@@ -42,15 +43,17 @@ class Chatbot:  # pylint: disable=R0903
     questions can be asked in succession.  See AP-375.
     """
 
-    def __init__(self, vector_store: VectorStore, model: BaseChatModel):
+    def __init__(self, vector_store: VectorStore, model: BaseChatModel, thread_id: str = None):
         """Create a new Willa chatbot instance.
 
         :param VectorStore vector_store: The vector store to use for searching.
         :param BaseChatModel model: The LLM to use for processing.
+        :param str thread_id: The ID of the thread for this conversation.
         """
         self.vector_store = vector_store
         self.model = model
-        
+        self.thread_id = thread_id or str(uuid.uuid4())
+
         # Create LangGraph workflow
         workflow = StateGraph(state_schema=MessagesState)
         workflow.add_node("chatbot", self._call_model)
@@ -97,7 +100,7 @@ class Chatbot:  # pylint: disable=R0903
         :returns str: The answer given by the model.
         """
         config: RunnableConfig = {
-            "configurable": {"thread_id": thread_id}
+            "configurable": {"thread_id": self.thread_id}
         }
 
         result = self.app.invoke(

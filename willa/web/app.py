@@ -74,34 +74,9 @@ async def chat(message: cl.Message) -> None:
 #    config: RunnableConfig = {
 #        "configurable": {"thread_id": cl.context.session.thread_id}
 #    }
-#
-#    try:
-#        accumulated_content = ""
-#        async for chunk in BOT.model.astream(
-#            {"messages": [HumanMessage(content=message.content)]},
-#            config
-#        ):
-#            if "messages" in chunk:
-#                for msg in chunk["messages"]:
-#                    if isinstance(msg, AIMessage):
-#                        # Update the streaming message
-#                        if hasattr(msg, 'content') and msg.content:
-#                            accumulated_content = msg.content
-#                            answer.content = accumulated_content
-#                            await answer.update()
-#
-#        # Final update with complete content
-#        if not accumulated_content:
-#            # Fallback to synchronous if no streaming support
-#            reply = await cl.make_async(BOT.ask)(message.content, cl.context.session.thread_id)
-#            answer.content = reply
-#            await answer.update()
-#
-#    except Exception as e:
-#        cl.logger.error(f"Error occurred while trying to stream message: {e}")
-#        reply = await cl.make_async(BOT.ask)(message.content, cl.context.session.thread_id)
-#        answer.content = reply
-#        await answer.update()
+#    reply = await cl.make_async(BOT.ask)(message.content)
+#    answer.content = reply
+#    await answer.update()
 #
     if message.command == 'Copy Transcript':
         chat_history = _get_history()
