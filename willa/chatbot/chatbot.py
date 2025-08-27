@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables.config import RunnableConfig
 from langchain_core.vectorstores.base import VectorStore
-from langgraph.checkpoint.memory import MemorySavor
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import START, MessagesState, StateGraph
 
 import willa.config  # pylint: disable=W0611
@@ -56,7 +56,7 @@ class Chatbot:  # pylint: disable=R0903
         workflow.add_node("chatbot", self._call_model)
         workflow.add_edge(START, "chatbot")
 
-        memory = MemorySavor()
+        memory = MemorySaver()
         self.app = workflow.compile(checkpointer=memory)
 
     def _call_model(self, state: MessagesState):
