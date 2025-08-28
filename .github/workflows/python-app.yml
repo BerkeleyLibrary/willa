@@ -32,6 +32,9 @@ jobs:
     # https://pylint.readthedocs.io/en/latest/user_guide/usage/run.html#exit-codes
       run: |
         pylint -v .
+    - name: Lint typing with mypy
+      run: |
+        mypy .
     - name: Lint docstrings with pydoclint
       run: |
         pydoclint .
