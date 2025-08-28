@@ -19,3 +19,15 @@ if (window.location.href.includes('login')) {
   const config = { childList: true, subtree: true };
   observer.observe(document.body, config);
 }
+
+window.addEventListener('message', async (event) => {
+  if (typeof event.data === "string" && event.data.startsWith("Clipboard: ")) {
+    try {
+      const text = event.data.slice("Clipboard: ".length);
+      await navigator.clipboard.writeText(text);
+      console.log('Text copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  }
+});

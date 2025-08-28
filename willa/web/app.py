@@ -5,7 +5,7 @@ Implementation of the Web interface for Willa.
 import os
 
 import chainlit as cl
-from chainlit.types import ThreadDict
+from chainlit.types import ThreadDict, CommandDict
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
@@ -30,28 +30,54 @@ BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
                                 base_url=OLLAMA_URL))
 """The Chatbot instance to use for chatting."""
 
+COMMANDS: list[CommandDict] = [
+  {
+      "id": "Copy Transcript",
+      "icon": "clipboard",
+      "button": True,
+      "persistent": False,
+      "description": "Copy the conversation transcript to the clipboard"
+  },
+]
 
-# pylint: disable=unnecessary-pass
-# pylint: disable=unused-argument
-# placeholder. Not being used yet
+@cl.on_chat_start
+async def ocs() -> None:
+    """loaded when new chat is started"""
+    await cl.context.emitter.set_commands(COMMANDS)
+
+# pylint: disable="unused-argument"
 @cl.on_chat_resume
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
-    pass
-# pylint: enable=unnecessary-pass
-# pylint: enable=unused-argument
+    await cl.context.emitter.set_commands(COMMANDS)
+# pylint: enable="unused-argument"
 
+def _get_history() -> str:
+    """Get chat history for thread"""
+    history = cl.chat_context.to_openai()
+    contents = [h["content"] for h in history]
+    content = "\n\n".join(contents)
+
+    return content
 
 @cl.on_message
 async def chat(message: cl.Message) -> None:
     """Handle an incoming chat message."""
-    reply = await cl.make_async(BOT.ask)(message.content)
 
-    await cl.Message(
-        author='Willa',
-        content=reply
-    ).send()
+    if message.command == 'Copy Transcript':
+        chat_history = _get_history()
+        await cl.send_window_message(f"Clipboard: {chat_history}")
 
+        await cl.Message(
+          author='System',
+          content="Transcript copied to clipboard!"
+        ).send()
+    else:
+        reply = await cl.make_async(BOT.ask)(message.content)
+        await cl.Message(
+          author='System',
+          content=reply
+        ).send()
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]
