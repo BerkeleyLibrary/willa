@@ -37,6 +37,7 @@ lint = [
     "mypy ~= 1.17.1",
     "pydoclint ~= 0.6.10",
     "pylint ~= 3.3",
+    "types-requests",
 ]
 dev = [
     "willa[test,lint]"
