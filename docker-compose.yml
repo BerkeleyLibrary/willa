@@ -38,6 +38,7 @@ services:
       OLLAMA_URL:
     volumes:
       - ./tmp:/pdfs
+      - ./willa:/app/willa:rw
 
   ollama:
     image: ollama/ollama

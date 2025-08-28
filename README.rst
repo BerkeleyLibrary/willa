@@ -38,6 +38,9 @@ To run linting::
 
     python -m pylint willa
 
+To run mypy:
+
+    python -m mypy willa
 
 Deployment
 ==========
