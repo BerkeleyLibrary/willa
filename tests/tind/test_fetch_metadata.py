@@ -12,6 +12,7 @@ from willa.errors import TINDError
 from willa.tind import fetch
 from . import setup_files
 
+
 class TindSearchTest(unittest.TestCase):
     """Test the search methods of the willa.tind.fetch module."""
     def setUp(self) -> None:
@@ -35,9 +36,10 @@ class TindSearchTest(unittest.TestCase):
 #        xml, search_id = fetch._retrieve_xml_search_id(xml_string)
 #
 #        self.assertIsInstance(xml, ET.Element)
-# pylint: disable=line-too-long
-#        self.assertEqual(search_id, 'FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ckhib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR09RQkdxU3cxN2RXU2wyQQ==')
-# pylint: enable=line-too-long
+#        self.assertEqual(search_id, 'FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoAhZZcnN1ck'
+#                                    'hib1RxV1k2QTdIUVQzeFVRAAAAAAFYVTQWY3VZUi1tZW9TNGVGaWF5TnQ1'
+#                                    'NWVhdxZfc0FSV1YzMVE5S0wtQy1La240M0pnAAAAAACO4YwWclV3TXdJR0'
+#                                    '9RQkdxU3cxN2RXU2wyQQ==')
 
     def test_search_with_xml_format(self) -> None:
         """Test the search method with result_format='xml'."""

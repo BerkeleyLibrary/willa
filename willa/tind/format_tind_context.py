@@ -42,7 +42,7 @@ def get_tind_context(docs: list) -> str:
 
 def process_fields(tind_rec: dict) -> str:
     """Provide formatted select Tind fields to include in Chat response
-    
+
     :param dict tind_rec: dict of Tind metadata
     :returns str: A formatted string to be included in chat display
     """
@@ -54,7 +54,7 @@ def process_fields(tind_rec: dict) -> str:
         if isinstance(tind_rec.get(field), list):
             formatted_str += '\n'.join(
                              [f"{DISPLAY_MAPPINGS[field]} {value}"
-                             for value in tind_rec[field]]) + '\n'
+                              for value in tind_rec[field]]) + '\n'
         elif tind_rec[field] is not None:
             formatted_str += f"{DISPLAY_MAPPINGS[field]} {tind_rec[field]}\n\n"
 
