@@ -8,6 +8,7 @@ from typing import Tuple, Dict
 import httpx
 from chainlit.oauth_providers import OAuthProvider
 from chainlit.user import User
+from fastapi import HTTPException
 import willa.config  # pylint: disable=W0611
 
 CALNET_ENV: str = os.environ.get('CALNET_ENV', 'test')
@@ -38,7 +39,7 @@ class CASProvider(OAuthProvider):
         self.client_secret = os.environ['CALNET_OIDC_CLIENT_SECRET']
         self.authorize_params = {
             'response_type': 'code',
-            'scope': 'openid profile',
+            'scope': 'openid profile berkeley_edu_groups',
         }
 
     async def get_token(self, code: str, url: str) -> str:
@@ -70,7 +71,11 @@ class CASProvider(OAuthProvider):
             response.raise_for_status()
             user_data = response.json()
 
-            # Future TODO: Find out where groups are returned, and check them. (AP-397)
+            groups = user_data['attributes'].get('groups', [])
+            if 'cn=edu:berkeley:app:auth-cas:lib-willa:lib-willa-allow,' \
+               'ou=campus groups,dc=berkeley,dc=edu' not in groups:
+                raise HTTPException(status_code=403,
+                                    detail='Not Authorised: You are not allowed to access Willa.')
 
             user = User(identifier=user_data['id'])
             return user_data, user
