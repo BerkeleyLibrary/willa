@@ -21,16 +21,11 @@ from willa.web.inject_custom_auth import add_custom_oauth_provider
 STORE = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text', base_url=OLLAMA_URL))
 """The vector store."""
 
+_THREAD_BOTS = {}
 
 run_pipeline(STORE)
 
 add_custom_oauth_provider('cas', CASProvider())
-
-
-BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
-                                temperature=float(os.getenv('CHAT_TEMPERATURE', '0.5')),
-                                base_url=OLLAMA_URL))
-"""The Chatbot instance to use for chatting."""
 
 COMMANDS: list[CommandDict] = [
   {
@@ -47,14 +42,11 @@ async def ocs() -> None:
     """loaded when new chat is started"""
     await cl.context.emitter.set_commands(COMMANDS)
 
-# pylint: disable="unnecessary-pass"
-# pylint: disable="unused-argument"
 @cl.on_chat_resume
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
-# pylint: enable="unused-argument"
-# pylint: enable="unnecessary-pass"
+    bot = _get_or_create_bot(thread['id'])
 
 def _get_history() -> str:
     """Get chat history for thread"""
@@ -65,19 +57,25 @@ def _get_history() -> str:
 
     return content
 
+def _get_or_create_bot(thread_id: str) -> Chatbot:
+    """Get or create a bot instance for the given thread."""
+    if thread_id not in _THREAD_BOTS:
+        _THREAD_BOTS[thread_id] = Chatbot(
+            STORE,
+            ChatOllama(
+                model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
+                temperature=float(os.getenv('CHAT_TEMPERATURE', '0.5')),
+                base_url=OLLAMA_URL
+            ),
+            thread_id=thread_id,
+            conversation_thread=cl.chat_context.to_openai()
+        )
+
+    return _THREAD_BOTS[thread_id]
+
 @cl.on_message
 async def chat(message: cl.Message) -> None:
     """Handle an incoming chat message."""
-#    answer = cl.Message(content="", author='Willa')
-#    await answer.send()
-#
-#    config: RunnableConfig = {
-#        "configurable": {"thread_id": cl.context.session.thread_id}
-#    }
-#    reply = await cl.make_async(BOT.ask)(message.content)
-#    answer.content = reply
-#    await answer.update()
-#
     if message.command == 'Copy Transcript':
         chat_history = _get_history()
         await cl.send_window_message(f"Clipboard: {chat_history}")
@@ -87,11 +85,15 @@ async def chat(message: cl.Message) -> None:
           content="Transcript copied to clipboard!"
         ).send()
     else:
-        reply = await cl.make_async(BOT.ask)(message.content)
-        await cl.Message(
-          author='System',
-          content=reply
-        ).send()
+        answer = cl.Message(content="", author='Willa')
+        await answer.send()
+
+        # Use thread-specific
+        bot = _get_or_create_bot(message.thread_id)
+
+        reply = await cl.make_async(bot.ask)(message.content)
+        answer.content = reply
+        await answer.update()
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]

@@ -2,6 +2,7 @@
 
 import os
 import uuid
+from pprint import pprint
 
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import HumanMessage, AIMessage
@@ -9,6 +10,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables.config import RunnableConfig
 from langchain_core.vectorstores.base import VectorStore
 from langgraph.checkpoint.memory import MemorySaver
+# from langgraph.checkpoint.memory import InMemorySaver
+# from langgraph.checkpoint.postgres import PostgresSaver
 from langgraph.graph import START, MessagesState, StateGraph
 
 import willa.config  # pylint: disable=W0611
@@ -38,21 +41,22 @@ class Chatbot:  # pylint: disable=R0903
 
     The ``Chatbot`` class provides the ability to ask a question and receive
     answers based on loaded oral histories.
-
-    In the future, contexts will be preserved within an instance, so multiple
-    questions can be asked in succession.  See AP-375.
     """
 
-    def __init__(self, vector_store: VectorStore, model: BaseChatModel, thread_id: str = None):
+    def __init__(self, vector_store: VectorStore, model: BaseChatModel, thread_id: str = None, conversation_thread: list[dict] = None):
         """Create a new Willa chatbot instance.
 
         :param VectorStore vector_store: The vector store to use for searching.
         :param BaseChatModel model: The LLM to use for processing.
         :param str thread_id: The ID of the thread for this conversation.
+        :param list[dict] conversation_thread: conversation thread from chainlit data_layer
         """
         self.vector_store = vector_store
         self.model = model
         self.thread_id = thread_id or str(uuid.uuid4())
+        self.conversation_thread = conversation_thread or []
+
+        #TODO: figure out how to get conversation_thread into state["messages"]
 
         # Create LangGraph workflow
         workflow = StateGraph(state_schema=MessagesState)
@@ -62,15 +66,39 @@ class Chatbot:  # pylint: disable=R0903
         memory = MemorySaver()
         self.app = workflow.compile(checkpointer=memory)
 
+        if thread_id:
+            self._restore_conversation_history()
+
+    def _restore_conversation_history(self):
+        """Restore conversation history for the existing thread_id from data layer."""
+        try:
+            config: RunnableConfig = {
+                "configurable": {"thread_id": self.thread_id}
+            }
+            
+            # Try to get the current state for this thread
+            # This will automatically restore any existing conversation history
+            # that was previously saved with this thread_id
+            current_state = self.app.get_state(config)
+            
+            if current_state and current_state.values.get("messages"):
+                print(f"Restored {len(current_state.values['messages'])} messages for thread {self.thread_id}")
+            else:
+                print(f"No existing conversation history found for thread {self.thread_id}")
+                
+        except Exception as e:
+            print(f"Warning: Could not restore conversation history for thread {self.thread_id}: {e}")
+
     def _call_model(self, state: MessagesState):
         """Process the conversation state and generate response."""
         messages = state["messages"]
-
+        # pprint(messages)
         # Get latest human message
         latest_message = messages[-1] if messages else None
         if not latest_message or not hasattr(latest_message, 'content'):
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
+        #TODO: Decide on whether or not to use full conversation history for similarity search...
         # Search for relevant context
         matching_docs = self.vector_store.similarity_search(latest_message.content)
         tind_metadata = format_tind_context.get_tind_context(matching_docs)

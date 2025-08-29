@@ -52,6 +52,8 @@ environment by running::
     docker compose run prisma migrate deploy
     docker compose up -d
 
+To run prisma studio::
+    docker compose up -d prisma
 
 
 Configuration
