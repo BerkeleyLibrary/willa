@@ -46,7 +46,7 @@ async def ocs() -> None:
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
-    bot = _get_or_create_bot(thread['id'])
+    _get_or_create_bot(thread['id'])
 
 def _get_history() -> str:
     """Get chat history for thread"""
