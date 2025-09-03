@@ -60,6 +60,7 @@ class CASProvider(OAuthProvider):
     authorize_url = f"{BASE_URL}/oidcAuthorize"
     token_url = f"{BASE_URL}/oidcAccessToken"
     well_known_url = f"{BASE_URL}/.well-known"
+    logout_url = f"{BASE_URL}/oidcLogout"
 
     def __init__(self) -> None:
         self.client_id = os.environ['CALNET_OIDC_CLIENT_ID']

@@ -6,6 +6,7 @@ import os
 
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
+from fastapi import Request, Response
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
@@ -40,17 +41,18 @@ COMMANDS: list[CommandDict] = [
   },
 ]
 
+
 @cl.on_chat_start
 async def ocs() -> None:
     """loaded when new chat is started"""
     await cl.context.emitter.set_commands(COMMANDS)
 
-# pylint: disable="unused-argument"
+
 @cl.on_chat_resume
-async def on_chat_resume(thread: ThreadDict) -> None:
+async def on_chat_resume(_thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
-# pylint: enable="unused-argument"
+
 
 def _get_history() -> str:
     """Get chat history for thread"""
@@ -59,6 +61,7 @@ def _get_history() -> str:
     content = "\n\n".join(contents)
 
     return content
+
 
 @cl.on_message
 async def chat(message: cl.Message) -> None:
@@ -79,6 +82,7 @@ async def chat(message: cl.Message) -> None:
           content=reply
         ).send()
 
+
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]
 async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
@@ -88,3 +92,10 @@ async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str
         return None
 
     return default_user
+
+
+@cl.on_logout
+async def logout(_request: Request, response: Response) -> Response:
+    response.status_code = 303
+    response.headers['Location'] = CASProvider.logout_url
+    return response
