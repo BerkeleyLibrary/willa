@@ -8,6 +8,7 @@ version = "0.0.1"
 dependencies = [
     "asyncpg",
     "chainlit ~= 2.7.1",
+    "lancedb",
     "langchain",
     "langchain_community",
     "langchain_ollama",

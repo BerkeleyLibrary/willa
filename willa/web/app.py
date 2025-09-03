@@ -6,21 +6,17 @@ import os
 
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
-from langchain_core.vectorstores import InMemoryVectorStore
-from langchain_ollama import ChatOllama, OllamaEmbeddings
+from langchain_ollama import ChatOllama
 
 from willa.chatbot import Chatbot
-from willa.config import OLLAMA_URL
-from willa.etl.pipeline import run_pipeline
+from willa.config import OLLAMA_URL, get_lance
 from willa.web.cas_provider import CASProvider
 from willa.web.inject_custom_auth import add_custom_oauth_provider
 
 
-STORE = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text', base_url=OLLAMA_URL))
+STORE = get_lance()
 """The vector store."""
 
-
-run_pipeline(STORE)
 
 add_custom_oauth_provider('cas', CASProvider())
 

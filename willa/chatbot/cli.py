@@ -7,9 +7,8 @@ import argparse
 from langchain_ollama import ChatOllama
 from rich.console import Console
 
-from willa.etl.pipeline import run_pipeline
 from willa.chatbot import Chatbot
-from willa.config import OLLAMA_URL
+from willa.config import OLLAMA_URL, get_lance
 
 
 def main() -> None:
@@ -25,7 +24,7 @@ def main() -> None:
     args = parser.parse_args()
 
     with console.status("[bold green]Loading documents..."):
-        my_store = run_pipeline()
+        my_store = get_lance()
 
     model = ChatOllama(model=args.model, temperature=0.5, base_url=OLLAMA_URL)
 
