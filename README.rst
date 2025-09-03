@@ -26,6 +26,19 @@ You will need to set up an ``.env`` file for configuration.  An example is
 provided in ``env.example``.  Details of the configuration keys available
 follow later in this document.
 
+You will also need to populate a LanceDB instance with some documents.  You
+can run the ETL pipeline by running::
+
+    python3 -m willa.etl.pipeline
+
+You will need to ensure that your ``DEFAULT_STORAGE_DIR`` is set properly in
+``.env`` and that there is at least one downloaded file in it.  You can
+download an oral history from TIND using its TIND ID using the fetcher::
+
+    python3 -m willa.etl.fetcher -t tind_id
+
+where ``tind_id`` is the TIND ID.
+
 
 
 Linting & Testing locally

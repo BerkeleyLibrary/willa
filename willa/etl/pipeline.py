@@ -117,3 +117,7 @@ def fetch_all_from_search_query(query: str, vector_store: VectorStore | None = N
     results = search(query, 'pymarc')
     for record in results:
         _process_one_tind_record(record, vector_store)
+
+
+if __name__ == "__main__":
+    run_pipeline()

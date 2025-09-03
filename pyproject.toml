@@ -46,6 +46,8 @@ dev = [
 
 [project.scripts]
 willa-cli = "willa.chatbot.cli:main"
+willa-fetch = "willa.etl.fetcher:main"
+willa-pipeline = "willa.etl.pipeline:run_pipeline"
 
 [project.urls]
 Repository = "https://github.com/BerkeleyLibrary/willa"
