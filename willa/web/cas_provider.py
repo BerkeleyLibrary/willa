@@ -7,8 +7,8 @@ from typing import Any, Optional, Tuple, Dict
 
 import httpx
 from chainlit.oauth_providers import OAuthProvider
-from chainlit.user import User
 from chainlit.server import app
+from chainlit.user import User
 from fastapi import HTTPException, Request
 from fastapi.responses import HTMLResponse
 import willa.config  # pylint: disable=W0611
@@ -38,7 +38,7 @@ class CASForbiddenException(HTTPException):
 
 @app.exception_handler(CASForbiddenException)
 async def cas_forbidden_exception_handler(
-    request: Request, # pylint: disable=unused-argument
+    _request: Request,
     exc: CASForbiddenException
 ) -> HTMLResponse:
     """Exception handler to display a custom HTML error message."""
