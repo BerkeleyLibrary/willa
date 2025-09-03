@@ -3,12 +3,14 @@ Provides a Chainlit authentication provider for CAS.
 """
 
 import os
-from typing import Tuple, Dict
+from typing import Any, Optional, Tuple, Dict
 
 import httpx
 from chainlit.oauth_providers import OAuthProvider
+from chainlit.server import app
 from chainlit.user import User
-from fastapi import HTTPException
+from fastapi import HTTPException, Request
+from fastapi.responses import HTMLResponse
 import willa.config  # pylint: disable=W0611
 
 CALNET_ENV: str = os.environ.get('CALNET_ENV', 'test')
@@ -23,6 +25,31 @@ elif CALNET_ENV == 'production':
     """The base URL for the production instance of CalNet CAS."""
 else:
     raise ValueError(f'Unknown CalNet environment {CALNET_ENV}!')
+
+
+class CASForbiddenException(HTTPException):
+    """Exception class for when a CAS-authenticated user is not authorized."""
+    def __init__(self, status_code: int, detail: Any = None,
+                 headers: Optional[Dict[str, str]] = None) -> None:
+        super().__init__(
+            status_code=status_code, detail=detail, headers=headers
+        )
+
+
+@app.exception_handler(CASForbiddenException)
+async def cas_forbidden_exception_handler(
+    _request: Request,
+    exc: CASForbiddenException
+) -> HTMLResponse:
+    """Exception handler to display a custom HTML error message."""
+    return HTMLResponse(
+        status_code=exc.status_code,
+        content=f"""<!DOCTYPE html>
+            <html>
+            <head><title>Not Authorised</title></head>
+            <body>{exc.detail}</body>
+            </html>"""
+    )
 
 
 class CASProvider(OAuthProvider):
@@ -74,8 +101,13 @@ class CASProvider(OAuthProvider):
             groups = user_data['attributes'].get('groups', [])
             if 'cn=edu:berkeley:app:auth-cas:lib-willa:lib-willa-allow,' \
                'ou=campus groups,dc=berkeley,dc=edu' not in groups:
-                raise HTTPException(status_code=403,
-                                    detail='Not Authorised: You are not allowed to access Willa.')
+                raise CASForbiddenException(
+                    status_code=403,
+                    detail="""
+                    <h1>Not Authorised</h1>
+                    <p>You are not allowed to access Willa.</p>
+                    """
+                )
 
             user = User(identifier=user_data['id'])
             return user_data, user
