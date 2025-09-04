@@ -35,8 +35,10 @@ services:
       CALNET_OIDC_CLIENT_SECRET:
       CHAINLIT_AUTH_SECRET:
       DEFAULT_STORAGE_DIR:
+      LANCEDB_URI:
       OLLAMA_URL:
     volumes:
+      - ./data:/lancedb
       - ./tmp:/pdfs
       - ./willa:/app/willa:rw
 

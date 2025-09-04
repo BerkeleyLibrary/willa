@@ -6,3 +6,9 @@
 
 # Don't include local venv.
 /venv
+
+# Don't include LanceDB data.
+/data
+
+# Don't include default storage location.
+/tmp

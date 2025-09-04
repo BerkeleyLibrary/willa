@@ -25,7 +25,9 @@ COPY .chainlit .chainlit
 RUN /venv/bin/pip install -e .
 
 ENV VIRTUAL_ENV /venv
-ENTRYPOINT ["/venv/bin/chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
+ENTRYPOINT ["/venv/bin/python"]
+
+CMD ["/venv/bin/chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
 
 FROM app AS development
 COPY tests tests

@@ -125,7 +125,8 @@ The following keys are available for configuration in the ``.env`` file:
 ``LANCEDB_URI``
     The URI to use to connect to LanceDB.
     Note that LanceDB uses a special syntax for the URI as described in `their documentation`_.
-    You probably want either ``/tmp/lancedb-path`` or ``s3://bucket/path``.
+    You probably want either ``/lancedb`` (for local Docker deployments) or
+    ``s3://bucket/path`` (for production deployments or LocalStack testing).
 
 .. _`their documentation`:: https://lancedb.github.io/lancedb/guides/storage/
 
