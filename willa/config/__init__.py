@@ -18,7 +18,7 @@ OLLAMA_URL: str = os.getenv('OLLAMA_URL', 'http://localhost:11434')
 """The URL to use to connect to Ollama."""
 
 
-LANCEDB_URI: str = os.getenv('LANCEDB_URI', '/tmp/lancedb-storage')
+LANCEDB_URI: str = os.getenv('LANCEDB_URI', '/lancedb')
 """The URI to use to connect to LanceDB."""
 
 
