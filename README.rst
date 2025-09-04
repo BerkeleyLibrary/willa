@@ -55,6 +55,38 @@ To run mypy::
 
     python -m mypy willa
 
+
+
+Common Issues/Fixes
+===================
+
+``AttributeError: 'NoneType' object has no attribute 'search'`` when querying the bot
+-------------------------------------------------------------------------------------
+
+This means there are no records in the LanceDB table.  Ensure you have run the ETL pipeline.
+If you are running the pipeline on your local machine, ensure that the directory where you have
+set ``LANCEDB_URI`` is mounted in the container.
+
+
+``screen.delegation.unauthz.error.title`` from CAS Auth Test environment when attempting to log in
+--------------------------------------------------------------------------------------------------
+
+**Other messages**: "Authentication response provided to CAS by the external identity provider
+cannot be accepted."
+
+The CAS test environment seems to be unreliable; it sometimes takes a few requests to sort out.
+This does not appear to be a bug in Willa and eventually you will get through.
+
+
+The app container never starts / restarts frequently
+----------------------------------------------------
+
+Ensure the Ollama connection is set up correctly, and that the Ollama daemon is running.
+If you are using Ollama host-side, ensure your ``OLLAMA_URL`` is set in ``.env`` to
+``http://host.docker.internal:11434``.
+
+
+
 Deployment
 ==========
 
