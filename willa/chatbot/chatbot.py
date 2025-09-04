@@ -51,7 +51,8 @@ class Chatbot:  # pylint: disable=R0903
         :param VectorStore vector_store: The vector store to use for searching.
         :param BaseChatModel model: The LLM to use for processing.
         :param Optional[str] thread_id: The ID of the thread for this conversation.
-        :param Optional[list[dict]] conversation_thread: conversation thread from chainlit data_layer
+        :param Optional[list[dict]] conversation_thread: conversation thread from 
+            chainlit data_layer
         """
         self.vector_store = vector_store
         self.model = model
