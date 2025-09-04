@@ -40,7 +40,11 @@ class Chatbot:  # pylint: disable=R0903
     answers based on loaded oral histories.
     """
 
-    def __init__(self, vector_store: VectorStore, model: BaseChatModel, thread_id: str = None, conversation_thread: list[dict] = None):
+    def __init__(self,
+                 vector_store: VectorStore,
+                 model: BaseChatModel,
+                 thread_id: str = None,
+                 conversation_thread: list[dict] = None):
         """Create a new Willa chatbot instance.
 
         :param VectorStore vector_store: The vector store to use for searching.
@@ -70,7 +74,8 @@ class Chatbot:  # pylint: disable=R0903
     def _initialize_conversation_state(self):
         """Initialize conversation state with the existing messages from the data layer."""
         self.app.update_state(self.config, {"messages": self.previous_conversation})
-        print(f"Initialized conversation with {len(self.previous_conversation)} messages for thread {self.thread_id}")
+        print(f"Initialized conversation with {len(self.previous_conversation)} messages "
+              f"for thread {self.thread_id}")
 
     def _call_model(self, state: MessagesState):
         """Process the conversation state and generate response."""
@@ -81,7 +86,7 @@ class Chatbot:  # pylint: disable=R0903
         if not latest_message or not hasattr(latest_message, 'content'):
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
-        #TODO: Decide on whether or not to use full conversation history for similarity search...
+        #TODO: Decide on whether or not to use full conversation history for similarity search... # pylint: disable=W0511
         # Search for relevant context
         matching_docs = self.vector_store.similarity_search(latest_message.content)
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
@@ -100,9 +105,11 @@ class Chatbot:  # pylint: disable=R0903
         response = self.model.invoke(all_messages)
 
         # Add TIND metadata to response
-        response_content = response.content + tind_metadata if hasattr(response, 'content') else str(response) + tind_metadata
+        response_content = (response.content + tind_metadata
+                          if hasattr(response, 'content')
+                          else str(response) + tind_metadata)
 
-        # TODO: remove TIND metadata from the content and have it be a system message
+        # TODO: remove TIND metadata from the content and have it be a system message # pylint: disable=W0511
         return {"messages": [AIMessage(content=response_content)]}
 
     def ask(self, question: str) -> str:
@@ -119,4 +126,6 @@ class Chatbot:  # pylint: disable=R0903
 
         # Return the last AI message in content
         ai_message = [msg for msg in result["messages"] if isinstance(msg, AIMessage)]
-        return ai_message[-1].content if ai_message else "I'm sorry, I couldn't generate a response."
+        if ai_message:
+            return ai_message[-1].content
+        return "I'm sorry, I couldn't generate a response."
