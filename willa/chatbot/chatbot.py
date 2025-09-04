@@ -2,6 +2,7 @@
 
 import os
 import uuid
+from typing import Optional
 
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import HumanMessage, AIMessage
@@ -43,14 +44,14 @@ class Chatbot:  # pylint: disable=R0903
     def __init__(self,
                  vector_store: VectorStore,
                  model: BaseChatModel,
-                 thread_id: str = None,
-                 conversation_thread: list[dict] = None):
+                 thread_id: Optional[str] = None,
+                 conversation_thread: Optional[list[dict]] = None):
         """Create a new Willa chatbot instance.
 
         :param VectorStore vector_store: The vector store to use for searching.
         :param BaseChatModel model: The LLM to use for processing.
-        :param str thread_id: The ID of the thread for this conversation.
-        :param list[dict] conversation_thread: conversation thread from chainlit data_layer
+        :param Optional[str] thread_id: The ID of the thread for this conversation.
+        :param Optional[list[dict]] conversation_thread: conversation thread from chainlit data_layer
         """
         self.vector_store = vector_store
         self.model = model
@@ -71,13 +72,13 @@ class Chatbot:  # pylint: disable=R0903
         if self.previous_conversation:
             self._initialize_conversation_state()
 
-    def _initialize_conversation_state(self):
+    def _initialize_conversation_state(self) -> None:
         """Initialize conversation state with the existing messages from the data layer."""
         self.app.update_state(self.config, {"messages": self.previous_conversation})
         print(f"Initialized conversation with {len(self.previous_conversation)} messages "
               f"for thread {self.thread_id}")
 
-    def _call_model(self, state: MessagesState):
+    def _call_model(self, state: MessagesState) -> dict:
         """Process the conversation state and generate response."""
         messages = state["messages"]
         # pprint(messages)
