@@ -12,6 +12,7 @@ dependencies = [
     "langchain",
     "langchain_community",
     "langchain_ollama",
+    "langgraph",
     "ollama ~= 0.5.1",
     "pymarc",
     "pypdf",
@@ -40,8 +41,11 @@ lint = [
     "pylint ~= 3.3",
     "types-requests",
 ]
+debug = [
+    "debugpy",
+]
 dev = [
-    "willa[test,lint]"
+    "willa[test,lint,debug]"
 ]
 
 [project.scripts]

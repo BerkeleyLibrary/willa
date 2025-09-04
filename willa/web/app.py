@@ -17,14 +17,9 @@ from willa.web.inject_custom_auth import add_custom_oauth_provider
 STORE = get_lance()
 """The vector store."""
 
+_THREAD_BOTS = {}
 
 add_custom_oauth_provider('cas', CASProvider())
-
-
-BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
-                                temperature=float(os.getenv('CHAT_TEMPERATURE', '0.5')),
-                                base_url=OLLAMA_URL))
-"""The Chatbot instance to use for chatting."""
 
 COMMANDS: list[CommandDict] = [
   {
@@ -56,6 +51,23 @@ def _get_history() -> str:
 
     return content
 
+def _get_or_create_bot(thread_id: str) -> Chatbot:
+    """Get or create a bot instance for the given thread."""
+    previous_conversation = cl.chat_context.to_openai()
+    if thread_id not in _THREAD_BOTS:
+        _THREAD_BOTS[thread_id] = Chatbot(
+            STORE,
+            ChatOllama(
+                model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
+                temperature=float(os.getenv('CHAT_TEMPERATURE', '0.5')),
+                base_url=OLLAMA_URL
+            ),
+            thread_id=thread_id,
+            conversation_thread=previous_conversation
+        )
+
+    return _THREAD_BOTS[thread_id]
+
 @cl.on_message
 async def chat(message: cl.Message) -> None:
     """Handle an incoming chat message."""
@@ -69,11 +81,15 @@ async def chat(message: cl.Message) -> None:
           content="Transcript copied to clipboard!"
         ).send()
     else:
-        reply = await cl.make_async(BOT.ask)(message.content)
-        await cl.Message(
-          author='System',
-          content=reply
-        ).send()
+        answer = cl.Message(content="", author='System')
+        await answer.send()
+
+        # Use thread-specific
+        bot = _get_or_create_bot(message.thread_id)
+
+        reply = await cl.make_async(bot.ask)(message.content)
+        answer.content = reply
+        await answer.update()
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]
