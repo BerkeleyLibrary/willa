@@ -2,7 +2,7 @@
 
 import os
 import uuid
-from typing import Optional, Annotated
+from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
 from langchain_core.language_models import BaseChatModel
@@ -32,12 +32,12 @@ PROMPT = ChatPromptTemplate.from_messages([("system", _SYS_PROMPT)])
 """The prompt template to use for initiating a chatbot."""
 
 
-class ChatbotState(TypedDict):
+class WillaChatbotState(TypedDict):
     """State for the Chatbot LangGraph workflow."""
     messages: Annotated[list[AnyMessage], add_messages]
-    context: str
-    search_query: str
-    tind_metadata: str
+    context: NotRequired[str]
+    search_query: NotRequired[str]
+    tind_metadata: NotRequired[str]
 
 class Chatbot:  # pylint: disable=R0903
     """An instance of a Willa chatbot.
@@ -68,7 +68,7 @@ class Chatbot:  # pylint: disable=R0903
         }
 
         # Create LangGraph workflow
-        workflow = StateGraph(state_schema=ChatbotState)
+        workflow = StateGraph(state_schema=WillaChatbotState)
 
         # Add nodes
         workflow.add_node("prepare_search", self._prepare_search_query)
@@ -93,7 +93,7 @@ class Chatbot:  # pylint: disable=R0903
         print(f"Initialized conversation with {len(self.previous_conversation)} messages "
               f"for thread {self.thread_id}")
 
-    def _prepare_search_query(self, state: ChatbotState) -> ChatbotState:
+    def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
         """Prepare search query from conversation context."""
         messages = state["messages"]
         
@@ -101,9 +101,9 @@ class Chatbot:  # pylint: disable=R0903
         human_messages = [msg for msg in messages if isinstance(msg, HumanMessage)]
         if not human_messages:
             return {"search_query": ""}
-        
-        latest_question = human_messages[-1].content
-        
+
+        latest_question = str(human_messages[-1].content)
+
         # Initial question: respond to the first question (current behavior)
         search_query = latest_question
         
@@ -113,16 +113,16 @@ class Chatbot:  # pylint: disable=R0903
         if len(recent_messages) > 2:
             context_parts = []
             for msg in recent_messages[:-1]:  # Exclude the current question
-                if isinstance(msg, (HumanMessage, AIMessage)):
-                    context_parts.append(msg.content)
-            
+                if isinstance(msg, (HumanMessage, AIMessage)) and msg.content:
+                    context_parts.append(str(msg.content))
+
             if context_parts:
                 # Limit context to the most recent 2 exchanges:
                 search_query = f"Previous context: {' '.join(context_parts[-4:])} Current question: {latest_question}"
         
         return {"search_query": search_query}
 
-    def _retrieve_context(self, state: ChatbotState) -> ChatbotState:
+    def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
         
@@ -138,7 +138,7 @@ class Chatbot:  # pylint: disable=R0903
         
         return {"context": context, "tind_metadata": tind_metadata}
 
-    def _generate_response(self, state: ChatbotState) -> ChatbotState:
+    def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         messages = state["messages"]
         context = state.get("context", "")
@@ -168,9 +168,9 @@ class Chatbot:  # pylint: disable=R0903
         response = self.model.invoke(all_messages)
 
         # Create clean response content
-        response_content = response.content if hasattr(response, 'content') else str(response)
+        response_content = str(response.content) if hasattr(response, 'content') else str(response)
         response_content += f"{tind_metadata}" if tind_metadata else ""
-        response_messages = [AIMessage(content=response_content)]
+        response_messages: list[AnyMessage] = [AIMessage(content=response_content)]
 
         # TODO: Add TIND metadata as separate system message instead of appending to content
         # currently, ask returns a string, but it would be nice to return the AIMessage and
@@ -188,12 +188,12 @@ class Chatbot:  # pylint: disable=R0903
         """
 
         result = self.app.invoke(
-            {"messages": [HumanMessage(content=question)]},
-            self.config
+            {"messages": [HumanMessage(content=question)]}, #type: ignore[arg-type]
+            config=self.config
         )
 
         # Return the last AI message in content
         ai_message = [msg for msg in result["messages"] if isinstance(msg, AIMessage)]
         if ai_message:
-            return ai_message[-1].content
+            return str(ai_message[-1].content)
         return "I'm sorry, I couldn't generate a response."
