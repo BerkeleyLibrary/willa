@@ -1,5 +1,6 @@
 """Implements the Chatbot class for Willa."""
 
+import logging
 import os
 import uuid
 from typing import Optional, Annotated, NotRequired
@@ -74,7 +75,7 @@ class Chatbot:  # pylint: disable=R0903
         workflow.add_node("prepare_search", self._prepare_search_query)
         workflow.add_node("retrieve_context", self._retrieve_context)
         workflow.add_node("generate_response", self._generate_response)
-        
+
         # Define edges
         workflow.add_edge(START, "prepare_search")
         workflow.add_edge("prepare_search", "retrieve_context")
@@ -88,15 +89,18 @@ class Chatbot:  # pylint: disable=R0903
 
     def _initialize_conversation_state(self) -> None:
         """Initialize conversation state with the existing messages from the data layer."""
-        # TODO: Remove system messages?
+        # TODO: Remove system messages? # pylint: disable=W0511
         self.app.update_state(self.config, {"messages": self.previous_conversation})
-        print(f"Initialized conversation with {len(self.previous_conversation)} messages "
-              f"for thread {self.thread_id}")
+        logger = logging.getLogger(__name__)
+
+        # Replace the print statement with:
+        logger.debug("Initialized conversation with %d messages for thread %s",
+                    len(self.previous_conversation), self.thread_id)
 
     def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
         """Prepare search query from conversation context."""
         messages = state["messages"]
-        
+
         # Get the latest human message
         human_messages = [msg for msg in messages if isinstance(msg, HumanMessage)]
         if not human_messages:
@@ -106,7 +110,7 @@ class Chatbot:  # pylint: disable=R0903
 
         # Initial question: respond to the first question (current behavior)
         search_query = latest_question
-        
+
         # Combine recent context for better search
         # This could include the last few exchanges for better context
         recent_messages = messages[-6:]  # Last 3 exchanges (human + AI pairs)
@@ -118,24 +122,26 @@ class Chatbot:  # pylint: disable=R0903
 
             if context_parts:
                 # Limit context to the most recent 2 exchanges:
-                search_query = f"Previous context: {' '.join(context_parts[-4:])} Current question: {latest_question}"
-        
+                recent_context = ' '.join(context_parts[-4:])
+                search_query = (f"Previous context: {recent_context} "
+                              f"Current question: {latest_question}")
+
         return {"search_query": search_query}
 
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
-        
+
         if not search_query:
             return {"context": "", "tind_metadata": ""}
-        
+
         # Search for relevant documents
         matching_docs = self.vector_store.similarity_search(search_query)
-        
+
         # Format context and metadata
         context = '\n\n'.join(doc.page_content for doc in matching_docs)
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
-        
+
         return {"context": context, "tind_metadata": tind_metadata}
 
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
@@ -143,13 +149,13 @@ class Chatbot:  # pylint: disable=R0903
         messages = state["messages"]
         context = state.get("context", "")
         tind_metadata = state.get("tind_metadata", "")
-        
+
         # Get the latest human message
         latest_message = next(
             (msg for msg in reversed(messages) if isinstance(msg, HumanMessage)),
             None
         )
-        
+
         if not latest_message:
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
@@ -158,7 +164,7 @@ class Chatbot:  # pylint: disable=R0903
             context=context,
             question=latest_message.content
         ))
-        
+
         # Combine system prompt with conversation history
         # Filter out any existing system messages to avoid duplication
         conversation_messages = [msg for msg in messages if not isinstance(msg, SystemMessage)]
@@ -172,7 +178,7 @@ class Chatbot:  # pylint: disable=R0903
         response_content += f"{tind_metadata}" if tind_metadata else ""
         response_messages: list[AnyMessage] = [AIMessage(content=response_content)]
 
-        # TODO: Add TIND metadata as separate system message instead of appending to content
+        # TODO: Add TIND metadata as separate system message instead of appending to content # pylint: disable=W0511
         # currently, ask returns a string, but it would be nice to return the AIMessage and
         # the TIND metadata as a SystemMessage
         # if tind_metadata:
