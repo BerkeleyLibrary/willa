@@ -37,6 +37,11 @@ services:
       DEFAULT_STORAGE_DIR:
       LANCEDB_URI:
       OLLAMA_URL:
+      AWS_ENDPOINT_URL:
+      AWS_ENDPOINT: ${AWS_ENDPOINT_URL}
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      ALLOW_HTTP:
     volumes:
       - ./data:/lancedb
       - ./tmp:/pdfs
@@ -64,3 +69,20 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+  localstack:
+    container_name: "localstack-main"
+    image: localstack/localstack:4.7
+    restart: always
+    ports:
+      - 4566:4566
+    environment:
+      SERVICES: s3
+      LANCEDB_URI:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      DEBUG: ${DEBUG:-0}
+    volumes:
+      - "./bin/init-s3.sh:/etc/localstack/init/ready.d/init-s3.sh"
+      - ./.data/localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

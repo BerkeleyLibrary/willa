@@ -7,6 +7,8 @@ name = "willa"
 version = "0.0.1"
 dependencies = [
     "asyncpg",
+    "awscli-local",
+    "boto3",
     "chainlit ~= 2.7.1",
     "lancedb",
     "langchain",
@@ -22,7 +24,7 @@ dependencies = [
 requires-python = ">= 3.13"
 authors = [
     {name = "Anna Wilcox"},
-    {name = "David Zuckerman", email = "dzuckerm@berkeley.edu"},
+    {name = "David Zuckerman"},
     {name = "Jason Raitz"},
 ]
 readme = "README.rst"

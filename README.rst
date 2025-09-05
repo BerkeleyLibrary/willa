@@ -162,6 +162,9 @@ The following keys are available for configuration in the ``.env`` file:
 
 .. _`their documentation`:: https://lancedb.github.io/lancedb/guides/storage/
 
+``ALLOW_HTTP``
+    The LanceDB connection under localstack needs ALLOW_HTTP to be set to true. ALLOW_HTTP=true
+
 ``AWS_ENDPOINT``, ``AWS_DEFAULT_REGION``
     The endpoint and region to use for LanceDB's S3 storage backend.
     Note: This environment variable is managed by LanceDB, not Willa.
