@@ -169,7 +169,7 @@ class Chatbot:  # pylint: disable=R0903
 
         # Create clean response content
         response_content = response.content if hasattr(response, 'content') else str(response)
-
+        response_content += f"{tind_metadata}" if tind_metadata else ""
         response_messages = [AIMessage(content=response_content)]
 
         # TODO: Add TIND metadata as separate system message instead of appending to content
