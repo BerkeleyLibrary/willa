@@ -2,12 +2,12 @@
 Test the TIND search and fetch functionality of Willa.
 """
 
-import os
 import unittest
 
 # import xml.etree.ElementTree as ET
 import requests_mock
 
+from willa.config import CONFIG
 from willa.errors import TINDError
 from willa.tind import fetch
 from . import setup_files
@@ -17,7 +17,7 @@ class TindSearchTest(unittest.TestCase):
     """Test the search methods of the willa.tind.fetch module."""
     def setUp(self) -> None:
         """Provide a fake Tind API key"""
-        os.environ['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
 
     def test_fetch_search_id(self) -> None:
         """fetch_ids_search should return a list of Tind ID's if there are results"""

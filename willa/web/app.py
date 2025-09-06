@@ -9,7 +9,7 @@ from chainlit.types import ThreadDict, CommandDict
 from langchain_ollama import ChatOllama
 
 from willa.chatbot import Chatbot
-from willa.config import OLLAMA_URL, get_lance
+from willa.config import CONFIG, get_lance
 from willa.web.cas_provider import CASProvider
 from willa.web.inject_custom_auth import add_custom_oauth_provider
 
@@ -21,9 +21,9 @@ STORE = get_lance()
 add_custom_oauth_provider('cas', CASProvider())
 
 
-BOT = Chatbot(STORE, ChatOllama(model=os.getenv('CHAT_MODEL', 'gemma3n:e4b'),
-                                temperature=float(os.getenv('CHAT_TEMPERATURE', '0.5')),
-                                base_url=OLLAMA_URL))
+BOT = Chatbot(STORE, ChatOllama(model=CONFIG['CHAT_MODEL'],
+                                temperature=float(CONFIG['CHAT_TEMPERATURE']),
+                                base_url=CONFIG['OLLAMA_URL']))
 """The Chatbot instance to use for chatting."""
 
 COMMANDS: list[CommandDict] = [

@@ -1,21 +1,13 @@
 """Implements the Chatbot class for Willa."""
 
-import os
-
 from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.vectorstores.base import VectorStore
 
-import willa.config  # pylint: disable=W0611
+from willa.config import CONFIG
 from willa.tind import format_tind_context
 
-_PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
-                              os.path.join(os.path.dirname(__package__),
-                                           'prompt_templates', 'initial_prompt.txt'))
-"""The file from which to load the system prompt."""
-
-
-with open(_PROMPT_FILE, encoding='utf-8') as f:
+with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
     """The system prompt."""
 

@@ -8,7 +8,7 @@ from langchain_ollama import ChatOllama
 from rich.console import Console
 
 from willa.chatbot import Chatbot
-from willa.config import OLLAMA_URL, get_lance
+from willa.config import CONFIG, get_lance
 
 
 def main() -> None:
@@ -26,7 +26,7 @@ def main() -> None:
     with console.status("[bold green]Loading documents..."):
         my_store = get_lance()
 
-    model = ChatOllama(model=args.model, temperature=0.5, base_url=OLLAMA_URL)
+    model = ChatOllama(model=args.model, temperature=0.5, base_url=CONFIG['OLLAMA_URL'])
 
     while True:
         bot = Chatbot(my_store, model)
