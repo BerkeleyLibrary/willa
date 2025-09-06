@@ -2,7 +2,6 @@
 Provides a Chainlit authentication provider for CAS.
 """
 
-import os
 from typing import Any, Optional, Tuple, Dict
 
 import httpx
@@ -11,20 +10,18 @@ from chainlit.server import app
 from chainlit.user import User
 from fastapi import HTTPException, Request
 from fastapi.responses import HTMLResponse
-import willa.config  # pylint: disable=W0611
 
-CALNET_ENV: str = os.environ.get('CALNET_ENV', 'test')
-"""The environment we are running in; either 'test' or 'production'."""
+from willa.config import CONFIG
 
 
-if CALNET_ENV == 'test':
+if CONFIG['CALNET_ENV'] == 'test':
     BASE_URL = "https://auth-test.berkeley.edu/cas/oidc"
     """The base URL for the test instance of CalNet CAS."""
-elif CALNET_ENV == 'production':
+elif CONFIG['CALNET_ENV'] == 'production':
     BASE_URL = "https://auth.berkeley.edu/cas/oidc"
     """The base URL for the production instance of CalNet CAS."""
 else:
-    raise ValueError(f'Unknown CalNet environment {CALNET_ENV}!')
+    raise ValueError(f"Unknown CalNet environment {CONFIG['CALNET_ENV']}!")
 
 
 class CASForbiddenException(HTTPException):
@@ -62,8 +59,8 @@ class CASProvider(OAuthProvider):
     well_known_url = f"{BASE_URL}/.well-known"
 
     def __init__(self) -> None:
-        self.client_id = os.environ['CALNET_OIDC_CLIENT_ID']
-        self.client_secret = os.environ['CALNET_OIDC_CLIENT_SECRET']
+        self.client_id = CONFIG['CALNET_OIDC_CLIENT_ID']
+        self.client_secret = CONFIG['CALNET_OIDC_CLIENT_SECRET']
         self.authorize_params = {
             'response_type': 'code',
             'scope': 'openid profile berkeley_edu_groups',

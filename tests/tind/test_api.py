@@ -2,10 +2,11 @@
 Test the low-level TIND API functionality of Willa.
 """
 
-import os
 import unittest
 
 import requests_mock
+
+from willa.config import CONFIG
 from willa.errors import AuthorizationError
 from willa.tind import api
 
@@ -13,8 +14,8 @@ from willa.tind import api
 class TindApiGetTest(unittest.TestCase):
     """Test the tind_get method of the willa.tind.api module."""
     def setUp(self) -> None:
-        os.environ['TIND_API_KEY'] = 'Test_Key'
-        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
 
     def test_url_building(self) -> None:
         """Ensure URL building works correctly."""
@@ -24,7 +25,7 @@ class TindApiGetTest(unittest.TestCase):
 
     def test_url_config(self) -> None:
         """Ensure that changing the config changes the URL."""
-        os.environ['TIND_API_URL'] = 'https://berkeley-test.tind.io/api/v1'
+        CONFIG['TIND_API_URL'] = 'https://berkeley-test.tind.io/api/v1'
         with requests_mock.mock() as r_mock:
             r_mock.get('https://berkeley-test.tind.io/api/v1/test', text='Example')
             self.assertEqual(api.tind_get('test'), (200, 'Example'))
@@ -47,7 +48,7 @@ class TindApiGetTest(unittest.TestCase):
 
     def test_without_key(self) -> None:
         """Ensure that an error is raised when the TIND API key is missing."""
-        del os.environ['TIND_API_KEY']
+        del CONFIG['TIND_API_KEY']
         self.assertRaises(AuthorizationError, api.tind_get, 'test')
 
     def test_invalid_key(self) -> None:

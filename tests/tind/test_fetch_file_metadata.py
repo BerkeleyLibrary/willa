@@ -2,11 +2,11 @@
 Test the TIND fetch record functionality of Willa.
 """
 
-import os
 import unittest
 
 import requests_mock
 
+from willa.config import CONFIG
 from willa.errors import TINDError
 from willa.tind import fetch
 from . import setup_files
@@ -17,7 +17,7 @@ class TindFetchFileMetadataTest(unittest.TestCase):
 
     def setUp(self) -> None:
         """Create a fake Tind API key"""
-        os.environ['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
 
     def test_fetch_file_metadata(self) -> None:
         """Fetch a Tind record with a single file.

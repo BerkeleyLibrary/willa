@@ -2,12 +2,13 @@
 Test the TIND fetch record functionality of Willa.
 """
 
-import os
+import os.path
 import pathlib
 import tempfile
 import unittest
 
 import requests_mock
+from willa.config import CONFIG
 from willa.errors import AuthorizationError, RecordNotFoundError
 from willa.tind import fetch
 
@@ -15,8 +16,8 @@ from willa.tind import fetch
 class TindFetchMetadataTest(unittest.TestCase):
     """Test the fetch_metadata method of the willa.tind.fetch module."""
     def setUp(self) -> None:
-        os.environ['TIND_API_KEY'] = 'Test_Key'
-        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
 
     def test_fetch(self) -> None:
         """Test a simple record fetch."""
@@ -49,9 +50,9 @@ class TindFetchMetadataTest(unittest.TestCase):
 class TindFetchFileTest(unittest.TestCase):
     """Test the fetch_file method of the willa.tind.fetch module."""
     def setUp(self) -> None:
-        os.environ['TIND_API_KEY'] = 'Test_Key'
-        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
-        os.environ['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
+        CONFIG['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
 
     def test_file_fetch(self) -> None:
         """Test a simple file fetch."""
@@ -62,7 +63,7 @@ class TindFetchFileTest(unittest.TestCase):
             r_mock.get(dl_path, text=expected)
             fetch.fetch_file(dl_path)
 
-        path = pathlib.Path(os.environ['DEFAULT_STORAGE_DIR'], 'test.txt')
+        path = pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR'], 'test.txt')
         self.assertTrue(path.is_file(), 'File should be saved to default path')
         self.assertEqual(path.read_text(encoding='utf-8'), expected,
                          'File should have expected contents')
@@ -78,9 +79,9 @@ class TindFetchFileTest(unittest.TestCase):
                        headers={'Content-Disposition': 'attachment; filename="usethis.txt"'})
             fetch.fetch_file(dl_path)
 
-        path = pathlib.Path(os.environ['DEFAULT_STORAGE_DIR'], 'notthisname.txt')
+        path = pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR'], 'notthisname.txt')
         self.assertFalse(path.is_file(), 'File should be saved to correct name')
-        path = pathlib.Path(os.environ['DEFAULT_STORAGE_DIR'], 'usethis.txt')
+        path = pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR'], 'usethis.txt')
         self.assertTrue(path.is_file(), 'File should be saved to correct name')
         self.assertEqual(path.read_text(encoding='utf-8'), expected,
                          'File should have expected contents')
@@ -96,7 +97,7 @@ class TindFetchFileTest(unittest.TestCase):
                 r_mock.get(dl_path, text=expected)
                 fetch.fetch_file(dl_path, custom_path)
 
-            path = pathlib.Path(os.environ['DEFAULT_STORAGE_DIR'], 'custom.txt')
+            path = pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR'], 'custom.txt')
             self.assertFalse(path.is_file(), 'File should not be saved in default path')
 
             path = pathlib.Path(custom_path, 'custom.txt')
@@ -136,4 +137,4 @@ class TindFetchFileTest(unittest.TestCase):
             self.assertRaises(AuthorizationError, fetch.fetch_file, dl_path)
 
     def tearDown(self) -> None:
-        pathlib.Path(os.environ['DEFAULT_STORAGE_DIR']).rmdir()
+        pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR']).rmdir()

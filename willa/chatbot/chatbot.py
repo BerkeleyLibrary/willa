@@ -15,7 +15,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import START, StateGraph, add_messages
 from langgraph.graph.message import AnyMessage
 
-import willa.config  # pylint: disable=W0611
+from willa.config import CONFIG
 from willa.tind import format_tind_context
 
 LOGGER = logging.getLogger(__name__)
@@ -28,7 +28,7 @@ _PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
 """The file from which to load the system prompt."""
 
 
-with open(_PROMPT_FILE, encoding='utf-8') as f:
+with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
     """The system prompt."""
 

@@ -2,15 +2,14 @@
 Test the functionality of willa.tind.format_tind_context
 """
 
-import os
-from io import StringIO
+import os.path
 import unittest
+from io import StringIO
 
 from pymarc import parse_xml_to_array
 
-from willa.tind import format_tind_context
-from willa.tind import format_validate_pymarc
 from willa.etl.doc_proc import load_pdf
+from willa.tind import format_tind_context, format_validate_pymarc
 from . import setup_files
 
 

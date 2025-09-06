@@ -2,16 +2,16 @@
 Provides routines to fetch information from the TIND API.
 """
 
-import os
+import json
 import re
 from io import StringIO
 from typing import Any, Tuple
-import json
 
 import xml.etree.ElementTree as E
 from pymarc.marcxml import parse_xml_to_array
 from pymarc import Record
 
+from willa.config import CONFIG
 from willa.errors import RecordNotFoundError, TINDError
 from .api import tind_get, tind_download
 
@@ -58,7 +58,7 @@ def fetch_file(file_url: str, output_dir: str = '') -> str:
         # This cannot be put as the default value for the parameter because it would set
         # the value at the time this file is imported.  Changes in the environment (whether
         # via config reload, the test infrastructure, etc) would not appear.
-        output_dir = os.environ['DEFAULT_STORAGE_DIR']
+        output_dir = CONFIG['DEFAULT_STORAGE_DIR']
 
     (status, saved_to) = tind_download(file_url, output_dir)
 
