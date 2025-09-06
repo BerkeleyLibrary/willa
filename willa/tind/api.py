@@ -3,13 +3,13 @@ Provides low-level access to the TIND API.
 """
 
 
-import os
+import os.path
 import re
 from typing import Tuple
 
 import requests
 
-import willa.config  # pylint: disable=W0611
+from willa.config import CONFIG
 from willa.errors import AuthorizationError
 
 
@@ -23,7 +23,7 @@ def _auth_header() -> dict:
     :raises AuthorizationError: If no TIND API key is provided in the environment.
     :returns dict: The ``Authorization`` header to use for the HTTP request.
     """
-    token = os.getenv('TIND_API_KEY', None)
+    token = CONFIG.get('TIND_API_KEY', None)
     if token is None:
         raise AuthorizationError('Missing TIND API key')
 
@@ -44,7 +44,7 @@ def tind_get(endpoint: str, params: dict | None = None) -> Tuple[int, str]:
     if params is None:
         params = {}
 
-    api_base = os.getenv('TIND_API_URL', 'https://digicoll.lib.berkeley.edu/api/v1')
+    api_base = CONFIG['TIND_API_URL']
 
     resp = requests.get(f"{api_base}/{endpoint}",
                         headers=_auth_header(), params=params, timeout=TIMEOUT)

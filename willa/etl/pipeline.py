@@ -10,7 +10,7 @@ from langchain_core.vectorstores.base import VectorStore
 from pymarc.marcxml import record_to_xml
 from pymarc.record import Record
 
-from willa.config import get_lance
+from willa.config import CONFIG, get_lance
 from willa.tind.fetch import fetch_metadata, fetch_file_metadata, fetch_file, search
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 from .doc_proc import load_pdf, load_pdfs, split_all_docs, embed_docs
@@ -60,7 +60,7 @@ def _process_one_tind_record(record: Record, vector_store: VectorStore | None = 
     file_names: list[str] = []
     docs: list[Document] = []
 
-    tind_dir = os.path.join(os.environ['DEFAULT_STORAGE_DIR'], tind_id)
+    tind_dir = os.path.join(CONFIG['DEFAULT_STORAGE_DIR'], tind_id)
     os.mkdir(tind_dir)
 
     marc: bytes = record_to_xml(record)

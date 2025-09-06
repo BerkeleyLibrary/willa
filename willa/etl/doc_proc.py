@@ -4,7 +4,7 @@ and split them into chunks for vectorization.
 """
 
 import json
-import os
+import os.path
 from functools import reduce
 from operator import add
 from pathlib import Path
@@ -17,7 +17,7 @@ from langchain_core.documents import Document
 from langchain_core.vectorstores.base import VectorStore
 from pymarc.record import Record
 
-import willa.config  # pylint: disable=W0611
+from willa.config import CONFIG
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 
 
@@ -58,10 +58,9 @@ def load_pdfs() -> list[Document]:
 
     :returns list[Document]: All documents successfully loaded.
     """
-    directory_path = os.getenv('DEFAULT_STORAGE_DIR', 'tmp/pdfs')
     docs: list[Document] = []
 
-    for tind_path in Path(directory_path).iterdir():
+    for tind_path in Path(CONFIG['DEFAULT_STORAGE_DIR']).iterdir():
         if not tind_path.is_dir():
             continue  # We only want directories.
 

@@ -2,7 +2,7 @@
 Test suite for end-to-end pipeline routines.
 """
 
-import os
+import os.path
 import pathlib
 import tempfile
 import unittest
@@ -13,7 +13,7 @@ from langchain_ollama import OllamaEmbeddings
 from pymarc.record import Record
 import requests_mock
 
-from willa.config import OLLAMA_URL
+from willa.config import CONFIG
 import willa.etl.pipeline
 from willa.etl.pipeline import fetch_one_from_tind, fetch_all_from_search_query
 
@@ -45,9 +45,9 @@ class PipelineTest(unittest.TestCase):
     """Test the pipeline routines."""
     def setUp(self) -> None:
         """Initialise the environment for our test case."""
-        os.environ['TIND_API_KEY'] = 'Test_Key'
-        os.environ['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
-        os.environ['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
+        CONFIG['TIND_API_KEY'] = 'Test_Key'
+        CONFIG['TIND_API_URL'] = 'https://ucb.tind.example/api/v1'
+        CONFIG['DEFAULT_STORAGE_DIR'] = tempfile.mkdtemp(prefix='willatest')
 
     def test_fetch_from_tind(self) -> None:
         """Test fetching a record from TIND and saving it, and its metadata, to storage."""
@@ -62,7 +62,7 @@ class PipelineTest(unittest.TestCase):
 
             fetch_one_from_tind('103806')
 
-        store_dir = pathlib.Path(os.path.join(os.environ['DEFAULT_STORAGE_DIR'], '103806'))
+        store_dir = pathlib.Path(os.path.join(CONFIG['DEFAULT_STORAGE_DIR'], '103806'))
         self.assertTrue(store_dir.is_dir(), "Should have created the record directory")
 
         marc_xml_file = store_dir.joinpath('103806.xml')
@@ -92,7 +92,7 @@ class PipelineTest(unittest.TestCase):
             r_mock.get(url, content=kerby_pdf)
 
             store = InMemoryVectorStore(OllamaEmbeddings(model='nomic-embed-text',
-                                                         base_url=OLLAMA_URL))
+                                                         base_url=CONFIG['OLLAMA_URL']))
             fetch_one_from_tind('103806', store)
 
         results = store.search('Arkansas', 'similarity')
@@ -101,7 +101,7 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(first_doc_md['tind_id'], '103806',
                          "Document metadata should match TIND record.")
 
-        store_dir = pathlib.Path(os.path.join(os.environ['DEFAULT_STORAGE_DIR'], '103806'))
+        store_dir = pathlib.Path(os.path.join(CONFIG['DEFAULT_STORAGE_DIR'], '103806'))
         store_dir.joinpath('103806.xml').unlink()
         store_dir.joinpath('103806.json').unlink()
         store_dir.joinpath('parnell_kerby.pdf').unlink()
@@ -140,4 +140,4 @@ class PipelineTest(unittest.TestCase):
         # pylint: enable=protected-access
 
     def tearDown(self) -> None:
-        pathlib.Path(os.environ['DEFAULT_STORAGE_DIR']).rmdir()
+        pathlib.Path(CONFIG['DEFAULT_STORAGE_DIR']).rmdir()
