@@ -2,8 +2,6 @@
 Implementation of the Web interface for Willa.
 """
 
-import os
-
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
 from langchain_ollama import ChatOllama

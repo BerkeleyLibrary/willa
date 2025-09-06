@@ -30,7 +30,7 @@ _RAW: dict[str, str | None] = dotenv_values()
 """The configuration variables from the .env file."""
 
 
-_PROCESSED: dict[str, str] = {key: _RAW[key] or '' for key in _RAW.keys()}
+_PROCESSED: dict[str, str] = {key: val or '' for key, val in _RAW.items()}
 """Configuration variables from the .env file, with Nones replaced with an empty string."""
 
 
