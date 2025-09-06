@@ -12,6 +12,9 @@ on:
 permissions:
   contents: read
 
+env:
+  DEFAULT_STORAGE_DIR: /tmp
+
 jobs:
   build:
 
