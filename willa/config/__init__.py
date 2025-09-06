@@ -41,7 +41,7 @@ CONFIG: dict[str, str] = {
 """The loaded configuration variables."""
 
 
-if CONFIG['DEFAULT_STORAGE_DIR'] is None:
+if CONFIG.get('DEFAULT_STORAGE_DIR') is None:
     raise ImproperConfigurationError('A storage directory must be set.')
 
 
