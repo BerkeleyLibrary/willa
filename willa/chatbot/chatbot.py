@@ -176,13 +176,6 @@ class Chatbot:  # pylint: disable=R0903
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
         response_content += f"{tind_metadata}" if tind_metadata else ""
         response_messages: list[AnyMessage] = [AIMessage(content=response_content)]
-
-        # TODO: Add TIND metadata as separate system message instead of appending to content # pylint: disable=W0511
-        # currently, ask returns a string, but it would be nice to return the AIMessage and
-        # the TIND metadata as a SystemMessage
-        # if tind_metadata:
-        #     response_messages.append(SystemMessage(content=tind_metadata))
-
         return {"messages": response_messages}
 
     def ask(self, question: str) -> str:
