@@ -18,6 +18,8 @@ from langgraph.graph.message import AnyMessage
 import willa.config  # pylint: disable=W0611
 from willa.tind import format_tind_context
 
+LOGGER = logging.getLogger(__name__)
+
 _PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
                               os.path.join(os.path.dirname(__package__),
                                            'prompt_templates', 'initial_prompt.txt'))
@@ -91,11 +93,9 @@ class Chatbot:  # pylint: disable=R0903
         """Initialize conversation state with the existing messages from the data layer."""
         # TODO: Remove system messages? # pylint: disable=W0511
         self.app.update_state(self.config, {"messages": self.previous_conversation})
-        logger = logging.getLogger(__name__)
 
-        # Replace the print statement with:
-        logger.debug("Initialized conversation with %d messages for thread %s",
-                    len(self.previous_conversation), self.thread_id)
+        LOGGER.debug("Initialized conversation with %d messages for thread %s",
+                     len(self.previous_conversation), self.thread_id)
 
     def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
         """Prepare search query from conversation context."""
