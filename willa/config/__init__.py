@@ -26,6 +26,12 @@ DEFAULTS: dict[str, str] = {
 """The defaults for configuration variables not set in the .env file."""
 
 
+VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', 'PROMPT_TEMPLATE',
+                        'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
+                        'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI'}
+"""Valid configuration variables that could be in the environment."""
+
+
 _RAW: dict[str, str | None] = dotenv_values()
 """The configuration variables from the .env file."""
 
@@ -34,9 +40,14 @@ _PROCESSED: dict[str, str] = {key: val or '' for key, val in _RAW.items()}
 """Configuration variables from the .env file, with Nones replaced with an empty string."""
 
 
+_ENVIRON: dict[str, str] = {key: val or '' for key, val in os.environ.items() if key in VALID_VARS}
+"""Configuration variables pulled from the environment, as specified in ``VALID_VARS``."""
+
+
 CONFIG: dict[str, str] = {
     **DEFAULTS,
-    **_PROCESSED
+    **_PROCESSED,
+    **_ENVIRON
 }
 """The loaded configuration variables."""
 
