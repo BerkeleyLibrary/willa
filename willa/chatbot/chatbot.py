@@ -19,6 +19,8 @@ import willa.config  # pylint: disable=W0611
 from willa.tind import format_tind_context
 
 LOGGER = logging.getLogger(__name__)
+"""The logging instance used for Chatbot log messages."""
+
 
 _PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
                               os.path.join(os.path.dirname(__package__),
