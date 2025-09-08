@@ -44,6 +44,7 @@ class WillaChatbotState(TypedDict):
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
 
+
 class Chatbot:  # pylint: disable=R0903
     """An instance of a Willa chatbot.
 
