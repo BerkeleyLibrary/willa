@@ -123,8 +123,7 @@ class Chatbot:  # pylint: disable=R0903
             if context_parts:
                 # Limit context to the most recent 2 exchanges:
                 recent_context = ' '.join(context_parts[-4:])
-                search_query = (f"{recent_context}\n"
-                              f"{latest_question}")
+                search_query = f"{recent_context}\n{latest_question}"
 
         return {"search_query": search_query}
 
