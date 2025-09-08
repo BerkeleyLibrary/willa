@@ -18,6 +18,8 @@ STORE = get_lance()
 """The vector store."""
 
 _THREAD_BOTS = {}
+"""The Chatbot instances associated with each thread."""
+
 
 add_custom_oauth_provider('cas', CASProvider())
 
