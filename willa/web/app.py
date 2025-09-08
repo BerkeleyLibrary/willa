@@ -81,15 +81,11 @@ async def chat(message: cl.Message) -> None:
           content="Transcript copied to clipboard!"
         ).send()
     else:
-        answer = cl.Message(content="", author='System')
-        await answer.send()
-
         # Use thread-specific
         bot = _get_or_create_bot(message.thread_id)
 
         reply = await cl.make_async(bot.ask)(message.content)
-        answer.content = reply
-        await answer.update()
+        await cl.Message(content=reply, author='Willa').send()
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]
