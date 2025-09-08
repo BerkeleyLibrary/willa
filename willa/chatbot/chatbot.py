@@ -1,7 +1,6 @@
 """Implements the Chatbot class for Willa."""
 
 import logging
-import os
 import uuid
 from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
@@ -20,12 +19,6 @@ from willa.tind import format_tind_context
 
 LOGGER = logging.getLogger(__name__)
 """The logging instance used for Chatbot log messages."""
-
-
-_PROMPT_FILE: str = os.getenv('PROMPT_TEMPLATE',
-                              os.path.join(os.path.dirname(__package__),
-                                           'prompt_templates', 'initial_prompt.txt'))
-"""The file from which to load the system prompt."""
 
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
@@ -62,7 +55,7 @@ class Chatbot:  # pylint: disable=R0903
         :param VectorStore vector_store: The vector store to use for searching.
         :param BaseChatModel model: The LLM to use for processing.
         :param Optional[str] thread_id: The ID of the thread for this conversation.
-        :param Optional[list[dict]] conversation_thread: conversation thread from 
+        :param Optional[list[dict]] conversation_thread: conversation thread from
             chainlit data_layer
         """
         self.vector_store = vector_store
@@ -189,7 +182,7 @@ class Chatbot:  # pylint: disable=R0903
         """
 
         result = self.app.invoke(
-            {"messages": [HumanMessage(content=question)]}, #type: ignore[arg-type]
+            {"messages": [HumanMessage(content=question)]},  # type: ignore[arg-type]
             config=self.config
         )
 
