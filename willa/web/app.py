@@ -85,7 +85,7 @@ async def chat(message: cl.Message) -> None:
         bot = _get_or_create_bot(message.thread_id)
 
         reply = await cl.make_async(bot.ask)(message.content)
-        await cl.Message(content=reply, author='Willa').send()
+        await cl.Message(content=reply).send()
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
 @cl.oauth_callback  # type: ignore[arg-type]
