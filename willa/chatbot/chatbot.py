@@ -12,6 +12,9 @@ from langchain_core.vectorstores.base import VectorStore
 from willa.chatbot.graph_manager import get_graph_manager
 
 LOGGER = logging.getLogger(__name__)
+"""The logging instance used for Chatbot log messages."""
+
+
 class Chatbot:  # pylint: disable=R0903
     """An instance of a Willa chatbot.
 
