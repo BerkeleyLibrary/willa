@@ -22,6 +22,8 @@ LOGGER = logging.getLogger(__name__)
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
+    """The system prompt text."""
+
 
 class WillaChatbotState(TypedDict):
     """State for the Chatbot LangGraph workflow."""
