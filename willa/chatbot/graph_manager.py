@@ -149,12 +149,12 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         self._current_model = model
         return self.app.invoke(init_state, config)
 
-_GRAPH_MANAGER: Optional[GraphManager] = None  
+_GRAPH_MANAGER: Optional[GraphManager] = None
 """Managed, global GraphManager instance."""
 
 def get_graph_manager() -> GraphManager:
     """Get the shared graph manager instance."""
-    global _GRAPH_MANAGER  # pylint: disable=global-statement  
-    if _GRAPH_MANAGER is None:  
-        _GRAPH_MANAGER = GraphManager()  
+    global _GRAPH_MANAGER  # pylint: disable=global-statement
+    if _GRAPH_MANAGER is None:
+        _GRAPH_MANAGER = GraphManager()
     return _GRAPH_MANAGER
