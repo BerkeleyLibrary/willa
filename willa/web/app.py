@@ -4,16 +4,10 @@ Implementation of the Web interface for Willa.
 
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
-from langchain_ollama import ChatOllama
 
 from willa.chatbot import Chatbot
-from willa.config import CONFIG, get_lance
 from willa.web.cas_provider import CASProvider
 from willa.web.inject_custom_auth import add_custom_oauth_provider
-
-
-STORE = get_lance()
-"""The vector store."""
 
 
 _THREAD_BOTS = {}
@@ -61,12 +55,6 @@ def _get_or_create_bot(thread_id: str) -> Chatbot:
     previous_conversation = cl.chat_context.to_openai()
     if thread_id not in _THREAD_BOTS:
         _THREAD_BOTS[thread_id] = Chatbot(
-            STORE,
-            ChatOllama(
-                model=CONFIG['CHAT_MODEL'],
-                temperature=float(CONFIG['CHAT_TEMPERATURE']),
-                base_url=CONFIG['OLLAMA_URL']
-            ),
             thread_id=thread_id,
             conversation_thread=previous_conversation
         )

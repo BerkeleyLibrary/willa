@@ -13,12 +13,17 @@ from langgraph.graph import START, StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 
-from willa.config import CONFIG
+from willa.config import CONFIG, get_lance, get_ollama
 from willa.tind import format_tind_context
 
 LOGGER = logging.getLogger(__name__)
 """The logging instance used for graph manager log messages."""
 
+STORE = get_lance()
+"""The LanceDB instance used for a vector store."""
+
+MODEL = get_ollama()
+"""The ChatOllama instance used for a chat model."""
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
@@ -38,8 +43,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
     def __init__(self) -> None:
         self.memory = InMemorySaver()
-        self._current_vector_store: Optional[VectorStore] = None
-        self._current_model: Optional[BaseChatModel] = None
+        self._current_vector_store: Optional[VectorStore] = STORE
+        self._current_model: Optional[BaseChatModel] = MODEL
         self.app = self._create_workflow()
 
     def _create_workflow(self) -> CompiledStateGraph:
@@ -141,13 +146,13 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
     def invoke(self,
                init_state: dict,
-               config: RunnableConfig,
-               vector_store: VectorStore,
-               model: BaseChatModel) -> dict[str, list[AnyMessage]]:
-        """Invoke the graph manager with state, vector_store, and model."""
-        self._current_vector_store = vector_store
-        self._current_model = model
+               config: RunnableConfig) -> dict[str, list[AnyMessage]]:
+        """Invoke the graph manager with message_state."""
         return self.app.invoke(init_state, config)
+
+    def update_state(self, config: RunnableConfig, message_state: dict) -> None:
+        """Update the state of the graph manager."""
+        self.app.update_state(config, message_state)
 
 _GRAPH_MANAGER: Optional[GraphManager] = None
 """Managed, global GraphManager instance."""

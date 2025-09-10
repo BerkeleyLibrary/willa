@@ -8,7 +8,7 @@ import os.path
 from dotenv import dotenv_values
 
 from langchain_community.vectorstores import LanceDB
-from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import ChatOllama, OllamaEmbeddings
 
 from willa.errors.config import ImproperConfigurationError
 
@@ -60,3 +60,11 @@ def get_lance() -> LanceDB:
     """Return a configured instance of a LanceDB class."""
     embeddings = OllamaEmbeddings(model='nomic-embed-text', base_url=CONFIG['OLLAMA_URL'])
     return LanceDB(embedding=embeddings, uri=CONFIG['LANCEDB_URI'], table_name='willa')
+
+def get_ollama() -> ChatOllama:
+    """Return a configured instance of a ChatOllama chat model."""
+    return ChatOllama(
+                model=CONFIG['CHAT_MODEL'],
+                temperature=float(CONFIG['CHAT_TEMPERATURE']),
+                base_url=CONFIG['OLLAMA_URL']
+            )
