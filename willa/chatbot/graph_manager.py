@@ -17,6 +17,8 @@ from willa.config import CONFIG
 from willa.tind import format_tind_context
 
 LOGGER = logging.getLogger(__name__)
+"""The logging instance used for graph manager log messages."""
+
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
