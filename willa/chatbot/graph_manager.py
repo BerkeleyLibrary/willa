@@ -1,6 +1,5 @@
 """Manages the shared state and workflow for Willa chatbots."""
 
-import logging
 from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
@@ -15,15 +14,6 @@ from langgraph.graph.message import AnyMessage
 
 from willa.config import CONFIG, get_lance, get_ollama
 from willa.tind import format_tind_context
-
-LOGGER = logging.getLogger(__name__)
-"""The logging instance used for graph manager log messages."""
-
-STORE = get_lance()
-"""The LanceDB instance used for a vector store."""
-
-MODEL = get_ollama()
-"""The ChatOllama instance used for a chat model."""
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
     _SYS_PROMPT: str = f.read()
@@ -43,8 +33,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
     def __init__(self) -> None:
         self.memory = InMemorySaver()
-        self._current_vector_store: Optional[VectorStore] = STORE
-        self._current_model: Optional[BaseChatModel] = MODEL
+        self._current_vector_store: Optional[VectorStore] = get_lance()
+        self._current_model: Optional[BaseChatModel] = get_ollama()
         self.app = self._create_workflow()
 
     def _create_workflow(self) -> CompiledStateGraph:
