@@ -32,6 +32,7 @@ class WillaChatbotState(TypedDict):
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
 
+
 class GraphManager: # pylint: disable=too-few-public-methods
     """Manages the shared LangGraph workflow for all chatbot instances."""
 
