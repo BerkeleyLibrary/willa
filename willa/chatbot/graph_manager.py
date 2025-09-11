@@ -12,7 +12,7 @@ from langgraph.graph import START, StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 
-from willa.config import CONFIG, get_lance, get_ollama
+from willa.config import CONFIG, get_lance, get_model
 from willa.tind import format_tind_context
 
 with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
@@ -33,8 +33,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
     def __init__(self) -> None:
         self.memory = InMemorySaver()
-        self._current_vector_store: Optional[VectorStore] = get_lance()
-        self._current_model: Optional[BaseChatModel] = get_ollama()
+        self._vector_store: Optional[VectorStore] = get_lance()
+        self._model: Optional[BaseChatModel] = get_model()
         self.app = self._create_workflow()
 
     def _create_workflow(self) -> CompiledStateGraph:
@@ -82,7 +82,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
-        vector_store = self._current_vector_store
+        vector_store = self._vector_store
 
         if not search_query or not vector_store:
             return {"context": "", "tind_metadata": ""}
@@ -101,7 +101,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         messages = state["messages"]
         context = state.get("context", "")
         tind_metadata = state.get("tind_metadata", "")
-        model = self._current_model
+        model = self._model
 
         if not model:
             return {"messages": [AIMessage(content="Model not available.")]}
