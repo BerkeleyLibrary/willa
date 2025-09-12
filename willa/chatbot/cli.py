@@ -27,7 +27,8 @@ def main() -> None:
         with console.status('[bold green]Thinking...'):
             answer = bot.ask(question)
 
-        console.print(answer)
+        for message_type, result in answer.items():
+            console.print(f"{message_type}: {result}")
 
 
 if __name__ == "__main__":

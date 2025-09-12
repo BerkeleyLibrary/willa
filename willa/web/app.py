@@ -79,7 +79,17 @@ async def chat(message: cl.Message) -> None:
         bot = _get_or_create_bot(message.thread_id)
 
         reply = await cl.make_async(bot.ask)(message.content)
-        await cl.Message(content=reply).send()
+
+        if 'ai_message' in reply:
+            await cl.Message(content=reply['ai_message']).send()
+
+        if 'tind_message' in reply:
+            await cl.Message(author='TIND',
+                             content=reply['tind_message']).send()
+
+        if 'no_results' in reply:
+            await cl.Message(author='System', type='system_message',
+                             content=reply['no_results']).send()
 
 
 # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.

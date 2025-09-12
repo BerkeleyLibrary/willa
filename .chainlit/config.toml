@@ -36,7 +36,7 @@ reaction_on_message_received = false
 
 # Authorize users to spontaneously upload files with messages
 [features.spontaneous_file_upload]
-    enabled = true
+    enabled = false
     # Define accepted file types using MIME types
     # Examples:
     # 1. For specific file types:
@@ -46,9 +46,9 @@ reaction_on_message_received = false
     # 3. For specific file extensions:
     #    accept = { "application/octet-stream" = [".xyz", ".pdb"] }
     # Note: Using "*/*" is not recommended as it may cause browser warnings
-    accept = ["*/*"]
-    max_files = 20
-    max_size_mb = 500
+    # accept = ["*/*"]
+    # max_files = 20
+    # max_size_mb = 500
 
 [features.audio]
     # Sample rate of the audio

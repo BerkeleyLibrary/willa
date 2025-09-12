@@ -4,7 +4,7 @@ from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
 from langchain_core.language_models import BaseChatModel
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.messages import ChatMessage, HumanMessage, AIMessage, SystemMessage
 from langchain_core.vectorstores.base import VectorStore
 from langchain_core.runnables.config import RunnableConfig
 from langgraph.checkpoint.memory import InMemorySaver
@@ -122,7 +122,10 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         ))
 
         # Combine system prompt with conversation history
-        conversation_messages = [msg for msg in messages if not isinstance(msg, SystemMessage)]
+        conversation_messages = [msg for msg in messages
+                                 if not isinstance(msg, SystemMessage) and
+                                 'tind' not in msg.response_metadata]
+        
         all_messages = [system_message] + conversation_messages
 
         # Get response from model
@@ -130,8 +133,9 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
-        response_content += f"{tind_metadata}" if tind_metadata else ""
-        response_messages: list[AnyMessage] = [AIMessage(content=response_content)]
+        response_messages: list[AnyMessage] = [AIMessage(content=response_content),
+                                               ChatMessage(content=tind_metadata, role='TIND',
+                                                           response_metadata={'tind': True})]
         return {"messages": response_messages}
 
     def invoke(self,
