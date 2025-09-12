@@ -43,7 +43,7 @@ services:
       AWS_SECRET_ACCESS_KEY:
       ALLOW_HTTP:
     volumes:
-      - ./data:/lancedb
+      - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs
       - ./willa:/app/willa:rw
 
