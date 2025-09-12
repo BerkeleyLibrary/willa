@@ -12,6 +12,7 @@ dependencies = [
     "chainlit ~= 2.7.1",
     "lancedb",
     "langchain",
+    "langchain_aws",
     "langchain_community",
     "langchain_ollama",
     "langgraph",

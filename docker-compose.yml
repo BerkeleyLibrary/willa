@@ -42,6 +42,11 @@ services:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       ALLOW_HTTP:
+      CHAT_BACKEND:
+      CHAT_MODEL:
+      CHAT_TEMPERATURE:
+      EMBED_BACKEND:
+      EMBED_MODEL:
     volumes:
       - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs

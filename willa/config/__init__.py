@@ -7,7 +7,9 @@ __copyright__ = "© 2025 The Regents of the University of California.  MIT licen
 import os.path
 from dotenv import dotenv_values
 
+from langchain_aws import BedrockEmbeddings, ChatBedrock
 from langchain_community.vectorstores import LanceDB
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
@@ -16,8 +18,9 @@ from willa.errors.config import ImproperConfigurationError
 
 DEFAULTS: dict[str, str] = {
     'CALNET_ENV': 'test',
-    'CHAT_MODEL': 'gemma3n:e4b',
+    'CHAT_BACKEND': 'ollama',
     'CHAT_TEMPERATURE': '0.5',
+    'EMBED_BACKEND': 'ollama',
     'LANCEDB_URI': '/lancedb',
     'OLLAMA_URL': 'http://localhost:11434',
     'PROMPT_TEMPLATE': os.path.join(os.path.dirname(__package__),
@@ -57,15 +60,47 @@ if CONFIG.get('DEFAULT_STORAGE_DIR') is None:
     raise ImproperConfigurationError('A storage directory must be set.')
 
 
+if CONFIG.get('CHAT_BACKEND') == 'ollama':
+    if CONFIG.get('CHAT_MODEL') is None:
+        CONFIG['CHAT_MODEL'] = 'gemma3n:e4b'
+elif CONFIG.get('CHAT_BACKEND') == 'bedrock':
+    if CONFIG.get('CHAT_MODEL') is None:
+        CONFIG['CHAT_MODEL'] = 'cohere.command-r-v1:0'
+else:
+    raise ImproperConfigurationError('CHAT_BACKEND must be either "ollama" or "bedrock".')
+
+
+if CONFIG.get('EMBED_BACKEND') == 'ollama':
+    if CONFIG.get('EMBED_MODEL') is None:
+        CONFIG['EMBED_MODEL'] = 'nomic-embed-text'
+elif CONFIG.get('EMBED_BACKEND') == 'bedrock':
+    if CONFIG.get('EMBED_MODEL') is None:
+        CONFIG['EMBED_MODEL'] = 'cohere.embed-english-v3'
+else:
+    raise ImproperConfigurationError('EMBED_BACKEND must be either "ollama" or "bedrock".')
+
+
 def get_lance() -> LanceDB:
     """Return a configured instance of a LanceDB class."""
-    embeddings = OllamaEmbeddings(model='nomic-embed-text', base_url=CONFIG['OLLAMA_URL'])
+    if CONFIG['EMBED_BACKEND'] == 'ollama':
+        embeddings: Embeddings = OllamaEmbeddings(model=CONFIG['EMBED_MODEL'],
+                                                  base_url=CONFIG['OLLAMA_URL'])
+    else:  # If we add another backend, elif CONFIG['EMBED_BACKEND'] == 'bedrock':
+        embeddings = BedrockEmbeddings(model_id=CONFIG['EMBED_MODEL'])
     return LanceDB(embedding=embeddings, uri=CONFIG['LANCEDB_URI'], table_name='willa')
 
+
 def get_model() -> BaseChatModel:
-    """Return a configured instance of a ChatOllama chat model."""
-    return ChatOllama(
-                model=CONFIG['CHAT_MODEL'],
-                temperature=float(CONFIG['CHAT_TEMPERATURE']),
-                base_url=CONFIG['OLLAMA_URL']
-            )
+    """Return a configured instance of a chat model."""
+    if CONFIG['CHAT_BACKEND'] == 'ollama':
+        model: BaseChatModel = ChatOllama(
+            model=CONFIG['CHAT_MODEL'],
+            temperature=float(CONFIG['CHAT_TEMPERATURE']),
+            base_url=CONFIG['OLLAMA_URL']
+        )
+    else:  # If we add another backend, elif CONFIG['CHAT_BACKEND'] == bedrock:
+        model = ChatBedrock(
+            model=CONFIG['CHAT_MODEL'],
+            temperature=float(CONFIG['CHAT_TEMPERATURE'])
+        )
+    return model
