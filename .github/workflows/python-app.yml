@@ -14,6 +14,8 @@ permissions:
 
 env:
   DEFAULT_STORAGE_DIR: /tmp
+  CHAT_BACKEND: ollama
+  EMBED_BACKEND: ollama
 
 jobs:
   build:

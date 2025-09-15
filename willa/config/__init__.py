@@ -18,9 +18,7 @@ from willa.errors.config import ImproperConfigurationError
 
 DEFAULTS: dict[str, str] = {
     'CALNET_ENV': 'test',
-    'CHAT_BACKEND': 'ollama',
     'CHAT_TEMPERATURE': '0.5',
-    'EMBED_BACKEND': 'ollama',
     'LANCEDB_URI': '/lancedb',
     'OLLAMA_URL': 'http://localhost:11434',
     'PROMPT_TEMPLATE': os.path.join(os.path.dirname(__package__),
@@ -32,7 +30,8 @@ DEFAULTS: dict[str, str] = {
 
 VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', 'PROMPT_TEMPLATE',
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
-                        'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI'}
+                        'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
+                        'CHAT_BACKEND', 'EMBED_BACKEND'}
 """Valid configuration variables that could be in the environment."""
 
 
@@ -67,7 +66,7 @@ elif CONFIG.get('CHAT_BACKEND') == 'bedrock':
     if CONFIG.get('CHAT_MODEL') is None:
         CONFIG['CHAT_MODEL'] = 'cohere.command-r-v1:0'
 else:
-    raise ImproperConfigurationError('CHAT_BACKEND must be either "ollama" or "bedrock".')
+    raise ImproperConfigurationError('CHAT_BACKEND must be set to either "ollama" or "bedrock".')
 
 
 if CONFIG.get('EMBED_BACKEND') == 'ollama':
@@ -77,7 +76,15 @@ elif CONFIG.get('EMBED_BACKEND') == 'bedrock':
     if CONFIG.get('EMBED_MODEL') is None:
         CONFIG['EMBED_MODEL'] = 'cohere.embed-english-v3'
 else:
-    raise ImproperConfigurationError('EMBED_BACKEND must be either "ollama" or "bedrock".')
+    raise ImproperConfigurationError('EMBED_BACKEND must be set to either "ollama" or "bedrock".')
+
+
+_NEEDS_ENVIRON: list[str] = ['AWS_DEFAULT_REGION', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
+"""A list of configuration keys that need to be set in the environment as well."""
+
+for key in _NEEDS_ENVIRON:
+    if key in CONFIG.keys():
+        os.environ[key] = CONFIG[key]
 
 
 def get_lance() -> LanceDB:
