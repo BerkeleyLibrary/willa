@@ -1,6 +1,7 @@
 """Manages the shared state and workflow for Willa chatbots."""
 
-from typing import Optional, Annotated, NotRequired
+# from pprint import pprint
+from typing import Any, Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
 from langchain_core.language_models import BaseChatModel
@@ -11,6 +12,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import START, StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
+from langmem.short_term import SummarizationNode
 
 from willa.config import CONFIG, get_lance, get_model
 from willa.tind import format_tind_context
@@ -23,9 +25,10 @@ with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
 class WillaChatbotState(TypedDict):
     """State for the Chatbot LangGraph workflow."""
     messages: Annotated[list[AnyMessage], add_messages]
-    context: NotRequired[str]
+    docs_context: NotRequired[str]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
+    context: NotRequired[dict[str, Any]]
 
 
 class GraphManager:  # pylint: disable=too-few-public-methods
@@ -40,14 +43,20 @@ class GraphManager:  # pylint: disable=too-few-public-methods
     def _create_workflow(self) -> CompiledStateGraph:
         """Create the LangGraph workflow."""
         workflow = StateGraph(state_schema=WillaChatbotState)
+        summarization_node = SummarizationNode(max_tokens=500,
+                                               model=self._model,
+                                               input_messages_key="messages",
+                                               output_messages_key="messages")
 
         # Add nodes
+        workflow.add_node("summarize", summarization_node)
         workflow.add_node("prepare_search", self._prepare_search_query)
         workflow.add_node("retrieve_context", self._retrieve_context)
         workflow.add_node("generate_response", self._generate_response)
 
         # Define edges
-        workflow.add_edge(START, "prepare_search")
+        workflow.add_edge(START, "summarize")
+        workflow.add_edge("summarize", "prepare_search")
         workflow.add_edge("prepare_search", "retrieve_context")
         workflow.add_edge("retrieve_context", "generate_response")
 
@@ -56,7 +65,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
     def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
         """Prepare search query from conversation context."""
         messages = state["messages"]
-
+        # pprint(["Count of running messages:", len(messages)])
+        # pprint(state["context"]) if state.get("context") else None
         # Get the latest human message
         human_messages = [msg for msg in messages if isinstance(msg, HumanMessage)]
         if not human_messages:
@@ -85,21 +95,21 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         vector_store = self._vector_store
 
         if not search_query or not vector_store:
-            return {"context": "", "tind_metadata": ""}
+            return {"docs_context": "", "tind_metadata": ""}
 
         # Search for relevant documents
         matching_docs = vector_store.similarity_search(search_query)
 
         # Format context and metadata
-        context = '\n\n'.join(doc.page_content for doc in matching_docs)
+        docs_context = '\n\n'.join(doc.page_content for doc in matching_docs)
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
 
-        return {"context": context, "tind_metadata": tind_metadata}
+        return {"docs_context": docs_context, "tind_metadata": tind_metadata}
 
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         messages = state["messages"]
-        context = state.get("context", "")
+        docs_context = state.get("docs_context", "")
         tind_metadata = state.get("tind_metadata", "")
         model = self._model
 
@@ -117,7 +127,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # Create system message with context
         system_message = SystemMessage(content=_SYS_PROMPT.format(
-            context=context,
+            context=docs_context,
             question=latest_message.content
         ))
 
