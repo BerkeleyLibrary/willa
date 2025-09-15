@@ -7,7 +7,7 @@ __copyright__ = "© 2025 The Regents of the University of California.  MIT licen
 import os.path
 from dotenv import dotenv_values
 
-from langchain_aws import BedrockEmbeddings, ChatBedrock
+from langchain_aws import BedrockEmbeddings, ChatBedrockConverse
 from langchain_community.vectorstores import LanceDB
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
@@ -106,7 +106,7 @@ def get_model() -> BaseChatModel:
             base_url=CONFIG['OLLAMA_URL']
         )
     else:  # If we add another backend, elif CONFIG['CHAT_BACKEND'] == bedrock:
-        model = ChatBedrock(
+        model = ChatBedrockConverse(
             model=CONFIG['CHAT_MODEL'],
             temperature=float(CONFIG['CHAT_TEMPERATURE'])
         )
