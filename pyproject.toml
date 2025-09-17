@@ -16,6 +16,7 @@ dependencies = [
     "langchain_aws",
     "langchain_community",
     "langchain_ollama",
+    "langfuse",
     "langgraph",
     "ollama ~= 0.5.1",
     "pymarc",

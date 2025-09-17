@@ -7,12 +7,19 @@ from typing import Optional
 
 from langchain_core.messages import AnyMessage, BaseMessage, HumanMessage, AIMessage, ChatMessage
 from langchain_core.runnables.config import RunnableConfig
+from langfuse.langchain import CallbackHandler
 
 from willa.chatbot.graph_manager import get_graph_manager
+from willa.config import get_langfuse_client
 
 LOGGER = logging.getLogger(__name__)
 """The logging instance used for Chatbot log messages."""
 
+LANGFUSE_CLIENT = get_langfuse_client()
+"""The singleton instance of the Langfuse client."""
+
+LANGFUSE_HANDLER = CallbackHandler()
+"""The Langfuse callback handler."""
 
 class Chatbot:  # pylint: disable=R0903
     """An instance of a Willa chatbot.
@@ -33,7 +40,8 @@ class Chatbot:  # pylint: disable=R0903
         self.thread_id = thread_id or str(uuid.uuid4())
         self.previous_conversation = conversation_thread or []
         self.config: RunnableConfig = {
-            "configurable": {"thread_id": self.thread_id}
+            "configurable": {"thread_id": self.thread_id},
+            "callbacks": [LANGFUSE_HANDLER]
         }
 
         # Create LangGraph workflow
