@@ -2,9 +2,10 @@
 
 import logging
 import uuid
+from itertools import filterfalse
 from typing import Optional
 
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.messages import AnyMessage, BaseMessage, HumanMessage, AIMessage, ChatMessage
 from langchain_core.runnables.config import RunnableConfig
 
 from willa.chatbot.graph_manager import get_graph_manager
@@ -22,11 +23,11 @@ class Chatbot:  # pylint: disable=R0903
 
     def __init__(self,
                  thread_id: Optional[str] = None,
-                 conversation_thread: Optional[list[dict]] = None):
+                 conversation_thread: Optional[list[dict|AnyMessage]] = None):
         """Create a new Willa chatbot instance.
 
         :param Optional[str] thread_id: The ID of the thread for this conversation.
-        :param Optional[list[dict]] conversation_thread: conversation thread from
+        :param Optional[list[dict|AnyMessage]] conversation_thread: conversation thread from
             chainlit data_layer
         """
         self.thread_id = thread_id or str(uuid.uuid4())
@@ -43,17 +44,21 @@ class Chatbot:  # pylint: disable=R0903
 
     def _initialize_conversation_state(self) -> None:
         """Initialize conversation state with the existing messages from the data layer."""
-        # TODO: Remove system messages? # pylint: disable=W0511
-        self.graph_manager.update_state(self.config, {"messages": self.previous_conversation})
+        def is_tind_message(candidate: dict|AnyMessage) -> bool:
+            """Determines if a message is a TIND message."""
+            return isinstance(candidate, BaseMessage) and 'tind' in candidate.response_metadata
+        conversation = filterfalse(is_tind_message, self.previous_conversation)
+        self.graph_manager.update_state(self.config, {"messages": list(conversation)})
 
         LOGGER.debug("Initialized conversation with %d messages for thread %s",
                      len(self.previous_conversation), self.thread_id)
 
-    def ask(self, question: str) -> str:
+    def ask(self, question: str) -> dict[str, str]:
         """Ask a question of this Willa chatbot instance.
 
         :param str question: The question to ask.
-        :returns str: The answer given by the model.
+        :returns: The answer given by the model. Key is the message type.
+        :rtype: dict[str, str]
         """
 
         result = self.graph_manager.invoke(
@@ -63,8 +68,20 @@ class Chatbot:  # pylint: disable=R0903
             config=self.config
         )
 
-        # Return the last AI message in content
+        # Return the last AI/system_mesage in content
         ai_message = [msg for msg in result["messages"] if isinstance(msg, AIMessage)]
+        tind_message = [msg for msg in result["messages"]
+                        if isinstance(msg, ChatMessage) and msg.role == 'TIND']
+
+        answers: dict[str, str] = {}
+
+        if tind_message:
+            answers["tind_message"] = str(tind_message[-1].content)
+
         if ai_message:
-            return str(ai_message[-1].content)
-        return "I'm sorry, I couldn't generate a response."
+            answers["ai_message"] = str(ai_message[-1].content)
+
+        if len(answers) == 0:
+            return {"no_result": "I'm sorry, I couldn't generate a response."}
+
+        return answers
