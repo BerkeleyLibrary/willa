@@ -125,7 +125,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         conversation_messages = [msg for msg in messages
                                  if not isinstance(msg, SystemMessage) and
                                  'tind' not in msg.response_metadata]
-        
+
         all_messages = [system_message] + conversation_messages
 
         # Get response from model
