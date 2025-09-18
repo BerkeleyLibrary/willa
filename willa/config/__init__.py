@@ -83,7 +83,7 @@ else:
 
 
 _NEEDS_ENVIRON: list[str] = ['AWS_DEFAULT_REGION', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY',
-                             'LANGFUSE_PUBLIC_KEY', 'LANGFUSE_SECRET_KEY']
+                             'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY', 'LANGFUSE_SECRET_KEY']
 """A list of configuration keys that need to be set in the environment as well."""
 
 for key in _NEEDS_ENVIRON:
