@@ -53,6 +53,11 @@ def _get_history() -> str:
 def _get_or_create_bot(thread_id: str) -> Chatbot:
     """Get or create a bot instance for the given thread."""
     previous_conversation = cl.chat_context.to_openai()
+
+    # If it's a new conversation, we don't want to pass the user's
+    # initial query as a previous conversation
+    if len(previous_conversation) <= 1:
+        previous_conversation = []
     if thread_id not in _THREAD_BOTS:
         _THREAD_BOTS[thread_id] = Chatbot(
             thread_id=thread_id,
