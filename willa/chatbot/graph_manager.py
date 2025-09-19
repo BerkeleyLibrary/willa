@@ -25,6 +25,8 @@ with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
 class WillaChatbotState(TypedDict):
     """State for the Chatbot LangGraph workflow."""
     messages: Annotated[list[AnyMessage], add_messages]
+    filtered_messages: NotRequired[list[AnyMessage]]
+    summarized_messages: NotRequired[list[AnyMessage]]
     docs_context: NotRequired[str]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
@@ -43,50 +45,46 @@ class GraphManager:  # pylint: disable=too-few-public-methods
     def _create_workflow(self) -> CompiledStateGraph:
         """Create the LangGraph workflow."""
         workflow = StateGraph(state_schema=WillaChatbotState)
+
+        # summarization node assumes same model as chat response generation
         summarization_node = SummarizationNode(max_tokens=500,
                                                model=self._model,
-                                               input_messages_key="messages",
-                                               output_messages_key="messages")
+                                               input_messages_key="filtered_messages",
+                                               output_messages_key="summarized_messages")
 
         # Add nodes
+        workflow.add_node("filter_messages", self._filter_messages)
         workflow.add_node("summarize", summarization_node)
         workflow.add_node("prepare_search", self._prepare_search_query)
         workflow.add_node("retrieve_context", self._retrieve_context)
         workflow.add_node("generate_response", self._generate_response)
 
         # Define edges
-        workflow.add_edge(START, "summarize")
+        workflow.add_edge(START, "filter_messages")
+        workflow.add_edge("filter_messages", "summarize")
         workflow.add_edge("summarize", "prepare_search")
         workflow.add_edge("prepare_search", "retrieve_context")
         workflow.add_edge("retrieve_context", "generate_response")
 
         return workflow.compile(checkpointer=self.memory)
 
+    def _filter_messages(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
+        """Filter out TIND messages from the conversation history."""
+        messages = state["messages"]
+
+        def is_tind_message(candidate: AnyMessage) -> bool:
+            """Determines if a message is a TIND message."""
+            return isinstance(candidate, ChatMessage) and 'tind' in candidate.response_metadata
+
+        filtered = [msg for msg in messages if not is_tind_message(msg)]
+        return {"filtered_messages": filtered}
+
     def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
         """Prepare search query from conversation context."""
-        messages = state["messages"]
-        # pprint(["Count of running messages:", len(messages)])
-        # pprint(state["context"]) if state.get("context") else None
-        # Get the latest human message
-        human_messages = [msg for msg in messages if isinstance(msg, HumanMessage)]
-        if not human_messages:
-            return {"search_query": ""}
+        messages = state["summarized_messages"] if state.get("summarized_messages") else state["messages"]
 
-        latest_question = str(human_messages[-1].content)
-        search_query = latest_question
-
-        # Combine recent context for better search
-        recent_messages = messages[-6:]
-        if len(recent_messages) > 2:
-            context_parts = []
-            for msg in recent_messages[:-1]:
-                if isinstance(msg, (HumanMessage, AIMessage)) and msg.content:
-                    context_parts.append(str(msg.content))
-
-            if context_parts:
-                recent_context = ' '.join(context_parts[-4:])
-                search_query = f"{recent_context}\n{latest_question}"
-
+        # summarization may include a system message as well as any human or ai messages
+        search_query = '\n'.join(msg.content for msg in messages if hasattr(msg, 'content'))
         return {"search_query": search_query}
 
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str]:
@@ -109,6 +107,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         messages = state["messages"]
+        summarized_conversation = state.get("summarized_messages", messages)
         docs_context = state.get("docs_context", "")
         tind_metadata = state.get("tind_metadata", "")
         model = self._model
@@ -131,12 +130,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             question=latest_message.content
         ))
 
-        # Combine system prompt with conversation history
-        conversation_messages = [msg for msg in messages
-                                 if not isinstance(msg, SystemMessage) and
-                                 'tind' not in msg.response_metadata]
-
-        all_messages = [system_message] + conversation_messages
+        # Combine system prompt with summarized conversation history
+        all_messages = summarized_conversation + [system_message]
 
         # Get response from model
         response = model.invoke(all_messages)
