@@ -12,6 +12,7 @@ from langchain_community.vectorstores import LanceDB
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from langchain_ollama import ChatOllama, OllamaEmbeddings
+from langfuse import Langfuse
 
 from willa.errors.config import ImproperConfigurationError
 
@@ -24,6 +25,7 @@ DEFAULTS: dict[str, str] = {
     'PROMPT_TEMPLATE': os.path.join(os.path.dirname(__package__),
                                     'prompt_templates', 'initial_prompt.txt'),
     'TIND_API_URL': 'https://digicoll.lib.berkeley.edu/api/v1',
+    'LANGFUSE_HOST': 'https://us.cloud.langfuse.com'
 }
 """The defaults for configuration variables not set in the .env file."""
 
@@ -31,7 +33,8 @@ DEFAULTS: dict[str, str] = {
 VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', 'PROMPT_TEMPLATE',
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
-                        'CHAT_BACKEND', 'EMBED_BACKEND'}
+                        'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
+                        'LANGFUSE_SECRET_KEY'}
 """Valid configuration variables that could be in the environment."""
 
 
@@ -79,7 +82,8 @@ else:
     raise ImproperConfigurationError('EMBED_BACKEND must be set to either "ollama" or "bedrock".')
 
 
-_NEEDS_ENVIRON: list[str] = ['AWS_DEFAULT_REGION', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
+_NEEDS_ENVIRON: list[str] = ['AWS_DEFAULT_REGION', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY',
+                             'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY', 'LANGFUSE_SECRET_KEY']
 """A list of configuration keys that need to be set in the environment as well."""
 
 for key in _NEEDS_ENVIRON:
@@ -111,3 +115,8 @@ def get_model() -> BaseChatModel:
             temperature=float(CONFIG['CHAT_TEMPERATURE'])
         )
     return model
+
+def get_langfuse_client() -> Langfuse:
+    """Return a configured instance of the Langfuse client. Currently relies on
+    Langfuse's environment variables."""
+    return Langfuse()
