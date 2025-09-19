@@ -41,7 +41,8 @@ class Chatbot:  # pylint: disable=R0903
         self.previous_conversation = conversation_thread or []
         self.config: RunnableConfig = {
             "configurable": {"thread_id": self.thread_id},
-            "callbacks": [LANGFUSE_HANDLER]
+            "callbacks": [LANGFUSE_HANDLER],
+            "metadata": {"langfuse_session_id": self.thread_id}
         }
 
         # Create LangGraph workflow
