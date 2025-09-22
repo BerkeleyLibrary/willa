@@ -4,7 +4,6 @@ FROM python:3.13-slim AS reqs
 
 WORKDIR /app
 
-
 RUN apt-get update -y && apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/
 
@@ -24,7 +23,7 @@ COPY chainlit.md chainlit.md
 COPY .chainlit .chainlit
 RUN /venv/bin/pip install -e .
 
-ENV VIRTUAL_ENV /venv
+ENV VIRTUAL_ENV=/venv
 ENTRYPOINT ["/venv/bin/python"]
 
 CMD ["/venv/bin/chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
