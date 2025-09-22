@@ -19,10 +19,11 @@ services:
   app:
     build:
       context: .
-      target: app
+      target: ${DOCKER_APP_BUILD_TARGET:-app}
     depends_on:
       db:
         condition: service_healthy
+    image: ${DOCKER_APP_IMAGE:-willa:local}
     init: true
     restart: always
     ports:

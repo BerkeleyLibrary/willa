@@ -10,8 +10,9 @@ RUN apt-get update -y && apt-get upgrade -y \
 COPY pyproject.toml pyproject.toml
 
 RUN python -m venv /venv
-RUN /venv/bin/python -m pip install -U setuptools
-RUN /venv/bin/pip install -q .
+ENV PATH=/venv/bin:$PATH
+RUN python -m pip install -U setuptools
+RUN pip install -q .
 
 FROM reqs AS app
 COPY willa willa
@@ -21,15 +22,11 @@ COPY prompt_templates prompt_templates
 COPY public public
 COPY chainlit.md chainlit.md
 COPY .chainlit .chainlit
-RUN /venv/bin/pip install -e .
+RUN pip install -e .
 
 ENV VIRTUAL_ENV=/venv
-ENTRYPOINT ["/venv/bin/python"]
-
-CMD ["/venv/bin/chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
+CMD ["chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
 
 FROM app AS development
 COPY tests tests
-RUN /venv/bin/pip install -q .[dev]
-
-ENTRYPOINT ["/venv/bin/python"]
+RUN pip install -q .[dev]
