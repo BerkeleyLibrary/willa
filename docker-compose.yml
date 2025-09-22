@@ -48,6 +48,9 @@ services:
       CHAT_TEMPERATURE:
       EMBED_BACKEND:
       EMBED_MODEL:
+      LANGFUSE_PUBLIC_KEY:
+      LANGFUSE_SECRET_KEY:
+      LANGFUSE_HOST:
     volumes:
       - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs

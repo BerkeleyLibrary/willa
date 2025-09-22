@@ -194,3 +194,15 @@ The following keys are available for configuration in the ``.env`` file:
     specified will be ``cohere.command-r-v1:0``.
 
     Other values for ``CHAT_BACKEND`` are not implemented in this version of Willa.
+
+``LANGFUSE_HOST``
+    Determines the host to use to connect to Langfuse.
+
+    The default value is "https://us.cloud.langfuse.com", but will need to be different for
+    self-hosted Langfuse installations.
+
+``LANGFUSE_PUBLIC_KEY``, ``LANGFUSE_SECRET_KEY``
+    The public and secret keys used to authenticate to Langfuse.
+
+    These keys are obtained by viewing the Project Settings in the Langfuse UI, choosing
+    "API Keys", then "Create new API keys".  A note is optional but highly recommended.
