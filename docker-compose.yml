@@ -49,6 +49,7 @@ services:
       LANGFUSE_PUBLIC_KEY:
       LANGFUSE_SECRET_KEY:
       LANGFUSE_HOST:
+      SUMMARIZATION_MAX_TOKENS:
     volumes:
       - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs
