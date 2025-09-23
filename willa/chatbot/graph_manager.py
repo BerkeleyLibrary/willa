@@ -45,10 +45,12 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         workflow = StateGraph(state_schema=WillaChatbotState)
 
         # summarization node assumes same model as chat response generation
-        summarization_node = SummarizationNode(max_tokens=int(CONFIG.get('MAX_TOKENS', '500')),
-                                               model=self._model,
-                                               input_messages_key="filtered_messages",
-                                               output_messages_key="summarized_messages")
+        summarization_node = SummarizationNode(
+            max_tokens=int(CONFIG.get('SUMMARIZATION_MAX_TOKENS', '500')),
+            model=self._model,
+            input_messages_key="filtered_messages",
+            output_messages_key="summarized_messages"
+        )
 
         # Add nodes
         workflow.add_node("filter_messages", self._filter_messages)

@@ -25,7 +25,7 @@ DEFAULTS: dict[str, str] = {
     'PROMPT_TEMPLATE': os.path.join(os.path.dirname(__package__),
                                     'prompt_templates', 'initial_prompt.txt'),
     'TIND_API_URL': 'https://digicoll.lib.berkeley.edu/api/v1',
-    'MAX_TOKENS': '500',
+    'SUMMARIZATION_MAX_TOKENS': '500',
     'LANGFUSE_HOST': 'https://us.cloud.langfuse.com'
 }
 """The defaults for configuration variables not set in the .env file."""
