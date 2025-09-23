@@ -35,7 +35,7 @@ VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', '
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
-                        'LANGFUSE_SECRET_KEY', 'MAX_TOKENS'}
+                        'LANGFUSE_SECRET_KEY', 'SUMMARIZATION_MAX_TOKENS'}
 """Valid configuration variables that could be in the environment."""
 
 

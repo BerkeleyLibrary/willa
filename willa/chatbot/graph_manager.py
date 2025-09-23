@@ -46,7 +46,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # summarization node assumes same model as chat response generation
         summarization_node = SummarizationNode(
-            max_tokens=int(CONFIG.get('SUMMARIZATION_MAX_TOKENS', '500')),
+            max_tokens=int(CONFIG['SUMMARIZATION_MAX_TOKENS']),
             model=self._model,
             input_messages_key="filtered_messages",
             output_messages_key="summarized_messages"
