@@ -14,7 +14,7 @@ By making a contribution to this project, I certify that:
 by adding a line to your commit saying:
 
 ```
-Signed-off-by: John Doe <jdoe@uni.edu>
+Signed-off-by: John Doe <jdoe@example.organization.org>
 ```
 
 using a known, non-anonymous identity. For convenience, you can use `git commit -s` or `git revert -s` to add the signature line for you using your git client's configured identity.
