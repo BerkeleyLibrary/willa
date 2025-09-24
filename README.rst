@@ -95,17 +95,20 @@ environment by running::
 
     docker compose build --pull
     docker compose run prisma migrate deploy
-    docker compose up -d
+    bin/dev
 
-To run prisma studio::
+The ``bin/dev`` command sets a few environment variables for you and then runs
+the appropriate ``compose`` command.
+
+To run Prisma Studio::
 
     docker compose up -d prisma
 
 Both Ollama and LocalStack can be useful for local development, and use profiles.
 You can start those services by using Docker Compose's profiles setting::
 
-    COMPOSE_PROFILES=localstack docker compose up -d
-    COMPOSE_PROFILES=ollama,localstack docker compose up -d
+    COMPOSE_PROFILES=localstack bin/dev
+    COMPOSE_PROFILES=ollama,localstack bin/dev
     COMPOSE_PROFILES='*' docker compose down
 
 You can also pass the ``--profile`` argument::

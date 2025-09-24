@@ -31,6 +31,8 @@ services:
     env_file: .env
     environment:
       <<: *dbconfig
+      EXTRA_VERSION: ${EXTRA_VERSION:-}
+      DEPLOYMENT_ID: ${DEPLOYMENT_ID:-compose-unknown}
     volumes:
       - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs

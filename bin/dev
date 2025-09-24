@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Start the Willa development environment, setting a few helpful environment
+# variables and kicking off Docker Compose.
+#
+# Copyright © 2025 The Regents of the University of California.  MIT license.
+
+readonly EXTRA_VERSION="-$(git rev-parse --short=12 HEAD)"
+readonly DEPLOYMENT_ID="${USER}-dev"
+
+if command -v docker 1>/dev/null 2>/dev/null; then
+  readonly DRIVER=docker
+elif command -v podman 1>/dev/null 2>/dev/null; then
+  readonly DRIVER=podman
+else
+  printf "No Docker or Podman found; quitting.\n"
+  exit 1
+fi
+
+export EXTRA_VERSION DEPLOYMENT_ID
+${DRIVER} compose up -d

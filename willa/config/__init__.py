@@ -4,6 +4,7 @@ Load the configuration for Willa into the environment.
 
 __copyright__ = "© 2025 The Regents of the University of California.  MIT license."
 
+import importlib.metadata
 import os.path
 from dotenv import dotenv_values
 
@@ -26,7 +27,9 @@ DEFAULTS: dict[str, str] = {
                                     'prompt_templates', 'initial_prompt.txt'),
     'TIND_API_URL': 'https://digicoll.lib.berkeley.edu/api/v1',
     'SUMMARIZATION_MAX_TOKENS': '500',
-    'LANGFUSE_HOST': 'https://us.cloud.langfuse.com'
+    'LANGFUSE_HOST': 'https://us.cloud.langfuse.com',
+    'EXTRA_VERSION': '',
+    'DEPLOYMENT_ID': 'default'
 }
 """The defaults for configuration variables not set in the .env file."""
 
@@ -35,7 +38,8 @@ VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', '
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
-                        'LANGFUSE_SECRET_KEY', 'SUMMARIZATION_MAX_TOKENS'}
+                        'LANGFUSE_SECRET_KEY', 'SUMMARIZATION_MAX_TOKENS', 'EXTRA_VERSION',
+                        'DEPLOYMENT_ID'}
 """Valid configuration variables that could be in the environment."""
 
 
@@ -117,7 +121,9 @@ def get_model() -> BaseChatModel:
         )
     return model
 
+
 def get_langfuse_client() -> Langfuse:
     """Return a configured instance of the Langfuse client. Currently relies on
     Langfuse's environment variables."""
-    return Langfuse()
+    version = f"{importlib.metadata.version('willa')}{CONFIG['EXTRA_VERSION']}"
+    return Langfuse(release=version, environment=CONFIG['DEPLOYMENT_ID'])
