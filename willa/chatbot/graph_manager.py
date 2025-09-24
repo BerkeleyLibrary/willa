@@ -11,14 +11,8 @@ from langgraph.graph import StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 from langmem.short_term import SummarizationNode # type: ignore
-
-from willa.config import CONFIG, get_lance, get_model
+from willa.config import CONFIG, get_lance, get_model, get_initial_prompt
 from willa.tind import format_tind_context
-
-with open(CONFIG['PROMPT_TEMPLATE'], encoding='utf-8') as f:
-    _SYS_PROMPT: str = f.read()
-    """The system prompt text."""
-
 
 class WillaChatbotState(TypedDict):
     """State for the Chatbot LangGraph workflow."""
@@ -126,7 +120,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
         # Create system message with context
-        system_message = SystemMessage(content=_SYS_PROMPT.format(
+        sys_prompt = get_initial_prompt()
+        system_message = SystemMessage(content=sys_prompt.format(
             context=docs_context,
             question=latest_message.content
         ))
@@ -157,7 +152,6 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
 _GRAPH_MANAGER: Optional[GraphManager] = None
 """Managed, global GraphManager instance."""
-
 
 def get_graph_manager() -> GraphManager:
     """Get the shared graph manager instance."""

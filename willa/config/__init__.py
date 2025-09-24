@@ -14,20 +14,32 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langfuse import Langfuse
-
+from langfuse.api.resources.commons.errors.not_found_error import NotFoundError
 from willa.errors.config import ImproperConfigurationError
 
+
+# Prompt if langfuse defined prompt can't be set
+FALLBACK_PROMPT = """You are a reference librarian who helps researchers answer
+questions about information in oral history interviews held by 
+the Oral History Center at University of California, Berkeley.
+Use only the following pieces of retrieved context to answer the
+question. If you don't know the answer, please state that you don't
+know. Use three sentences maximum and keep the answer concise.
+Question: {question}
+Context: {context}
+Answer: """
 
 DEFAULTS: dict[str, str] = {
     'CALNET_ENV': 'test',
     'CHAT_TEMPERATURE': '0.5',
     'LANCEDB_URI': '/lancedb',
     'OLLAMA_URL': 'http://localhost:11434',
-    'PROMPT_TEMPLATE': os.path.join(os.path.dirname(__package__),
-                                    'prompt_templates', 'initial_prompt.txt'),
+    'PROMPT_TEMPLATE': FALLBACK_PROMPT,
     'TIND_API_URL': 'https://digicoll.lib.berkeley.edu/api/v1',
     'SUMMARIZATION_MAX_TOKENS': '500',
     'LANGFUSE_HOST': 'https://us.cloud.langfuse.com',
+    'LANGFUSE_PROMPT': 'default',
+    'LANGFUSE_PROMPT_LABEL': 'production'
     'EXTRA_VERSION': '',
     'DEPLOYMENT_ID': 'default'
 }
@@ -38,7 +50,8 @@ VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', '
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
-                        'LANGFUSE_SECRET_KEY', 'SUMMARIZATION_MAX_TOKENS', 'EXTRA_VERSION',
+                        'LANGFUSE_SECRET_KEY', 'LANGFUSE_PROMPT', 'LANGFUSE_PROMPT_LABEL',
+                        'SUMMARIZATION_MAX_TOKENS', 'EXTRA_VERSION', 'DEPLOYMENT_ID'}
                         'DEPLOYMENT_ID'}
 """Valid configuration variables that could be in the environment."""
 
@@ -127,3 +140,14 @@ def get_langfuse_client() -> Langfuse:
     Langfuse's environment variables."""
     version = f"{importlib.metadata.version('willa')}{CONFIG['EXTRA_VERSION']}"
     return Langfuse(release=version, environment=CONFIG['DEPLOYMENT_ID'])
+
+
+def get_initial_prompt() -> str:
+    """Get the prompt from langfuse or default from config if not specified or found"""
+    try:
+        lang = get_langfuse_client()
+        lang_prompt = lang.get_prompt(CONFIG['LANGFUSE_PROMPT'], type="chat",
+                                      label=CONFIG['LANGFUSE_PROMPT_LABEL'])
+        return str(lang_prompt.prompt[0].get("content", ""))
+    except NotFoundError:
+        return CONFIG['PROMPT_TEMPLATE']
