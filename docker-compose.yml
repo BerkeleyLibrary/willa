@@ -28,29 +28,9 @@ services:
     restart: always
     ports:
       - 8000:8000
+    env_file: .env
     environment:
       <<: *dbconfig
-      CALNET_OIDC_CLIENT_ID:
-      CALNET_OIDC_CLIENT_SECRET:
-      CHAINLIT_AUTH_SECRET:
-      DEFAULT_STORAGE_DIR:
-      LANCEDB_URI:
-      OLLAMA_URL:
-      AWS_ENDPOINT_URL:
-      AWS_ENDPOINT: ${AWS_ENDPOINT_URL}
-      AWS_ACCESS_KEY_ID:
-      AWS_SECRET_ACCESS_KEY:
-      AWS_DEFAULT_REGION:
-      ALLOW_HTTP:
-      CHAT_BACKEND:
-      CHAT_MODEL:
-      CHAT_TEMPERATURE:
-      EMBED_BACKEND:
-      EMBED_MODEL:
-      LANGFUSE_PUBLIC_KEY:
-      LANGFUSE_SECRET_KEY:
-      LANGFUSE_HOST:
-      SUMMARIZATION_MAX_TOKENS:
     volumes:
       - ./.data/lancedb:/lancedb
       - ./tmp:/pdfs
