@@ -62,6 +62,8 @@ services:
         condition: service_healthy
 
   localstack:
+    profiles:
+      - localstack
     container_name: "localstack-main"
     image: localstack/localstack:4.7
     restart: always

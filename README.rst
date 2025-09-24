@@ -98,7 +98,20 @@ environment by running::
     docker compose up -d
 
 To run prisma studio::
+
     docker compose up -d prisma
+
+Both Ollama and LocalStack can be useful for local development, and use profiles.
+You can start those services by using Docker Compose's profiles setting::
+
+    COMPOSE_PROFILES=localstack docker compose up -d
+    COMPOSE_PROFILES=ollama,localstack docker compose up -d
+    COMPOSE_PROFILES='*' docker compose down
+
+You can also pass the ``--profile`` argument::
+
+    docker compose --profile localstack up -d
+
 
 
 Configuration
