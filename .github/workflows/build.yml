@@ -78,6 +78,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Copy environment file
+        run: cp env.example .env
+
       - name: Set ARTIFACTS_DIR
         run: echo "ARTIFACTS_DIR=${RUNNER_TEMP}/artifacts" >> $GITHUB_ENV
 
