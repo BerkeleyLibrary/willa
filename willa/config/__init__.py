@@ -113,7 +113,7 @@ def get_lance() -> LanceDB:
         embeddings: Embeddings = OllamaEmbeddings(model=CONFIG['EMBED_MODEL'],
                                                   base_url=CONFIG['OLLAMA_URL'])
     else:  # If we add another backend, elif CONFIG['EMBED_BACKEND'] == 'bedrock':
-        embeddings = BedrockEmbeddings(model_id=CONFIG['EMBED_MODEL'])
+        embeddings = BedrockEmbeddings(model_id=CONFIG['EMBED_MODEL'], provider='cohere')
     return LanceDB(embedding=embeddings, uri=CONFIG['LANCEDB_URI'], table_name='willa')
 
 
