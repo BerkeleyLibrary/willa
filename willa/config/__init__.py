@@ -39,7 +39,7 @@ DEFAULTS: dict[str, str] = {
     'SUMMARIZATION_MAX_TOKENS': '500',
     'LANGFUSE_HOST': 'https://us.cloud.langfuse.com',
     'LANGFUSE_PROMPT': 'default',
-    'LANGFUSE_PROMPT_LABEL': 'production'
+    'LANGFUSE_PROMPT_LABEL': 'production',
     'EXTRA_VERSION': '',
     'DEPLOYMENT_ID': 'default'
 }
@@ -52,7 +52,6 @@ VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', '
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
                         'LANGFUSE_SECRET_KEY', 'LANGFUSE_PROMPT', 'LANGFUSE_PROMPT_LABEL',
                         'SUMMARIZATION_MAX_TOKENS', 'EXTRA_VERSION', 'DEPLOYMENT_ID'}
-                        'DEPLOYMENT_ID'}
 """Valid configuration variables that could be in the environment."""
 
 
