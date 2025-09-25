@@ -7,7 +7,7 @@ from langchain_core.messages import ChatMessage, HumanMessage, AIMessage, System
 from langchain_core.vectorstores.base import VectorStore
 from langchain_core.runnables.config import RunnableConfig
 from langgraph.checkpoint.memory import InMemorySaver
-from langgraph.graph import START, StateGraph, add_messages
+from langgraph.graph import StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 from langmem.short_term import SummarizationNode # type: ignore
@@ -60,11 +60,13 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         workflow.add_node("generate_response", self._generate_response)
 
         # Define edges
-        workflow.add_edge(START, "filter_messages")
         workflow.add_edge("filter_messages", "summarize")
         workflow.add_edge("summarize", "prepare_search")
         workflow.add_edge("prepare_search", "retrieve_context")
         workflow.add_edge("retrieve_context", "generate_response")
+
+        workflow.set_entry_point("filter_messages")
+        workflow.set_finish_point("generate_response")
 
         return workflow.compile(checkpointer=self.memory)
 
@@ -94,7 +96,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             return {"docs_context": "", "tind_metadata": ""}
 
         # Search for relevant documents
-        matching_docs = vector_store.similarity_search(search_query)
+        retriever = vector_store.as_retriever()
+        matching_docs = retriever.invoke(search_query)
 
         # Format context and metadata
         docs_context = '\n\n'.join(doc.page_content for doc in matching_docs)
