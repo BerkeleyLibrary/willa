@@ -229,7 +229,7 @@ The following keys are available for configuration in the ``.env`` file:
     LANGFUSE_PROMPT=default and LANGFUSE_PROMPT_LABEL=production
 
     If these values are not supplied or not defined in Langfuse a fallback prompt which is
-    defined in ``config/__init.py`` will be used. 
+    defined in ``config/__init__.py`` will be used. 
 
 ``SUMMARIZATION_MAX_TOKENS``
     String. The maximum number of tokens before conversation is summarized.
