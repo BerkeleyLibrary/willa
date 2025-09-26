@@ -34,7 +34,6 @@ DEFAULTS: dict[str, str] = {
     'CHAT_TEMPERATURE': '0.5',
     'LANCEDB_URI': '/lancedb',
     'OLLAMA_URL': 'http://localhost:11434',
-    'PROMPT_TEMPLATE': FALLBACK_PROMPT,
     'TIND_API_URL': 'https://digicoll.lib.berkeley.edu/api/v1',
     'SUMMARIZATION_MAX_TOKENS': '500',
     'LANGFUSE_HOST': 'https://us.cloud.langfuse.com',
@@ -46,7 +45,7 @@ DEFAULTS: dict[str, str] = {
 """The defaults for configuration variables not set in the .env file."""
 
 
-VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', 'PROMPT_TEMPLATE',
+VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR',
                         'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
@@ -149,4 +148,4 @@ def get_initial_prompt() -> str:
                                       label=CONFIG['LANGFUSE_PROMPT_LABEL'])
         return str(lang_prompt.prompt[0].get("content", ""))
     except NotFoundError:
-        return CONFIG['PROMPT_TEMPLATE']
+        return FALLBACK_PROMPT
