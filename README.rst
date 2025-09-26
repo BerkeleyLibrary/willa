@@ -223,6 +223,14 @@ The following keys are available for configuration in the ``.env`` file:
     These keys are obtained by viewing the Project Settings in the Langfuse UI, choosing
     "API Keys", then "Create new API keys".  A note is optional but highly recommended.
 
+``LANGFUSE_PROMPT``, ``LANGFUSE_PROMPT_LABEL``
+    The prompt name defined in langfuse for the prompt to be used. The label is the label
+    created for the named prompt in Langfuse. The default values are
+    LANGFUSE_PROMPT=default and LANGFUSE_PROMPT_LABEL=production
+
+    If these values are not supplied or not defined in Langfuse a fallback prompt which is
+    defined in ``config/__init__.py`` will be used. 
+
 ``SUMMARIZATION_MAX_TOKENS``
     String. The maximum number of tokens before conversation is summarized.
     Defaults to '500' if not set.
