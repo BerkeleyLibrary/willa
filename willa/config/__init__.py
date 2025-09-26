@@ -42,7 +42,7 @@ DEFAULTS: dict[str, str] = {
     'LANGFUSE_PROMPT_LABEL': 'production',
     'EXTRA_VERSION': '',
     'DEPLOYMENT_ID': 'default',
-    'K_VALUE': 4
+    'K_VALUE': '4'
 }
 """The defaults for configuration variables not set in the .env file."""
 
