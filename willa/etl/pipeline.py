@@ -36,8 +36,10 @@ def run_pipeline(vector_store: VectorStore | None = None) -> VectorStore:
         vector_store = _create_vector_store()
 
     docs = load_pdfs()
-    splits = split_all_docs(docs)
-    embed_docs(splits, vector_store)
+    for doc_id, split_docs in docs.items():
+        print(f"Generating embeddings for {doc_id}...")
+        splits = split_all_docs(split_docs)
+        embed_docs(splits, vector_store, doc_id)
 
     return vector_store
 

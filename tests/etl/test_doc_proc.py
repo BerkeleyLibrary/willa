@@ -55,7 +55,7 @@ class DocumentProcessingTest(unittest.TestCase):
         """Test splitting a document into chunks."""
         docs = load_pdfs()
         if docs:
-            doc = docs[0]
+            doc = docs['103806'][0]
             chunks = split_doc(doc)
             self.assertGreater(len(chunks), 0, "Should create at least one chunk.")
 
@@ -63,7 +63,7 @@ class DocumentProcessingTest(unittest.TestCase):
         """Test splitting all documents into chunks."""
         docs = load_pdfs()
         if docs:
-            chunked_docs = split_all_docs(docs)
+            chunked_docs = split_all_docs(docs['103806'])
             self.assertGreater(len(chunked_docs), 0, "Should create chunks from all documents.")
             self.assertIsInstance(chunked_docs[0], Document, "Should return the chunks.")
 
@@ -72,7 +72,7 @@ class DocumentProcessingTest(unittest.TestCase):
         """Test embedding documents."""
         docs = load_pdfs()
         if docs:
-            chunked_docs = split_all_docs(docs)
+            chunked_docs = split_all_docs(docs['103806'])
             embeddings = OllamaEmbeddings(model=self.embedding_model, base_url=CONFIG['OLLAMA_URL'])
             vector_store = InMemoryVectorStore(embeddings)
             embed_ids = embed_docs(chunked_docs, vector_store)

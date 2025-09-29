@@ -4,20 +4,21 @@ and split them into chunks for vectorization.
 """
 
 import json
-import os.path
+from contextlib import nullcontext
 from functools import reduce
 from operator import add
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional, Union
+from unittest.mock import MagicMock
 
-from langchain_community.document_loaders import PyPDFDirectoryLoader
-# from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import PyPDFLoader, PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from langchain_core.vectorstores.base import VectorStore
+from opentelemetry.util._decorator import _AgnosticContextManager
 from pymarc.record import Record
 
-from willa.config import CONFIG
+from willa.config import CONFIG, get_langfuse_client
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 
 
@@ -28,8 +29,7 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
     :param Record|None record: The PyMARC record that pertains to the file.
     :returns list[Document]: A ``list`` of ``Document``s that can be further used in the pipeline.
     """
-    directory_path = os.path.dirname(name)
-    loader = PyPDFDirectoryLoader(directory_path, glob=os.path.basename(name), mode="single")
+    loader = PyPDFLoader(name, mode='single')
 
     docs = loader.load()
     if not docs:
@@ -43,7 +43,7 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
     return docs
 
 
-def load_pdfs() -> list[Document]:
+def load_pdfs() -> dict[str, list[Document]]:
     """Load all PDF files from the storage directory.
 
     This assumes the storage directory is laid out in the following manner:
@@ -56,9 +56,10 @@ def load_pdfs() -> list[Document]:
 
             [...]: One or more PDF files that comprise the TIND record.
 
-    :returns list[Document]: All documents successfully loaded.
+    :returns: All documents successfully loaded.
+    :rtype: dict[str, list[Document]]
     """
-    docs: list[Document] = []
+    docs: dict[str, list[Document]] = {}
 
     for tind_path in Path(CONFIG['DEFAULT_STORAGE_DIR']).iterdir():
         if not tind_path.is_dir():
@@ -85,7 +86,7 @@ def load_pdfs() -> list[Document]:
         if len(metadata) > 0:
             for doc in new_docs:
                 doc.metadata['tind_metadata'] = metadata
-        docs.extend(new_docs)
+        docs[tind_id] = new_docs
         print(f"Loaded {len(new_docs)} document(s) from {tind_id}.")
 
     return docs
@@ -106,7 +107,30 @@ def split_all_docs(docs: list, chunk_size: int = 1000, chunk_overlap: int = 200)
     return reduce(add, [split_doc(doc, chunk_size, chunk_overlap) for doc in docs])
 
 
-def embed_docs(chunked_docs: list, vector_store: VectorStore) -> list:
-    """Embed documents using Ollama embeddings and store them in a vector store."""
-    document_ids = vector_store.add_documents(documents=chunked_docs)
+def _embed_observation(**kwargs: Any) -> Union[nullcontext, _AgnosticContextManager]:
+    """Retrieve the Langfuse observation object, or an inert object if tracing is disabled."""
+    if CONFIG['ETL_TRACING'].lower() == 'true':
+        langfuse = get_langfuse_client()
+        return langfuse.start_as_current_observation(**kwargs)
+
+    return nullcontext(MagicMock())
+
+
+def embed_docs(chunked_docs: list, vector_store: VectorStore, doc_id: Optional[str] = None) -> list:
+    """Embed documents using configured embeddings and store them in a vector store.
+
+    :param list chunked_docs: The chunked ``Document``s processed by ``split_doc``.
+    :param VectorStore vector_store: The vector store to write the embedded documents into.
+    :param Optional[str] doc_id: The document ID to use for tracing.
+    :returns list: The document IDs in the vector store (unrelated to the doc_id).
+    """
+
+    # pylint: disable=E1129
+    with _embed_observation(as_type='embedding', name='embed_docs', input=chunked_docs) as span:
+        span.update_trace(tags=['etl'])
+        if doc_id is not None:
+            span.update(metadata={'doc_id': doc_id})
+        document_ids = vector_store.add_documents(documents=chunked_docs)
+        span.update(output=document_ids)
+    # pylint: enable=E1129
     return document_ids

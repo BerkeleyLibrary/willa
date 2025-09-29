@@ -234,3 +234,6 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``K_VALUE``
     Int. The k value used for retrieving context from the vector_store. The default is 4   
+
+``ETL_TRACING``
+    Boolean.  Whether to trace embedding calls in Langfuse.  Defaults to ``False``.
