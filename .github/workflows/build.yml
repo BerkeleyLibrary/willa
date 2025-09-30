@@ -6,6 +6,9 @@ on:
       - '**'
   workflow_dispatch:
 
+env:
+  DOCKER_METADATA_SET_OUTPUT_ENV: 'true'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,14 +41,14 @@ jobs:
       - name: Build and push the untested image
         uses: docker/build-push-action@v6
         with:
-          push: true
-          labels: ${{ steps.build-meta.outputs.labels }}
-          tags: ${{ steps.build-meta.outputs.tags }}
-          provenance: true
-          sbom: true
-          target: development
           cache-from: type=gha
           cache-to: type=gha
+          labels: ${{ steps.build-meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
+          provenance: true
+          push: true
+          sbom: true
+          tags: ${{ steps.build-meta.outputs.tags }}
 
   test:
     runs-on: ubuntu-latest
@@ -78,28 +81,21 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Copy environment file
-        run: cp env.example .env
-
-      - name: Set ARTIFACTS_DIR
-        run: echo "ARTIFACTS_DIR=${RUNNER_TEMP}/artifacts" >> $GITHUB_ENV
-
-      - name: Create the artifacts directory
-        run: mkdir -p "$ARTIFACTS_DIR"
-
-      - name: Record start time
-        run: TEST_START=`date +%s` >> $GITHUB_ENV
-
-      - name: Run the test command
+      - name: Run the test script
+        env:
+          ARTIFACTS_DIR: ${{ runner.temp }}/artifacts
         run: |
-          docker compose run --no-deps --rm app ${{ matrix.test }}
+          mkdir -p "$ARTIFACTS_DIR"
+          docker compose up --wait --no-deps app
+          docker compose exec app cp env.example .env
+          docker compose exec app ${{ matrix.test }}
 
       - name: Upload test report
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: Test Report - ${{ matrix.test }} (${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }})
-          path: ${{ env.ARTIFACTS_DIR }}
+          path: ${{ runner.temp }}/artifacts
           if-no-files-found: warn
 
   push:
@@ -107,6 +103,8 @@ jobs:
     needs:
       - build
       - test
+    env:
+      DOCKER_APP_IMAGE: ${{ needs.build.outputs.build-image }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -129,10 +127,7 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Retag and push the image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          labels: ${{ steps.branch-meta.outputs.labels }}
-          tags: ${{ steps.branch-meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ needs.build.outputs.build-image }}
-          target: app
+        run: |
+          docker pull "$DOCKER_APP_IMAGE"
+          echo "$DOCKER_METADATA_OUTPUT_TAGS" | tr ' ' '\n' | xargs -n1 docker tag "$DOCKER_APP_IMAGE"
+          docker push --all-tags "$(echo "$DOCKER_APP_IMAGE" | cut -f1 -d:)"
