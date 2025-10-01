@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           cache-from: type=gha
-          cache-to: type=gha
+          cache-to: type=gha,mode=max
           labels: ${{ steps.build-meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           provenance: true
