@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-image: ${{ steps.build-meta.outputs.tags }}
+      dev-image: ${{ steps.dev-meta.outputs.tags }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,25 +32,44 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Produce the build image tag
-        id: build-meta
+      - name: Produce app image tags
+        id: app-meta
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
           tags: type=sha,suffix=-build-${{ github.run_id }}_${{ github.run_attempt }}
 
-      - name: Build and push the untested image
+      - name: Build and push the app image
         uses: docker/build-push-action@v6
         with:
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          labels: ${{ steps.build-meta.outputs.labels }}
+          labels: ${{ steps.app-meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           provenance: true
           push: true
           sbom: true
-          tags: ${{ steps.build-meta.outputs.tags }}
+          tags: ${{ steps.app-meta.outputs.tags }}
           target: app
+
+      - name: Produce dev image tags
+        id: dev-meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: type=sha,suffix=-build-${{ github.run_id }}_${{ github.run_attempt }}-dev
+
+      - name: Build and push the dev image
+        uses: docker/build-push-action@v6
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          labels: ${{ steps.dev-meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
+          provenance: true
+          push: true
+          sbom: true
+          tags: ${{ steps.dev-meta.outputs.tags }}
 
   test:
     runs-on: ubuntu-latest
@@ -67,7 +87,7 @@ jobs:
           - python -m unittest -v
     env:
       COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
-      DOCKER_APP_IMAGE: ${{ needs.build.outputs.build-image }}
+      DOCKER_APP_IMAGE: ${{ needs.build.outputs.dev-image }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -86,23 +106,9 @@ jobs:
         run: |
           echo "ARTIFACTS_DIR=${RUNNER_TEMP}/artifacts" >> "$GITHUB_ENV"
 
-      - name: Create the artifacts directory
-        run: |
-          mkdir -p "$ARTIFACTS_DIR"
-
-      - name: Pull the built image to fill the local cache
-        run: |
-          docker pull "$DOCKER_APP_IMAGE"
-          docker image ls --all --no-trunc
-
-      - name: Build to the development target to include tests / test runners
-        uses: docker/build-push-action@v6
-        with:
-          push: false
-          tags: ${{ env.DOCKER_APP_IMAGE }}
-
       - name: Run the test script
         run: |
+          mkdir -p "$ARTIFACTS_DIR"
           docker compose up --no-deps --wait app
           docker compose exec app cp env.example .env
           docker compose exec app ${{ matrix.test }}
@@ -133,7 +139,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Produce permanent image tags
+      - name: Produce permanent app image tags
         id: branch-meta
         uses: docker/metadata-action@v5
         with:
@@ -143,7 +149,7 @@ jobs:
             type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Retag the image
+      - name: Retag the app image
         run: |
           docker pull "$DOCKER_APP_IMAGE"
           echo "$DOCKER_METADATA_OUTPUT_TAGS" | tr ' ' '\n' | xargs -n1 docker tag "$DOCKER_APP_IMAGE"
