@@ -82,10 +82,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push the untested image
+      - name: Pull the built image to fill the local cache
+        run: |
+          docker pull "$DOCKER_APP_IMAGE"
+
+      - name: Build to the development target to include tests / test runners
         uses: docker/build-push-action@v6
         with:
-          cache-from: type=registry,ref=${{ env.DOCKER_APP_IMAGE }}
           cache-to: type=gha
           push: false
           tags: ${{ env.DOCKER_APP_IMAGE }}
@@ -95,6 +98,7 @@ jobs:
           ARTIFACTS_DIR: ${{ runner.temp }}/artifacts
         run: |
           mkdir -p "$ARTIFACTS_DIR"
+          docker image ls --all --no-trunc
           docker compose up --no-deps --wait app
           docker compose exec app cp env.example .env
           docker compose exec app ${{ matrix.test }}
