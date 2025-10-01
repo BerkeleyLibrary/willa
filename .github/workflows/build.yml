@@ -49,6 +49,7 @@ jobs:
           push: true
           sbom: true
           tags: ${{ steps.build-meta.outputs.tags }}
+          target: app
 
   test:
     runs-on: ubuntu-latest
@@ -81,12 +82,20 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build and push the untested image
+        uses: docker/build-push-action@v6
+        with:
+          cache-from: type=registry,ref=${{ env.DOCKER_APP_IMAGE }}
+          cache-to: type=gha
+          push: false
+          tags: ${{ env.DOCKER_APP_IMAGE }}
+
       - name: Run the test script
         env:
           ARTIFACTS_DIR: ${{ runner.temp }}/artifacts
         run: |
           mkdir -p "$ARTIFACTS_DIR"
-          docker compose up --wait --no-deps app
+          docker compose up --no-deps --wait app
           docker compose exec app cp env.example .env
           docker compose exec app ${{ matrix.test }}
 
@@ -126,7 +135,7 @@ jobs:
             type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Retag and push the image
+      - name: Retag the image
         run: |
           docker pull "$DOCKER_APP_IMAGE"
           echo "$DOCKER_METADATA_OUTPUT_TAGS" | tr ' ' '\n' | xargs -n1 docker tag "$DOCKER_APP_IMAGE"
