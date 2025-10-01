@@ -131,9 +131,6 @@ The following keys are available for configuration in the ``.env`` file:
 ``DEFAULT_STORAGE_DIR``
     The default directory to store files retrieved from TIND.
 
-``PROMPT_TEMPLATE``
-    The inital prompt for the chatbot. defaults to ``prompt_templates/initial_prompt.txt``
-
 ``RUN_OLLAMA_TESTS``
     Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
 
