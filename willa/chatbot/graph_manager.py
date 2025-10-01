@@ -90,7 +90,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             return {"docs_context": "", "tind_metadata": ""}
 
         # Search for relevant documents
-        retriever = vector_store.as_retriever()
+        retriever = vector_store.as_retriever(search_kwargs={"k": int(CONFIG['K_VALUE'])})
         matching_docs = retriever.invoke(search_query)
 
         # Format context and metadata

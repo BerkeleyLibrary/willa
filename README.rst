@@ -231,3 +231,6 @@ The following keys are available for configuration in the ``.env`` file:
 ``SUMMARIZATION_MAX_TOKENS``
     String. The maximum number of tokens before conversation is summarized.
     Defaults to '500' if not set.
+
+``K_VALUE``
+    Int. The k value used for retrieving context from the vector_store. The default is 4   
