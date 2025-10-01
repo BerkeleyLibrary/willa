@@ -109,9 +109,7 @@ jobs:
       - name: Run the test script
         run: |
           mkdir -p "$ARTIFACTS_DIR"
-          docker compose up --no-deps --wait app
-          docker compose exec app cp env.example .env
-          docker compose exec app ${{ matrix.test }}
+          docker compose run --no-deps --rm --volume env.example:/app/.env:ro app ${{ matrix.test }}
 
       - name: Upload test report
         if: ${{ always() }}
