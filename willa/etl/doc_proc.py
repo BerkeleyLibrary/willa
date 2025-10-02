@@ -4,6 +4,7 @@ and split them into chunks for vectorization.
 """
 
 import json
+import logging
 from contextlib import nullcontext
 from functools import reduce
 from operator import add
@@ -22,6 +23,10 @@ from willa.config import CONFIG, get_langfuse_client
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 
 
+LOGGER = logging.getLogger(__name__)
+"""The logging object for this module."""
+
+
 def load_pdf(name: str, record: Record | None) -> list[Document]:
     """Load a given single PDF from storage, including optional PyMARC record.
 
@@ -33,9 +38,9 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
 
     docs = loader.load()
     if not docs:
-        print(f"Requested file {name} not found.")
+        LOGGER.warning("Requested file %s not found.", name)
     else:
-        print(f"Loaded {name} as a document.")
+        LOGGER.info("Loaded %s as a document.", name)
         if record:
             for doc in docs:
                 doc.metadata['tind_metadata'] = pymarc_to_metadata(record)
@@ -73,21 +78,21 @@ def load_pdfs() -> dict[str, list[Document]]:
             with open(md_path, 'r', encoding='utf-8') as md_json:
                 metadata = json.loads(md_json.read())
         else:
-            print(f"No metadata stored for {tind_id}!")
+            LOGGER.error("No metadata stored for %s!", tind_id)
 
         loader = PyPDFDirectoryLoader(tind_path, mode="single")
         # loader = DirectoryLoader(tind_path, glob="**/*.pdf")
 
         new_docs = loader.load()
         if not new_docs:
-            print(f"No documents found in the {tind_id} directory.")
+            LOGGER.warning("No documents found in the %s directory.", tind_id)
             continue
 
         if len(metadata) > 0:
             for doc in new_docs:
                 doc.metadata['tind_metadata'] = metadata
         docs[tind_id] = new_docs
-        print(f"Loaded {len(new_docs)} document(s) from {tind_id}.")
+        LOGGER.info("Loaded %d document(s) from %s.", len(new_docs), tind_id)
 
     return docs
 

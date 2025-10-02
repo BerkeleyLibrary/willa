@@ -3,6 +3,7 @@ Run the Willa ETL pipeline.
 """
 
 import json
+import logging
 import os.path
 
 from langchain_core.documents import Document
@@ -14,6 +15,10 @@ from willa.config import CONFIG, get_lance
 from willa.tind.fetch import fetch_metadata, fetch_file_metadata, fetch_file, search
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 from .doc_proc import load_pdf, load_pdfs, split_all_docs, embed_docs
+
+
+LOGGER = logging.getLogger(__name__)
+"""The logging object for this module."""
 
 
 def _create_vector_store() -> VectorStore:
@@ -37,10 +42,11 @@ def run_pipeline(vector_store: VectorStore | None = None) -> VectorStore:
 
     docs = load_pdfs()
     for doc_id, split_docs in docs.items():
-        print(f"Generating embeddings for {doc_id}...")
+        LOGGER.info("Generating embeddings for %s...", doc_id)
         splits = split_all_docs(split_docs)
         embed_docs(splits, vector_store, doc_id)
 
+    LOGGER.info("Generated %d embeddings.", len(docs))
     return vector_store
 
 
@@ -122,4 +128,5 @@ def fetch_all_from_search_query(query: str, vector_store: VectorStore | None = N
 
 
 if __name__ == "__main__":
+    logging.basicConfig(format='%(name)s: %(levelname)s: %(message)s', level=logging.INFO)
     run_pipeline()
