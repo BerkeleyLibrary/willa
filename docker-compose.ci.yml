@@ -1,14 +1,30 @@
 services:
-  db: !reset
   app:
     build: !reset
+    image: ${DOCKER_APP_IMAGE}
     depends_on: !reset
     ports: !reset
+    volumes: !reset
     environment:
       CHAT_BACKEND: ollama
       DEFAULT_STORAGE_DIR: /tmp
       EMBED_BACKEND: ollama
+
+  db:
+    ports: !reset
+    volumes: !override
+      - postgres:/var/lib/postgresql/data
+
+  prisma:
+    image: ${DOCKER_APP_IMAGE}
+    build: !reset
     volumes: !reset
+    ports: !reset
+    profiles: !reset
+
   ollama: !reset
-  prisma: !reset
+
   localstack: !reset
+
+volumes:
+  postgres:
