@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-image: ${{ steps.build-meta.outputs.tags }}
+      prisma-build-image: ${{ steps.build-prisma-meta.outputs.tags }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,6 +47,41 @@ jobs:
           target: development
           cache-from: type=gha
           cache-to: type=gha
+
+      - name: Produce the prisma image tags
+        id: build-prisma-meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}-prisma
+          tags: type=sha,suffix=-build-${{ github.run_id }}_${{ github.run_attempt }}
+
+  test-migrations:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    env:
+      COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
+      DOCKER_APP_IMAGE: ${{ needs.build.outputs.build-image }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test migrations
+        run: |
+          cp env.example .env
+          docker compose pull --quiet db prisma
+          docker compose up -d --wait db
+          docker compose run --rm prisma migrate deploy
 
   test:
     runs-on: ubuntu-latest
@@ -107,6 +143,7 @@ jobs:
     needs:
       - build
       - test
+      - test-migrations
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

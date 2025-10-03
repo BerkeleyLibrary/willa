@@ -4,8 +4,8 @@ services:
     restart: always
     environment: &dbconfig
       POSTGRES_DB: ${POSTGRES_DB:-willa}
-      POSTGRES_USER: ${POSTGRES_USER:-root}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+      POSTGRES_USER: ${POSTGRES_USER:-willa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-willa}
       DATABASE_URL: ${DATABASE_URL:-postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}}
     ports:
       - 5432:5432
@@ -52,9 +52,9 @@ services:
   prisma:
     profiles:
       - prisma
-    build:
-      context: .
-      dockerfile: Dockerfile.prisma
+    build: .
+    entrypoint: ['npx', 'prisma']
+    command: ['studio']
     restart: always
     environment: *dbconfig
     ports:
@@ -62,6 +62,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - ./prisma:/app/prisma:rw
 
   localstack:
     profiles:
