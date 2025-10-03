@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+# Initialise the configured database environment for use with Willa,
+# setting up the needed tables and indexes.
+#
+# Copyright © 2025 The Regents of the University of California.  MIT license.
+
+# Use the credentials from the app's environment.
+export PGHOST=${POSTGRES_HOST:-db}
+export PGPORT=${POSTGRES_PORT:-5432}
+export PGUSER=${POSTGRES_USER}
+export PGPASSWORD=${POSTGRES_PASSWORD}
+export PGDATABASE=${POSTGRES_DB}
+
+# Determine if the database needs to be created or not.
+if [ "$(psql -d template1 -t -A -c "SELECT COUNT(*) FROM pg_database WHERE datname='${POSTGRES_DB}';")" = '0' ]; then
+  createdb
+fi
+
+# -1: Ensure atomicity: if any statement fails, no changes are persisted.
+psql -1 -f sql/willa.sql

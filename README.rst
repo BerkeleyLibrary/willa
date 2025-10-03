@@ -94,11 +94,14 @@ The chatbot service is deployed via Docker Compose.  You can set up a similar
 environment by running::
 
     docker compose build --pull
-    docker compose run prisma migrate deploy
     bin/dev
 
 The ``bin/dev`` command sets a few environment variables for you and then runs
-the appropriate ``compose`` command.
+the appropriate ``compose`` command.  When you set up your environment for the
+first time, you will need to initialise the database.  This can be done *before*
+running ``bin/dev`` by running::
+
+    docker compose run --rm app bin/dbinit
 
 To run Prisma Studio::
 

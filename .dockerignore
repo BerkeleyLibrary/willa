@@ -8,6 +8,7 @@
 /venv
 
 # Don't include LanceDB data.
+/.data
 /data
 
 # Don't include default storage location.
