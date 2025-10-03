@@ -11,7 +11,7 @@ from langgraph.graph import StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 from langmem.short_term import SummarizationNode # type: ignore
-from willa.config import CONFIG, get_lance, get_model, get_initial_prompt
+from willa.config import CONFIG, get_lance, get_model, get_langfuse_prompt
 from willa.tind import format_tind_context
 
 class WillaChatbotState(TypedDict):
@@ -99,6 +99,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         return {"docs_context": docs_context, "tind_metadata": tind_metadata}
 
+    # pylint: disable=too-many-locals
+    # This should be refactored probably. Very bulky
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         messages = state["messages"]
@@ -119,16 +121,22 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         if not latest_message:
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
-        # Create system message with context
-        sys_prompt = get_initial_prompt()
-        system_message = SystemMessage(content=sys_prompt.format(
-            context=docs_context,
-            question=latest_message.content
-        ))
+        # Will grab a langfuse prompt. If not found will used a Fallback prompt
+        prompt, found = get_langfuse_prompt()
+        if found:
+            system_messages = prompt.invoke(input={'context': docs_context,
+                                                  'question': latest_message.content})
+            all_messages = summarized_conversation + system_messages.messages
+        else:
+            system_message = SystemMessage(content=prompt.format(
+                context=docs_context,
+                question=latest_message.content
+            ))
+
+            all_messages = summarized_conversation + [system_message]
+
 
         # Combine system prompt with summarized conversation history
-        all_messages = summarized_conversation + [system_message]
-
         # Get response from model
         response = model.invoke(all_messages)
 
@@ -138,6 +146,8 @@ class GraphManager:  # pylint: disable=too-few-public-methods
                                                ChatMessage(content=tind_metadata, role='TIND',
                                                            response_metadata={'tind': True})]
         return {"messages": response_messages}
+
+    # pylint: enable=too-many-locals
 
     def invoke(self,
                init_state: dict,
