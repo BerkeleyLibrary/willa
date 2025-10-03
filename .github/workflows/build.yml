@@ -48,13 +48,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha
 
-      - name: Produce the prisma image tags
-        id: build-prisma-meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ghcr.io/${{ github.repository }}-prisma
-          tags: type=sha,suffix=-build-${{ github.run_id }}_${{ github.run_attempt }}
-
   test-migrations:
     runs-on: ubuntu-latest
     needs:
