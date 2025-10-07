@@ -9,7 +9,6 @@ import os.path
 from dotenv import dotenv_values
 
 from langchain_aws import BedrockEmbeddings, ChatBedrockConverse
-from langchain_community.vectorstores import LanceDB
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
@@ -17,7 +16,9 @@ from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langfuse import Langfuse
 from langfuse.api.resources.commons.errors.not_found_error import NotFoundError
 from langfuse.model import ChatPromptClient
+
 from willa.errors.config import ImproperConfigurationError
+from willa.lcvendor.lancedb import LanceDB
 
 # Prompt if langfuse defined prompt can't be set
 FALLBACK_PROMPT = """You are a reference librarian who helps researchers answer

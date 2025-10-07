@@ -118,7 +118,9 @@ jobs:
         working-directory: /app
     steps:
       - name: Run mypy
-        run: mypy .
+        run: |
+          pip3 install --no-cache-dir -e .[lint]
+          mypy .
 
   test-pydoclint:
     runs-on: ubuntu-24.04
@@ -130,7 +132,9 @@ jobs:
         working-directory: /app
     steps:
       - name: Run pydoclint
-        run: pydoclint .
+        run: |
+          pip3 install --no-cache-dir pydoclint
+          pydoclint .
 
   # pylint returns error codes if the checks fail
   # @see https://pylint.readthedocs.io/en/latest/user_guide/usage/run.html#exit-codes
@@ -144,7 +148,9 @@ jobs:
         working-directory: /app
     steps:
       - name: Run pylint
-        run: pylint -v .
+        run: |
+          pip3 install --no-cache-dir pylint
+          pylint -v .
 
   test-unit:
     runs-on: ubuntu-24.04

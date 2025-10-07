@@ -6,15 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "willa"
 version = "0.0.1"
 dependencies = [
-    "anthropic == 0.67.0", # for pydoclint incompatibility
     "asyncpg",
     "awscli-local",
     "boto3",
     "chainlit ~= 2.7.1",
     "lancedb",
-    "langchain",
     "langchain_aws",
-    "langchain_community",
+    "langchain_core",
     "langchain_ollama",
     "langfuse",
     "langgraph",
@@ -51,7 +49,7 @@ debug = [
     "debugpy",
 ]
 dev = [
-    "willa[test,lint,debug]"
+    "willa[test,debug]"
 ]
 
 [project.scripts]

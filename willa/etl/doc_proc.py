@@ -12,7 +12,6 @@ from pathlib import Path
 from typing import Any, Optional, Union
 from unittest.mock import MagicMock
 
-from langchain_community.document_loaders import PyPDFLoader, PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from langchain_core.vectorstores.base import VectorStore
@@ -20,6 +19,7 @@ from opentelemetry.util._decorator import _AgnosticContextManager
 from pymarc.record import Record
 
 from willa.config import CONFIG, get_langfuse_client
+from willa.lcvendor.pypdf import PyPDFLoader, PyPDFDirectoryLoader
 from willa.tind.format_validate_pymarc import pymarc_to_metadata
 
 
