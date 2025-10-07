@@ -3,7 +3,7 @@ from typing import Any, Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
 from langchain_core.language_models import BaseChatModel
-from langchain_core.messages import ChatMessage, HumanMessage, AIMessage, SystemMessage
+from langchain_core.messages import ChatMessage, HumanMessage, AIMessage
 from langchain_core.vectorstores.base import VectorStore
 from langchain_core.runnables.config import RunnableConfig
 from langgraph.checkpoint.memory import InMemorySaver
@@ -11,7 +11,7 @@ from langgraph.graph import StateGraph, add_messages
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph.message import AnyMessage
 from langmem.short_term import SummarizationNode # type: ignore
-from willa.config import CONFIG, get_lance, get_model, get_initial_prompt
+from willa.config import CONFIG, get_lance, get_model, get_langfuse_prompt
 from willa.tind import format_tind_context
 
 class WillaChatbotState(TypedDict):
@@ -99,6 +99,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         return {"docs_context": docs_context, "tind_metadata": tind_metadata}
 
+    # This should be refactored probably. Very bulky
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         messages = state["messages"]
@@ -119,15 +120,13 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         if not latest_message:
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
-        # Create system message with context
-        sys_prompt = get_initial_prompt()
-        system_message = SystemMessage(content=sys_prompt.format(
-            context=docs_context,
-            question=latest_message.content
-        ))
-
-        # Combine system prompt with summarized conversation history
-        all_messages = summarized_conversation + [system_message]
+        prompt = get_langfuse_prompt()
+        system_messages = prompt.invoke({'context': docs_context,
+                                        'question': latest_message.content})
+        if hasattr(system_messages, "messages"):
+            all_messages = summarized_conversation + system_messages.messages
+        else:
+            all_messages = summarized_conversation + [system_messages]
 
         # Get response from model
         response = model.invoke(all_messages)

@@ -12,11 +12,12 @@ from langchain_aws import BedrockEmbeddings, ChatBedrockConverse
 from langchain_community.vectorstores import LanceDB
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langfuse import Langfuse
 from langfuse.api.resources.commons.errors.not_found_error import NotFoundError
+from langfuse.model import ChatPromptClient
 from willa.errors.config import ImproperConfigurationError
-
 
 # Prompt if langfuse defined prompt can't be set
 FALLBACK_PROMPT = """You are a reference librarian who helps researchers answer
@@ -142,12 +143,22 @@ def get_langfuse_client() -> Langfuse:
     return Langfuse(release=version, environment=CONFIG['DEPLOYMENT_ID'])
 
 
-def get_initial_prompt() -> str:
-    """Get the prompt from langfuse or default from config if not specified or found"""
+def get_langfuse_prompt() -> ChatPromptTemplate:
+    """Get the prompt from langfuse and set up for tracing.
+       Return a Fallback prompt if not found."""
+
     try:
-        lang = get_langfuse_client()
-        lang_prompt = lang.get_prompt(CONFIG['LANGFUSE_PROMPT'], type="chat",
-                                      label=CONFIG['LANGFUSE_PROMPT_LABEL'])
-        return str(lang_prompt.prompt[0].get("content", ""))
+        langfuse = get_langfuse_client()
+        langfuse_system_prompt = langfuse.get_prompt(CONFIG['LANGFUSE_PROMPT'], type="chat",
+                                                     label=CONFIG['LANGFUSE_PROMPT_LABEL'])
+
+        langchain_prompt = langfuse_system_prompt.get_langchain_prompt()
+        langchain_system_prompt = ChatPromptTemplate(langchain_prompt)
+        langchain_system_prompt.metadata = {"langfuse_prompt": langfuse_system_prompt}
+
+        return langchain_system_prompt
+
     except NotFoundError:
-        return FALLBACK_PROMPT
+        chat_template_prompt = ChatPromptTemplate(["system", FALLBACK_PROMPT])
+
+        return chat_template_prompt
