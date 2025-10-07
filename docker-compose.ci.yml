@@ -1,14 +1,16 @@
 services:
-  db: !reset
+  db:
+    volumes: !reset
+
   app:
     build: !reset
     depends_on: !reset
     ports: !reset
-    environment:
-      CHAT_BACKEND: ollama
-      DEFAULT_STORAGE_DIR: /tmp
-      EMBED_BACKEND: ollama
+    env_file: !override env.example
     volumes: !reset
+
   ollama: !reset
+
   prisma: !reset
+
   localstack: !reset

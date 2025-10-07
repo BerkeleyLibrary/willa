@@ -6,17 +6,25 @@ on:
       - '**'
   workflow_dispatch:
 
+env:
+  BUILD_SUFFIX: -build-${{ github.run_id }}_${{ github.run_attempt }}
+  DOCKER_METADATA_SET_OUTPUT_ENV: 'true'
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     outputs:
-      build-image: ${{ steps.build-meta.outputs.tags }}
+      image-arm64: ${{ steps.gen-output.outputs.image-arm64 }}
+      image-x64: ${{ steps.gen-output.outputs.image-x64 }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -28,41 +36,122 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Produce the build image tag
-        id: build-meta
+      - id: build-meta
+        name: Docker meta
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
-          tags: type=sha,suffix=-build-${{ github.run_id }}_${{ github.run_attempt }}
+          tags: type=sha,suffix=${{ env.BUILD_SUFFIX }}
 
-      - name: Build and push the untested image
+      # Build cache is shared among all builds of the same architecture
+      - id: cache-meta
+        name: Docker meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: type=raw,value=buildcache-${{ runner.arch }}
+
+      - id: get-registry
+        name: Get the sanitized registry name
+        run: |
+          echo "registry=$(echo '${{ steps.build-meta.outputs.tags }}' | cut -f1 -d:)" | tee -a "$GITHUB_OUTPUT"
+
+      - id: build
+        name: Build/push the arch-specific image
         uses: docker/build-push-action@v6
         with:
-          push: true
+          cache-from: type=registry,ref=${{ steps.cache-meta.outputs.tags }}
+          cache-to: type=registry,ref=${{ steps.cache-meta.outputs.tags }},mode=max
           labels: ${{ steps.build-meta.outputs.labels }}
-          tags: ${{ steps.build-meta.outputs.tags }}
-          provenance: true
+          provenance: mode=max
           sbom: true
-          cache-from: type=gha
-          cache-to: type=gha
+          tags: ${{ steps.get-registry.outputs.registry }}
+          outputs: type=image,push-by-digest=true,push=true
 
-  test:
-    runs-on: ubuntu-latest
-    needs:
-      - build
-    strategy:
-      fail-fast: false
-      matrix:
-        test:
-          - mypy .
-          - pydoclint .
-          # pylint returns error codes if the checks fail
-          # https://pylint.readthedocs.io/en/latest/user_guide/usage/run.html#exit-codes
-          - pylint -v .
-          - python -m unittest -v
+      - id: gen-output
+        name: Write arch-specific image digest to outputs
+        run: |
+          echo "image-${RUNNER_ARCH,,}=${{ steps.get-registry.outputs.registry }}@${{ steps.build.outputs.digest }}" | tee -a "$GITHUB_OUTPUT"
+
+  merge:
+    runs-on: ubuntu-24.04
+    needs: build
+    env:
+      DOCKER_APP_IMAGE_ARM64: ${{ needs.build.outputs.image-arm64 }}
+      DOCKER_APP_IMAGE_X64: ${{ needs.build.outputs.image-x64 }}
+    outputs:
+      image: ${{ steps.meta.outputs.tags }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        name: Generate tag for the app image
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: type=sha,suffix=${{ env.BUILD_SUFFIX }}
+
+      - name: Push the multi-platform app image
+        run: |
+          docker buildx imagetools create \
+            --tag "$DOCKER_METADATA_OUTPUT_TAGS" \
+            "$DOCKER_APP_IMAGE_ARM64" "$DOCKER_APP_IMAGE_X64"
+
+  test-mypy:
+    runs-on: ubuntu-24.04
+    needs: merge
+    container:
+      image: ${{ needs.merge.outputs.image }}
+    defaults:
+      run:
+        working-directory: /app
+    steps:
+      - name: Run mypy
+        run: mypy .
+
+  test-pydoclint:
+    runs-on: ubuntu-24.04
+    needs: merge
+    container:
+      image: ${{ needs.merge.outputs.image }}
+    defaults:
+      run:
+        working-directory: /app
+    steps:
+      - name: Run pydoclint
+        run: pydoclint .
+
+  # pylint returns error codes if the checks fail
+  # @see https://pylint.readthedocs.io/en/latest/user_guide/usage/run.html#exit-codes
+  test-pylint:
+    runs-on: ubuntu-24.04
+    needs: merge
+    container:
+      image: ${{ needs.merge.outputs.image }}
+    defaults:
+      run:
+        working-directory: /app
+    steps:
+      - name: Run pylint
+        run: pylint -v .
+
+  test-unit:
+    runs-on: ubuntu-24.04
+    needs: merge
     env:
       COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
-      DOCKER_APP_IMAGE: ${{ needs.build.outputs.build-image }}
+      DOCKER_APP_IMAGE: ${{ needs.merge.outputs.image }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -77,35 +166,45 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Copy environment file
-        run: cp env.example .env
-
-      - name: Set ARTIFACTS_DIR
-        run: echo "ARTIFACTS_DIR=${RUNNER_TEMP}/artifacts" >> $GITHUB_ENV
-
-      - name: Create the artifacts directory
-        run: mkdir -p "$ARTIFACTS_DIR"
-
-      - name: Record start time
-        run: TEST_START=`date +%s` >> $GITHUB_ENV
-
-      - name: Run the test command
+      - name: Run test suite
         run: |
-          docker compose run --no-deps --rm app ${{ matrix.test }}
+          docker compose run --rm --no-deps app python -m unittest -v
 
-      - name: Upload test report
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+  test-startup:
+    runs-on: ubuntu-24.04
+    needs: merge
+    env:
+      COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
+      DOCKER_APP_IMAGE: ${{ needs.merge.outputs.image }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          name: Test Report - ${{ matrix.test }} (${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }})
-          path: ${{ env.ARTIFACTS_DIR }}
-          if-no-files-found: warn
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start the stack
+        run: |
+          docker compose up --wait app db
 
   push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs:
-      - build
-      - test
+      - merge
+      - test-mypy
+      - test-pydoclint
+      - test-pylint
+      - test-startup
+      - test-unit
+    env:
+      DOCKER_APP_IMAGE: ${{ needs.merge.outputs.image }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -118,7 +217,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Produce permanent image tags
-        id: branch-meta
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
@@ -128,10 +226,7 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Retag and push the image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          labels: ${{ steps.branch-meta.outputs.labels }}
-          tags: ${{ steps.branch-meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ needs.build.outputs.build-image }}
-          target: app
+        run: |
+          docker pull "$DOCKER_APP_IMAGE"
+          echo "$DOCKER_METADATA_OUTPUT_TAGS" | tr ' ' '\n' | xargs -n1 docker tag "$DOCKER_APP_IMAGE"
+          docker push --all-tags "$(echo "$DOCKER_APP_IMAGE" | cut -f1 -d:)"
