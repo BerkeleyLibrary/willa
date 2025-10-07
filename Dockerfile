@@ -7,12 +7,14 @@ WORKDIR /app
 RUN apt-get update -y && apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/
 
-COPY pyproject.toml pyproject.toml
-
 RUN python -m venv /venv
 ENV PATH=/venv/bin:$PATH
+ENV VIRTUAL_ENV=/venv
 RUN python -m pip install -U setuptools
-RUN pip install -q .
+
+COPY pyproject.toml pyproject.toml
+
+RUN pip install --no-cache-dir -q .[dev]
 
 FROM reqs AS app
 COPY willa willa
@@ -21,11 +23,7 @@ COPY CHANGELOG.rst CHANGELOG.rst
 COPY public public
 COPY chainlit.md chainlit.md
 COPY .chainlit .chainlit
-RUN pip install -e .
-
-ENV VIRTUAL_ENV=/venv
-CMD ["chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]
-
-FROM app AS development
 COPY tests tests
-RUN pip install -q .[dev]
+RUN pip install --no-cache-dir -e .
+
+CMD ["chainlit", "run", "/app/willa/web/app.py", "-h", "--host", "0.0.0.0"]

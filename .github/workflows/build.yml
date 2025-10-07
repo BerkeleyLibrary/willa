@@ -43,7 +43,6 @@ jobs:
           tags: ${{ steps.build-meta.outputs.tags }}
           provenance: true
           sbom: true
-          target: development
           cache-from: type=gha
           cache-to: type=gha
 

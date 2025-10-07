@@ -19,7 +19,6 @@ services:
   app:
     build:
       context: .
-      target: ${DOCKER_APP_BUILD_TARGET:-app}
     depends_on:
       db:
         condition: service_healthy
