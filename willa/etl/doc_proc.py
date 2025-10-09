@@ -5,6 +5,7 @@ and split them into chunks for vectorization.
 
 import json
 import logging
+import re
 from contextlib import nullcontext
 from functools import reduce
 from operator import add
@@ -27,6 +28,26 @@ LOGGER = logging.getLogger(__name__)
 """The logging object for this module."""
 
 
+FOOTER_RE = re.compile(r'Copyright © 20\d\d by The Regents of the University of California ?')
+"""The compiled regular expression for matching footer text."""
+
+
+def _filter_docs(docs: list[Document]) -> list[Document]:
+    """Run filters on a list of ``Document`` to remove header/footer and other undesired content.
+
+    :param list[Document] docs: The document(s) to filter.
+    :returns list[Document]: The same document(s), filtered and sanitised.
+    """
+    for doc in docs:
+        content = doc.page_content
+        content = content.replace(
+            'Oral History Center, The Bancroft Library, University of California, Berkeley ', ''
+        )
+        doc.page_content = FOOTER_RE.sub('', content)
+
+    return docs
+
+
 def load_pdf(name: str, record: Record | None) -> list[Document]:
     """Load a given single PDF from storage, including optional PyMARC record.
 
@@ -45,7 +66,7 @@ def load_pdf(name: str, record: Record | None) -> list[Document]:
             for doc in docs:
                 doc.metadata['tind_metadata'] = pymarc_to_metadata(record)
 
-    return docs
+    return _filter_docs(docs)
 
 
 def load_pdfs() -> dict[str, list[Document]]:
@@ -91,7 +112,7 @@ def load_pdfs() -> dict[str, list[Document]]:
         if len(metadata) > 0:
             for doc in new_docs:
                 doc.metadata['tind_metadata'] = metadata
-        docs[tind_id] = new_docs
+        docs[tind_id] = _filter_docs(new_docs)
         LOGGER.info("Loaded %d document(s) from %s.", len(new_docs), tind_id)
 
     return docs

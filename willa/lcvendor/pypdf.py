@@ -718,6 +718,7 @@ class PyPDFLoader(BasePDFLoader):
             blob = Blob.from_path(self.file_path)
         yield from self.parser.lazy_parse(blob)
 
+
 class PyPDFDirectoryLoader(BaseLoader):
     """Load and parse a directory of PDF files using 'pypdf' library.
 
