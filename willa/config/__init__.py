@@ -17,6 +17,7 @@ from langfuse import Langfuse
 from langfuse.api.resources.commons.errors.not_found_error import NotFoundError
 from langfuse.model import ChatPromptClient
 
+from willa.config.secrets import load_from_run_secrets
 from willa.errors.config import ImproperConfigurationError
 from willa.lcvendor.lancedb import LanceDB
 
@@ -62,6 +63,10 @@ _RAW: dict[str, str | None] = dotenv_values()
 """The configuration variables from the .env file."""
 
 
+_SECRETS: dict[str, str] = load_from_run_secrets()
+"""The configuration variables from /run/secrets."""
+
+
 _PROCESSED: dict[str, str] = {key: val or '' for key, val in _RAW.items()}
 """Configuration variables from the .env file, with Nones replaced with an empty string."""
 
@@ -72,6 +77,7 @@ _ENVIRON: dict[str, str] = {key: val or '' for key, val in os.environ.items() if
 
 CONFIG: dict[str, str] = {
     **DEFAULTS,
+    **_SECRETS,
     **_PROCESSED,
     **_ENVIRON
 }
