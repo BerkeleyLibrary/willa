@@ -66,6 +66,9 @@ class CASProvider(OAuthProvider):
             'scope': 'openid profile berkeley_edu_groups',
         }
 
+    def is_configured(self) -> bool:
+        return all(var in CONFIG for var in self.env)
+
     async def get_token(self, code: str, url: str) -> str:
         request = {
             'client_id': self.client_id,
