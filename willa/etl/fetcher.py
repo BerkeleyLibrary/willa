@@ -31,7 +31,7 @@ def main() -> None:
     else:
         with console.status(f'[bold green]Downloading item {args.tind_id}'):
             fetch_one_from_tind(args.tind_id)
-        console.print('Downloaded.')
+        console.print(f'{args.tind_id} downloaded.')
 
 
 if __name__ == "__main__":
