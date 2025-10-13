@@ -138,18 +138,13 @@ def pymarc_to_metadata(record: Record) -> dict:
     """
     marc_values = parse_pymarc(record)
 
-    metadata: dict[str, str | list | None] = {}
+    metadata: dict[str, list] = {}
     for key, value in marc_values.items():
+        if value is None:
+            continue  # Skip adding blanks to content.
+
         meta_key = KEY_MAPPINGS[key]
         if meta_key in metadata:
-            if value is None:
-                continue  # Skip adding blanks to existing content.
-
-            if isinstance(metadata[meta_key], str):
-                metadata[meta_key] = [metadata[meta_key]]  # Turn our str into a one-element list.
-            elif metadata[meta_key] is None:
-                metadata[meta_key] = []
-
             if isinstance(value, list):
                 # Add our list to the list.
                 metadata[meta_key].extend(value)  # type: ignore[union-attr]
@@ -157,10 +152,13 @@ def pymarc_to_metadata(record: Record) -> dict:
                 # Add our value to the list.
                 metadata[meta_key].append(value)  # type: ignore[union-attr]
         else:
-            metadata[meta_key] = value
+            if isinstance(value, list):
+                metadata[meta_key] = value
+            else:
+                metadata[meta_key] = [value]
 
     for meta_key in set(KEY_MAPPINGS.values()):
         if meta_key not in metadata:
-            metadata[meta_key] = None
+            metadata[meta_key] = ['']
 
     return metadata

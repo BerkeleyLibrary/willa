@@ -122,10 +122,11 @@ def _purge_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
             # Normalize key with others PDF parser
             new_metadata[map_key[k]] = v
             new_metadata[k] = v
-        elif isinstance(v, str):
-            new_metadata[k] = v.strip()
-        elif isinstance(v, int):
-            new_metadata[k] = v
+        elif k in _STD_METADATA_KEYS:
+            if isinstance(v, str):
+                new_metadata[k] = v.strip()
+            elif isinstance(v, int):
+                new_metadata[k] = v
     return new_metadata
 
 

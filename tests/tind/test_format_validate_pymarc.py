@@ -60,7 +60,7 @@ class TindFormatValidatePymarc(unittest.TestCase):
     def test_metadata_simple(self) -> None:
         """Test parsing of a simple record into metadata."""
         result = format_validate_pymarc.pymarc_to_metadata(self.pymarc_records[0])
-        self.assertEqual(result['tind_id'], '19217')
+        self.assertEqual(result['tind_id'], ['19217'])
         self.assertListEqual(result['subject'], ['Ranches', 'Persea americana', 'Agriculture'])
 
     def test_metadata_multi_subject(self) -> None:
@@ -72,7 +72,7 @@ class TindFormatValidatePymarc(unittest.TestCase):
         })
 
         result = format_validate_pymarc.pymarc_to_metadata(self.pymarc_records[0])
-        self.assertEqual(result['tind_id'], '19217')
+        self.assertEqual(result['tind_id'], ['19217'])
         self.assertListEqual(result['subject'], ['Ranches', 'Persea americana', 'Agriculture',
                                                  'Testing'])
 
@@ -87,7 +87,7 @@ class TindFormatValidatePymarc(unittest.TestCase):
         })
 
         result = format_validate_pymarc.pymarc_to_metadata(self.pymarc_records[0])
-        self.assertEqual(result['tind_id'], '19217')
+        self.assertEqual(result['tind_id'], ['19217'])
         self.assertListEqual(result['subject'], ['Ranches', 'Persea americana', 'Agriculture',
                                                  'Element 1', 'Element 2'])
 
@@ -102,7 +102,7 @@ class TindFormatValidatePymarc(unittest.TestCase):
         })
 
         result = format_validate_pymarc.pymarc_to_metadata(self.pymarc_records[0])
-        self.assertEqual(result['tind_id'], '19217')
+        self.assertEqual(result['tind_id'], ['19217'])
         self.assertListEqual(result['subject'], ['Ranches', 'Persea americana', 'Agriculture'])
 
         format_validate_pymarc.parse_pymarc = parse_pymarc

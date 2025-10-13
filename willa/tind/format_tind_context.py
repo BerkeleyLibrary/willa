@@ -30,7 +30,7 @@ def get_tind_context(docs: list) -> str:
     tind_data = ''
     tind_ids = {}
     for doc in docs:
-        tind_id = doc.metadata['tind_metadata']['tind_id']
+        tind_id = doc.metadata['tind_metadata']['tind_id'][0]
         if tind_id in tind_ids:
             continue
 
@@ -58,6 +58,6 @@ def process_fields(tind_rec: dict) -> str:
         elif tind_rec[field] is not None:
             formatted_str += f"{DISPLAY_MAPPINGS[field]} {tind_rec[field]}\n\n"
 
-    formatted_str += f"Catalogue Link: {get_tind_url(tind_rec['tind_id'])}"
+    formatted_str += f"Catalogue Link: {get_tind_url(tind_rec['tind_id'][0])}"
 
     return formatted_str
