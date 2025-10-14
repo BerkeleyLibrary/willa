@@ -111,7 +111,7 @@ def _purge_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
         if k.startswith("/"):
             k = k[1:]
         k = k.lower()
-        if k in ["creationdate", "moddate"]:
+        if k == "creationdate":
             try:
                 new_metadata[k] = datetime.strptime(
                     v.replace("'", ""), "D:%Y%m%d%H%M%S%z"
