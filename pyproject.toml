@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "willa"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
     "asyncpg",
     "awscli-local",
@@ -12,7 +12,7 @@ dependencies = [
     "chainlit ~= 2.7.1",
     "lancedb",
     "langchain_aws",
-    "langchain_core",
+    "langchain_core < 1.0",
     "langchain_ollama",
     "langfuse",
     "langgraph",
