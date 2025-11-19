@@ -2,19 +2,24 @@
 Implementation of the Web interface for Willa.
 """
 
+import logging
+
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
 
 from willa.chatbot import Chatbot
+from willa.config import CONFIG
 from willa.web.cas_provider import CASProvider
 from willa.web.inject_custom_auth import add_custom_oauth_provider
+
+
+LOGGER = logging.getLogger(__name__)
+"""The logging object for this module."""
 
 
 _THREAD_BOTS = {}
 """The Chatbot instances associated with each thread."""
 
-
-add_custom_oauth_provider('cas', CASProvider())
 
 COMMANDS: list[CommandDict] = [
   {
@@ -97,12 +102,22 @@ async def chat(message: cl.Message) -> None:
                              content=reply['no_results']).send()
 
 
-# Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
-@cl.oauth_callback  # type: ignore[arg-type]
-async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
-                         default_user: cl.User) -> cl.User | None:
-    """Handle OAuth authentication."""
-    if provider_id != 'cas':
-        return None
+if CONFIG['NULL_AUTH'].lower() == 'true':
+    LOGGER.warning('Null authentication backend is enabled: all login attempts will succeed.')
 
-    return default_user
+    @cl.password_auth_callback
+    async def password_auth_callback(username: str, _password: str) -> cl.User:
+        """Handle password authentication (null; all login attempts will succeed)."""
+        return cl.User(identifier=username, metadata={'role': 'admin', 'provider': 'null'})
+else:
+    add_custom_oauth_provider('cas', CASProvider())
+
+    # Chainlit erroneously defines the callback as taking an `id_token` param that is never passed.
+    @cl.oauth_callback  # type: ignore[arg-type]
+    async def oauth_callback(provider_id: str, _token: str, _raw_user_data: dict[str, str],
+                             default_user: cl.User) -> cl.User | None:
+        """Handle OAuth authentication."""
+        if provider_id != 'cas':
+            return None
+
+        return default_user

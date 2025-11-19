@@ -45,13 +45,14 @@ DEFAULTS: dict[str, str] = {
     'EXTRA_VERSION': '',
     'DEPLOYMENT_ID': 'default',
     'K_VALUE': '4',
+    'NULL_AUTH': 'False',
     'ETL_TRACING': 'False'
 }
 """The defaults for configuration variables not set in the .env file."""
 
 
 VALID_VARS: set[str] = {'TIND_API_KEY', 'TIND_API_URL', 'DEFAULT_STORAGE_DIR', 'ETL_TRACING',
-                        'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV',
+                        'OLLAMA_URL', 'CHAT_MODEL', 'CHAT_TEMPERATURE', 'CALNET_ENV', 'NULL_AUTH',
                         'CALNET_OIDC_CLIENT_ID', 'CALNET_OIDC_CLIENT_SECRET', 'LANCEDB_URI',
                         'CHAT_BACKEND', 'EMBED_BACKEND', 'LANGFUSE_HOST', 'LANGFUSE_PUBLIC_KEY',
                         'LANGFUSE_SECRET_KEY', 'LANGFUSE_PROMPT', 'LANGFUSE_PROMPT_LABEL',

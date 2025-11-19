@@ -226,7 +226,7 @@ The following keys are available for configuration in the ``.env`` file:
 ``LANGFUSE_PROMPT``, ``LANGFUSE_PROMPT_LABEL``
     The prompt name defined in langfuse for the prompt to be used. The label is the label
     created for the named prompt in Langfuse. The default values are
-    LANGFUSE_PROMPT=default and LANGFUSE_PROMPT_LABEL=production
+    ``LANGFUSE_PROMPT=default`` and ``LANGFUSE_PROMPT_LABEL=production``.
 
     If these values are not supplied or not defined in Langfuse a fallback prompt which is
     defined in ``config/__init__.py`` will be used. 
@@ -237,6 +237,13 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``K_VALUE``
     Int. The k value used for retrieving context from the vector_store. The default is 4   
+
+``NULL_AUTH``
+    Boolean.  Whether to allow anyone to login with any name and password.  Defaults to ``False``.
+    This is used for local development *only*, to bypass CAS requirements (and avoid storing OIDC
+    credentials on development machines).  Setting this to ``True`` will allow any access to the
+    system authenticate as any user, and create an unlimited number of new users with any given
+    username.  Only enable for development purposes.
 
 ``ETL_TRACING``
     Boolean.  Whether to trace embedding calls in Langfuse.  Defaults to ``False``.
