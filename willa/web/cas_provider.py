@@ -67,9 +67,11 @@ class CASProvider(OAuthProvider):
         }
 
     def is_configured(self) -> bool:
+        """Determines if the needed configuration environment variables are present."""
         return all(var in CONFIG for var in self.env)
 
-    async def get_token(self, code: str, url: str) -> str:
+    async def get_raw_token_response(self, code: str, url: str) -> Dict[str, str]:
+        """Return the raw response data for the OAuth token fetch."""
         request = {
             'client_id': self.client_id,
             'client_secret': self.client_secret,
@@ -82,16 +84,20 @@ class CASProvider(OAuthProvider):
         async with httpx.AsyncClient() as client:
             response = await client.post(self.token_url, data=request)
             response.raise_for_status()
-            data = response.json()
+            return response.json()  # type: ignore[no-any-return]
 
-            token: str = data['access_token']
-            if not token:
-                raise httpx.HTTPStatusError('Failed to obtain access token',
-                                            request=response.request, response=response)
+    async def get_token(self, code: str, url: str) -> str:
+        """Return the OAuth token."""
+        data = await self.get_raw_token_response(code, url)
+        token: str = data['access_token']
+        if not token:
+            raise CASForbiddenException(500,
+                                        '<h1>Error</h1><p>Failed to obtain access token.</p>')
 
-            return token
+        return token
 
     async def get_user_info(self, token: str) -> Tuple[Dict[str, str], User]:
+        """Retrieve the user information for the given token."""
         async with httpx.AsyncClient() as client:
             response = await client.get(f"{BASE_URL}/oidcProfile",
                                         headers={"Authorization": f"Bearer {token}"})
