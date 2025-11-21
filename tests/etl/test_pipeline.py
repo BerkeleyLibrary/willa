@@ -98,7 +98,7 @@ class PipelineTest(unittest.TestCase):
         results = store.search('Arkansas', 'similarity')
         self.assertGreater(len(results), 0, "Search should match at least one document.")
         first_doc_md = results[0].metadata['tind_metadata']
-        self.assertEqual(first_doc_md['tind_id'], '103806',
+        self.assertEqual(first_doc_md['tind_id'], ['103806'],
                          "Document metadata should match TIND record.")
 
         store_dir = pathlib.Path(os.path.join(CONFIG['DEFAULT_STORAGE_DIR'], '103806'))

@@ -13,9 +13,9 @@ from pathlib import Path
 from typing import Any, Optional, Union
 from unittest.mock import MagicMock
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from langchain_core.vectorstores.base import VectorStore
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from opentelemetry.util._decorator import _AgnosticContextManager
 from pymarc.record import Record
 
