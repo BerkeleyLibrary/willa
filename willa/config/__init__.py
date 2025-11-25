@@ -126,7 +126,8 @@ def get_lance() -> LanceDB:
                                                   base_url=CONFIG['OLLAMA_URL'])
     else:  # If we add another backend, elif CONFIG['EMBED_BACKEND'] == 'bedrock':
         embeddings = BedrockEmbeddings(model_id=CONFIG['EMBED_MODEL'], provider='cohere')
-    return LanceDB(embedding=embeddings, uri=CONFIG['LANCEDB_URI'], table_name='willa')
+    return LanceDB(embedding=embeddings, uri=CONFIG['LANCEDB_URI'], table_name='willa',
+                   mode='append')
 
 
 def get_model() -> BaseChatModel:
