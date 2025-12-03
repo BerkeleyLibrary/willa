@@ -43,18 +43,6 @@ async def ocs() -> None:
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
-
-    # recreate custom elements from metadata
-    # results in a duplicate message in data layer!!
-    # for msg in thread['steps']:
-    #     if 'tind_message' in msg['metadata']:
-    #         tind_refs = cl.CustomElement(name='tind-refs', props=msg['metadata'])
-    #         await cl.Message(
-    #             author='TIND',
-    #             content='References:',
-    #             elements=[tind_refs],
-    #             metadata=msg['metadata']
-    #             ).send()
 # pylint: enable="unused-argument"
 
 
@@ -117,11 +105,6 @@ async def chat(message: cl.Message) -> None:
                 metadata={'tind_message': reply['tind_message']}
                 )
             await msg.send()
-
-            # print(f"Message ID: {msg.id}")
-            # print(f"Elements: {msg.elements}")
-            # print(f"Thread ID: {message.thread_id}")
-            # print(f"msg: {msg}")
 
         if 'no_results' in reply:
             await cl.Message(author='System', type='system_message',
