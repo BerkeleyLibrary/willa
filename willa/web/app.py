@@ -94,8 +94,17 @@ async def chat(message: cl.Message) -> None:
             await cl.Message(content=reply['ai_message']).send()
 
         if 'tind_message' in reply:
-            await cl.Message(author='TIND',
-                             content=reply['tind_message']).send()
+            tind_refs = cl.CustomElement(
+                name='tind-refs',
+                props={'tind_message': reply['tind_message']}
+                )
+            msg = cl.Message(
+                author='TIND',
+                content='References:',
+                elements=[tind_refs],
+                metadata={'tind_message': reply['tind_message']}
+                )
+            await msg.send()
 
         if 'no_results' in reply:
             await cl.Message(author='System', type='system_message',
