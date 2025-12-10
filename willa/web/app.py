@@ -3,8 +3,10 @@ Implementation of the Web interface for Willa.
 """
 
 import logging
+import os
 
 import chainlit as cl
+from chainlit.data.chainlit_data_layer import ChainlitDataLayer
 from chainlit.types import ThreadDict, CommandDict
 
 from willa.chatbot import Chatbot
@@ -44,6 +46,21 @@ async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
 # pylint: enable="unused-argument"
+
+
+@cl.data_layer
+def data_layer() -> ChainlitDataLayer:
+    """Retrieve the data layer to use with Chainlit.
+
+    Simple wrapper around the native one that uses our ``POSTGRES_*`` env vars.
+    """
+    def _pg(var: str) -> str:
+        return os.environ[f'POSTGRES_{var}']
+
+    database_url = os.environ.get(
+        'DATABASE_URL', f"postgresql://{_pg('USER')}:{_pg('PASSWORD')}@{_pg('HOST')}/{_pg('DB')}"
+    )
+    return ChainlitDataLayer(database_url=database_url)
 
 
 def _get_history() -> str:
