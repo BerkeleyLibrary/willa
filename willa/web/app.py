@@ -57,8 +57,16 @@ def data_layer() -> ChainlitDataLayer:
     def _pg(var: str) -> str:
         return os.environ[f'POSTGRES_{var}']
 
+    def _secret() -> str:
+        if 'POSTGRES_PASSWORD' in os.environ:
+            return os.environ['POSTGRES_PASSWORD']
+
+        with open(os.environ.get('POSTGRES_PASSWORD_FILE',
+                                 '/run/secrets/POSTGRES_PASSWORD'), 'r', encoding='utf8') as p_file:
+            return p_file.read()
+
     database_url = os.environ.get(
-        'DATABASE_URL', f"postgresql://{_pg('USER')}:{_pg('PASSWORD')}@{_pg('HOST')}/{_pg('DB')}"
+        'DATABASE_URL', f"postgresql://{_pg('USER')}:{_secret()}@{_pg('HOST')}/{_pg('DB')}"
     )
     return ChainlitDataLayer(database_url=database_url)
 
