@@ -125,7 +125,7 @@ async def chat(message: cl.Message) -> None:
                 )
             msg = cl.Message(
                 author='TIND',
-                content='References:',
+                content='',
                 elements=[tind_refs],
                 metadata={'tind_message': reply['tind_message']}
                 )
