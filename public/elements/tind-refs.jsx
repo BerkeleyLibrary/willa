@@ -66,13 +66,11 @@ export default function TindRefs () {
           <div key={index}>
             {ref.link && ref.link.trim() !== '' ? (
               <a href={ref.link} style={{ textDecoration: 'underline' }}>{ref.title}</a>
-            ) : (
-              <span>{ref.title}</span>
-            )}
+            ) : (<span>{ref.title}</span>)}
             <p>
-              Interviewee(s): {ref.interviewees.join(' | ')}<br />
-              Interviewer(s): {ref.interviewers.join(' | ')}<br />
-              Project Name: {ref.project}<br />
+              Interviewee(s): {ref.interviewees.join(' | ') || 'not listed'}<br />
+              Interviewer(s): {ref.interviewers.join(' | ') || 'not listed'}<br />
+              Project Name: {ref.project || 'not listed'}<br />
             </p>
             ___________
           </div>
