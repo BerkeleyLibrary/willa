@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion"
 
 export default function TindRefs () {
-  const parseTindRefference = (msg) => {
+  const parseTindReference = (msg) => {
     const ref = {
       title: null,
       interviewers: [],
