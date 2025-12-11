@@ -7,6 +7,9 @@ import logging
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict
 
+from langfuse import get_client
+langfuse = get_client()
+
 from willa.chatbot import Chatbot
 from willa.config import CONFIG
 from willa.web.cas_provider import CASProvider
@@ -36,6 +39,21 @@ COMMANDS: list[CommandDict] = [
 async def ocs() -> None:
     """loaded when new chat is started"""
     await cl.context.emitter.set_commands(COMMANDS)
+
+@cl.on_feedback
+async def on_feedback(feedback):
+  with langfuse.start_as_current_observation(as_type="span", name="process-request") as span:
+    trace_id = langfuse.get_current_trace_id()
+
+  langfuse.create_score(
+      # session_id=feedback.threadId,
+      # session_id=cl.context.session.id,
+      trace_id=trace_id,
+      data_type='BOOLEAN',
+      name='feedback',
+      value=feedback.value,
+      comment=feedback.comment
+  )
 
 
 # pylint: disable="unused-argument"
