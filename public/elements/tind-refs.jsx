@@ -64,7 +64,11 @@ export default function TindRefs () {
       <div>
         {references.map((ref, index) => (
           <div key={index}>
-            <a href={ref.link} style={{ textDecoration: 'underline' }}>{ref.title}</a>
+            {ref.link && ref.link.trim() !== '' ? (
+              <a href={ref.link} style={{ textDecoration: 'underline' }}>{ref.title}</a>
+            ) : (
+              <span>{ref.title}</span>
+            )}
             <p>
               Interviewee(s): {ref.interviewees.join(' | ')}<br />
               Interviewer(s): {ref.interviewers.join(' | ')}<br />
