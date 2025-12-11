@@ -57,7 +57,7 @@ export default function TindRefs () {
     
     const references = parts
       .filter(part => part.trim() !== '')
-      .map(part => parseTindRefference(part));
+      .map(part => parseTindReference(part));
 
     count = references.length;
     return (
