@@ -48,7 +48,7 @@ export default function TindRefs () {
 
 
   const buildTindMessage = () => {
-    originalMessage = props.tind_message || 'no references supplied';
+    const originalMessage = props.tind_message || 'no references supplied';
     if (originalMessage === 'no references supplied') {
       return originalMessage;
     }
