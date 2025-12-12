@@ -5,9 +5,9 @@ Implementation of the Web interface for Willa.
 import logging
 
 import chainlit as cl
-from chainlit.types import ThreadDict, CommandDict
-
+from chainlit.types import ThreadDict, CommandDict, Feedback
 from langfuse import get_client
+from langfuse import observe
 
 from willa.chatbot import Chatbot
 from willa.config import CONFIG
@@ -34,24 +34,25 @@ COMMANDS: list[CommandDict] = [
   },
 ]
 
+@observe
+def my_trace() -> str | None:
+    """get the current trace id"""
+    trace_id = langfuse.get_current_trace_id()
+
+    return trace_id
 
 @cl.on_chat_start
 async def ocs() -> None:
     """loaded when new chat is started"""
+    cl.user_session.set("trace_id", my_trace())
     await cl.context.emitter.set_commands(COMMANDS)
 
 # pylint: disable=not-context-manager
 @cl.on_feedback
-async def on_feedback(feedback: dict) -> None:
+async def on_feedback(feedback: Feedback) -> None:
     """Send feedback to langfuse"""
-    # with langfuse.start_as_current_observation(as_type="span", name="process-request") as span:
-    with langfuse.start_as_current_observation(as_type="tool", name="process-request"):
-        trace_id = langfuse.get_current_trace_id()
-
     langfuse.create_score(
-        # session_id=feedback.threadId,
-        # session_id=cl.context.session.id,
-        trace_id=trace_id,
+        trace_id=cl.user_session.get("trace_id"),
         data_type='BOOLEAN',
         name='feedback',
         value=feedback.value,
@@ -63,6 +64,7 @@ async def on_feedback(feedback: dict) -> None:
 @cl.on_chat_resume
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
+    cl.user_session.set("trace_id", my_trace())
     await cl.context.emitter.set_commands(COMMANDS)
 # pylint: enable="unused-argument"
 
