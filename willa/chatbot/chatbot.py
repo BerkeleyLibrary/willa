@@ -76,13 +76,14 @@ class Chatbot:  # pylint: disable=R0903
              },
             config=self.config
         )
+        last_trace = LANGFUSE_HANDLER.last_trace_id
 
-        # Return the last AI/system_mesage in content
         ai_message = [msg for msg in result["messages"] if isinstance(msg, AIMessage)]
         tind_message = [msg for msg in result["messages"]
                         if isinstance(msg, ChatMessage) and msg.role == 'TIND']
 
         answers: dict[str, str] = {}
+        answers["trace_id"] = last_trace or ""
 
         if tind_message:
             answers["tind_message"] = str(tind_message[-1].content)
@@ -90,7 +91,7 @@ class Chatbot:  # pylint: disable=R0903
         if ai_message:
             answers["ai_message"] = str(ai_message[-1].content)
 
-        if len(answers) == 0:
+        if len(answers) == 1 and not answers["trace_id"]:
             return {"no_result": "I'm sorry, I couldn't generate a response."}
 
         return answers

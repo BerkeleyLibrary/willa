@@ -7,7 +7,6 @@ import logging
 import chainlit as cl
 from chainlit.types import ThreadDict, CommandDict, Feedback
 from langfuse import get_client
-from langfuse import observe
 
 from willa.chatbot import Chatbot
 from willa.config import CONFIG
@@ -34,17 +33,10 @@ COMMANDS: list[CommandDict] = [
   },
 ]
 
-@observe
-def my_trace() -> str | None:
-    """get the current trace id"""
-    trace_id = langfuse.get_current_trace_id()
-
-    return trace_id
 
 @cl.on_chat_start
 async def ocs() -> None:
     """loaded when new chat is started"""
-    cl.user_session.set("trace_id", my_trace())
     await cl.context.emitter.set_commands(COMMANDS)
 
 # pylint: disable=not-context-manager
@@ -64,7 +56,6 @@ async def on_feedback(feedback: Feedback) -> None:
 @cl.on_chat_resume
 async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
-    cl.user_session.set("trace_id", my_trace())
     await cl.context.emitter.set_commands(COMMANDS)
 # pylint: enable="unused-argument"
 
@@ -112,6 +103,10 @@ async def chat(message: cl.Message) -> None:
         bot = _get_or_create_bot(message.thread_id)
 
         reply = await cl.make_async(bot.ask)(message.content)
+
+        if 'trace_id' in reply:
+            cl.user_session.set("trace_id", reply['trace_id'])
+            cl.context.current_step.metadata = {"trace_id":reply['trace_id']}
 
         if 'ai_message' in reply:
             await cl.Message(content=reply['ai_message']).send()
