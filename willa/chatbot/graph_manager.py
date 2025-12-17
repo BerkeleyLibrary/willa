@@ -22,6 +22,7 @@ class WillaChatbotState(TypedDict):
     docs_context: NotRequired[str]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
+    documents: NotRequired[list[Any]]
     context: NotRequired[dict[str, Any]]
 
 
@@ -87,17 +88,25 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         vector_store = self._vector_store
 
         if not search_query or not vector_store:
-            return {"docs_context": "", "tind_metadata": ""}
+            return {"docs_context": "", "tind_metadata": "", "documents": []}
 
         # Search for relevant documents
         retriever = vector_store.as_retriever(search_kwargs={"k": int(CONFIG['K_VALUE'])})
         matching_docs = retriever.invoke(search_query)
+        formatted_documents = [
+            {
+                "page_content": doc.page_content,
+                "start_index": str(doc.metadata.get('start_index')) if doc.metadata.get('start_index') else '',
+                "total_pages": str(doc.metadata.get('total_pages')) if doc.metadata.get('total_pages') else '',
+            }
+            for doc in matching_docs
+        ]
 
         # Format context and metadata
         docs_context = '\n\n'.join(doc.page_content for doc in matching_docs)
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
 
-        return {"docs_context": docs_context, "tind_metadata": tind_metadata}
+        return {"docs_context": docs_context, "tind_metadata": tind_metadata, "documents": formatted_documents}
 
     # This should be refactored probably. Very bulky
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
@@ -107,6 +116,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         docs_context = state.get("docs_context", "")
         tind_metadata = state.get("tind_metadata", "")
         model = self._model
+        documents = state.get("documents", [])
 
         if not model:
             return {"messages": [AIMessage(content="Model not available.")]}
@@ -121,16 +131,20 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
 
         prompt = get_langfuse_prompt()
-        system_messages = prompt.invoke({'context': docs_context,
-                                        'question': latest_message.content})
+        system_messages = prompt.invoke({})
+
         if hasattr(system_messages, "messages"):
             all_messages = summarized_conversation + system_messages.messages
         else:
             all_messages = summarized_conversation + [system_messages]
 
         # Get response from model
-        response = model.invoke(all_messages)
-
+        response = model.invoke(
+            all_messages,
+            additional_model_request_fields={"documents": documents},
+            additional_model_response_field_paths=["/citations"]
+            )
+        # print(response.response_metadata)
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
