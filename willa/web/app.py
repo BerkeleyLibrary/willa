@@ -4,13 +4,16 @@ Implementation of the Web interface for Willa.
 
 import logging
 import os
+from typing import Optional
 
 import chainlit as cl
+from chainlit.data import get_data_layer
 from chainlit.data.chainlit_data_layer import ChainlitDataLayer
-from chainlit.types import ThreadDict, CommandDict
+from chainlit.types import ThreadDict, CommandDict, Feedback
+from chainlit.step import StepDict
 
 from willa.chatbot import Chatbot
-from willa.config import CONFIG
+from willa.config import CONFIG, get_langfuse_client
 from willa.web.cas_provider import CASProvider
 from willa.web.inject_custom_auth import add_custom_oauth_provider
 
@@ -34,6 +37,22 @@ COMMANDS: list[CommandDict] = [
 ]
 
 
+async def get_step(self: ChainlitDataLayer, step_id: str) -> Optional[StepDict]:
+    """Get step and related feedback"""
+    query = """
+    SELECT  s.*,
+            f.id feedback_id,
+            f.value feedback_value,
+            f."comment" feedback_comment
+    FROM "Step" s LEFT JOIN "Feedback" f ON s.id = f."stepId"
+    WHERE s.id = $1
+    """
+    result = await self.execute_query(query, {"step_id": step_id})
+    if not result:
+        return None
+    return self._convert_step_row_to_dict(result[0])  # pylint: disable="protected-access"
+
+
 @cl.on_chat_start
 async def ocs() -> None:
     """loaded when new chat is started"""
@@ -46,6 +65,25 @@ async def on_chat_resume(thread: ThreadDict) -> None:
     """Resume chat session for data persistence."""
     await cl.context.emitter.set_commands(COMMANDS)
 # pylint: enable="unused-argument"
+
+
+@cl.on_feedback
+async def on_feedback(feedback: Feedback) -> None:
+    """Handle feedback."""
+    step: Optional[StepDict] = await get_data_layer().get_step(feedback.forId)
+    if step is None:
+        LOGGER.warning("Feedback left for unknown step %s", feedback.forId)
+        return
+
+    trace_id: Optional[str] = step['metadata'].get('langfuse_trace_id')
+    get_langfuse_client().create_score(
+        name='feedback',
+        value=float(feedback.value),
+        session_id=step['threadId'] if not trace_id else None,
+        trace_id=trace_id,
+        data_type='BOOLEAN',
+        comment=feedback.comment
+    )
 
 
 @cl.data_layer
@@ -68,7 +106,11 @@ def data_layer() -> ChainlitDataLayer:
     database_url = os.environ.get(
         'DATABASE_URL', f"postgresql://{_pg('USER')}:{_secret()}@{_pg('HOST')}/{_pg('DB')}"
     )
-    return ChainlitDataLayer(database_url=database_url)
+    dl = ChainlitDataLayer(database_url=database_url)
+    # pylint: disable="no-value-for-parameter"
+    dl.get_step = get_step.__get__(dl)  # type: ignore[attr-defined]
+    # pylint: enable="no-value-for-parameter"
+    return dl
 
 
 def _get_history() -> str:
@@ -117,6 +159,7 @@ async def chat(message: cl.Message) -> None:
 
         if 'ai_message' in reply:
             await cl.Message(content=reply['ai_message']).send()
+            cl.context.current_run.metadata['langfuse_trace_id'] = reply['langfuse_trace_id']
 
         if 'tind_message' in reply:
             tind_refs = cl.CustomElement(

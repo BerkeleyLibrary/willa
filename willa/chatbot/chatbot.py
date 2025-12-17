@@ -21,6 +21,7 @@ LANGFUSE_CLIENT = get_langfuse_client()
 LANGFUSE_HANDLER = CallbackHandler()
 """The Langfuse callback handler."""
 
+
 class Chatbot:  # pylint: disable=R0903
     """An instance of a Willa chatbot.
 
@@ -89,6 +90,7 @@ class Chatbot:  # pylint: disable=R0903
 
         if ai_message:
             answers["ai_message"] = str(ai_message[-1].content)
+            answers["langfuse_trace_id"] = str(LANGFUSE_HANDLER.last_trace_id)
 
         if len(answers) == 0:
             return {"no_result": "I'm sorry, I couldn't generate a response."}
