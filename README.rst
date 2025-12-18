@@ -123,6 +123,28 @@ You can also pass the ``--profile`` argument::
 Configuration
 =============
 
+Test Configuration
+------------------
+
+The following keys are searched for by the test suite.
+They are ignored by the main app.
+
+``RUN_OLLAMA_TESTS``
+    Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
+
+``RUN_E2E_TESTS``
+    Set to anything (like ``true``) to run the end-to-end tests.
+    This requires Ollama and a functional TIND key.
+
+``KEEP_E2E_FILES``
+    Set to anything (like ``true``) when running E2E tests to additionally keep the files
+    downloaded and created for your own later debugging.  This includes the PDF and metadata
+    records from TIND, and the LanceDB test store.  You may remove them when you are done.
+
+
+App Configuration
+-----------------
+
 The following keys are available for configuration in the ``.env`` file:
 
 ``TIND_API_KEY``
@@ -133,9 +155,6 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``DEFAULT_STORAGE_DIR``
     The default directory to store files retrieved from TIND.
-
-``RUN_OLLAMA_TESTS``
-    Set to ``true`` to run the Ollama tests.  Should only be set if Ollama is running.
 
 ``OLLAMA_URL``
     Set to the instance of Ollama to use for the Web interface.
@@ -152,6 +171,9 @@ The following keys are available for configuration in the ``.env`` file:
 
 ``POSTGRES_DB``   
     The name of the database for the app.  Defaults to ``willa``.
+
+``POSTGRES_HOST``
+    The hostname of the Postgres server.  Likely ``db`` in a Docker Compose environment.
 
 ``POSTGRES_PORT``   
     The Postgres port.  Defaults to ``5432``.
@@ -236,7 +258,7 @@ The following keys are available for configuration in the ``.env`` file:
     Defaults to '500' if not set.
 
 ``K_VALUE``
-    Int. The k value used for retrieving context from the vector_store. The default is 4   
+    Int. The k value used for retrieving context from the vector_store. The default is 4.
 
 ``NULL_AUTH``
     Boolean.  Whether to allow anyone to login with any name and password.  Defaults to ``False``.
