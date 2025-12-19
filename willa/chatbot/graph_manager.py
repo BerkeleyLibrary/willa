@@ -23,6 +23,7 @@ class WillaChatbotState(TypedDict):
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
     documents: NotRequired[list[Any]]
+    citations: NotRequired[list[dict[str, Any]]]
     context: NotRequired[dict[str, Any]]
 
 
@@ -144,7 +145,12 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             additional_model_request_fields={"documents": documents},
             additional_model_response_field_paths=["/citations"]
             )
-        # print(response.response_metadata)
+        citations = response.response_metadata.get('additionalModelResponseFields').get('citations') if response.response_metadata else None
+
+        # add citations to graph state
+        if citations:
+            state['citations'] = citations
+
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
