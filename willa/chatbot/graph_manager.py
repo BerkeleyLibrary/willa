@@ -53,13 +53,15 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         workflow.add_node("summarize", summarization_node)
         workflow.add_node("prepare_search", self._prepare_search_query)
         workflow.add_node("retrieve_context", self._retrieve_context)
+        workflow.add_node("prepare_for_generation", self._prepare_for_generation)
         workflow.add_node("generate_response", self._generate_response)
 
         # Define edges
         workflow.add_edge("filter_messages", "summarize")
         workflow.add_edge("summarize", "prepare_search")
         workflow.add_edge("prepare_search", "retrieve_context")
-        workflow.add_edge("retrieve_context", "generate_response")
+        workflow.add_edge("retrieve_context", "prepare_for_generation")
+        workflow.add_edge("prepare_for_generation", "generate_response")
 
         workflow.set_entry_point("filter_messages")
         workflow.set_finish_point("generate_response")
@@ -109,50 +111,51 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         return {"docs_context": docs_context, "tind_metadata": tind_metadata, "documents": formatted_documents}
 
-    # This should be refactored probably. Very bulky
-    def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
-        """Generate response using the model."""
+    def _prepare_for_generation(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
+        """Prepare the current and past messages for response generation."""
         messages = state["messages"]
         summarized_conversation = state.get("summarized_messages", messages)
-        docs_context = state.get("docs_context", "")
-        tind_metadata = state.get("tind_metadata", "")
-        model = self._model
-        documents = state.get("documents", [])
-
-        if not model:
-            return {"messages": [AIMessage(content="Model not available.")]}
-
-        # Get the latest human message
-        latest_message = next(
-            (msg for msg in reversed(messages) if isinstance(msg, HumanMessage)),
-            None
-        )
-
-        if not latest_message:
+        
+        if not any(isinstance(msg, HumanMessage) for msg in messages):
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
-
+        
         prompt = get_langfuse_prompt()
         system_messages = prompt.invoke({})
-
+        
         if hasattr(system_messages, "messages"):
             all_messages = summarized_conversation + system_messages.messages
         else:
             all_messages = summarized_conversation + [system_messages]
+            
+        return {"messages": all_messages}
+
+    def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
+        """Generate response using the model."""
+        tind_metadata = state.get("tind_metadata", "")
+        model = self._model
+        documents = state.get("documents", [])
+        messages = state["messages"]
+
+        if not model:
+            return {"messages": [AIMessage(content="Model not available.")]}
 
         # Get response from model
         response = model.invoke(
-            all_messages,
+            messages,
             additional_model_request_fields={"documents": documents},
             additional_model_response_field_paths=["/citations"]
             )
         citations = response.response_metadata.get('additionalModelResponseFields').get('citations') if response.response_metadata else None
 
-        # add citations to graph state
-        if citations:
-            state['citations'] = citations
-
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
+        
+        if citations:
+            state['citations'] = citations
+            response_content += "\n\nCitations:\n"
+            for citation in citations:
+                response_content += f"- {citation.get('text', '')} (docs: {citation.get('document_ids', [])})\n"
+        
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
                                                ChatMessage(content=tind_metadata, role='TIND',
                                                            response_metadata={'tind': True})]
