@@ -1,4 +1,5 @@
 """Manages the shared state and workflow for Willa chatbots."""
+import re
 from typing import Any, Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
@@ -19,12 +20,10 @@ class WillaChatbotState(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
     filtered_messages: NotRequired[list[AnyMessage]]
     summarized_messages: NotRequired[list[AnyMessage]]
-    docs_context: NotRequired[str]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
     documents: NotRequired[list[Any]]
     citations: NotRequired[list[dict[str, Any]]]
-    context: NotRequired[dict[str, Any]]
 
 
 class GraphManager:  # pylint: disable=too-few-public-methods
@@ -91,25 +90,27 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         vector_store = self._vector_store
 
         if not search_query or not vector_store:
-            return {"docs_context": "", "tind_metadata": "", "documents": []}
+            return {"tind_metadata": "", "documents": []}
 
         # Search for relevant documents
         retriever = vector_store.as_retriever(search_kwargs={"k": int(CONFIG['K_VALUE'])})
         matching_docs = retriever.invoke(search_query)
         formatted_documents = [
             {
+                "id": f"{doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0]}_{i}",
                 "page_content": doc.page_content,
-                "start_index": str(doc.metadata.get('start_index')) if doc.metadata.get('start_index') else '',
-                "total_pages": str(doc.metadata.get('total_pages')) if doc.metadata.get('total_pages') else '',
+                "title": doc.metadata.get('tind_metadata', {}).get('title', [''])[0],
+                "project": doc.metadata.get('tind_metadata', {}).get('isPartOf', [''])[0],
+                "tind_link": format_tind_context.get_tind_url(
+                    doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0])
             }
-            for doc in matching_docs
+            for i, doc in enumerate(matching_docs, 1)
         ]
 
-        # Format context and metadata
-        docs_context = '\n\n'.join(doc.page_content for doc in matching_docs)
+        # Format tind metadata
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
 
-        return {"docs_context": docs_context, "tind_metadata": tind_metadata, "documents": formatted_documents}
+        return {"tind_metadata": tind_metadata, "documents": formatted_documents}
 
     def _prepare_for_generation(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Prepare the current and past messages for response generation."""
@@ -154,7 +155,9 @@ class GraphManager:  # pylint: disable=too-few-public-methods
             state['citations'] = citations
             response_content += "\n\nCitations:\n"
             for citation in citations:
-                response_content += f"- {citation.get('text', '')} (docs: {citation.get('document_ids', [])})\n"
+                doc_ids = list(dict.fromkeys([re.sub(r'_\d*$', '', doc_id)
+                           for doc_id in citation.get('document_ids', [])]))
+                response_content += f"- {citation.get('text', '')} ({', '.join(doc_ids)})\n"
         
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
                                                ChatMessage(content=tind_metadata, role='TIND',
