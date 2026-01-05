@@ -41,6 +41,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         summarization_node = SummarizationNode(
             max_tokens=int(CONFIG['SUMMARIZATION_MAX_TOKENS']),
             model=self._model,
+            token_counter=self._model.get_num_tokens_from_messages,
             input_messages_key="filtered_messages",
             output_messages_key="summarized_messages"
         )
