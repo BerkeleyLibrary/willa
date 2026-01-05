@@ -19,6 +19,7 @@ class WillaChatbotState(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
     filtered_messages: NotRequired[list[AnyMessage]]
     summarized_messages: NotRequired[list[AnyMessage]]
+    messages_for_generation: NotRequired[list[AnyMessage]]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
     documents: NotRequired[list[Any]]
@@ -41,7 +42,6 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         summarization_node = SummarizationNode(
             max_tokens=int(CONFIG['SUMMARIZATION_MAX_TOKENS']),
             model=self._model,
-            token_counter=self._model.get_num_tokens_from_messages,
             input_messages_key="filtered_messages",
             output_messages_key="summarized_messages"
         )
@@ -70,7 +70,10 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         """Filter out TIND messages from the conversation history."""
         messages = state["messages"]
 
-        filtered = [msg for msg in messages if 'tind' not in msg.response_metadata]
+        filtered = [
+            msg for msg in messages
+            if 'tind' not in msg.response_metadata and msg.type != "system"
+        ]
         return {"filtered_messages": filtered}
 
     def _prepare_search_query(self, state: WillaChatbotState) -> dict[str, str]:
@@ -132,14 +135,14 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         else:
             all_messages = summarized_conversation + [system_messages]
 
-        return {"messages": all_messages}
+        return {"messages_for_generation": all_messages}
 
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
         """Generate response using the model."""
         tind_metadata = state.get("tind_metadata", "")
         model = self._model
         documents = state.get("documents", [])
-        messages = state["messages"]
+        messages = state["messages_for_generation"]
 
         if not model:
             return {"messages": [AIMessage(content="Model not available.")]}
