@@ -23,6 +23,7 @@ class WillaChatbotState(TypedDict):
     tind_metadata: NotRequired[str]
     documents: NotRequired[list[Any]]
 
+
 class GraphManager:  # pylint: disable=too-few-public-methods
     """Manages the shared LangGraph workflow for all chatbot instances."""
 
@@ -79,6 +80,11 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # summarization may include a system message as well as any human or ai messages
         search_query = '\n'.join(str(msg.content) for msg in messages if hasattr(msg, 'content'))
+        
+        # if summarization fails or some other issue, truncate to the last 2048 characters
+        if len(search_query) > 2048:
+            search_query = search_query[-2048:]
+        
         return {"search_query": search_query}
 
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[Any]]:
@@ -94,7 +100,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         matching_docs = retriever.invoke(search_query)
         formatted_documents = [
             {
-                "id": f"{doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0]}_{i}",
+                "id": f"{i}_{doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0]}",
                 "page_content": doc.page_content,
                 "title": doc.metadata.get('tind_metadata', {}).get('title', [''])[0],
                 "project": doc.metadata.get('tind_metadata', {}).get('isPartOf', [''])[0],
