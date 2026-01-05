@@ -80,11 +80,11 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # summarization may include a system message as well as any human or ai messages
         search_query = '\n'.join(str(msg.content) for msg in messages if hasattr(msg, 'content'))
-        
+
         # if summarization fails or some other issue, truncate to the last 2048 characters
         if len(search_query) > 2048:
             search_query = search_query[-2048:]
-        
+
         return {"search_query": search_query}
 
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[Any]]:
