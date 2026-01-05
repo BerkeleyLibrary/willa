@@ -113,18 +113,18 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         """Prepare the current and past messages for response generation."""
         messages = state["messages"]
         summarized_conversation = state.get("summarized_messages", messages)
-        
+
         if not any(isinstance(msg, HumanMessage) for msg in messages):
             return {"messages": [AIMessage(content="I'm sorry, I didn't receive a question.")]}
-        
+
         prompt = get_langfuse_prompt()
         system_messages = prompt.invoke({})
-        
+
         if hasattr(system_messages, "messages"):
             all_messages = summarized_conversation + system_messages.messages
         else:
             all_messages = summarized_conversation + [system_messages]
-            
+
         return {"messages": all_messages}
 
     def _generate_response(self, state: WillaChatbotState) -> dict[str, list[AnyMessage]]:
@@ -145,7 +145,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
-        
+
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
                                                ChatMessage(content=tind_metadata, role='TIND',
                                                            response_metadata={'tind': True})]
