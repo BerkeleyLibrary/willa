@@ -1,4 +1,5 @@
 """Manages the shared state and workflow for Willa chatbots."""
+import re
 from typing import Any, Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
@@ -22,6 +23,8 @@ class WillaChatbotState(TypedDict):
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
     documents: NotRequired[list[Any]]
+    citations: NotRequired[list[dict[str, Any]]]
+
 
 class GraphManager:  # pylint: disable=too-few-public-methods
     """Manages the shared LangGraph workflow for all chatbot instances."""
@@ -140,11 +143,21 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         # Get response from model
         response = model.invoke(
             messages,
-            additional_model_request_fields={"documents": documents}
+            additional_model_request_fields={"documents": documents},
+            additional_model_response_field_paths=["/citations"]
             )
+        citations = response.response_metadata.get('additionalModelResponseFields').get('citations') if response.response_metadata else None
 
         # Create clean response content
         response_content = str(response.content) if hasattr(response, 'content') else str(response)
+        
+        if citations:
+            state['citations'] = citations
+            response_content += "\n\nCitations:\n"
+            for citation in citations:
+                doc_ids = list(dict.fromkeys([re.sub(r'_\d*$', '', doc_id)
+                           for doc_id in citation.get('document_ids', [])]))
+                response_content += f"- {citation.get('text', '')} ({', '.join(doc_ids)})\n"
         
         response_messages: list[AnyMessage] = [AIMessage(content=response_content),
                                                ChatMessage(content=tind_metadata, role='TIND',
