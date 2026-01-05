@@ -81,7 +81,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         search_query = '\n'.join(str(msg.content) for msg in messages if hasattr(msg, 'content'))
         return {"search_query": search_query}
 
-    def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str]:
+    def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[Any]]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
         vector_store = self._vector_store
