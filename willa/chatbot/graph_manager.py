@@ -71,7 +71,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         """Filter out TIND messages from the conversation history."""
         messages = state["messages"]
 
-        filtered = [
+        filtered: list[AnyMessage] = [
             msg for msg in messages
             if "tind" not in getattr(msg, "response_metadata", {}) and msg.type != "system"
         ]
