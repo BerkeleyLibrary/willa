@@ -2,6 +2,7 @@
 from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
+from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import ChatMessage, HumanMessage, AIMessage
 from langchain_core.vectorstores.base import VectorStore
@@ -72,7 +73,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         filtered = [
             msg for msg in messages
-            if 'tind' not in msg.response_metadata and msg.type != "system"
+            if "tind" not in getattr(msg, "response_metadata", {}) and msg.type != "system"
         ]
         return {"filtered_messages": filtered}
 
@@ -91,6 +92,21 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         return {"search_query": search_query}
 
+    def _format_retrieved_documents(self, matching_docs: list[Document]) -> list[dict[str, str]]:
+        """Format documents from vector store into a list of dictionaries."""
+        formatted_documents: list[dict[str, str]] = []
+        for i, doc in enumerate(matching_docs, 1):
+            tind_metadata = doc.metadata.get('tind_metadata', {})
+            tind_id = tind_metadata.get('tind_id', [''])[0]
+            formatted_documents.append({
+                "id": f"{i}_{tind_id}",
+                "page_content": doc.page_content,
+                "title": tind_metadata.get('title', [''])[0],
+                "project": tind_metadata.get('isPartOf', [''])[0],
+                "tind_link": format_tind_context.get_tind_url(tind_id)
+            })
+        return formatted_documents
+
     def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[dict[str, str]]]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
@@ -102,17 +118,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         # Search for relevant documents
         retriever = vector_store.as_retriever(search_kwargs={"k": int(CONFIG['K_VALUE'])})
         matching_docs = retriever.invoke(search_query)
-        formatted_documents = [
-            {
-                "id": f"{i}_{doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0]}",
-                "page_content": doc.page_content,
-                "title": doc.metadata.get('tind_metadata', {}).get('title', [''])[0],
-                "project": doc.metadata.get('tind_metadata', {}).get('isPartOf', [''])[0],
-                "tind_link": format_tind_context.get_tind_url(
-                    doc.metadata.get('tind_metadata', {}).get('tind_id', [''])[0])
-            }
-            for i, doc in enumerate(matching_docs, 1)
-        ]
+        formatted_documents = self._format_retrieved_documents(matching_docs)
 
         # Format tind metadata
         tind_metadata = format_tind_context.get_tind_context(matching_docs)
@@ -142,7 +148,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
         tind_metadata = state.get("tind_metadata", "")
         model = self._model
         documents = state.get("documents", [])
-        messages = state["messages_for_generation"]
+        messages = state.get("messages_for_generation") or state.get("messages", [])
 
         if not model:
             return {"messages": [AIMessage(content="Model not available.")]}
