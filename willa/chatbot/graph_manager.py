@@ -1,5 +1,5 @@
 """Manages the shared state and workflow for Willa chatbots."""
-from typing import Any, Optional, Annotated, NotRequired
+from typing import Optional, Annotated, NotRequired
 from typing_extensions import TypedDict
 
 from langchain_core.language_models import BaseChatModel
@@ -22,7 +22,7 @@ class WillaChatbotState(TypedDict):
     messages_for_generation: NotRequired[list[AnyMessage]]
     search_query: NotRequired[str]
     tind_metadata: NotRequired[str]
-    documents: NotRequired[list[Any]]
+    documents: NotRequired[list[dict[str, str]]]
 
 
 class GraphManager:  # pylint: disable=too-few-public-methods
@@ -91,7 +91,7 @@ class GraphManager:  # pylint: disable=too-few-public-methods
 
         return {"search_query": search_query}
 
-    def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[Any]]:
+    def _retrieve_context(self, state: WillaChatbotState) -> dict[str, str | list[dict[str, str]]]:
         """Retrieve relevant context from vector store."""
         search_query = state.get("search_query", "")
         vector_store = self._vector_store
