@@ -37,22 +37,6 @@ COMMANDS: list[CommandDict] = [
 ]
 
 
-async def get_step(self: ChainlitDataLayer, step_id: str) -> Optional[StepDict]:
-    """Get step and related feedback"""
-    query = """
-    SELECT  s.*,
-            f.id feedback_id,
-            f.value feedback_value,
-            f."comment" feedback_comment
-    FROM "Step" s LEFT JOIN "Feedback" f ON s.id = f."stepId"
-    WHERE s.id = $1
-    """
-    result = await self.execute_query(query, {"step_id": step_id})
-    if not result:
-        return None
-    return self._convert_step_row_to_dict(result[0])  # pylint: disable="protected-access"
-
-
 @cl.on_chat_start
 async def ocs() -> None:
     """loaded when new chat is started"""
@@ -106,11 +90,7 @@ def data_layer() -> ChainlitDataLayer:
     database_url = os.environ.get(
         'DATABASE_URL', f"postgresql://{_pg('USER')}:{_secret()}@{_pg('HOST')}/{_pg('DB')}"
     )
-    dl = ChainlitDataLayer(database_url=database_url)
-    # pylint: disable="no-value-for-parameter"
-    dl.get_step = get_step.__get__(dl)  # type: ignore[attr-defined]
-    # pylint: enable="no-value-for-parameter"
-    return dl
+    return ChainlitDataLayer(database_url=database_url)
 
 
 def _get_history() -> str:

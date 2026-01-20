@@ -9,7 +9,7 @@ dependencies = [
     "asyncpg",
     "awscli-local",
     "boto3",
-    "chainlit ~= 2.9.3",
+    "chainlit ~= 2.9.5",
     "lancedb",
     "langchain_aws",
     "langchain_core >= 1.2.5",
