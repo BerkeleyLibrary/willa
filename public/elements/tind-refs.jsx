@@ -27,9 +27,9 @@ export default function TindRefs () {
           break;
         case 'Contributor':
           // if value ends in interviewee or interviewer, assign accordingly
-          if (value.endsWith(' interviewer')) {
+          if (value.match(/interviewer/)) {
             ref.interviewers.push(value.replace(' interviewer', '').trim());
-          } else if (value.endsWith(' interviewee')) {
+          } else if (value.match(/interviewee/)) {
             ref.interviewees.push(value.replace(' interviewee', '').trim());
           }
           break;
